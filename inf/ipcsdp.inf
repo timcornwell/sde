@@ -1,0 +1,32 @@
+Program: ipcsdp - Remove persistance (depersist) IPCS data
+Programmer: R.G Marson
+Date: 20 Mar 89
+Purpose: IPCS data often contains extra photons due to persistance effects
+         in the phosphor. These smear the photons over many frames. IPCSDP
+         removes these extra photons.
+
+Details: ipcsdp chooses which photons to remove using the following criteria.
+(i) If a photon is in the same X, Y location in consecutive frames the latter
+    occurences of the photon are removed
+(ii) If the photon is in adjacent X or Y locations in a consecutive frame it
+     is also removed. (But not in an adjacent X and Y frame).
+For example in the following X vs time plots the P's are considered the Primary
+photons and are maintained while the X's are the removed photons
+
+       ^       X                                  PX
+X axis |      P XX            PXX                   X
+       |          X                    P             PXX
+       +---------------------------------------------------->
+                              Frame # (or time)
+
+.INFO
+Infile, C, 1, Name of input IPCS file
+Outfile, C, 1, Name of output IPCS file
+/Notify, I, 1, Print message after processing this many frames
+/Debug, L, 1, Debug status
+.DEFAULT
+Infile = 
+Outfile = 
+/Notify = 1000
+/Debug = F
+.END

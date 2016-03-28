@@ -1,0 +1,88 @@
+<HEAD>
+<TITLE> Database access: DAT routines</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html141 HREF=subsection3_5_2.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html139 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html133 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html143 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html142 HREF=subsection3_5_2.html> Error handling: ERR </A>
+<B>Up:</B> <A NAME=tex2html140 HREF=section3_5.html> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html134 HREF=section3_5.html> The main subroutines</A>
+<HR> <P>
+<H2><A NAME=SECTION0005100000000000000> Database access: DAT routines</A></H2>
+<P>
+These routines create and manipulate entries in the database. 
+The database (in memory) is ordered in a similar way to a 
+unix directory with up to
+16 levels. A good example is found in the structure used for images:
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_29954_tabbing110.xbm"><P>
+<P>
+Note that there are two ways of storing data. First, arrays are
+stored by value and the items are actually copied into and out of the
+database. Second, arrays are stored by pointer only: the database
+system allocates a region of memory for the array values to be copied
+into. It is the responsibility of the programmer to actually put the
+array values in that location. Typically, the first sort of storage is
+used for header items, while the second is used for image pixels, etc.
+<P>
+The subroutines for dealing with the database are:
+<P>
+<UL><LI> <tt>DATCREAT (NAME)</tt>: creates an entry in the database (in memory).
+<LI> <tt>DATDELET (NAME)</tt>: deletes an entry in the database (in memory).
+<LI> <tt>DATEXIST (NAME)</tt>: is a <tt>LOGICAL</tt> function which is true if
+<tt>NAME</tt> exists.
+<LI> <tt>DATRENAM (INNAME, OUTNAME)</tt>: rename an entry from <tt>INNAME</tt> to
+<tt>OUTNAME</tt>.
+<LI> <tt>DATDUMP (NAME)</tt>: dumps the structure of an entry. Useful for
+debugging.
+<LI> <tt>DATHEDLI (NAME, NODES, NLIST, NTYPE, NSIZE)</tt>: makes a list of
+the entry. Think of this as a directory listing. <tt>NODES</tt> is the
+number of nodes found, <tt>NLIST</tt> is the list of names, <tt>NTYPE</tt> is
+the list of types, and <tt>NSIZE</tt> is the list of sizes.
+<LI> <tt>DATREAD (NAME, INFILE)</tt>: read an entry from disk file <tt>INFILE</tt>
+in a special machine-dependent, but compact format. For 
+self-contained applications this is the easiest form of file to use. 
+<LI> <tt>DATWRITE (NAME, OUTFILE)</tt>: write an entry to a disk file <tt>OUTFILE</tt> in the format which is read by <tt>DATREAD</tt>.
+<LI> <tt>DATGETR (NAME, ITEM, VALUE, NVALS, ANVALS)</tt>: get a real value or
+values <tt>VALUE</tt> called <tt>ITEM</tt> from the database entry <tt>NAME</tt>. The 
+number
+of values requested is the integer <tt>NVALS</tt>, the actual value returned
+is the integer <tt>ANVALS</tt>. Also <tt>DATGETC, DATGETI, DATGETD, DATGETX,
+DATGETL</tt> for string, integer, double, complex and logical types.
+<LI> <tt>DATFGETR (NAME, ITEM)</tt>: is a function returning a single value.
+Also <tt>DATFGETI, DATFGETD, DATFGETX,
+DATFGETL</tt> for integer, double, complex and logical types.
+<LI> <tt>DATPUTR (NAME, ITEM, VALUE, NVALS)</tt>: put a real value or values
+<tt>VALUE</tt> called <tt>ITEM</tt> in the database entry <tt>NAME</tt>. The number
+number of values inserted is the integer <tt>NVALS</tt>.
+Also <tt>DATPUTC, DATPUTI, DATPUTD, DATPUTX,
+DATPUTL</tt> for string, integer, double, complex and logical types.
+<LI> <tt>DATMAKAR (NAME, NAX, NAXIS, ATYPE, ADD)</tt>: make an array of type
+<tt>ATYPE</tt> with <tt>NAX</tt> axes. The size of each axis is given in
+<tt>NAXIS</tt>, and the address of the array is returned in ADD. Valid
+types are <tt>'R', 'I', 'L', 'D', 'X', 'C'</tt>. Addresses are relative
+to <tt>MEM?</tt> where <tt>?</tt> is the array type.  For example, the first
+element of a complex array is found in <tt>MEMX(ADD)</tt>.
+<LI> <tt>DATGETAR (NAME, NAX, NAXIS, ATYPE, ADD)</tt>: gets the parameters of the
+array called <tt>NAME</tt>.
+<LI> <tt>DATADD (NAME)</tt>: is a function returning just the address of the 
+values of an array.
+<LI> <tt>DATDELAR (NAME)</tt>: deletes an array.
+</UL>
+where the variables have these types:
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_29564_tabbing160.xbm"><P>
+<P>
+As well as these routines, there are other routines which are used internally
+and should not be called directly. These usually begin with <tt>DAI</tt> rather
+than <tt>DAT</tt>.
+<P>
+<HR> <A NAME=tex2html141 HREF=subsection3_5_2.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html139 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html133 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html143 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html142 HREF=subsection3_5_2.html> Error handling: ERR </A>
+<B>Up:</B> <A NAME=tex2html140 HREF=section3_5.html> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html134 HREF=section3_5.html> The main subroutines</A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:45:41 MST 1994</I>
+</ADDRESS>

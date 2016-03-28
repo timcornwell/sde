@@ -1,0 +1,13 @@
+.
+In, C, 1, Name of input image
+Out, C, 1, Name of output image
+BLC, I, 7, Bottom left corner
+TRC, I, 7, Top right corner
+STEP, I, 7, Increment
+.
+In =
+Out =
+BLC = 1,1,1,1,1,1,1
+TRC = 1,1,1,1,1,1,1
+STEP = 1,1,1,1,1,1,1
+.

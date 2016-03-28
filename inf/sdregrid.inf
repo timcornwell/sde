@@ -1,0 +1,26 @@
+programmer	m.a. holdaway
+program		sdregrid
+purpose		to regrid SD data onto a coarser spectral grid
+date		march 17 1993
+
+The frequency of the In image and the Out image at their respective
+reference points is the same.
+.
+Image, C, 1, Input spectral line cube
+Out, C, 1, Output spectral line cube
+NZ, I, 1, number of channels out
+DELTZ, R, 1, channel spacing out
+RPIXZ, R, 1, reference pixel out
+RVALZ, D, 1, reference value out
+Method, C, 1, Method to use [no choice yet]
+Blank, R, 1, Value to blank with
+.
+Image = 
+Out = 
+NZ = 
+DELTZ = 
+RPIXZ = 1
+RVALZ = 0.0D0
+Method = Anything
+Blank = 0.0
+.

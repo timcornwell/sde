@@ -1,0 +1,17 @@
+.
+Vis, C, 1, Name of Visibility database
+Cal, C, 1, Name of cal file (with gain table)
+Stokes, C, 1, Stokes parameter
+InterpMode, C, 1, 2PT or BOXCAR
+SmoothTime, R, 1, Presmooth gains?
+SmoothMode, C, 1, AMPPHI or ' '
+NewVis, C, 1, Name of output visibility file
+.
+Vis =  
+Cal = 
+Stokes = I
+InterpMode =
+SmoothTime = 0.0
+SmoothMode = AMPPHI
+NewVis =
+.

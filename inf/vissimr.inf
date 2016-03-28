@@ -1,0 +1,93 @@
+
+The term \Delta S seen in sensitivity calculations, such as chapter 7 of the
+NRAO synthesis imaging workshop is per correlator.  IF purely thermal noise,
+is added with NRMS, \Delta S = NRMS / sqrt(2).
+
+If NRMS is negative, then |NRMS|/sqrt(wt) gaussian noise will be added to
+  each visibility, instead of NRMS.
+
+New simulations can correctly account for noise increasing as elevation
+decreases by using the negative NRMS and an appropriate value for 
+Tau and Tatm
+
+The WT, as a function of EL, is given by
+	WT = ((1.0 + ZenithNoise)/( 1.0 + AtmosNoise))**2
+AtmosNoise = Trec + Tatm * (1.0 - EXP(-TAU/SIN(D2R*EL1))) * EXP(TAU)
+ZenithNoise = Trec + Tatm * (1.0 - EXP(-TAU)) * EXP(TAU)
+Tatm is the temperature of the atmosphere
+TAU is the optical depth at the zenith
+So Zenith observations will have WT = 1.0
+
+.INFO
+Antfile, C, 1, Name of ASCII file specifying array
+Model, C, 1, Name of ASCII file giving model comps.
+DoVisModel, L, 1, Do direct model calculations in visibility plane
+Stokes, C, 1, Stokes [I|IV]
+Imsize, I, 3, Size of model image
+Cellsize, R, 3, Cellsize in model image
+Map, C, 1, Name of output or input model image
+MapCoords, L, 1, Use map coordinates for model image?
+LSTlimits, R, 2, Hour angle limits [hours]
+RA, R, 1, Right ascention of source in Model [deg.]
+Dec, R, 1, Declination of source in Model [deg.]
+SiteLong, R, 1, Longitude of site
+Freq, R, 1, Frequency of radiation [Hz]
+ELmin, R, 1, Minimum elevation for unflagged data [deg.]
+INTtime, R, 1, Integration time [seconds]
+Toffset, R, 1, Offset from LSTlimits [seconds]
+Weight, R, 3, WT = WT(1) + WT(2)*(D1*D2)**2 + WT(3)*DT
+Tau, R, 1, Zenith Optical Depth [affects weights if != 0]
+Tatm, R, 1, Atmospheric Temperature [K]
+Trec, R, 1, Receiver Temperature [K]
+Autow, R, 1, Autocorrelation weight (0=> none)
+Zero, L, 1, Are model visibilities zero?
+ADDN, L, 1, Add noise? [T|F]
+DOPB, L, 1, Consider PB?
+DO3D, L, 1, Use DFT?
+Tele, C, 1, Telescope name
+Teldiam, R, 1, Telescope diameter
+PixelPC, R, 2, Pointing centered on this pixel [0.,0. = center]
+PHRMS, R, 1, rms phase noise per telescope per integration time
+GRMS, R, 1, rms fractional complex gain deviation
+GDRIFT, R, 1, fractional gain drift for TOTAL POWER
+NRMS, R, 1, rms noise per correlator per integration time
+Vis, C, 1, Name of output Visibility database
+Seed, I, 2, Random number seed [must be odd]
+/Debug, L, 1, Debug status
+.DEF
+Antfile = 
+Model =
+DoVisModel = F
+Stokes=I
+Imsize = 512, 512, 1
+Cellsize = 1., 1., 1.
+Map = 
+MapCoords = F
+LSTlimits = -.15,.15
+RA = 0.0
+Dec = 35.
+SiteLong = 108.0
+Freq = 1.4E9
+ELmin = 25.
+INTtime = 60.
+Toffset = 0.0
+Weight = 1, 0, 0
+Tau = 0.0
+Tatm = 253.0
+Trec = 100.0
+Autow=0.0
+Zero = F
+ADDN = F
+DOPB = F
+DO3D = F
+Tele = VLA
+Teldiam = 25.
+PixelPC = 0., 0.
+PHRMS = 0.0
+GRMS = .0
+GDRIFT = .0
+NRMS = .0
+Vis =  
+Seed=12345,67891
+/Debug=F
+.END

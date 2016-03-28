@@ -1,0 +1,479 @@
+********************************************************************************
+
+GaussFit - A System for Least Squares and Robust Estimation
+
+Copyright (C) 1987-91 by William H. Jefferys,
+Barbara E. McArthur, James McCartney,and Mike Fitzpatrick
+All Rights Reserved. Version 2.56
+
+********************************************************************************
+
+
+Time of GaussFit Run:  Tue Oct 22 08:34:06 1991
+
+Contents of the Environment File for this Run: 
+
+results =	'Results'
+data1   =	'Data'
+params  =	'Params'
+tol     =	 0.00001	
+iters   =	 10.0	
+ftn     =	 1.0	
+prmat   =	 1.0	
+prvar   =	 1.0	
+fair    =	 0.925	
+END
+
+Start of Iteration 1...
+
+
+**********************************************************************
+
+No value given for variance in data table.
+Variance assumed equal to 1.0.
+Covariance assumed equal to 0.0.
+
+**********************************************************************
+
+fair ARE  =	 0.925	
+fair c    =	 0.9017166666666672	
+integral =	 0.5026486060727372	
+scale     =	 0.0	
+SumRho    =	 0.0	
+SumPsi    =	 0.0	
+SumPsiSq  =	 0.0	
+SumPsiP   =	 1.0	
+SumPsiPSq =	 1.0	
+
+NEQN =     9, DOF =     7
+KFAC =	  1.0	
+Sigma =	  0.0	, DOF = 7
+
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     212    1060     -45  
+  1  1       0    -547      32  
+  2  1       0       0     125  
+
+Condition =     2.9154759474e+00
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     100      88     -45  
+  1  1       0     -45      32  
+  2  1       0       0     125  
+
+   a =  0.4813888888888889	 delta =  0.0813888888888889	
+   b =  0.9408333333333333	 delta = -0.0591666666666667	
+
+fit =	 0.3290615503598932	, tol =	 0.00001	
+
+End of Iteration 1...
+
+
+Start of Iteration 2...
+
+scale     =	 0.6003642635386	
+SumRho    =	 0.3604372489342462	
+SumPsi    =	 0.0	
+SumPsiSq  =	 0.0896459493726487	
+SumPsiP   =	 0.6655170306827879	
+SumPsiPSq =	 0.4769569977792156	
+
+NEQN =     9, DOF =     7
+KFAC =	  1.0075653510334179	
+Sigma =	  0.3684023236018952	, DOF = 7
+
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     166     744       4  
+  1  1       0    -405     -11  
+  2  1       0       0     134  
+
+Condition =     2.7847053325e+00
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     100      87       4  
+  1  1       0     -47     -11  
+  2  1       0       0     134  
+
+   a =  0.3784077063156618	 delta = -0.1029811825732272	
+   b =  0.969920913397689	 delta =  0.0290875800643557	
+
+fit =	 0.2139206902012525	, tol =	 0.00001	
+
+End of Iteration 2...
+
+
+Start of Iteration 3...
+
+scale     =	 0.5371432854878635	
+SumRho    =	 0.8004802777676595	
+SumPsi    =	 0.0003938368699092	
+SumPsiSq  =	 0.1646141872448129	
+SumPsiP   =	 0.5491881706145952	
+SumPsiPSq =	 0.3480409361943483	
+
+NEQN =     9, DOF =     7
+KFAC =	  1.0103185087669651	
+Sigma =	  0.3303824974050697	, DOF = 7
+
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     241    1060       3  
+  1  1       0    -559       2  
+  2  1       0       0     215  
+
+Condition =     2.8626939645e+00
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     100      88       3  
+  1  1       0     -46       2  
+  2  1       0       0     215  
+
+   a =  0.4083913889791313	 delta =  0.0299836826634695	
+   b =  0.966315544510969	 delta = -0.003605368886720	
+
+fit =	 0.1281606361904226	, tol =	 0.00001	
+
+End of Iteration 3...
+
+
+Start of Iteration 4...
+
+scale     =	 0.5232221372455784	
+SumRho    =	 0.9488376701710625	
+SumPsi    =	 0.0000252974187182	
+SumPsiSq  =	 0.1837184699728436	
+SumPsiP   =	 0.5206127505263513	
+SumPsiPSq =	 0.31575467541146	
+
+NEQN =     9, DOF =     7
+KFAC =	  1.009937119866855	
+Sigma =	  0.32066852077661	, DOF = 7
+
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     260    1161       0  
+  1  1       0    -590       0  
+  2  1       0       0     240  
+
+Condition =     2.9582221140e+00
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     100      89       0  
+  1  1       0     -45       0  
+  2  1       0       0     240  
+
+   a =  0.4125841209130791	 delta =  0.0041927319339478	
+   b =  0.96597387200119	 delta = -0.0003416725097783	
+
+fit =	 0.0238974187674913	, tol =	 0.00001	
+
+End of Iteration 4...
+
+
+Start of Iteration 5...
+
+scale     =	 0.5203074769462466	
+SumRho    =	 0.9888898351514143	
+SumPsi    =	-0.000028067590870	
+SumPsiSq  =	 0.18701242667017	
+SumPsiP   =	 0.5194010936671194	
+SumPsiPSq =	 0.3163233604789393	
+
+NEQN =     9, DOF =     7
+KFAC =	  1.0103435254169644	
+Sigma =	  0.3155763471108066	, DOF = 7
+
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     266    1178       0  
+  1  1       0    -605       0  
+  2  1       0       0     247  
+
+Condition =     2.9289908319e+00
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     100      88       0  
+  1  1       0     -45       0  
+  2  1       0       0     247  
+
+   a =  0.4136194817075951	 delta =  0.0010353607945161	
+   b =  0.9659113732832623	 delta = -0.0000624987179284	
+
+fit =	 0.0037292255586426	, tol =	 0.00001	
+
+End of Iteration 5...
+
+
+Start of Iteration 6...
+
+scale     =	 0.5197164320718712	
+SumRho    =	 0.9977293842547743	
+SumPsi    =	-0.0000068857361414	
+SumPsiSq  =	 0.1877785082358815	
+SumPsiP   =	 0.5188725173304891	
+SumPsiPSq =	 0.31602790861839	
+
+NEQN =     9, DOF =     7
+KFAC =	  1.0103998265283358	
+Sigma =	  0.3146294031586769	, DOF = 7
+
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     268    1181       0  
+  1  1       0    -608       0  
+  2  1       0       0     248  
+
+Condition =     2.9239619426e+00
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     100      88       0  
+  1  1       0     -45       0  
+  2  1       0       0     248  
+
+   a =  0.41393329931287	 delta =  0.0003138176052752	
+   b =  0.9658858158732098	 delta = -0.0000255574100525	
+
+fit =	 0.00095472834874	, tol =	 0.00001	
+
+End of Iteration 6...
+
+
+Start of Iteration 7...
+
+scale     =	 0.5195968381554242	
+SumRho    =	 0.9995398253779824	
+SumPsi    =	-0.0000017296283273	
+SumPsiSq  =	 0.1879173054743461	
+SumPsiP   =	 0.5187965732680574	
+SumPsiPSq =	 0.3159998819230415	
+
+NEQN =     9, DOF =     7
+KFAC =	  1.0104111105529694	
+Sigma =	  0.3144128908401158	, DOF = 7
+
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     268    1182       0  
+  1  1       0    -608       0  
+  2  1       0       0     248  
+
+Condition =     2.9225364457e+00
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     100      88       0  
+  1  1       0     -45       0  
+  2  1       0       0     248  
+
+   a =  0.4139992689782055	 delta =  0.0000659696653352	
+   b =  0.9658803129554692	 delta = -0.000005502917740	
+
+fit =	 0.0002822397346926	, tol =	 0.00001	
+
+End of Iteration 7...
+
+
+Start of Iteration 8...
+
+scale     =	 0.51957268173878	
+SumRho    =	 0.999907020777087	
+SumPsi    =	-0.0000003574966019	
+SumPsiSq  =	 0.18794035755879	
+SumPsiP   =	 0.5187985282918884	
+SumPsiPSq =	 0.3160188683800741	
+
+NEQN =     9, DOF =     7
+KFAC =	  1.010414878982721	
+Sigma =	  0.3143598137137744	, DOF = 7
+
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     268    1182       0  
+  1  1       0    -608       0  
+  2  1       0       0     248  
+
+Condition =     2.9221278026e+00
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     100      88       0  
+  1  1       0     -45       0  
+  2  1       0       0     248  
+
+   a =  0.4140139720544748	 delta =  0.0000147030762693	
+   b =  0.9658789041251994	 delta = -0.0000014088302697	
+
+fit =	 0.0000592140217474	, tol =	 0.00001	
+
+End of Iteration 8...
+
+
+Start of Iteration 9...
+
+scale     =	 0.5195678067537192	
+SumRho    =	 0.9999812347247573	
+SumPsi    =	-0.0000000726829497	
+SumPsiSq  =	 0.1879448964577551	
+SumPsiP   =	 0.5187993616595067	
+SumPsiPSq =	 0.3160233433924244	
+
+NEQN =     9, DOF =     7
+KFAC =	  1.0104156812742473	
+Sigma =	  0.3143488670445785	, DOF = 7
+
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     268    1182       0  
+  1  1       0    -608       0  
+  2  1       0       0     248  
+
+Condition =     2.9220424075e+00
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     100      88       0  
+  1  1       0     -45       0  
+  2  1       0       0     248  
+
+   a =  0.4140169904234079	 delta =  0.0000030183689331	
+   b =  0.96587860971293	 delta = -0.0000002944122689	
+
+fit =	 0.0000129846603593	, tol =	 0.00001	
+
+End of Iteration 9...
+
+
+Start of Iteration 10...
+
+scale     =	 0.5195668231254228	
+SumRho    =	 0.9999962136708529	
+SumPsi    =	-0.0000000147150791	
+SumPsiSq  =	 0.1879457807063887	
+SumPsiP   =	 0.518799762983554	
+SumPsiPSq =	 0.3160246363980381	
+
+NEQN =     9, DOF =     7
+KFAC =	  1.0104158760724993	
+Sigma =	  0.3143465657983369	, DOF = 7
+
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     268    1182       0  
+  1  1       0    -608       0  
+  2  1       0       0     248  
+
+Condition =     2.9220243657e+00
+
+             1       2       0  
+  Type       4       4       0  
+  Name       a       b    _RHS  
+
+
+  0  1     100      88       0  
+  1  1       0     -45       0  
+  2  1       0       0     248  
+
+   a =  0.414017626959881	 delta =  0.0000006365364731	
+   b =  0.9658785441236249	 delta = -0.0000000655893055	
+
+fit =	 0.000002659560755	, tol =	 0.00001	
+
+End of Iteration 10...
+
+
+Sigma Values 
+
+	Sigma    a    4.918756327252389e-01
+	Sigma    b    9.935690136696622e-02
+
+Correlation Matrix * 100
+
+    	   a	   b	
+
+   a	 100	 -88	
+   b	    	 100	
+
+
+**********************************************************************
+If the input variances are real, the chi-square is correct and should
+be equivalent to the degrees of freedom(DOF).  Otherwise, chi-square
+should be divided by a proportionality factor.
+**********************************************************************
+
+Chi-Square  = 	 0.6916963440044569		 DOF = 7
+

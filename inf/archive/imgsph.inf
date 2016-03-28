@@ -1,0 +1,13 @@
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input cube
+Nz, I, 1, Number of pixels on Z-axis
+Cellz, R, 1, Cellsize on Z-axis (arcseconds)
+Output, C, 1, Output image
+.
+/Debug = F
+Image =
+Nz = 8
+Cellz = 1.0
+Output = 
+.

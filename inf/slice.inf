@@ -1,0 +1,40 @@
+BLC and TRC need not be constrained to be integers.  An integral value means
+the exact center of the pixel.  That is, a range of .5 to NPIX+.5 will
+include the entire image.  On the other hand, if you try take a slice
+all the way to the edge of the image, the interpolator is likely to behave
+strangely, and you'll deserve what you get.
+
+The pixel convention is the same as used in SAOimage, so you can set two
+points with the cursor menu, write out a cursor file, and set
+
+BLC = Point1_x, Point1_y
+TRC = Point2_x, Point2_y
+
+and get the expected result.
+
+The interpolator is fairly casual, and it shouldn't be used for the most
+demanding of applications.  (Though you'd better be careful in any event if
+your science depends on the details of the interpolation.)  It merely uses
+a (2*Order-1)th order polynomial over the 2*Orderx2*Order grid of cells
+containing each target point, interpolating the y scan lines to the desired
+x, and then interpolating that in y.  It works well enough for most
+things.  If Order<0, then a bicubic spline is used instead, which might be
+more stable over large support boxes if the outlying points chance
+rapidly.
+.
+In, C, 1, Name of input image
+Out, C, 1, Name of output text file
+BLC, R, 3, Bottom left corner
+TRC, R, 3, Top right corner
+NPoints, I, 1, Number of points in slice
+Order, I, 1, Order of interpolator
+Origin, R, 1, Slice abscissa at BLC
+.
+In =
+Out =
+BLC = 1,1,1
+TRC = 1,1,1
+NPoints = 200
+Order = 4
+Origin = 0
+.

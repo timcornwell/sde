@@ -1,0 +1,21 @@
+.
+Vis, C, 1, Name of Visibility database
+Outfile, C, 1, File for gain listings
+Order, C, 1, Sort order [ TIME | BASE ]
+Stokes, C, 1, List of Stokes parameters
+Timerange, I, 8, Timerange (d,h,m,s)
+Uvlimits, R, 2, UV limits in wavelengths
+NList, I, 1, Maximum number of records to list
+DoAll, L, 1, Print negative weighted visibilities too?
+Overwrite, L, 1, Overwrite existing list file?
+.
+Vis =  
+Outfile = vislist.out
+Order = TIME
+Stokes = I
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Uvlimits = 0, 1.E10
+NList = 1000
+DoAll = T
+Overwrite = F
+.

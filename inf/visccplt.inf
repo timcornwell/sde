@@ -1,0 +1,26 @@
+This program will allow up to 10 uv points to be specified.  The output plot
+will contain one trace at each output point.
+
+If CCinc is negative, then the magnitude of the number will be used as a
+geometric sequence factor, instead of as an arithmetic sequence increment.
+.
+CompFile, C, 1, Name of Components file
+Npts, I, 1, Number of UV points to plot
+U, R, 20, U coords of sample points in klambda
+V, R, 20, V coords of sample points in klambda
+CCbegin, I, 1, Minimum component number to consider
+CCend, I, 1, Maximum component number to consider
+CCinc, R, 1, Clean Component Number Increment
+ListFile, C, 1, Ascii Listing File
+PlotFile, C, 1, Plot Device/File
+.
+CompFile = 
+Npts = 1
+U = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+V = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+CCbegin = 1
+CCend = 0
+CCinc = 10
+ListFile =
+PlotFile =
+.

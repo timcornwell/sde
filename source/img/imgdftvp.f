@@ -1,0 +1,209 @@
+C
+C	National Radio Astronomy Observatory, Socorro, NM 87801
+C	Software Development Environment (SDE)
+C++
+C @(#)imgdftvp.f	1.3	 11/27/91
+C
+      SUBROUTINE IMGDFTVP (VIS, CLASS, IMAGE, VP)
+C
+CD Does DFT point by point, considers different VP's for each antenna
+C
+C
+C	VIS	CH*(*)	input	Name of visibility data
+C	CLASS	CH*(*)	input	Class of visibility data
+C	IMAGE	CH*(*)	input	Name of Image
+C	VP	CH*(*)	input	Directory for Voltage Patterns
+C
+C Audit trail:
+C	Original version: Audit trail comments go on this line
+C	and successive lines
+C
+C	Remember: the HGEOM'ed VP array is VERY BIG!
+C	NX * NY * NANT * 2
+C				M.A. Holdaway	Feb 28 1991
+C	Call ARRSETCO before we call IMGHGEOM
+C				M.A.Holdaway	June 4 1991
+C--------------------------------------------------------------------
+#include	"stdinc.h"
+C
+      CHARACTER*(*)	IMAGE, VIS, CLASS, VP
+C
+C
+      CHARACTER*(*)	ROUTINE
+      PARAMETER		(ROUTINE = 'IMGDFTVP')
+C
+      REAL		PARANGLE
+      CHARACTER*1	VATYPE
+      CHARACTER*8	VTYPE(SYSMXDIM)
+      REAL		VRPIX(SYSMXDIM), VDELT(SYSMXDIM),
+     1			VROTA(SYSMXDIM)
+      DOUBLE PRECISION	VRVAL(SYSMXDIM)
+      INTEGER		INAX, INAXIS(SYSMXDIM), ONAX, ONAXIS(SYSMXDIM)
+      INTEGER		VNAX, VNAXIS(SYSMXDIM), VPNAX, VPNAXIS(SYSMXDIM)
+      INTEGER		NAXIS(SYSMXDIM), NAX
+      CHARACTER*1	OTYPE
+      CHARACTER*8	ITYPE(SYSMXDIM)
+      REAL		IRPIX(SYSMXDIM), IDELT(SYSMXDIM),
+     1			IROTA(SYSMXDIM)
+      DOUBLE PRECISION	IRVAL(SYSMXDIM)
+      CHARACTER*8	TYPE(SYSMXDIM)
+      REAL		RPIX(SYSMXDIM), DELT(SYSMXDIM),
+     1			ROTA(SYSMXDIM)
+      DOUBLE PRECISION	RVAL(SYSMXDIM)
+      LOGICAL		DATEXIST, POINTERR
+      INTEGER 		NDUMMY, CRDRNAX, RNAX, I
+      INTEGER		VSADD, IADD, WTADD, UADD, VADD, DATADD,
+     1			VPADD, TADD, BADD, ROADD, DOADD,
+     $   		IX1ADD, NPIX, IANT, NANT, R2ADD, I2ADD
+      CHARACTER*(SYSMXNAM)	SVIS, STRM2
+C
+      REAL		RTOA, PADIR, WPC(2), PIXPC(2), ROERR, DOERR
+C
+      REAL	PI, POINTMIN
+      PARAMETER	(PI=3.14159274101257)
+      PARAMETER (POINTMIN = .01/3600.)
+C
+      REAL		DATFGETR      
+      CHARACTER*6	STRINT
+      
+      DOUBLE PRECISION	OBSRA, OBSDEC
+      DATA		RVAL /SYSMXDIM * 0.D0/
+      DATA		RPIX /SYSMXDIM * 1.0/
+C==================================================================
+      IF (ERROR) GO TO 999
+      RTOA = 180.0 * 3600.0 / PI
+C
+C Get image characteristics
+C
+      CALL CRDGET (IMAGE, INAX, ITYPE, INAXIS, IRVAL, IRPIX, IDELT, 
+     1   IROTA)
+      CALL CRDGET (IMAGE, NAX, TYPE, NAXIS, RVAL, RPIX, DELT, 
+     1   ROTA)
+      IADD = DATADD (IMAGE)
+      RNAX = CRDRNAX(INAX, INAXIS)
+      IF (RNAX .NE. 2) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE, 'Can only DFTVP 2-D')
+         GO TO 990
+      ENDIF
+C
+C Now get UV data
+C
+      SVIS = STRM2 (VIS, CLASS)
+      CALL CRDGET (SVIS, VNAX, VTYPE, VNAXIS, VRVAL, VRPIX, VDELT, 
+     1   VROTA)
+C
+      CALL DATGETAR (STRM2(SVIS, 'VIS'), VNAX, VNAXIS, VATYPE,
+     1   VSADD)
+      WTADD =  DATADD (STRM2(SVIS, 'WT'))
+C
+      UADD = DATADD (STRM2(VIS, 'UU'))
+      VADD = DATADD (STRM2(VIS, 'VV'))
+      BADD = DATADD (STRM2(VIS, 'BASELINE'))
+      TADD = DATADD (STRM2(VIS, 'TIME'))
+C
+C Deal with pointing errors
+C
+C
+      CALL DATGETAR (STRM2(VIS, 'RAOFF'), ONAX, ONAXIS, OTYPE, 
+     $   ROADD)
+      CALL DATGETAR (STRM2(VIS, 'DECOFF'), ONAX, ONAXIS, OTYPE,
+     $   DOADD)
+      IF (ONAXIS(2) .NE. 1) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE,
+     $      'Multiple times in pointing errors: '//
+     $      'violates instantaneous assumption')
+         GOTO 990
+      ENDIF
+      WRITE(MESSAGE, 1121) ONAXIS(1)
+ 1121 FORMAT (' IMGDFTVP found ',I5,' ANTENNAS ')
+      CALL MSGPUT (MESSAGE, 'I')
+      IF (ERROR) GOTO 999
+      POINTERR = .FALSE.
+      DO 120 I = 0, ONAXIS(1)-1
+         IF (MEMR(DOADD+I) .GT. POINTMIN) POINTERR = .TRUE.
+         IF (MEMR(ROADD+I) .GT. POINTMIN) POINTERR = .TRUE.
+ 120  CONTINUE
+C
+      CALL DATGETD (IMAGE, 'OBSRA', OBSRA, 1, NDUMMY)
+      IF (ERROR) THEN
+         CALL ERRCANCE
+         CALL DATPUTD (IMAGE, 'OBSRA', IRVAL(1), 1)
+         OBSRA = IRVAL(1)
+      END IF
+      CALL DATGETD (IMAGE, 'OBSDEC', OBSDEC, 1, NDUMMY)
+      IF (ERROR) THEN
+         CALL ERRCANCE
+         CALL DATPUTD (IMAGE, 'OBSDEC', IRVAL(2), 1)
+         OBSDEC = IRVAL(2)
+      END IF
+C
+C Deal with voltage patterns
+C We need to HGEOM the VP's to the proper: PARANGLE, OBSRA, OBSDEC
+C
+      IF (DATEXIST('VPSCRATCH'))  CALL DATDELET ('VPSCRATCH')
+      CALL DATCREAT ('VPSCRATCH')
+      CALL DATCREAT ('VPSCRATCH/HatRack')
+      PARANGLE = DATFGETR (VIS, 'PARANGLE')
+      CALL DATPUTR (IMAGE, 'PARANGLE', PARANGLE, 1 )
+      CALL HEDCOPY  (IMAGE, 'VPSCRATCH/HatRack')
+      CALL DATGETI (VP, 'NANT', NANT, 1, NDUMMY)
+      CALL DATMAKAR ('VPSCRATCH/X1IMAGE', INAX, INAXIS, 'X', IX1ADD)
+      VPNAX = 3
+      VPNAXIS(1) = INAXIS(1)
+      VPNAXIS(2) = INAXIS(2)
+      VPNAXIS(3) = NANT
+      CALL DATMAKAR ('VPSCRATCH/VPARR', VPNAX, VPNAXIS, 'X', VPADD)
+      NPIX = VPNAXIS(1) * VPNAXIS(2)
+      DO 200 IANT = 1, NANT
+         CALL IMGREAL (STRM2(VP, 'ANT'//STRINT(IANT)), 
+     $      'VPSCRATCH/R1')
+         CALL IMGIMAG (STRM2(VP, 'ANT'//STRINT(IANT)), 
+     $      'VPSCRATCH/I1')
+C
+         CALL DATPUTL ('VPSCRATCH/R1', 'ROTATABLE', .TRUE., 1)
+         CALL DATPUTL ('VPSCRATCH/I1', 'ROTATABLE', .TRUE., 1)
+         DOERR = MEMR(DOADD + IANT - 1)
+         ROERR = MEMR(ROADD + IANT - 1)
+         WPC(1) = OBSRA  + MEMR(ROADD + IANT - 1)
+         WPC(2) = OBSDEC + MEMR(DOADD + IANT - 1)
+         CALL HEDCOPY  ('VPSCRATCH/HatRack', IMAGE)
+         CALL CRDWTOP (IMAGE, WPC, PIXPC)
+         RPIX(1) = PIXPC(1)
+         RPIX(2) = PIXPC(2)
+         RVAL(1) = WPC(1)
+         RVAL(2) = WPC(2)
+         CALL DATPUTD (IMAGE, 'CRVAL', RVAL, SYSMXDIM)
+         CALL DATPUTR (IMAGE, 'CRPIX', RPIX, SYSMXDIM)
+         CALL DATPUTD ('VPSCRATCH/R1', 'CRVAL', RVAL, SYSMXDIM)
+         CALL DATPUTD ('VPSCRATCH/I1', 'CRVAL', RVAL, SYSMXDIM)
+         IF (DATEXIST ('VPSCRATCH/R2')) THEN
+            CALL ARRSETCO ('VPSCRATCH/R2', 0.0, 0.0)
+            CALL ARRSETCO ('VPSCRATCH/I2', 0.0, 0.0)
+         ENDIF
+         CALL IMGHGEOM ('VPSCRATCH/R1', IMAGE, 'VPSCRATCH/R2', 'S')
+         CALL IMGHGEOM ('VPSCRATCH/I1', IMAGE, 'VPSCRATCH/I2', 'S')
+C         IF (SYSDEBUG .AND. IANT .EQ. 1) THEN
+C            CALL FILIMGPU ('VPSCRATCH/R2', 'SDESCR/VP1.ROTATED.R',
+C     $         ' ')
+C         ENDIF
+         R2ADD = DATADD( 'VPSCRATCH/R2' )
+         I2ADD = DATADD( 'VPSCRATCH/I2' )
+         CALL PIXQU2X (NPIX, MEMX(VPADD + (IANT-1)*NPIX), 
+     $      MEMR(R2ADD), MEMR(I2ADD) )
+ 200  CONTINUE
+C
+C Do the FT
+C
+      CALL IMGDFTV2 (MEMX(VSADD), VNAXIS(1), MEMR(WTADD), MEMR(UADD), 
+     $ MEMR(VADD), MEMR(BADD), MEMR(IADD), MEMX(IX1ADD), 
+     $ INAXIS(1), INAXIS(2), IRPIX(1), IRPIX(2), IDELT(1), IDELT(2), 
+     $ MEMX(VPADD) )
+C
+C The Initial Image CRDS have been stored on the HatRack; replace now
+C
+      CALL HEDCOPY  ('VPSCRATCH/HatRack', IMAGE)
+C
+ 990  IF (ERROR) CALL ERRTRACE (ROUTINE)
+C
+ 999  CONTINUE
+      END

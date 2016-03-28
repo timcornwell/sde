@@ -1,0 +1,38 @@
+programm	mossimcp	mosaic simulation, copy from existing mosdb
+programmer	m.a.holdaway
+date		march 30 1993
+purpose		To simulate mosaic databases which are identical in
+		u,v coverage, telescope type, etc, to an existing
+		observation.  This is a very simple operation, as
+		compared to the full blown, start from scratch MOSSIM.
+		You can get an idea of the types of errors made in the
+		mossaic process (for example, lets say you are using
+		the OVRO interferometer and the CSO...not quite enough
+		coverage at 10 m...)
+
+
+Warnings:
+
+It is assumed that the reference pixel in the IMAGE is set correctly
+(ie, that the region of sky observed by the mosaic db is included
+in the image).
+
+.
+InMos, C, 1, Input mosaic database
+OutMos, C, 1, Output mosaic database
+Image, C, 1, Input image to simulate
+Seed, I, 1, RNG seed for noise and phase
+Noise, R, 10, Noise to add to each telescope's vis [Jy]
+Phase, R, 10, Phase errors to add to each tel's vis [deg]
+DFT, L, 10, Do DFT on this telescope?
+Tele, C, 10, Telescope associated with noise and phases
+.
+InMos = 
+OutMos = 
+Image = 
+Seed = 2405
+Noise = 0,0,0,0,0,0,0,0,0,0 
+Phase = 0,0,0,0,0,0,0,0,0,0 
+DFT=F,F,F,F,F,F,F,F,F,F
+Tele = 
+.

@@ -1,0 +1,390 @@
+<HEAD>
+<TITLE> A more detailed example: imglc</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html112 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html110 HREF=program.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html104 HREF=section3_3.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html114 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html113 HREF=section3_5.html> The main subroutines</A>
+<B>Up:</B> <A NAME=tex2html111 HREF=program.html>Programmer's Guide to SDE </A>
+<B> Previous:</B> <A NAME=tex2html105 HREF=section3_3.html> A simple example: </A>
+<HR> <P>
+<H1><A NAME=SECTION0004000000000000000> A more detailed example: imglc</A></H1>
+<P>
+Now that we can talk to the user, let's actually do something. The next
+routine makes a linear combination of two images:
+<PRE><TT>
+      SUBROUTINE SDEMAIN
+C++
+C  Program to make a linear combination of two images
+C
+C  Arguments: CALL SDEMAIN
+C  Audit trail:
+C       New version with history cards added
+C                               T.J.Cornwell    Jan 25 1989
+C
+C-----------------------------------------------------------------------
+#include        &quot;stdinc.h&quot;
+C
+      CHARACTER*(*)     ROUTINE
+      PARAMETER         (ROUTINE = 'IMGLC')
+C
+      CHARACTER*(SYSMXNAM)    INFILE1,
+     1                          INFILE2,
+     2                          OUTFILE,
+     3                          BUNIT1, 
+     4                          BUNIT2
+      INTEGER           NDUMMY
+      REAL              W1,W2
+C==================================================================
+C
+      CALL MSGWELCO ('I add images')
+      CALL USRCTL
+C
+C Get Images
+C
+      CALL USRGETC ('Image1', INFILE1, 1, NDUMMY)
+      CALL FILIMGGE ('Image1', INFILE1, '*')
+      CALL USRGETC ('Image2',INFILE2, 1, NDUMMY)
+      CALL FILIMGGE ('Image2', INFILE2, '*')
+C
+C Get Weights
+C
+      CALL USRGETR('Weight1',W1,1,NDUMMY)
+      CALL USRGETR('Weight2',W2,1,NDUMMY)
+      CALL USRGETC('Output',OUTFILE,1,NDUMMY)
+C
+C Check to see if the units are the same
+C
+      CALL DATGETC ('Image1', 'BUNIT', BUNIT1, 1, NDUMMY)
+      CALL DATGETC ('Image2', 'BUNIT', BUNIT2, 1, NDUMMY)
+      IF (BUNIT1.NE.BUNIT2) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE, 'Units differ')
+         GO TO 999
+      END IF
+C      
+C Call main routine to make a linear combination
+C
+      CALL IMGCLONE ('Image1', 'Output')
+      CALL ARRLC ('Image1',W1,'Image2',W2,'Output')
+C
+C Write History info
+C
+      CALL HISOPEN ('Output')
+      CALL HISINPUT ('Output')
+C
+C Write result 
+C
+      CALL FILIMGPU('Output',OUTFILE,' ')
+C
+ 999  CONTINUE
+      END</TT></PRE>
+<P>
+A typical run of the program looks like:
+<PRE><TT>
+% imglc
+imglc I:
+imglc I: I add images
+imglc I:
+imglc I: Compiled : Fri Jan 27 16:34:35 1989
+imglc I:
+* Image1 = D2/3C10MAP.FTS
+* Image2 = D2/3C10BEAM.FTS
+* Weight1 = 1.0
+* Weight2 = -1.0
+* inp
+First input image : Image1 = D2/3C10MAP.FTS
+Second input image : Image2 = D2/3C10BEAM.FTS
+Output image : Output =
+Weight of first image : Weight1 = 1.000000
+Weight of second image : Weight2 = -1.000000
+* Output = D2/SUM
+* go
+imglc I: Opening FITS file D2/3C10MAP.FTS for READ as Image1
+imglc I: No tables were found
+imglc I: Opening FITS file D2/3C10BEAM.FTS for READ as Image2
+imglc I: No tables were found
+imglc I: Opening FITS file D2/SUM for WRITE as Output
+imglc I: Writing 2-dimensional image Output
+imglc I:
+imglc I: Started  : Fri Jan 27 16:37:35 1989
+imglc I: Finished : Fri Jan 27 16:37:53 1989
+imglc I: User:     3.69 System:     0.48</TT></PRE>
+<P>
+Commentary:
+<UL><LI> <tt>CHARACTER*(SYSMXNAM)</tt> declares the (standard) size of
+strings <tt>INFILE1, INFILE2, OUTFILE</tt>.
+<LI> <tt>CALL USRCTL</tt> calls the user-interface routines to
+talk to the user. At this stage the user inputs parameters.
+If desired <tt>USRCTL</tt> can be called repeatedly to get new values
+for the parameters. The actual specification of the parameters is found
+from a text-file called the information file described below.
+<LI> <tt>USRGETC</tt> is used to get the name of the first input file
+from the user-interface. <tt>'Image1'</tt> is the name as known by the
+user, <tt>INFILE1</tt> is the place where it will be stored, <tt>1</tt>
+is the number of values to get, and <tt>NDUMMY</tt> is the number of
+values actually returned from the user-interface. It is worth emphasizing 
+that <tt>USRGETC</tt> does not talk to the user directly. Instead it only 
+retrieves values stored by <tt>USRCTL</tt>.
+<LI> <tt>FILIMGGE</tt> reads <tt>'Image1'</tt> from the disk file system,
+where is it known as <tt>INFILE1</tt> ( = <tt>D1/3C10MAP.FTS</tt> in the
+above example). The file system is based upon FITS files. The default
+type is IEEE-format 32-bit FITS but a special, machine-specific format
+can be invoked by using an extension of <i>SDE</i> e.g. D1/3C10MAP.SDE.
+Note also that all visibility files must be written as <i>SDE</i> files.
+IEEE FITS files are written very quickly on Convexes and Sparcstations.
+<LI> <tt>USRGETR</tt> is used to read the values of the weights from the user
+interface.
+<LI> <tt>DATGETC</tt> get the units of the images (e.g. 'JY/BEAM') from
+the file that was read by <tt>FILIMGGE</tt>.
+'BUNIT' is a standard item in an image header.
+<LI> <tt>ERRREPOR</tt> is used to report an error to the error handling
+system. The arguments are first, a standard string, allowed values of
+which are found in <tt>stdinc.h</tt>, second, the name of the routine in which
+the error occurred, and third, some supplemental information. At this point
+no messages are output to the user. Instead the errors are stored up so
+that a higher-level routine can cancel them if appropriate (using 
+<tt>ERRCANCE</tt>). At this point we jump out of the routine and pop
+back up the various levels. The error messages are ultimately flushed
+by the supervisor routine which called <tt>SDEMAIN</tt>. The error system
+is not terribly sophisticated but it is adequate and very useful in
+debugging. 
+<LI> <tt>IMGCLONE</tt> makes an image (in memory) which is a copy of 
+<tt>'Image1'</tt>.
+<LI> <tt>ARRLC</tt> makes a linear combination of the two images
+which replaces the previous content of <tt>'Output'</tt> (in memory).
+<LI> <tt>HISOPEN</tt> opens space for history records to be attached
+to <tt>'Output'</tt> (in memory still).
+<LI> <tt>HISINPUT</tt> copies the input parameters to <tt>'Output'</tt>
+in a standard form:
+<PRE><TT>
+imglc / run at Fri Jan 27 16:37:46 1989
+imglc / version compiled at Fri Jan 27 16:34:35 1989
+imglc  Image1 = D2/3C10MAP.FTS
+imglc  Image2 = D2/3C10BEAM.FTS
+imglc  Output = D2/SUM
+imglc  Weight1 = 1.000000
+imglc  Weight2 = -1.000000</TT></PRE>
+<P>
+<LI> <tt>FILIMGPU</tt> writes from memory to the disk file system.
+</UL>
+In this example, we see a number of key attributes of <i>SDE</i> code. First,
+at this top level, the number of lines of code required to do something
+interesting is very small. Second, subroutine calls are fairly uncluttered.
+Third, lots of potentially confusing information is hidden.
+<P>
+Let us now delve down deeper into the routines and look at <tt>ARRLC</tt>
+in detail. This will show us how the string names such as <tt>'Image1'</tt>
+are translated into Fortran arrays.
+<PRE><TT>
+      SUBROUTINE ARRLC (A1, W1, A2, W2, A3)
+C++
+C  Linear combination of two arrays
+C
+C  Arguments: CALL ARRLC (A1, W1, A2, W2, A3)
+C 
+C       A1      CH*(*)  input   Name of array
+C       W1      REAL    input   Weight
+C       A2      CH*(*)  input   Name of array
+C       W2      REAL    input   Weight
+C       A3      CH*(*)  input   Name of array
+C  Audit trail:
+C       Linear combination of two arrays
+C                               T.J.Cornwell    Jan 5 1989
+C 
+C--------------------------------------------------------------------
+#include        &quot;stdinc.h&quot;
+C
+      CHARACTER*(*)     A1, A2, A3
+      REAL              W1, W2
+C
+C
+      CHARACTER*(*)     ROUTINE
+      PARAMETER         (ROUTINE = 'ARRLC')
+C
+      CHARACTER*1       T1, T2, T3
+      INTEGER           I, N1, N2, N3, NAXIS1(SYSMXDIM),
+     1                  NAXIS2(SYSMXDIM), NAXIS3(SYSMXDIM)
+      INTEGER           ADD1, ADD2, ADD3, NT
+      LOGICAL           DATEXIST
+C=====================================================================
+      IF (ERROR) GO TO 999
+C
+      CALL DATGETAR (A1, N1, NAXIS1, T1, ADD1)
+      CALL DATGETAR (A2, N2, NAXIS2, T2, ADD2)
+      IF (N1.NE.N2) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE, 
+     1      'Different number of axes')
+         GO TO 999
+      END IF
+      NT = 1
+      DO 10 I = 1, N1
+         IF (NAXIS1(I).NE.NAXIS2(I)) THEN
+            CALL ERRREPOR (ERRBDARG, ROUTINE, 'Axes do not match')
+            GO TO 999
+         ELSE
+            NT = NT * NAXIS1(I)
+         END IF
+  10  CONTINUE
+C
+C Check types of arrays
+C
+      IF (T1.NE.T2) THEN
+         WRITE (MESSAGE, 1000) T1, T2
+ 1000    FORMAT ('Array types for images 1 and 2 disagree : ',A1,
+     1      1X,A1)
+         CALL ERRREPOR (ERRBDARG, ROUTINE, MESSAGE)
+         GO TO 999
+      END IF
+C
+C Make output array if it does not exist
+C
+      IF (.NOT.DATEXIST(A3)) THEN
+         T3 = T1
+         N3 = N1
+         DO 20 I = 1, N3
+            NAXIS3(I) = NAXIS1(I)
+  20     CONTINUE
+         CALL DATMAKAR (A3, N3, NAXIS3, T3, ADD3)
+      ELSE
+         CALL DATGETAR (A3, N3, NAXIS3, T3, ADD3)
+         IF (N1.NE.N3) THEN
+            CALL ERRREPOR (ERRBDARG, ROUTINE, 
+     1         'Different number of axes')
+            GO TO 999
+         END IF
+         IF (T1.NE.T3) THEN
+            WRITE (MESSAGE, 1100) T1, T3
+ 1100       FORMAT (
+     1         'Types for image 1 and output image disagree : ',
+     2         A1,1X,A1)
+          CALL ERRREPOR (ERRBDARG, ROUTINE, MESSAGE)
+            GO TO 999
+         END IF
+         DO 30 I = 1,N3
+            IF (NAXIS3(I).NE.NAXIS1(I)) THEN
+               CALL ERRREPOR (ERRBDARG, ROUTINE,
+     1            'Axes disagree')
+               GO TO 999
+            END IF
+  30     CONTINUE
+      END IF
+C
+C Call appropriate routine
+C
+      IF (T1.EQ.'R') THEN
+         CALL PIXRLC (MEMR(ADD1), W1, MEMR(ADD2), W2, MEMR(ADD3), 
+     1      NT)
+      ELSE
+         CALL ERRREPOR (ERRBDARG, ROUTINE, 'Array type '//T1//
+     1      'Not supported')
+      END IF
+ 990  IF (ERROR) CALL ERRTRACE (ROUTINE)
+C
+ 999  CONTINUE
+      END</TT></PRE>
+<P>
+Commentary:
+<UL><LI> <tt>IF (ERROR) GO TO 999</tt> Error checking is performed on <em>entry</em>
+to subroutines. This means that subroutines are not cluttered with
+error check code. <tt>ERROR</tt> is one of the few global variables.
+It is true if an error has been reported using <tt>ERRREPOR</tt> (see below).
+<LI> <tt>CALL DATGETAR</tt> gets the various parameters of an array named
+<tt>A1</tt>: the number of axes <tt>N1</tt> (up to 7), 
+the number of pixels on each axis <tt>NAXIS1</tt>, the type of the array <tt>T1</tt>,
+and the address <tt>ADD1</tt> where the pixel values are stored. The last would
+ideally be a pointer variable, but in Fortran we have to use a subterfuge:
+<tt>ADD1</tt> is an address in a global <tt>COMMON</tt>. For real arrays (<tt>T1
+= 'R'</tt>), <tt>MEMR(ADD1)</tt> is the address of the first value of the array
+<tt>A1</tt>. The various <tt>DAT</tt> routines are actually an interface to a
+c package which performs all the memory allocation and handling. <i>SDE</i> arrays
+are made by a call to <tt>DATMAKAR</tt>. In the example of imglc, the arrays
+containing the image data are made by <tt>FILIMGGE</tt>.
+<LI> Various checking code follows next. This ensures that the arrays
+can be combined properly. This requires checking of dimensionality and
+type. The young and reckless dispense with this at their own peril.
+<LI> <tt>MESSAGE</tt> is a character array declared in stdinc.h (cf Appendix B).
+<LI> The real work is finally performed by <tt>PIXRLC</tt> which does
+linear combination of real arrays. I have not yet needed <tt>PIXILC</tt>
+or <tt>PIXDLC</tt>, but they can be inserted when neccessary. Note that
+<tt>PIXRLC</tt> is passed the addresses of the first elements, and the total
+number of pixels.
+<LI> <tt>ERRTRACE</tt> is used to trace errors. If an error occurred in a
+subroutine called from this routine, then the name of this routine is added
+to a stack, and the entire sequence of error messages is popped at the
+end of the task. Errors in this routine are not traced in this way.
+<LI> <tt>ARRLC</tt> is slightly long-winded but it performs a fair amount
+of checking. Of course, once written it can be called by many different
+routines.
+</UL>
+<P>
+To complete the description of imglc, here is <tt>PIXRLC</tt>:
+<PRE><TT>
+      SUBROUTINE PIXRLC (A1, W1, A2, W2, A3, N)
+C++
+C  Linear combination of two arrays
+C
+C  Arguments: CALL PIXRLC (A1, W1, A2, W1, A3, N)
+C 
+C       A1      REAL    input   Real array
+C       W1      REAL    input   Weight
+C       A2      REAL    input   Real array
+C       W2      REAL    input   Weight
+C       A3      REAL    output  Real array
+C       N       INT     input   Number of elements
+C  Audit trail:
+C       New version
+C                               T.J.Cornwell    Jan 5 1989
+C
+C--------------------------------------------------------------------
+#include        &quot;stdinc.h&quot;
+C
+      REAL              A1(*), A2(*), A3(*), W1, W2
+      INTEGER           N
+C
+C
+      INTEGER           I
+C=====================================================================
+      IF (ERROR) GO TO 999
+      DO 10 I = 1, N
+         A3(I) = W1 * A1(I) + W2 * A2(I)
+ 10   CONTINUE
+C
+ 999  CONTINUE
+      END</TT></PRE>
+Commentary:
+<UL><LI> We have (finally) reached ordinary Fortran arrays. The code at this
+level is trivial. 
+<LI> This is what we call a pixel-stream subroutine: the dimensionality is
+unimportant and so the arrays can be treated as one-dimensional.
+<LI> Error tracing is not needed here.
+</UL>
+<P>
+Now that we have seen how to write an <i>SDE</i> task, it is probably worth 
+emphasizing just why this level of complication is required, and what we
+have gained. 
+<DL ><DT><DD>Orthogonality: The code at each level is quite simple and involves
+only concepts appropriate at the level. For example, at the lowest pixel
+level we need consider only the pixel values, not the dimensionality.
+Similarly, at the array level, we need only consider the attributes of
+the arrays, not their origin or fate. At the top, image level, only the
+attributes relevant to an image (units in this examples) are examined.
+<DT><DD>Intelligence: The philosophy is that
+each subroutine must be sufficiently intelligent and autonomous to allow
+incorporation into a higher level routine.
+<DT><DD>Brevity: Short subroutines are vital for clarity. With this multi-level
+approach, errors at any level are easier to spot and correct.
+<DT><DD>Versatility: <tt>ARRLC</tt> can now be used in another context.
+<P>
+ </DL>
+<P>
+<HR> <A NAME=tex2html112 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html110 HREF=program.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html104 HREF=section3_3.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html114 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html113 HREF=section3_5.html> The main subroutines</A>
+<B>Up:</B> <A NAME=tex2html111 HREF=program.html>Programmer's Guide to SDE </A>
+<B> Previous:</B> <A NAME=tex2html105 HREF=section3_3.html> A simple example: </A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:45:41 MST 1994</I>
+</ADDRESS>

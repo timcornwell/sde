@@ -1,0 +1,15 @@
+.
+Image1, C, 1, First input image
+Image2, C, 1, Second input image
+Output, C, 1, Output image
+Weight1, R, 1, Weight of first image
+Weight2, R, 1, Weight of second image
+Fit, L, 1, Fit image2 to image1?
+.
+Image1 = 
+Image2 = 
+Output = 
+Weight1 = 1.0
+Weight2 = 1.0
+Fit = T
+.

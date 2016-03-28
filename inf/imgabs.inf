@@ -1,0 +1,9 @@
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input image
+Output, C, 1, Output image
+.
+/Debug = F
+Image =
+Output = \$Image.ABS
+.

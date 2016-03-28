@@ -1,0 +1,55 @@
+In this context, a full beamwidth is sqrt(bmaj*bmin)
+
+The Beam parameters is an override for both the fitted beam used to
+scale the input in normalized mode, and also determines the fitted
+Gaussian slices.
+
+The SlicePA parameter is only used if AbsPA is true, and overrides the
+PA in the fitted beam.  It affects the slice through both the actual PSF
+and the fitted Gaussian.
+
+.
+PSF, C, 1, Name of PSF
+Rlo, R, 1, Minimum radius in full beamwidths, asec or mas
+Rhi, R, 1, Maximum radius in full beamwidths, asec or mas
+AbsRadius, L, 1, Specify radii in absolute units?
+AbsPA, L, 1, Specify Slice PA directly?
+Ymin, R, 1, Minimum Beam value to plot
+Ymax, R, 1, Maximum Beam value to plot
+SlicePA, R, 1, Slice position angle.
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz
+FitAlg, C, 1, Beam fitting algorithm
+Xlabel, C, 1, X-axis label
+Ylabel, C, 1, Y-axis label
+Left, L, 1, Label Y-axis on the left
+Lwidth, I, 1, Line width
+Annotate, C, 1, Annotation file
+CHeight, R, 1, Character height
+Npts, I, 1, Number of points in slice
+FGaus, L, 1, Overplot fitted Gaussian
+VLBI, L, 1, Label & input in mas, if true
+Device, C, 1, Plot file
+Text, C, 1, Text file output
+.
+PSF =
+Rlo = -.25
+Rhi = 5
+AbsRadius = F
+AbsPA = F
+Ymin = 0.0
+Ymax = 0.0
+SlicePA = 0.0
+Beam = 0.0, 0.0, 0.0, 0.0
+FitAlg = LINEAR
+Xlabel = *
+Ylabel = *
+Left = T
+Lwidth = 1
+Annotate =
+CHeight = .8
+Npts = 200
+FGaus = T
+VLBI = F
+Device = /xw
+Text =
+.

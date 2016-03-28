@@ -1,0 +1,19 @@
+.
+Image, C, 1, Input image
+OutImage, C, 1, Unsmoothed image
+XOutImage, C, 1, Unsmoothed image in uv plane
+Model, C, 1, Analytic Model
+OutModel, C, 1, Unsmoothed Model
+Beam, R, 4, Smoothing beam ( Bmaj, Bmin, Bpa )
+BeamFile, C, 1, Use beam from this file
+FitAlg, C, 1, Beam fitting algorithm
+.
+Image = 
+OutImage = 
+XOutImage =
+Model =
+OutModel =
+Beam = 8, 8, 0.0
+BeamFile =
+FitAlg = HDR-LINEAR
+.

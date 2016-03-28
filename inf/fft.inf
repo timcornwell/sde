@@ -1,0 +1,21 @@
+Program:   FFT
+Purpose:   Anything to Anything FFT, as long as its gridded
+Programmer:    M.A.Holdaway, May 14 1990
+Bugs:          Bunny
+
+FFTSIZE: Either 'PWR2' or 'EXACT'.  The default is 'PWR2', in which
+        case all image sizes will be rounded up to a power of two for
+        speed.  'EXACT' is not that much slower, if the sizes have some
+        reasonable prime factorization, and will use image sizes
+        exactly as given.
+.
+IN, C, 1, Name of Input File to be FFT'd
+OUT, C, 1, Complex output image
+FFTSize, C, 1, Image size is PWR2 or EXACT
+Full, L, 1, Produce a FULL image (False=half image)
+.
+IN =
+OUT =
+FFTSize = PWR2
+Full = T
+.

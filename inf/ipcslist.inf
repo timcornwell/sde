@@ -1,0 +1,7 @@
+.
+IPCSfile, C, 1, Name of IPCS data file (FITS format)
+Listfile, C, 1, File for listings
+.
+IPCSfile =  
+Listfile =
+.

@@ -1,0 +1,15 @@
+.
+Vis, C, 1, Input visibility database
+Smooth, C, 1, Smoothed database
+Beam, R, 4, Smoothing beam ( Bmaj, Bmin, Bpa )
+BeamFile, C, 1, Use beam from this file
+FitAlg, C, 1, Beam fitting algorithm
+Stokes, C, 1, Stokes type
+.
+Vis = 
+Smooth = 
+Beam = 8, 8, 0.0
+BeamFile =
+FitAlg = HDR-LINEAR
+Stokes = I
+.

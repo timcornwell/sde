@@ -1,0 +1,12 @@
+The output is F^{-1} ( WT * F(IM1) + (1-WT) * F(IM2) )
+.
+Image1, C, 1, First input image
+Image2, C, 1, Second input image
+uvWeight, C, 1, Weights in Fourier domain
+Output, C, 1, Output image
+.
+Image1 = 
+Image2 = 
+uvWeight =
+Output = 
+.

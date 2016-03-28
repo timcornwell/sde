@@ -1,0 +1,8 @@
+Program to turn a half plane image into a full plane Hermitian image
+.
+In, C, 1, Input image
+Out, C, 1, Output Image
+.
+In = 
+Out = 
+.

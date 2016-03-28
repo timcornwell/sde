@@ -1,0 +1,216 @@
+		***** Notes on using SDE *****
+
+			T. Cornwell	
+			29 August 1989
+
+WHAT IS SDE?
+____________
+
+SDE is a package designed for the rapid development and testing of
+imaging algorithms. Many useful things are available in SDE, the principal
+being a group of tasks for wide-field imaging (see /sde/doc/3d.advice).
+SDE is not supported by NRAO, but Tim Cornwell and Mark Holdaway would be
+interested in your comments.
+
+USING SDE
+_________
+
+To use with ISIS: login to isis as usual. All tasks will automatically be
+available. You will have your own private disk areas called $I1, $I2, $I3,
+etc.
+
+To use with AIPS: login to aips as normal. Before starting aips
+do the following:
+
+	source ~sde/sdeini.csh
+
+to get logicals. Then you should be able to access any SDE routine
+by name. The disk directories are $D1, $D2, $D3 for the aips disks
+1,2,3 e.g. $D1 is equivalent to /AIPS/DA01/SDE
+
+To transfer from AIPS, use OUTFILE in FITTP:
+
+e.g. OUTFILE = 'D1:filename'
+
+SDE reads and writes FITS files directly so you only need run IMLOD
+or UVLOD whenever you need to move an SDE file into AIPS.
+
+e.g. INFILE = 'D1:filename'
+
+SDE tasks will recognize logical names for directories providing
+that the $ character is omitted e.g. the sde data area on AIPS disk
+1 is called $D1 at UNIX level but D1 inside a SDE task. For example,
+a typical set of inputs to VM is:
+
+Dirty = D2/3C10MAP.FTS
+PSF = D2/3C10BEAM.FTS
+Default = 
+VM = D1/3C10NEWVM.FTS
+BLC = 33, 33, 1, 1, 1, 1, 1
+TRC = 96, 96, 1, 1, 1, 1, 1
+NITER = 50
+TFLUX = -60.00000
+SIGMA = 9.9999998E-03
+/DEBUG = F
+
+Min-matching and case-insensitivity are both allowed so the first line could
+be:
+
+di = D2/3C10MAP.FTS
+
+SDE will read and write two different types of file. The most
+usual is FITS, which is the default. The other is a special format
+which is much quicker to write, and is a exact copy of a SDE directory
+entry from inside a task. It is specified by putting the extension
+.SDE at the end of a file name e.g. D1/3C10XFR.SDE . You must use
+the second format for storing complex images to disk. UV files must
+also be written as SDE files.
+
+A typical run of an SDE task looks like:
+
+sde% vm
+vm I:
+vm I: I perform maximum entropy deconvolution
+vm I:
+vm I: Compiled : Sat May  7 12:36:14 1988
+vm I:
+* inp
+Dirty  (must be specified) : Dirty = D2/3C10MAP.FTS
+Point spread function (must be specified) : PSF = D2/3C10BEAM.FTS
+Default  (can be left blank) : Default =
+VM  (can already exist, can be left blank) : VM = D2/3C10NEWVM.FTS
+Convolved VM plus residuals (can be left blank) : CVM = D2/3C10NEWCVM.FTS
+Bottom left corner of window : BLC = 33, 33, 1, 1, 1, 1, 1
+Top right corner of window : TRC = 96, 96, 1, 1, 1, 1, 1
+Number of Iterations (<0 for automatic stopping) : Niter = -30
+Required total flux (less than zero for a guess) : Tflux = -60.00000
+Required final fit in Jy/Beam : Sigma = 9.9999998E-03
+Smoothing beam, BMAJ, BMIN, BPA, BZ : Beam = 45.00000, 45.00000, 0., 0.
+* go
+vm I: Opening FITS file D2/3C10MAP.FTS for READ as Initial Dirty
+vm I: Opening FITS file D2/3C10BEAM.FTS for READ as PSF
+vm I: Initial guess is a flat image
+vm I: Using flat default
+vm I: Iteration      Entropy     Flux        Fit     Gradient
+vm I:      1         8.3044    60.3129    27.7798     0.5308
+vm I:      2         8.2976    60.7342    27.8032     0.0000
+vm I:      3         8.2697    61.5313    25.6957     0.0006
+vm I:      4         8.2043    63.3592    22.3872     0.0013
+vm I:      5         8.0857    66.5155    17.7651     0.0035
+vm I:      6         7.9336    70.2016    12.6727     0.0081
+vm I:      7         7.7973    72.6105     8.4937     0.0132
+vm I:      8         7.6957    73.1210     5.6858     0.0185
+vm I:      9         7.6199    72.3139     3.9332     0.0282
+vm I:     10         7.5601    70.8663     2.8601     0.0462
+vm I:     11         7.4875    68.5467     1.9509     0.1042
+vm I:     12         7.4389    65.7968     1.5512     0.0640
+vm I:     13         7.3903    64.9858     1.1542     0.2259
+vm I:     14         7.3939    63.8816     1.2731     0.1680
+vm I:     15         7.3725    63.8899     1.0438     0.0969
+vm I:     16         7.3696    63.4626     1.0719     0.1222
+vm I:     17         7.3693    63.4845     1.0175     0.0371
+vm I: Opening FITS file D2/3C10NEWVM.FTS for WRITE as VM
+vm I: Writing 4-dimensional image VM
+vm I: Opening FITS file D2/3C10NEWCVM.FTS for WRITE as CVM
+vm I: Writing 4-dimensional image CVM
+vm I:
+vm I: Started  : Tue May 10 13:43:15 1988
+vm I: Finished : Tue May 10 13:43:51 1988
+vm I: User:    13.52 System:     0.94
+sde% 
+
+A list of tasks in sde is available by typing sdetasks.
+
+COMPILATIONS, ETC.
+__________________
+
+I prefer that you develop /sde programs in your own login account and then,
+once a program is working, put it into /sde.
+
+To set up sde, use either:
+
+. /sde/sdeini		(for Bourne shell or Korn shell)
+
+or 
+ source /sde/sdeini.csh	(for the C-shell)
+
+To compile a task, use
+
+	comtask -p task.f
+
+If you need to change any of the subroutines then e.g.:
+
+	comsub -p subroutine.f
+
+will recompile the routine and (re)make a private version of the library. 
+To change a routine in sde use comsub and comtask without the -p switch.
+
+	comsub /sde/source/fts/ftsopen.f
+
+If you have to remake the sde library then use maklib:
+
+	maklib
+
+To make a new task, compile it as above and make a new INF file. The INF
+file contains information about the input parameters as well as defaults.
+See $INF/template.inf for an example. The INF file can be either in the
+current directory or in the $INF directory (/sde/inf)
+
+If you wish to create a new subroutine or a new task use the templates:
+
+	/sde/doc/subr.template.f (for subroutines)
+	/sde/source/task/template.f (for tasks)
+	$INF/template.inf (for information files)
+
+Under the C-shell, to use a new task, you must regenerate the hashing table 
+used by UNIX. The command rehash does this.
+
+Hints for runnings the tasks:
+_____________________________
+
+- ^C will invoke an interrupt handler with a number of options. You can
+catch one of these in your task and do something sensible with it. vm and
+clean know how to stop gracefully: see the source code to see how to
+do this.
+
+- To keep your messages from the last task run in a file do:
+
+	setenv SDELOG file.log
+
+- Jobs with big memory requirements can be instructed to put all big
+arrays on to a specific place. Every array > 8Mbytes is placed in files
+in directories specified by the SDESCR environment variable. Normally
+this is set to $T1 which is the /scr/SDE area, but you can change in to
+any disk e.g.
+
+	setenv SDESCR $D2
+
+If you require more control than this, then you can tell sde to put specific
+arrays on specific disks:
+
+	setenv SDESCR2 $D3
+
+tells a task to put the third big array in to a file in the area $D3.
+The arrays are stored in files called things like:
+
+	SDESCR034718	(the last 5 digits are the process number)
+	SDESCRa34718
+	SDESCRb34718
+
+These sometimes get left behind if a task is killed. You can delete them
+if the corresponding process is not running.
+
+- Inside a task the command edit will invoke an editor to be used on the
+list of inputs. The default is emacs (of course). To change this to your
+favorite editor do:
+
+	setenv EDITOR edt
+
+I find this facility very useful.
+
+PROGRAMMER'S DOCUMENTATION
+__________________________
+
+There is a TeX file programmer's guide in /sde/doc/program.tex.
+This tells you how to write and compile sde programs.
+

@@ -1,0 +1,22 @@
+.
+Wavelength, R, 1, Wavelength [m]
+Configuration, C, 1, VLA Configuration [A|B|C|D]
+D, R, 1, Dish diameter [m]
+Nvis, I, 1, Number of visibilities
+Niter, I, 1, Number of clean components
+Phase, R, 1, Maximum phase error [rad]
+Fov, R, 1, Field of view [arcsec]
+Cellsize, R, 1, Cellsize [arcsec]
+.
+Wavelength=0.90
+Configuration=D
+D=25.0
+Nvis=100000
+Niter=10000
+Phase=0.1
+Fov=0.0
+Cellsize=0.0
+.
+
+
+

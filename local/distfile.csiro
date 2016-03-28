@@ -1,0 +1,14 @@
+HOSTS = (rmarson@polyfonix.rp.csiro.au)
+
+FILES = (~/farch ~/sdeini ~/sdeini.csh ~/doc ~/inf ~/source ~/bin/unix ~/pvm)
+
+${FILES} -> ${HOSTS}
+	except ~/source/SCCS;
+	except ~/bin/unix/SCCS;
+	except ~/source/task/SCCS;
+	except_pat .*~\$;
+	except_pat .*\.o\$;
+	except_pat .*\.cur\$;
+	install -i -y -w /source/sde;
+	notify rmarson@rp.csiro.au;
+	notify dbriggs@atnf.csiro.au;

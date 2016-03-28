@@ -1,0 +1,40 @@
+.info
+Antfile, C, 1, Name of ASCII file specifying array
+Model, C, 1, Name of ASCII file giving model comps.
+Imsize, I, 3, Size of model image
+Cellsize, R, 3, Cellsize in model image
+Map, C, 1, Name of output or input model image
+HAlimits, R, 2, Hour angle limits [hours]
+Dec, R, 1, Declination of source in Model [deg.]
+Freq, R, 1, Frequency of radiation [Hz]
+ELmin, R, 1, Minimum elevation for unflagged data [deg.]
+PB, L, 1, Primary beam application?
+INTtime, R, 1, Integration time [seconds]
+Telescope, C, 1, Name of telescope for header and PB
+AutoC, L, 1, Generate autocorrelations?
+AutoW, R, 1, Weighting for autocorrelations
+NED, I, 1, Number of extra pointings in each direction
+NDay, I, 1, Number of days in the observation
+Mosaic, C, 1, Name of output mosaic database
+Vis, C, 1, Name of output Visibility database (first pointing only)
+.def
+Antfile = 
+Model =
+Imsize = 512, 512, 1
+Cellsize = 1., 1., 1.
+Map = 
+HAlimits = -.15,.15
+Dec = 35.
+Freq = 230E9
+ELmin = 25.
+PB = T
+INTtime = 60.
+AutoC = T
+AutoW = .2
+Telescope = MMA
+NED = 0
+NDay = 1
+Mosaic =
+Vis =  
+.end
+

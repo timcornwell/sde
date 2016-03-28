@@ -1,0 +1,11 @@
+.
+In, C, 1, Input file
+Out, C, 1, Output File
+EpochIn, D, 1, Epoch of input positions
+EpochOut, D, 1, Epoch of Out positions
+.
+In =
+Out =
+EpochIn = 2000.0
+EpochOut = 1950.0
+.

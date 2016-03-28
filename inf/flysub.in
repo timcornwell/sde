@@ -1,0 +1,17 @@
+.
+Uvlimits, R, 2, Limits of allowed u,v (wavelengths)
+Timerange, I, 8, Timerange (d,h,m,s)
+Vis, C, 1, Visibility data
+NewVis, C, 1, Name of output visibility file
+Checkpoint, C, 1, Name of checkpoint file
+Add, L, 1, Add instead of subtract? [T|F]
+/Debug, L, 1, Debug
+.
+Uvlimits = 0.0, 1000000000
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Vis = 
+NewVis =
+Checkpoint = 
+Add = F
+/Debug = F
+.

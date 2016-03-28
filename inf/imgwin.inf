@@ -1,0 +1,23 @@
+Program: imgwin - Window an Image
+Programmer: R. G. Marson
+Purpose: imgwin will apply a window to an image.
+Details: imgwin will apply one of a predined number of windows to an image.
+average over a number of pixels before extracting the subimage.
+
+.INFO
+Image, C, 1, Name of input image
+Output, C, 1, Name of output image
+Window, C, 1, Window to use (HANNING, TRIANGLE, ITRIANGLE)
+Alpha, R, 1, Numeric parameter for window
+Dimension, I, 1, One or Two dimensional Window
+Axis, I, 1, Which axis to apply window over (for Dimension = 1)
+/Debug, L, 1, Debug T or F (must be set each time)
+.DEFAULT
+Image =
+Output =
+Window = TRIANGLE
+Alpha = 1.0
+Dimension = 2
+Axis = 1
+/Debug = F
+.END

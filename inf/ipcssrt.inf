@@ -1,0 +1,22 @@
+Program: ipcssrt - Sort ipcs data along an axis
+Programmer: R.G Marson
+Date: 13 Feb 89
+Purpose: ipcsrt allows the ipcs data to be sorted in order of increasing
+Frame, X coord or Y coord.
+
+Details: This program was writen to test the ipcssort routine but is
+useful if multiple calls are to be made to ipcssum. Sorting the IPCS
+file along the axis that you want to sum over will prevent ipcssum
+having to do this multiple times, once for every time you invoke ipcssum.
+
+.INFO
+Infile, C, 1, Name of input IPCS file
+Outfile, C, 1, Name of output IPCS file
+Sort, C, 1, What axis to sort over (IF, IX or IY)
+/Debug, L, 1, Debug status
+.DEFAULT
+Infile = 
+Outfile = 
+Sort = IF
+/Debug = F
+.END

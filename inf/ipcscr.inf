@@ -1,0 +1,28 @@
+Program: ipcscr - Centroid IPCS data
+Programmer: R.G Marson
+Date: 21 Dec 1992
+Purpose: IPCS data often contains extra photons due to the auto centroiding
+         circuit being turned off. This is done as auto centroding is 
+         conservative in deciding when two photon splats are really just part
+         of one photon and zaps all near in correlations. If centroiding is
+         is turned off on the detector and done in software (this program)
+         then the diagonal correlations may be recovered.
+
+Details: ipcsscr chooses which photons to remove using the following criterion.
+- If a photon is adjacent to another photon AND in the same column AND in the
+  same frame
+If this is so then one of the two photons is removed (at random) If there
+are three photons in a line the the middle one is removed. If there are four
+then the first and third or second and fourth are removed etc...
+
+.INFO
+Infile, C, 1, Name of input IPCS file
+Outfile, C, 1, Name of output IPCS file
+/Notify, I, 1, Print message after processing this many frames
+/Debug, L, 1, Debug status
+.DEFAULT
+Infile = 
+Outfile = 
+/Notify = 1000
+/Debug = F
+.END

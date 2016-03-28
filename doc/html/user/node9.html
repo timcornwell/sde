@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE>  calc</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value="  calc">
+<meta name="keywords" value="user">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html132 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html130 HREF="node5.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html126 HREF="node8.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html134 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html133 HREF="node10.html"> Special topics</A>
+<B>Up:</B> <A NAME=tex2html131 HREF="node5.html"> External tools</A>
+<B> Previous:</B> <A NAME=tex2html127 HREF="node8.html">  gaussfit &amp; gfit</A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00054000000000000000>  calc</A></H2>
+<P>
+None of the standard unix shells include floating point variables or
+functions.  Many of the more sophisticated shellscripts require this,
+so the solution is to use a calculator program that evaluates its
+arguments and prints the results.  <i> SDE</i>  has adopted the program <tt> calc</tt>,
+written by David Bell.  Typical examples are
+<P>
+<P>
+<tt> result=$(calc &quot;r($a+1.5,5)&quot;)</tt>
+<P>
+<P>
+<tt> label=$(calc &quot;s(pi(),3)&quot;)</tt>
+<P>
+<P>
+The first example sets the shell variable <tt> result</tt> to the value of <tt>
+a</tt> plus 1.5, rounded to 5 places.  The second sets <tt> label</tt> to <IMG  ALIGN=BOTTOM ALT="" SRC="img4.gif">,
+rounded to 3 significant figures.  <tt> result</tt>, <tt> a</tt>, and <tt> label</tt>
+are all character strings as far as the shell is concerned.  The functions
+<tt> r()</tt> and <tt> s()</tt> are defined within a small local library file,
+and scripts which use them must include the line
+<P>
+<tt> export CALCRC=$SDEROOT/bin/unix/calc.lib</tt>
+<P>
+before the invocation of <tt> calc</tt> which uses the function.
+<P>
+<P>
+<tt> calc</tt> is considerably more powerful than the typical use within SDE
+would indicate.  It is well worth investigating as a portable arbitrary
+precision calculation tool.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Fri Jan 19 13:47:44 MST 1996</I>
+</ADDRESS>
+</BODY>

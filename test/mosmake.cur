@@ -1,0 +1,5 @@
+Vis = D0/3C10UV.FTS
+Mosaic = D0/3C10MOS.sandia.SDE
+Telescope = VLA
+ListFile =
+DeletePOL = F

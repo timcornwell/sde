@@ -1,0 +1,13 @@
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input image
+Output, C, 1, Output image
+RMS, R, 1, RMS noise desired
+Seed, I, 1, Random number seed
+.
+/Debug = F
+Image =
+Output = 
+RMS = 0.0
+Seed = 12345
+.

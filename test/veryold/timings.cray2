@@ -1,0 +1,274 @@
+SDE timings on host u2 at Wed Mar 21 00:20:14 CST 1990
+world I:
+world I: Hello, world
+world I:
+world I: Compiled : Tue Mar 20 17:34:22 CST 1990
+world I:
+world I:
+world I: Started  :  0:20:14  3/21/90
+world I: Finished :  0:20:14  3/21/90
+world I: User:     0.03
+imgstat I:
+imgstat I: I calculate statistics of images
+imgstat I:
+imgstat I: Compiled : Tue Mar 20 17:26:20 CST 1990
+imgstat I:
+imgstat I: *imgstat I: *imgstat I: *imgstat I: *imgstat I: Name of input image : Image = D0/3C10MAP.FTS
+imgstat I: Bottom left corner : BLC = 1, 1, 1, 1, 1, 1, 1
+imgstat I: Top right corner : TRC = 128, 128, 1, 1, 1, 1, 1
+imgstat I: *imgstat I: Opening FITS file D0/3C10MAP.FTS for READ as Image
+imgstat I: Coordinates:
+imgstat I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+imgstat I:    1   RA---SIN  128      64.00    5.617E+00  -3.333E-03    0.00
+imgstat I:    2   DEC--SIN  128      64.00    6.387E+01   3.333E-03    0.00
+imgstat I:    3   FREQ        1       1.00    1.511E+09   1.250E+07    0.00
+imgstat I: Statistics for window:
+imgstat I: BLC(1) =    1, TRC(1) =  128
+imgstat I: BLC(2) =    1, TRC(2) =  128
+imgstat I:    Average =  -2.274E-02 JY/BEAM
+imgstat I:    Rms     =   1.403E-01 JY/BEAM
+imgstat I:    Dispers =   1.384E-01 JY/BEAM
+imgstat I:    Maximum =   6.791E-01 JY/BEAM
+imgstat I:    Minimum =  -3.135E-01 JY/BEAM
+imgstat I:    Sum     =  -3.726E+02 JY/BEAM
+imgstat I:
+imgstat I: Started  :  0:20:14  3/21/90
+imgstat I: Finished :  0:20:14  3/21/90
+imgstat I: User:     0.42
+fftx I:
+fftx I: I time FFTs
+fftx I:
+fftx I: Compiled : Tue Mar 20 17:34:22 CST 1990
+fftx I:
+fftx I: Forward:
+fftx I:  X( 1) = (     1.000,     0.000)
+fftx I:  X( 2) = (     0.996,    -0.092)
+fftx I:  X( 3) = (     0.983,    -0.183)
+fftx I:  X( 4) = (     0.962,    -0.273)
+fftx I:  X( 5) = (     0.933,    -0.360)
+fftx I:  X( 6) = (     0.896,    -0.444)
+fftx I:  X( 7) = (     0.851,    -0.525)
+fftx I:  X( 8) = (     0.800,    -0.601)
+fftx I:  X( 9) = (     0.741,    -0.672)
+fftx I:  X(10) = (     0.676,    -0.737)
+fftx I:  X(11) = (     0.606,    -0.796)
+fftx I:  X(12) = (     0.530,    -0.848)
+fftx I:  X(13) = (     0.450,    -0.893)
+fftx I:  X(14) = (     0.366,    -0.931)
+fftx I:  X(15) = (     0.279,    -0.960)
+fftx I:  X(16) = (     0.189,    -0.982)
+fftx I:  X(17) = (     0.098,    -0.995)
+fftx I:  X(18) = (     0.006,    -1.000)
+fftx I:  X(19) = (    -0.086,    -0.996)
+fftx I:  X(20) = (    -0.177,    -0.984)
+fftx I:  X(21) = (    -0.267,    -0.964)
+fftx I:  X(22) = (    -0.354,    -0.935)
+fftx I:  X(23) = (    -0.439,    -0.899)
+fftx I:  X(24) = (    -0.519,    -0.855)
+fftx I:  X(25) = (    -0.596,    -0.803)
+fftx I:  X(26) = (    -0.667,    -0.745)
+fftx I:  X(27) = (    -0.733,    -0.681)
+fftx I:  X(28) = (    -0.792,    -0.610)
+fftx I:  X(29) = (    -0.845,    -0.535)
+fftx I:  X(30) = (    -0.890,    -0.455)
+fftx I:  X(31) = (    -0.929,    -0.371)
+fftx I:  X(32) = (    -0.959,    -0.284)
+fftx I: Inverse:
+fftx I:  X( 1) = (     0.000,     0.000)
+fftx I:  X( 2) = (     0.000,     0.000)
+fftx I:  X( 3) = (     0.000,     0.000)
+fftx I:  X( 4) = (     0.000,     0.000)
+fftx I:  X( 5) = (     0.000,     0.000)
+fftx I:  X( 6) = (     0.000,     0.000)
+fftx I:  X( 7) = (     0.000,     0.000)
+fftx I:  X( 8) = (     0.000,     0.000)
+fftx I:  X( 9) = (     0.000,     0.000)
+fftx I:  X(10) = (     0.000,     0.000)
+fftx I:  X(11) = (     0.000,     0.000)
+fftx I:  X(12) = (     0.000,     0.000)
+fftx I:  X(13) = (     0.000,     0.000)
+fftx I:  X(14) = (     0.000,     0.000)
+fftx I:  X(15) = (     0.000,     0.000)
+fftx I:  X(16) = (     1.000,     0.000)
+fftx I:  X(17) = (     0.000,     0.000)
+fftx I:  X(18) = (     0.000,     0.000)
+fftx I:  X(19) = (     0.000,     0.000)
+fftx I:  X(20) = (     0.000,     0.000)
+fftx I:  X(21) = (     0.000,     0.000)
+fftx I:  X(22) = (     0.000,     0.000)
+fftx I:  X(23) = (     0.000,     0.000)
+fftx I:  X(24) = (     0.000,     0.000)
+fftx I:  X(25) = (     0.000,     0.000)
+fftx I:  X(26) = (     0.000,     0.000)
+fftx I:  X(27) = (     0.000,     0.000)
+fftx I:  X(28) = (     0.000,     0.000)
+fftx I:  X(29) = (     0.000,     0.000)
+fftx I:  X(30) = (     0.000,     0.000)
+fftx I:  X(31) = (     0.000,     0.000)
+fftx I:  X(32) = (     0.000,     0.000)
+fftx I: Time per 1024 complex FFT =      0.446 milliseconds
+fftx I:
+fftx I: Started  :  0:20:14  3/21/90
+fftx I: Finished :  0:20:15  3/21/90
+fftx I: User:     1.00
+fftx2d I:
+fftx2d I: I time 2D real to complex FFTs
+fftx2d I:
+fftx2d I: Compiled : Wed Mar 21 00:04:34 CST 1990
+fftx2d I:
+fftx2d I: Time per   64 by   64 FFT =      0.014 seconds
+fftx2d I: Time per  128 by  128 FFT =      0.027 seconds
+fftx2d I: Time per  256 by  256 FFT =      0.066 seconds
+fftx2d I: Time per  512 by  512 FFT =      0.198 seconds
+fftx2d I: Time per 1024 by 1024 FFT =      0.689 seconds
+fftx2d I: Time per 2048 by 2048 FFT =      2.607 seconds
+fftx2d I:
+fftx2d I: Started  :  0:20:16  3/21/90
+fftx2d I: Finished :  0:20:26  3/21/90
+fftx2d I: User:     3.66
+uvmap I:
+uvmap I: I make images from visibility data
+uvmap I:
+uvmap I: Compiled : Wed Mar 21 00:03:01 CST 1990
+uvmap I:
+uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: Image size : Imsize = 128, 128, 1
+uvmap I: Cellsizes in arc-seconds : Cellsize = 12.00000, 12.00000, 12.00000
+uvmap I: UV limits in wavelengths : Uvlimits = 0.0000000E-01, 1.0000000E+10
+uvmap I: Filter for sources of this size: BMAJ, BMIN, BPA (asec) : Filter = 0.00
+00000E-01,
+uvmap I:  0.0000000E-01, 0.0000000E-01
+uvmap I: Shift in arcseconds : Shift = 0.0000000E-01, 0.0000000E-01, 0.0000000E-
+01
+uvmap I: Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM : FOV = 1.0000
+00
+uvmap I: Stokes type I,Q,U, or V : Stokes = I
+uvmap I: Timerange (d,h,m,s) : Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+uvmap I: Convolution function SF, SZE or BOX : ConvType = SF
+uvmap I: Slow transform in Z?, T or F : SlowZ = T
+uvmap I: Visibility data : Vis = D0/3C10UV.FTS
+uvmap I: Output dirty image : Dirty = D0/3C10NEWMAP.FTS
+uvmap I: Output point spread function : PSF = D0/3C10NEWBEAM.FTS
+uvmap I: *uvmap I: Opening FITS file D0/3C10UV.FTS for READ as Vis
+uvmap I: Converting visibilities to IQUV format
+uvmap I: First observation on Julian date:    2445539
+uvmap I: Selected    8832 visibilities
+uvmap I: Coordinates for PSF:
+uvmap I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+uvmap I:    1   RA---SIN  128      64.00    5.617E+00  -3.333E-03    0.00
+uvmap I:    2   DEC--SIN  128      64.00    6.387E+01   3.333E-03    0.00
+uvmap I:    3   FREQ        1       1.00    1.511E+09   1.250E+07    0.00
+uvmap I: Coordinates for XFR:
+uvmap I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+uvmap I:    1   UU---SIN   65       1.00    0.000E+00  -1.343E+02    0.00
+uvmap I:    2   VV---SIN  128      64.00    0.000E+00   1.343E+02    0.00
+uvmap I:    3   FREQ        1       1.00    1.511E+09   1.250E+07    0.00
+uvmap I:    4   RA---SIN    1      64.00    5.617E+00  -3.333E-03    0.00
+uvmap I:    5   DEC--SIN    1      64.00    6.387E+01   3.333E-03    0.00
+uvmap I: Got data: User:     1.57
+uvmap I: Weighting for fraction of field of view =    1.00
+uvmap I: Weighting completed: User:     1.60
+uvmap I: Sum of weights =    2.082500E+02
+uvmap I: Opening FITS file D0/3C10NEWBEAM.FTS for WRITE as PSF
+uvmap I: Writing 2-dimensional image PSF
+uvmap I: Written PSF: User:     2.45
+uvmap I: Opening FITS file D0/3C10NEWMAP.FTS for WRITE as Dirty
+uvmap I: Writing 2-dimensional image Dirty
+uvmap I: Written Dirty: User:     3.25
+uvmap I:
+uvmap I: Started  :  0:20:26  3/21/90
+uvmap I: Finished :  0:20:34  3/21/90
+uvmap I: User:     3.26
+clean I:
+clean I: I perform Clark or Hogbom CLEAN deconvolution
+clean I:
+clean I: Compiled : Tue Mar 20 17:26:20 CST 1990
+clean I:
+clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: Dirty [must be specified] : Dirty = D0/3C10NEWMAP.FTS
+clean I: Point spread function [must be specified] : PSF = D0/3C10NEWBEAM.FTS
+clean I: Residual image [optional] : Residual =
+clean I: Components image [optional] : Components =
+clean I: CLEAN image [optional] : CLEAN = D0/3C10NEWCLN.FTS
+clean I: Name of list of Clean components [optional] : CCfile =
+clean I: Bottom left corner of window [pixels] : BLC = 1, 1, 1, 1, 1, 1,
+clean I:  1
+clean I: Top right corner of window [pixels] : TRC = 512, 512, 1, 1, 1,
+clean I:  1, 1
+clean I: Number of Iterations : Niter = 20000
+clean I: Cutoff in flux [Jy/beam] : Flux = 3.0000000E-03
+clean I: Loop gain : Gain = 0.1000000
+clean I: Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec] : Beam = 45.00000,
+clean I:  45.00000, 0.0000000E-01, 0.0000000E-01
+clean I: Algorithm to use [CLARK | HOGBOM] : Algorithm = CLARK
+clean I: Size of list for cleaning : Numcl = 16384
+clean I: Size of beampatch [pixels] : Bpatch = 64
+clean I: *clean I: Clark algorithm
+clean I: Opening FITS file D0/3C10NEWMAP.FTS for READ as Initial Dirty
+clean I: Opening FITS file D0/3C10NEWBEAM.FTS for READ as PSF
+clean I: Got images: User:     1.30
+clean I:   Nlocations     Ncomps   Residual(Jy/beam)   Total Flux(Jy)
+clean I:      974            2        6.2725E-01         1.3386E-01
+clean I:     1104           10        5.5403E-01         6.0019E-01
+clean I:     1314           39        4.6505E-01         2.0675E+00
+clean I:     1585          121        3.5915E-01         5.3794E+00
+clean I:     1853          320        2.5564E-01         1.1318E+01
+clean I:     2080          734        1.6969E-01         1.9817E+01
+clean I:     2220         1374        1.0003E-01         2.7588E+01
+clean I:     2369         2255        5.4265E-02         3.2986E+01
+clean I:     2390         3287       -2.7101E-02         3.6185E+01
+clean I:     2464         4506        1.2903E-02         3.7975E+01
+clean I:     2835         6293        6.2386E-03         3.9129E+01
+clean I:     2792         8532        2.9938E-03         3.9923E+01
+clean I: Finished CLEAN: User:    15.37
+clean I: Opening FITS file D0/3C10NEWCLN.FTS for WRITE as Clean
+clean I: Writing 2-dimensional image Clean
+clean I:
+clean I: Started  :  0:20:34  3/21/90
+clean I: Finished :  0:21:15  3/21/90
+clean I: User:    15.77
+vm I:
+vm I: I perform maximum entropy deconvolution
+vm I:
+vm I: Compiled : Tue Mar 20 17:34:22 CST 1990
+vm I:
+vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm E: Unknown command:MaxGrad
+vm I: *vm I: *vm I: Dirty : Dirty = D0/3C10NEWMAP.FTS
+vm I: Point spread function : PSF = D0/3C10NEWBEAM.FTS
+vm I: Default [optional] : Default =
+vm I: VM  [can already exist, optional] : VM =
+vm I: Convolved VM plus residuals [optional] : CVM = D0/3C10NEWCVM.FTS
+vm I: Bottom left corner of window [optional] : BLC = 33, 33, 1, 1,
+vm I:  1, 1, 1
+vm I: Top right corner of window [optional] : TRC = 96, 96, 1, 1, 1,
+vm I:  1, 1
+vm I: Number of Iterations (<0 for automatic stopping) : Niter = -30
+vm I: Required total flux (less than zero for a guess) : Tflux = -60.00000
+vm I: Required final fit in Jy/Beam : Sigma = 9.9999998E-03
+vm I: Form to optimize, Entropy or emptiness [H|E] : Entropy = H
+vm I: Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec] : Beam = 45.00000,
+vm I:  45.00000, 0.0000000E-01, 0.0000000E-01
+vm I: Are the residual independent in the image plane? : ImagePlane = F
+vm I: Image to display on tv [VM|CVM|Step|Residual|None] : TV =
+vm I: *vm I: Maximising entropy -I*logI
+vm I: Opening FITS file D0/3C10NEWMAP.FTS for READ as InitialDirty
+vm I: Opening FITS file D0/3C10NEWBEAM.FTS for READ as PSF
+vm I: Using flat default
+vm I: Iteration          Entropy        Flux        Fit     Gradient
+vm I:      1                8.323     59.245     18.563      0.541
+vm I:      2                8.297     59.156     15.354      0.095
+vm I:      3                8.203     59.849     10.557      0.013
+vm I:      4                8.085     60.507      6.639      0.022
+vm I:      5                8.008     59.356      4.360      0.024
+vm I:      6                7.953     57.298      3.034      0.032
+vm I:      7                7.913     55.075      2.272      0.046
+vm I:      8                7.857     51.899      1.575      0.080
+vm I:      9                7.823     49.181      1.337      0.142
+vm I:     10                7.820     49.003      1.247      0.039
+vm I:     11                7.786     48.288      1.019      0.100
+vm I:     12                7.800     47.993      1.138      0.072
+vm I:     13                7.792     47.889      1.042      0.032
+vm I: Opening FITS file D0/3C10NEWCVM.FTS for WRITE as CVM
+vm I: Writing 2-dimensional image CVM
+vm I:
+vm I: Started  :  0:21:16  3/21/90
+vm I: Finished :  0:21:23  3/21/90
+vm I: User:     2.89

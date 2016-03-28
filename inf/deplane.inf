@@ -1,0 +1,30 @@
+Program:	deplane
+Programmer:	M.A. Holdaway
+Date:		April 9 1993
+Purpose:	To fit and subtract a plane from an image.
+		The user must provide the BLC and TRC of
+		three small regions, over which a Z value
+		is fit, which determines the PLANE,
+		which is then subtracted from the image and 
+		written out.
+
+.
+Image, C, 1, Input Image
+Out, C, 1, Output Image
+BLC1, I, 2, Region 1
+BLC2, I, 2, Region 1 
+BLC3, I, 2, Region 2 
+TRC1, I, 2, Region 2 
+TRC2, I, 2, Region 3 
+TRC3, I, 2, Region 3 
+.
+Image = 
+Out = 
+BLC1 = 0, 0
+BLC2 = 0, 0
+BLC3 = 0, 0
+TRC1 = 0, 0
+TRC2 = 0, 0
+TRC3 = 0, 0
+.
+

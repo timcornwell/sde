@@ -1,0 +1,38 @@
+Program: FFTTST - timing test for  complex FFT routines
+Programmer: R.Payne
+Date: 20 May 1991
+Purpose: FFTTST will calculate the the fast fourier coefficients
+for any length fft greater than 2 and less than 8192.
+
+Details:
+
+START: The starting length of the first fft must be > 1.
+
+STOP:  The final FFT length. Must be <= 8192.
+
+FACTOR: Value to multiply FFT length by for each timing test.
+
+INCREMENT: Value to add to the FFT length for each timing test.
+
+COUNT: The number of FFT interations for timing test.
+
+The first FFT length N = Startfft length
+Each loop does Count iterations of the FFT length.
+The next FFT lenght N = N * Factor + Increment
+Until N is greater than the Stopfft length.
+
+.INFO
+Startfft, I, 1, Start size for the first FFT length
+Stopfft, I, 1, Stop size for the final FFT length
+Factor, I, 1, Factor to multiply FFT length for each timing loop
+Increment, I, 1, Value to add to FFT length for each timing loop
+Count, I, 1, The timing loop does count FFT iterations
+/Debug, L, 1, Debug? T or F
+.DEFAULTS
+Startfft = 128
+Stopfft = 2048
+Factor = 2
+Increment = 0
+Count = 100
+/Debug = F
+.END

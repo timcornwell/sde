@@ -1,0 +1,9 @@
+.
+Vis, C, 1, Input visfile
+Out, C, 1, Output Visfile
+ChiFile, C, 1, Input CHI Table
+.
+Vis = 
+Out = 
+ChiFile = 
+.

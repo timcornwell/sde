@@ -1,0 +1,13 @@
+
+PI varies in definition through out SDE				7/8/92
+
+Problem with non-square images in smoothing routines		7/8/92
+
+Trying to print the value of hidden parameters with a simple
+/parameter, (as opposed to trying to set one with
+/parameter=value), causes the DATGET routines to error
+with an argument mismatch, and the task to exit.  This also
+overwrites the *.cur file with the default values.  :(
+Very annoying, and should be looked at.
+							DSB	3/21/95
+

@@ -1,0 +1,22 @@
+Program: tcorr - simulate speckle masking (triple products in optical data)
+Programmer: R.G Marson
+Date: 29 Aug 1990
+Purpose: After reading Wirnitzer's 1985 paper on speckle masking I wanted to
+         try it out for myself as I was sceptical about some of the results.
+Details: tcorr reads in a model file (currently it only uses a only
+uses a 1 dimensional slice of the model through the x or RA axis) and
+from the model it constructs the triple correlation. Note if the input
+model is N dimensional the triple correlation is 2N dimensional.
+
+If the input model is a 1D model with 256 pixels then the output image
+is 3*256 by 2*256 pixels.
+
+.INFO
+Infile, C, 1, Name of input model file
+Outfile, C, 1, Name of output triple product file
+/Debug, L, 1, Debug status
+.DEFAULT
+Infile = 
+Outfile = 
+/Debug = F
+.END

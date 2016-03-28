@@ -1,0 +1,26 @@
+Program: plot1d
+Programmer: R.G Marson
+Date: 20 Sep 1990
+Purpose: plot1d plots 1-dimensional arrays on a variety of devices
+
+Details: Plot1d uses pgplot to plot the array on a variety of devices
+including the sun screen (/sun) and a postscript file (filname/ps).
+.
+Image, C, 1, Name of input data
+/Debug, L, 1, Debug status
+xlimits, R, 2, x axis limits (0,0 -> autoscale)
+ylimits, R, 2, y axis limits (0,0 -> autoscale)
+xlabel, C, 1, label for the X-axis (default from header or 'X-axis')
+ylabel, C, 1, label for the Y-axis (default from header or 'Y-axis')
+plotlabel, C, 1, label for plot (default 'SDE 1D plot')
+device, C, 1, Device to plot (default is '?')
+.
+Image = 
+/Debug = F
+xlimits = 0.0, 0.0
+ylimits = 0.0, 0.0
+xlabel = 
+ylabel = 
+plotlabel = 
+device = 
+.

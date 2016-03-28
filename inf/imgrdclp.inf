@@ -1,0 +1,13 @@
+.
+Image, C, 1, Input image
+Output, C, 1, Output image
+Maxradius, R, 1, max radius [arcsec]
+Minradius, R, 1, min radius [arcsec]
+ClipValue, R, 1, value to clip to
+.
+Image = 
+Output = 
+Maxradius = 0.0
+Minradius = 0.0
+ClipValue = 0.0
+.

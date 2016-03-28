@@ -1,0 +1,17 @@
+Program: TEMPLATE - do nothing at all
+Programmer: E.J. Narg
+Date: 5 Nov 1987
+Purpose: TEMPLATE does absolutely nothing useful at all. It can be used
+in conjunction with other null programs to waste no computer time.
+
+Details: Put useful stuff here.
+
+.INFO
+Infile, C, 1, Input image
+Outfile, C, 1, Output image
+/Debug, L, 1, Debug T or F (must be set each time)
+.DEFAULT
+Infile = 
+Outfile = 
+/Debug = F
+.END

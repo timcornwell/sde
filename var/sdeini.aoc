@@ -1,0 +1,10 @@
+SDEREMOTE="rsh zia . /home/zia/sde/sdeini;cd source;"
+export SDEREMOTE
+D0=/home/zia/sde/data
+export D0 T1 
+if test X$ARCH = "XRIOS"
+then
+   SDEREMOTE=
+   SDEBIN=/kiowa/sde/bin/RIOS
+   SDELIB=/kiowa/sde/lib/RIOS
+fi

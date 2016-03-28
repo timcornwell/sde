@@ -1,0 +1,11 @@
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input image
+Reference, C, 1, Reference image
+Output, C, 1, Output image
+.
+/Debug = F
+Image =
+Reference =
+Output = 
+.

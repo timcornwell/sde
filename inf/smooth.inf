@@ -1,0 +1,17 @@
+If the input image is in the sky plane, the beam is measured in arc
+seconds.  If it is in the uv plane, the beam is measured in klambda.
+.
+Image, C, 1, Input image
+Smooth, C, 1, Smoothed image
+Beam, R, 4, Smoothing beam ( Bmaj, Bmin, Bpa )
+BeamFile, C, 1, Use beam from this file
+FitAlg, C, 1, Beam fitting algorithm
+Normalize, C, 1, How to fix beam: [Peak | Integral] = 1.0
+.
+Image = 
+Smooth = 
+Beam = 8, 8, 0.0
+BeamFile =
+FitAlg = HDR-LINEAR
+Normalize = I
+.

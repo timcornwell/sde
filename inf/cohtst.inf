@@ -1,0 +1,41 @@
+.
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes in arc-seconds
+Uvlimits, R, 2, Limits of allowed u,v (wavelengths)
+Timerange, I, 8, Timerange (d,h,m,s)
+Taverage, R, 1, Integration time for image (seconds)
+Vis, C, 1, Visibility data
+Residual, C, 1, Residual image
+Components, C, 1, Components image
+CLEAN, C, 1, CLEAN image
+BLC, I, 7 * 1, Bottom left corner of window
+TRC, I, 7 * 1, Top right corner of window
+Niter, I, 1, Number of Iterations
+Flux, R, 1, Cutoff in flux
+Gain, R, 1, Loop gain
+Beam, R, 4, Clean beam: Bmaj, Bmin, Bpa, Bz
+/DEBUG, L, 1, Debug
+ZFlux, R, 1, Zero spacing flux
+Outfile, C, 1, File for gain listing
+Plotfile, C, 1, File for plot
+.
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Uvlimits = 0.0, 1000000000
+Timerange = 0,0,0,0,1000,0,0,0
+Taverage = 86400
+Vis = 
+Residual = 
+Components = 
+CLEAN = 
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Niter = 1
+Flux = 0.0
+Gain = 0.1
+Beam = 2.5, 2.5, 0.0, 2.5
+/DEBUG = F
+ZFlux = 1.0
+Outfile =
+Plotfile =
+.

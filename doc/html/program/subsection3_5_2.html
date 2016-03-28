@@ -1,0 +1,33 @@
+<HEAD>
+<TITLE> Error handling: ERR routines</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html152 HREF=subsection3_5_3.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html150 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html144 HREF=subsection3_5_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html154 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html153 HREF=subsection3_5_3.html> Messages: MSG routines</A>
+<B>Up:</B> <A NAME=tex2html151 HREF=section3_5.html> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html145 HREF=subsection3_5_1.html> Database access: DAT </A>
+<HR> <P>
+<H2><A NAME=SECTION0005200000000000000> Error handling: ERR routines</A></H2>
+<P>
+The error handling system consists of a small number of routines.
+<UL><LI> <tt>ERRREPOR (REASON, ROUTINE, TEXT)</tt>: report an error to the error
+handling system. The error message is stored away and <tt>ERROR</tt> is set
+to be true.
+<LI> <tt>ERRCHANG (REASON, ROUTINE, TEXT)</tt>: changes an existing error which
+was reported in routine <tt>ROUTINE</tt>.
+<LI> <tt>ERRREASO (REASON)</tt>: gives the reason for the last reported error. 
+If appropriate, an error can then be cancelled using <tt>ERRCANCE</tt>.
+<LI> <tt>ERRCANCE</tt>: deletes all error conditions.
+<LI> <tt>ERRTRACE (ROUTINE)</tt>: is called to indicate that an error was 
+reported by a subroutine called from this one.
+</UL>
+The variables are:
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_29564_tabbing196.xbm"><P>
+<P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:45:41 MST 1994</I>
+</ADDRESS>

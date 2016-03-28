@@ -1,0 +1,51 @@
+.
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes in arc-seconds
+FOV, R, 1, Weighting 0=> Natural, 1=> Uniform
+Uvlimits, R, 2, Limits of allowed u,v (wavelengths)
+Timerange, I, 8, Timerange (d,h,m,s)
+PhaseStep, R, 1, Step in phase (turns)
+Phaserange, R, 2, Range of phases (turns)
+/TZPhase, I, 4, Time of zero phase (in d,h,m,s)
+/Period, R, 1, Period (in days)
+LSTrange, I, 8, LST range (d,h,m,s)
+Vis, C, 1, Visibility data
+/Residual, C, 1, Residual image
+/Components, C, 1, Components image
+/CLEAN, C, 1, CLEAN image
+Cube, C, 1, Cube image
+PCube, C, 1, Cube of PSFs
+BLC, I, 7 * 1, Bottom left corner of window
+TRC, I, 7 * 1, Top right corner of window
+Box, C, 1, Soft CLEAN box
+Niter, I, 1, Number of Iterations
+Flux, R, 1, Cutoff in flux
+Gain, R, 1, Loop gain
+Beam, R, 4, Clean beam: Bmaj, Bmin, Bpa, Bz
+/Debug, L, 1, Debug
+.
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+FOV = 0.0
+Uvlimits = 0.0, 1000000000
+Timerange = 0,0,0,0,0,0,0,0
+PhaseStep = 0.1
+/TZPhase = 0, 0, 0, 0
+Phaserange = 0.0, 1.0
+/Period = 1.0
+LSTrange = 0,0,0,0,0,0,0,0
+Vis = 
+/Residual = 
+/Components = 
+/CLEAN = 
+Cube =
+PCube = 
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Box =
+Niter = 1
+Flux = 0.0
+Gain = 0.1
+Beam = 0.0, 0.0, 0.0, 0.0
+/Debug= F
+.

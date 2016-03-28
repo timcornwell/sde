@@ -1,0 +1,15 @@
+.
+Image, C, 1, Input image
+Padim, C, 1, Padded output image
+Padsize, I, 7, Size of output image
+Padval, R, 1, Padding value
+Blank, I, 1, Use blanking rather than Padval?
+Padtype, C, 1, REF -> Ref pixel at center, CEN -> symmetric padding
+.
+Image = 
+Padim = 
+Padsize = 256, 256, 1, 1, 1, 1, 1
+Padval = 0.0
+Blank = 0
+Padtype = REF
+.

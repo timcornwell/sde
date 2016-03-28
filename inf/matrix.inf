@@ -1,0 +1,12 @@
+The opcode may be overridden with a go command
+.
+MAT1, C, 1, First Matrix
+MAT2, C, 1, Second Matrix
+Output, C, 1, Output Matrix
+OpCode, C, 1, MULT | TRANS | FLIP
+.
+MAT1 =
+MAT2 =
+Output =
+OpCode =
+.

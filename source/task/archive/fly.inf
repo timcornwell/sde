@@ -1,0 +1,65 @@
+.
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes (arc-seconds)
+Shift, R, 2, Shift of tangent point (arcseconds)
+FOV, R, 1, Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM
+Stokes, C, 1, 'I|Q|U|V'
+Uvlimits, R, 2, Limits of allowed u,v [wavelengths]
+UDistance, R, 1, Distance from u axis to be flagged [wavelengths]
+Filter, R, 3, Filter for sources [Bmaj, Bmin, Bpa]
+Timerange, I, 8, Timerange (d,h,m,s)
+/ConvType, C, 1, Convolution function SF, SZE or BOX
+Vis, C, 1, Visibility data
+Residual, C, 1, Residual image
+PSF, C, 1, Name of PSF file
+CLEAN, C, 1, CLEAN image
+Checkpoint, C, 1, Name of checkpoint file
+Restart, L, 1, Restart from checkpoint [T|F]
+Niter, I, 1, Total Number of Iterations
+Riter, I, 1, Number of Iterations to resume at
+Flux, R, 1, Cutoff in flux
+Fswitch, R, 1, Flux level below which FFTs are used
+Gain, R, 1, Loop gain
+Beam, R, 4, Clean beam: Bmaj, Bmin, Bpa, Bz
+/Border, I, 1, Size of Border
+/Numcl, I, 1, Size of list for cleaning
+/Bpatch, I, 1, Size of beampatch [pixels]
+/Speed, R, 1, Speed [larger means slower]
+Limit, R, 1, Fraction of peak to clean to [0->1]
+TVImage, I, 1, Write to tv? [Imagenumber]
+/Debug, L, 1, Debug
+Np, I, 1, Number of patchs = (2*Np+1)**2
+Space, L, 1, Save space at expense of CPU? [T|F]
+.
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Shift = 0., 0.
+FOV = 1.0
+Stokes=I
+Uvlimits = 0.0, 1000000000
+UDistance = 0.0
+Filter=0.0, 0.0, 0.0
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+/ConvType = SF
+Vis = 
+Residual = 
+PSF = 
+CLEAN = 
+Checkpoint = 
+Restart = F
+Niter = 100
+Riter = 0
+Flux = 0.0
+Fswitch=1E20
+Gain = 0.1
+Beam = 0.0, 0.0, 0.0, 0.0
+/Border=1
+/Numcl = 16384
+/Bpatch = 64
+/Speed = 1.0
+Limit=0.0
+/Debug = F
+TVImage=-1
+Np = 0
+Space = T
+.

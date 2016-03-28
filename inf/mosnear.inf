@@ -1,0 +1,20 @@
+mosnear		Each pointing has an anulus ranging from RADIUS(1) to RADIUS(2).
+		The annulus is checked to see if it overlaps with any of the
+		masked regions which are in the Mask image.  If Mode is IN,
+		we report overlaps, of Mode is OUT, we report just those
+		which do NOT overlap.
+
+programmer	m.a. holdaway
+date		april 30 1995
+
+.
+Mos, C, 1, Input mosaic database
+Mask, C, 1, Input mask image
+Radius, R, 2, Inner and Outer radius for overlap with masked image [arcsec]
+Mode, C, 1, Report back pointings IN or OUT of the mask?
+.
+Mos = 
+Mask = 
+Radius = 0.0, 2610.0
+Mode = IN
+.

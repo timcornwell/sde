@@ -1,0 +1,11 @@
+.
+BW, R, 1, Bandpass i[MHz]
+NChan, I, 1, Number of channels
+DDRIFT, R, 1, D term phase drift per channel [degrees]
+BPRIP, R, 1, Amplitude of PB ripple
+.
+BW = 25.0
+NChan = 32
+DDRIFT = 10.0
+BPRIP = .08
+.

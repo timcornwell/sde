@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> User interface: USR routines</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" User interface: USR routines">
+<meta name="keywords" value="program">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html173 HREF="node12.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html171 HREF="node7.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html165 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html175 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html174 HREF="node12.html"> Text input and </A>
+<B>Up:</B> <A NAME=tex2html172 HREF="node7.html"> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html166 HREF="node10.html"> Messages: MSG routines</A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00054000000000000000> User interface: USR routines</A></H2>
+<P>
+The user interface consists on a control routine, <tt> USRCTL</tt> and
+several routines for getting values.
+<UL><LI> <tt> USRCTL</tt>: is called to allow the user to input parameters. 
+<LI> <tt> USRGETR (NAME, VALUE, NVALS, ANVALS)</tt>: returns the value(s) of
+a parameter <tt> NAME, CHARACTER*(*)</tt> in an array <tt> VALUE,
+REAL</tt>. <tt> NVALS, INTEGER</tt> values are asked for, <tt> ANVALS, 
+INTEGER</tt> returned. As you might expect by now, there also exist <tt>
+USRGETI, USRGETD, USRGETX, USRGETL, USRGETC</tt>.
+<LI> <tt> USRGETGO (GOCMD)</tt>: gets the command which go was given. The user
+can type 'go list', for example. <tt> GOCMD, CHARACTER*(*)</tt> then has
+the value 'list'. This is useful for interactive tasks. <tt> USRCTL</tt> can
+be called in an infinite loop, and <tt> GOCMD</tt> acted on as
+appropriate.
+</UL>
+<P>
+<tt> USRCTL</tt> performs the following operations:
+<OL><LI> The information about the task parameters is read from a file
+<em> taskname.inf</em> which can be kept either in the current directory or in the
+global INF directory. This file contains descriptions of the parameters,
+and default values.
+<LI> The parameter values from the previous run are read from the file
+<em> taskname.cur</em>. If this does not exist then the default values are used.
+<LI> The user is prompted with a * to give inputs.
+<LI> At EOF (Control-D or Control-Z as appropriate) or on receipt of the
+command go, the file <em> taskname.cur</em> is written with the current parameter
+values, and <tt> USRCTL</tt> exits.
+</OL>
+<P>
+The format of the information file is:
+<PRE>Program: IMGLC - Perform linear combination of two images
+Programmer: T.J. Cornwell
+Date: 1 Jan 1989
+Purpose: IMGLC allows two images to be added with arbitrary weights.
+
+Details: Put useful stuff here.
+
+.INFO
+Image1, C, 1, First Input image
+Image2, C, 1, Second Input image
+Output, C, 1, Output image
+Weight1, R, 1, Weight of first image
+Weight2, R, 1, Weight of second image
+/Debug, L, 1, Debug T or F (must be set each time)
+.DEFAULT
+Image1 = 
+Image2 = 
+Output = 
+Weight1 = 1.0
+Weight2 = 1.0
+/Debug = F
+.END
+</PRE>
+Commentary:
+<UL><LI> The first part is the help text which tells about the task itself.
+This should contain information useful to the user. This can be read by
+the user by typing help at the * prompt.
+<LI> The next, <tt> INFO</tt>, section contains specificiations of the
+input parameters. The fields are: first, the name as known to the
+user, second, the type (one of <tt> R, I, D, X, L, D, C</tt>), third, the
+number of values, and fourth, an explanatory string.
+<LI> The <tt> DEFAULT</tt> section contains default values for the variables.
+Note that strings can be left empty.
+<LI> A variable may be hidden from the user by prepending it with a /.
+Such a variable does not show in the inputs, and it is not saved in the
+file of current values. Hence the default value must be sensible. This
+capability is most useful for parameters which are only useful in
+debugging. A useful trick is to have a parameter called Debug, which is
+read into the global debug status variable <tt> SYSDEBUG</tt>. We accomplish
+this with a call to <tt> USRGETL</tt>:
+<PRE>      CALL USRGETL ('Debug', SYSDEBUG, 1, ANVAL)
+</PRE>
+Debug can be hidden by prepending it with a / in the information file. Note
+that the internal name does not need a prepended /.
+</UL><BR> <HR><A NAME=tex2html173 HREF="node12.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html171 HREF="node7.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html165 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html175 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html174 HREF="node12.html"> Text input and </A>
+<B>Up:</B> <A NAME=tex2html172 HREF="node7.html"> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html166 HREF="node10.html"> Messages: MSG routines</A>
+<BR> <HR> <P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Wed Jan  3 09:21:29 MST 1996</I>
+</ADDRESS>
+</BODY>

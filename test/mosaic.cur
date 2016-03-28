@@ -1,0 +1,31 @@
+ Mosaic = D0/3C10MOS.sandia.SDE
+ Default =
+ VM =
+ CVM = D0/3C10MOSCVM.sandia.FTS
+ Residual =
+ Niter = 14
+ Tflux = -60.0000
+ Sigma = 1.00000
+ Telnames = VLA
+ CannedPB = F
+ Sigtel = 0.337200, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+ 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+ 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+ 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03
+ Entropy = H
+ Beam = 45.0000, 45.0000, 0.0, 0.0
+ Imsize = 64, 64, 1
+ Cellsize = 12.0000, 12.0000, 12.0000
+ Uvlimits = 0.0, 1.00000E+10
+ Filter = 0.0, 0.0, 0.0
+ Shift = 0.0, 0.0, 0.0
+ Stokes = I
+ FOV = 1.00000
+ RMode = NONE
+ Robust = 0.0, 0.0, 0.0
+ MinPB = 1.00000E-01
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ NicePSF = F
+ DFT =
+ Convtype = SF
+ Dotv = F

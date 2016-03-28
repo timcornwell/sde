@@ -1,0 +1,33 @@
+Program to plot D terms as a function of time, and to produce scatter plots
+of DR + DL*
+.
+DFile, C, 1, Input File
+Ant, I, 1, Antenna to plot
+Hand, C, 1, R or L for D term?
+DevAmp, C, 1, Amplitude display device
+DevPha, C, 1, Phase display device
+Style, I, 1, Style for graph markers
+Npoints, I, 1, How many D terms to plot? [0=all]
+DevRscat, C, 1, D_{r} scatter plot dev
+DevLscat, C, 1, D_{l} scatter plot dev
+DevRLscat, C, 1, D_{r} + D_{l}* scatter plot dev
+Nplots, I, 1, How many solutions to plot?
+Stat2, L, 1, Do RR and LL statistics?
+Stat3, L, 1, Do average variability statistics?
+Stat4, L, 1, Do ABS D term stats?
+.
+DFile = 
+Ant = 1
+Hand = R
+DevAmp =
+DevPha =
+Style = -9049
+Npoints = 0
+DevRscat =
+DevLscat =
+DevRLscat =
+Nplots = 1
+Stat2 = F
+Stat3 = F
+Stat4 = F
+.

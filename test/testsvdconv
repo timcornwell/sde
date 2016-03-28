@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# Time svdconv on this machine
+#
+# Audit trail:
+# 	New version
+#			T.J. Cornwell 15 November 1994
+#
+LOG=$0.`hostname`
+TAIL=`hostname`
+echo timing svdconv on host `hostname` at `date` > $LOG
+echo `sdever` >> $LOG
+svdconv << EOF >> $LOG
+ Dirty = D0/3C10MAP.FTS
+ PSF = D0/3C10BEAM.FTS
+ Residual =
+ Components =
+ DataWindow = input.reg
+ FluxWindow = output.reg
+ Image = D0/3C10NEWNNLS.${TAIL}.FTS
+ BLC = 33, 33, 1, 1, 1, 1, 1
+ TRC = 96, 96, 1, 1, 1, 1, 1
+ Half = T
+ Algorithm = NNLS
+ Double = F
+ NIbegin = 1
+ NIend = 1
+ NIinc = 1.000000000
+ Beam = 45.00000000, 45.00000000, 0.0000000000E+00, 0.0000000000E+00
+ FitAlg = LINEAR
+ MinSV = 0.0000000000E+00
+ WriteSVD = F
+ ReadSVD = F
+ Format =
+ inp
+ go
+EOF
+imgstat << EOF >> $LOG
+ Image = D0/3C10NEWNNLS.${TAIL}.FTS
+ BLC = 0, 0, 0, 0, 0, 0, 0
+ TRC = 0, 0, 0, 0, 0, 0, 0
+ inp
+ go
+EOF
+echo "****" >> $LOG
+echo "**** Expected Rms     =   2.865E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Maximum =   9.716E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Minimum =  -2.518E-02 JY/BEAM ****" >> $LOG

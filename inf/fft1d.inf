@@ -1,0 +1,39 @@
+Program:   FFT1D
+Purpose:   To perform multiple 1-Dimensional Forward FFT's on a 2 D image
+           along either the rows or the columns.
+Programmer:    R. G. Marson, 3-JAN-1992
+Bugs:          Needs to do a reverse Transform
+               Needs to do 2-D Transforms.
+               Needs to modify the header
+               Should be able to call the full suite of FFT routines 
+Currently includes:
+	fft1rx
+	fft1xr
+	fft1xx
+	fft12rx
+	fft12xr
+	fft12xx
+	fft2rx
+.
+In, C, 1, Name of Input File to be FFT'd
+In1, C, 1, Secondary input file (Complex FITS data)
+InType, C, 1, A-> Amplitude-Phase: R-> Real-Imaginary (FITS files only)
+Out, C, 1, Output image
+Out1, C, 1, Secondary Output Image (If saving as a FITS file)
+OutType, C, 1, A-> Amplitude-Phase: R-> Real-Imaginary (FITS files only)
+Dimension, I, 1, Dimension of FFT to do
+Axis, I, 2, FFT along? Axis=1 ->Rows, Axis=2 -> Columns
+Dir, I, 1, +1-> Forward Transform (X->X Transforms only)
+Full, L, 1, Produce a FULL image R->X or Input data is Not Packed X->R,X
+.
+In =
+In1 =
+InType =
+Out =
+Out1 = 
+OutType = A
+Dimension = 1
+Axis = 1, 2
+Dir = 1
+Full = F
+.

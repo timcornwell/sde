@@ -1,0 +1,29 @@
+mosobsof
+
+This is a program to calculate mosaic pointings using a mask file
+of the image that should be mosaiced
+.
+MaskFile, C, 1, Name of mask image
+Freq, R, 1, Frequency in Hz
+Liberal, L, 1, T: give more pointings if in doubt
+Source, C, 1, Source name (9 chars)
+BAND, C, 1, Bandwidth code (ie, LL )
+UserDef, C, 1, UserDefault code (2 letters)
+EPOCH, C, 1, [J|B]
+DURATION, I, 1, Scan duration in seconds
+Style, C, 1, Output style [POINTINGS | OFFSET ]
+OutFile, C, 1, Output Text File
+Sensitivity, C, 1, Output Sensitivity Image
+.
+MaskFile = 
+Freq = 1.465E+9
+Liberal = T
+Source = S
+BAND = LL
+UserDef = ML
+EPOCH = J
+DURATION = 30
+Style = POINTINGS
+OutFile = 
+Sensitivity =
+.

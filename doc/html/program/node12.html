@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Text input and output: TXT routines</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Text input and output: TXT routines">
+<meta name="keywords" value="program">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html184 HREF="node13.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html182 HREF="node7.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html176 HREF="node11.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html186 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html185 HREF="node13.html"> String handling: STR </A>
+<B>Up:</B> <A NAME=tex2html183 HREF="node7.html"> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html177 HREF="node11.html"> User interface: USR </A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00055000000000000000> Text input and output: TXT routines</A></H2>
+<P>
+All text i/o should go through the text handling system. This uses
+string handles for files: these are just simple names rather than
+logical units.
+<UL><LI> <tt> TXTOPEN (HANDLE, FILE, STATUS)</tt>: Open an external file <tt> FILE</tt>
+using a status <tt> STATUS, CHARACTER*(*)</tt> and associate it with a handle.
+<tt> STATUS</tt> can be one of <tt> READ, WRITE</tt> or <tt> READWRITE</tt>.
+<LI> <tt> TXTCLOSE (HANDLE)</tt>: closes the i/o stream with handle <tt> HANDLE</tt>.
+<LI> <tt> TXTREAD (HANDLE, LINE, NCHAR, EOF)</tt>: reads a line from the stream
+and returns the number of characters read <tt> NCHAR, INTEGER</tt> and 
+an end-of-file indicator <tt> EOF, LOGICAL</tt>. A blank line returns
+<tt> NCHAR = 0</tt> and <tt> EOF = .FALSE.</tt>.
+<LI> <tt> TXTWRITE (HANDLE, LINE)</tt>: writes the line to the stream.
+</UL>
+The variables are:
+<PRE><TT> 
+<tt> HANDLE</tt>		<tt> CHARACTER*(*)</tt>		Handle by which this i/o stream is known
+<P>
+<tt> FILE</tt>		<tt> CHARACTER*(*)</tt>		Name of external file: can include logical names
+<P>
+<tt> LINE</tt>		<tt> CHARACTER*(*)</tt>		Line for input or output
+<P>
+</TT></PRE><BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Wed Jan  3 09:21:29 MST 1996</I>
+</ADDRESS>
+</BODY>

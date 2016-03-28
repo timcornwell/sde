@@ -1,0 +1,15 @@
+Program: imgexp - Exponentiate an image
+Programmer: R.G Marson
+Date: 19 June 1993
+Purpose: Calculates exp(IMAGE) on a pixel by pixel basis
+
+Details: Simplest SDE program I have ever written!
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input cube
+Output, C, 1, Output image
+.
+/Debug = F
+Image =
+Output = 
+.

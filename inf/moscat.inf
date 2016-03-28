@@ -1,0 +1,27 @@
+Concatenates two mosaic data bases.
+Mode:   NEW ==>	make seperate directories in the new database
+		for Mos1 and Mos2
+	APPEND ==>If OBSRA, OBSDEC, and all TELESCOP
+		parameters are the same for a given
+		pointing in Mos1 and Mos2, append the
+		Mos2/PC? data to Mos1/PC?
+	REPLACE ==>If OBSRA, OBSDEC, and all TELESCOP
+		parameters are the same for a given
+		pointing in Mos1 and Mos2, repalce the
+		Mos1/PC? data with Mos2/PC?
+
+Tolerance:	Tolerance in RA, DEC for APPEND, REPLACE
+
+.
+Mos1, C, 1, Name of mosaic database
+Mos2, C, 1, Name of mosaic database
+Outfile, C, 1, Name of output mosaic database
+Mode, C, 1, What to do with dup pointings? [NEW | APPEND | REPLACE]
+Tolerance, R, 1, max positional error between MOS1, MOS2 [arcsec]
+.
+Mos1 =
+Mos2 =
+Outfile =
+Mode = NEW
+Tolerance = 0.1
+.

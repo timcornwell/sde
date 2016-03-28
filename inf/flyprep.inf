@@ -1,0 +1,7 @@
+.
+Vis, C, 1, Name of visibility database
+Outfile, C, 1, Name of output visibility database
+.
+Vis =
+Outfile =
+.

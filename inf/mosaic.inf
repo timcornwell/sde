@@ -1,0 +1,81 @@
+Program: MOSAIC - a Maximum Entropy mosaicing program
+Programmer: T.J. Cornwell
+Date: 4 Nov 1987
+Purpose: To deconvolve a point spread function from an image by maximising the
+image entropy or emptiness subject to the data constraints. Works in Fourier 
+plane. This replaces omosaic.
+
+This program performs the totally wonderful Cornwell-Evans MEM algorithm.
+.
+Mosaic, C, 1, Mosaic visibility file (must be specified if Vis is not)
+Default , C, 1, Default  (can be left blank)
+VM , C, 1, VM  (can already exist, can be left blank)
+CVM , C, 1, Convolved VM plus residuals (can be left blank)
+Residual, C, 1, Residual image (can be left blank)
+Niter, I, 1, Number of Iterations (<0 for automatic stopping)
+Tflux, R, 1, Required total flux (<0 for a guess)
+Sigma, R, 1, Required final fit in Jy/beam or Jy
+Telnames, C, 20, Telescopes with specific sigma
+CannedPB, L, 1, Use Canned PB in mosaic database?
+Sigtel, R, 20, Sigma for specific telescope
+Entropy, C, 1, Form to optimize, Entropy or emptiness [H|E]
+Beam, R, 4, Smoothing beam, BMAJ, BMIN, BPA, BZ
+/Write, I, 1, Write vm images every Write iterations
+/Debug, L, 1, Debug? T or F
+/Tolerance, R, 1, Tolerance for convergence
+/Npoints, R, 1, Starting points per beam
+/Gain, R, 1, Gain in iteration process
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes in arc-seconds
+Uvlimits, R, 2, UV limits in wavelengths
+Filter, R, 3, Filter for sources of this size: BMAJ, BMIN, BPA (asec)
+Shift, R, 3, Shift in arcseconds
+Stokes, C, 1, Stokes type [I|Q|U|V|R|L]
+FOV, R, 1, FOV for weighting
+RMode, C, 1, Robust Mode is NORM, AZ-NORM or NONE
+Robust, R, 3, Robust weighting parameter(s)
+MinPB, R, 1, Minimum level in Primary beam to include {fraction]
+Timerange, I, 8, Timerange (d,h,m,s)
+/SlowZ, L, 1, Slow transform in Z?, T or F
+NicePSF, L, 1, Reweight to get nice PSF [T|F]
+DFT, C, 20, List of telescopes for which a DFT is to be used
+Convtype, C, 1, Convolution function SF, SZE or BOX
+Dotv, L, 1, Write iterations to TV file ?
+.DEFAULT
+Mosaic = 
+Default = 
+VM = 
+CVM = 
+Residual =
+Niter = 10
+Tflux = -1.0
+Sigma = 0.001
+Telnames =
+CannedPB = F
+Sigtel = 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 
+0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 
+0.001
+Entropy = H
+Beam = 0,0,0,0
+/Write = 10
+/Debug = F
+/Tolerance = 0.05
+/Npoints = 10.0
+/Gain = 0.3
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Uvlimits = 0.0, 1.0E10
+Filter = 0.0, 0.0, 0.0
+Shift = 0.0, 0.0, 0.0
+FOV = 0.0
+RMode = NONE
+Robust = 0.0, 0.0, 0.0
+MinPB = 0.1
+Stokes = I
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+/SlowZ = T
+NicePSF = F
+DFT =
+Convtype = SF
+Dotv = F
+.END

@@ -1,0 +1,47 @@
+Normalize = ' ' => image is scaled by Out = In * Scale + Offset
+Normalize = 'P' => image is scaled by Out = In / Max * Scale + Offset
+ where Max is the maximum value in the file.  That is, the file is first
+ scaled to a peak of unity before the normal scaling is applied.
+Normalize = 'I' => image is scaled by Out = In / Sum * Scale + Offset
+ where Sum is the sum of the pixels in the image.  The file is first
+ scaled to a sum of unity before the scaling is applied.
+Normalize = 'B' => image is scaled by Out = In * C * Scale + Offset
+ where C is the number of pixels per beam, specified by BEAM or BEAMFILE
+
+SAOimage style transformations made be made with SAOmode and SPar
+parameters.  When this transformation is applied, a linear display of
+the image will appear as the SAOimage scaled image.  Mixing modes will
+have somewhat unpredicatable results.  The image is preclipped to PixRange
+
+The beam fitting algorithm may be LINEAR, NONLINEAR, ARCHIVE, HDR-LINEAR,
+HDR-NONLINEAR, HDR-ARCHIVE, L, N, A, HL, HNL, HA
+
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input cube
+Output, C, 1, Output image
+Scale, R, 1, Scale
+Offset, R, 1, Offset
+Normalize, C, 1, Normalize?  I, P, B, or ' '
+Beam, R, 4, Beam size for norm ( Bmaj, Bmin, Bpa )
+BeamFile, C, 1, Use beam from this file
+FitAlg, C, 1, Beam fitting algorithm
+BUNIT, C, 1, Set BUNIT in header to this
+PixRange, R, 2, Preclip pixel range
+SAOmode, C, 1, LIN | LOG | SQRT | WRAP | 2LOG
+SPar, R, 1, SAOmode parameter
+.
+/Debug = F
+Image =
+Output = 
+Scale = 1.0
+Offset = 0.0
+Normalize = 
+Beam = 0, 0, 0, 0
+BeamFile =
+FitAlg = HDR-LINEAR
+BUNIT =
+PixRange = 0, 0
+SAOmode = 
+SPar = 0.0
+.

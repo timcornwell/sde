@@ -1,0 +1,32 @@
+program		imgfid
+programmer	m.a. holdaway
+when		long ago
+why		to evaluate the fidelity of simulated images
+
+added		a new mode, MOMENT, and POWER (ie, POWER=1 => 1st moment)
+		the fidelity is weighted by the flux of each pixel
+		For MODE=MOMENT, CLIPMIN applies to the Model Image
+		after smoothing
+.
+Image, C, 1, Reconstructed image
+Model, C, 1, Model (true) image
+SENS, C, 1, Sensitivity image
+Mode, C, 1, Fidelity Mode [MEDIAN|MOMENT]
+Power, R, 1, Moment power
+Smooth, R, 4, Beam: Bmaj, Bmin, Bpa, Bz
+FidIm, C, 1, Output Fidelity Image
+ClipMin, R, 1, Minimum value for MED calculation
+ClipMax, R, 1, Maximum value for MED calculation
+DevScatter, C, 1, GR DEV for BRIGHT - FID scatter plot
+.
+Image = 
+Model =
+SENS =
+Mode = 
+Power = 1.0
+Smooth = 0., 0., 0., 0.
+FidIm =
+ClipMin = 1.5
+ClipMax = 5000.
+DevScatter =
+.

@@ -1,0 +1,118 @@
+This is TeX, C Version 3.14t3 (format=lplain 93.1.6)  3 JAN 1996 09:13
+**images.tex
+(images.tex
+LaTeX Version 2.09 <7 Dec 1989>
+
+(/opt/local/lib/tex/inputs/article.sty
+Document Style `article' <16 Mar 88>.
+(/opt/local/lib/tex/inputs/art11.sty)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+)
+\lthtmlwrite=\write3
+\sizebox=\box25
+(images.aux)
+Overfull \hbox (24.10892pt too wide) in paragraph at lines 30--46
+[][]
+
+\hbox(91.13744+85.66245)x449.55362
+.\hbox(0.0+0.0)x17.0
+.\hbox(91.13744+85.66245)x456.66254
+..\mathon
+..\vbox(91.13744+85.66245)x456.66254
+...\hbox(9.51996+4.08003)x456.66254 []
+...\glue(\lineskip) 0.0
+...\hbox(9.51996+4.08003)x456.66254 []
+...\glue(\lineskip) 0.0
+...\hbox(9.51996+4.08003)x456.66254 []
+...etc.
+..\mathoff
+.\glue(\rightskip) 0.0
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--46
+
+
+\hbox(0.0+0.0)x449.55362
+.\glue(\rightskip) 0.0
+
+[1
+
+
+]
+latex2htmlSize :tex2html_wrap_inline312: 7.48248pt::0.0pt.
+[2
+
+]
+latex2htmlSize :tex2html_wrap_inline314: 7.48248pt::0.0pt.
+[3
+
+]
+latex2htmlSize :tex2html_wrap_inline316: 4.71457pt::0.0pt.
+[4
+
+]
+latex2htmlSize :tex2html_wrap_inline318: 7.48248pt::0.0pt.
+[5
+
+]
+latex2htmlSize :tex2html_wrap_inline320: 7.48248pt::0.0pt.
+[6
+
+]
+latex2htmlSize :tex2html_wrap_inline322: 7.48248pt::3.33946pt.
+[7
+
+]
+latex2htmlSize :tex2html_wrap_inline324: 7.48248pt::1.7839pt.
+[8
+
+]
+latex2htmlSize :tex2html_wrap_inline326: 7.48248pt::3.33946pt.
+[9
+
+]
+latex2htmlSize :tex2html_wrap_inline328: 9.12923pt::4.73737pt.
+[10
+
+]
+latex2htmlSize :tex2html_wrap_inline330: 7.48248pt::0.0pt.
+[11
+
+]
+latex2htmlSize :tex2html_wrap_inline332: 7.48248pt::0.0pt.
+[12
+
+]
+latex2htmlSize :tex2html_wrap_inline336: 8.2125pt::2.73749pt.
+[13
+
+]
+latex2htmlSize :tex2html_wrap_inline338: 8.2125pt::2.73749pt.
+[14
+
+]
+latex2htmlSize :tex2html_wrap_inline340: 7.60416pt::2.12917pt.
+[15
+
+]
+latex2htmlSize :tex2html_wrap_inline344: 8.2125pt::2.73749pt.
+[16
+
+] (images.aux) ) 
+Here is how much of TeX's memory you used:
+ 154 strings out of 4463
+ 1472 string characters out of 63242
+ 28225 words of memory out of 262141
+ 2105 multiletter control sequences out of 9500
+ 18996 words of font info for 72 fonts, out of 72000 for 255
+ 14 hyphenation exceptions out of 607
+ 12i,8n,15p,170b,131s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on images.dvi (16 pages, 2908 bytes).

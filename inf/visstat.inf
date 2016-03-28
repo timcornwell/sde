@@ -1,0 +1,53 @@
+Possible modes for VISSTAT
+
+VISIMG    Image of the gridded visibilities
+COVIMG    Like covimg, but unity where there are samples, and zero otherwise
+ERRIMG    Image of the gridded errors
+GAINIMG   Image of the gains.  May be calculated directly from 'closure'
+            output, or via a reference data set.
+ATGIMG    Antenna-Time image of the gains
+
+AEPLOT    Amplitude error vs. uv distance scatter plot
+PEPLOT    Phase error vs ...
+WEPLOT    Weight error vs ...
+GAPLOT    Gain Amplitude vs ...
+GPPLOT    Gain Phase vs ...
+
+GAINLIST  Textual listing of the gains
+STAT      Dump of the coordinate header
+
+.INFO
+Vis, C, 1, Visibility data
+Vis1, C, 1, Reference or model visibility data
+Mode, C, 1, Many and varied.  See 'HELP'
+ImgForm, C, 1, Output mode for complex images.  'QU', 'AP' or 'X'
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsize in kilo-lambda or are-sec
+Shift, R, 3, Shift in arc-seconds
+Stokes, C, 1, Stokes type I,Q,U, or V
+Timerange, I, 8, Timerange (d,h,m,s)
+Antennas, I, 10, Antenna selection
+Uvlimits, R, 2, uv limits in wavelengths
+Skip, I, 1, Use every 'skip' data points
+Ylimits, R, 2, Y limits for plot outputs
+Plotlabel, C, 1, Title for plot outputs
+Output, C, 1, Output file
+/Debug, L, 1, Debug? T or F
+.DEFAULTS
+Vis =
+Vis1 =
+Mode = STAT
+ImgForm = AP
+Imsize = 128, 128, 1
+Cellsize = 8, 8, 0
+Shift = 0, 0, 0
+Stokes = I
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Antennas = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Uvlimits = 0.0, 0.0
+Skip = 1
+Ylimits = 0, 0
+Plotlabel =
+Output =
+/Debug = F
+.END

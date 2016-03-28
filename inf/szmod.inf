@@ -1,0 +1,22 @@
+.INFO
+Imsize, I, 3, Size of model image
+Cellsize, R, 3, Cellsize in model image
+Image, C, 1, Name of output or input model image
+RA, R, 1, Right Ascension of source [deg.]
+Dec, R, 1, Declination of source in Model [deg.]
+Freq, R, 1, Frequency of radiation [Hz]
+T0, R, 1, Maximum Temperature [K]
+Width, R, 1, Core radius [arcseconds]
+/Debug, L, 1, Debug [T|F]
+.DEF
+Imsize = 512, 512, 1
+Cellsize = 1., 1., 1.
+Image = 
+RA = 0.0
+Dec = 35.
+Freq = 1.4E9
+T0 = 0.001
+Width=30
+/Debug=F
+.END
+

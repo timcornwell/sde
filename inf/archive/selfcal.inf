@@ -1,0 +1,19 @@
+.
+Vis, C, 1, Name of Visibility database
+Model, C, 1, Name of model image
+NewVis, C, 1, Name of output visibility file
+Tavg, R, 1, Averaging time in seconds
+SolType, C, 1, Solution type, ' '|'AMPPHI'
+ConvType, C, 1, Convolution function
+Outfile, C, 1, File for gain listings
+Plotfile, C, 1, Plot file
+.
+Vis =  
+Model = 
+NewVis =
+SolType =
+Tavg = 10.0
+ConvType = SF
+Outfile =
+Plotfile =
+.

@@ -1,0 +1,19 @@
+This program gives the deviation from straight lines of the interferometer
+phase for a whole range of averaging times.  A trivial change will
+give the deviation from the average phase over each averaging time.
+
+.
+Vis, C, 1, Input visibility database
+RMS, C, 1, Output RMS file
+Plot, C, 1, Plot File
+Times, R, 10, A list of avtime scales [seconds]
+Comment, C, 1, Comment for graph title
+AveBL, R, 1, BL range over which to average [m]
+.
+Vis =
+RMS =
+Plot =
+Times = 30., 60., 120., 240., 480., 960., 0.,0.,0.,0.
+Comment =
+AveBL = 0.0
+.

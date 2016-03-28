@@ -1,0 +1,78 @@
+Program: ipcsmod - Make a set of model Fringes
+Programmer: R.G. Marson
+Date: 9th June 1993
+Purpose:  This program generates a set of of model or 'classical'
+fringe patterns that describe what the MAPPIT instrument would see at
+any time instant if it had an infinite number of photons incident on
+it. These model fringes are compared against the actual data in
+IPCSPROB to determine the probability that an actual data set
+corresponds to a modelled fringe. A whole set of model fringes is calculated
+to account for different atmospherically induced delays on each hole
+
+Details:
+Fsize    - Size of the detector. The first value is the number of
+           pixels in the wavelength direction. Typically MAPPIT uses 50 by 240
+Wave     - This is the wavelength of the first and last column on the
+           detector. In Dec 91 MAPPIT I empiracally determined that this range
+           was 563-597nm giving a total bandwidth of 34nm
+Dark     - The expected percentage of photons that we can attribute to 
+           scattered light etc. This contributes a uniform background to the 
+           model fringes.
+AntFile  - This file is a Standard SDE antenna file that describes the 
+           mask pattern. Only the X position in local co-ords is significant.
+SkyModel - A SDE model file describing what we expect to see on the sky.
+PA       - The Angle at which to project this model
+Spectrum - The spectrum of the object in the sky
+MaxDly   - The Maximum Delay on each Hole 0.5fs corresponds to 90 degrees
+NumDly   - The Number of levels to quantise between MaxDly and MinDly
+FrFile   - The output file containing the model fringes. This can be a FITS
+           file of size FSIZE(1) by FSIZE(2) by (NUMDLY**NUMANT) but then
+           this file will not contain the necessary auxiliary information 
+           to be used by IPCSPROB. It is normally an SDE file
+AmpModel - This is the visibility amplitudes (squared) of the Sky Model 
+           projected at Position angle PA
+Notify   - Print a message after generating this many model fringes
+           This just lets you know how long you have to wait for the output.
+/FFTpad  - The factor to pad the FFT by when transforming from the aperture
+           distribution to the fringe pattern. I normally set this at eight.
+/MinDly  - Minimum Delay to insert at each hole. Normally left at 0fs
+/Scale   - Scaling factor to convert from Pixels to radians. This factor
+           includes all instrumental magnification. Emperically found
+           to be 3.6E-8 in Dec 91, and 7.2E-8 in Dec 93
+/Debug   - I just about never use this standard SDE debugging flag
+
+.INFO
+Fsize, I, 2, Size of Detector
+Wave, R, 2, Wavelength Range
+Dark, R, 1, Dark Current %
+AntFile, C, 1, Mask configuration
+SkyModel, C, 1, Model of the Sky 
+PA, R, 1, PA of the model
+Spectrum, C, 1, Spectrum of the source
+/MinDly, R, 1, Min. delay value
+MaxDly, R, 1, Max. delay value
+NumDly, I, 1, Number of delay steps
+FrFile, C, 1, Output Classical Fringe Model
+AmpModel, C, 1, Output Visibilty amplitudes of model
+/Scale, R, 1, Optical Scale (magnification)
+/FFTpad, I, 1, padding of the FFT when generating the model fringes
+Notify, I, 1, Print message after generating this many Model Frames
+/Debug, L, 1, Debug T or F (must be set each time)
+.DEFAULT
+Fsize = 50, 240
+Wave = 5.63000E-07, 5.97000E-07
+Dark = .01
+AntFile = ANT/mappita2.ant
+SkyModel = MOD/point.mod
+PA = 0.
+Spectrum = 
+NumDly = 4
+/MinDly = 0E-15
+MaxDly = 2E-15
+FrFile = T0/fringe.SDE
+AmpModel = T0/ampmodel.fit
+/Scale = 7.20E-08
+/FFTpad = 8
+Notify = 100
+/Debug = F
+.END

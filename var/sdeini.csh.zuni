@@ -1,0 +1,3 @@
+   setenv SDESCR $SDEROOT/scratch
+   source $SDEROOT/var/sdeini.csh.aoc
+   setenv D0 $SDEROOT/data

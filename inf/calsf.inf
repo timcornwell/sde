@@ -1,0 +1,23 @@
+.
+/Debug, L, 1, Debug T|F
+Uvlimits, R, 2, Limits of allowed u,v (wavelengths)
+Timerange, I, 8, Timerange (d,h,m,s)
+Taverage, R, 1, Integration time for image (seconds)
+Vis, C, 1, Visibility data
+ZFlux, R, 1, Zero spacing flux
+SfType, C, 1, Structure function type  AMPPHA | AMP | PHASE
+Nlags, I, 1, Number of lags
+Outfile, C, 1, File for gain listing
+Plotfile, C, 1, File for plot
+.
+/Debug=F
+Uvlimits = 0.0, 10000000000
+Timerange = 0,0,0,0,0,0,0,0
+Taverage = 86400
+Vis = 
+SfType =
+ZFlux = 1.0
+Nlags = 2
+Outfile =
+Plotfile = sfplot/qms
+.

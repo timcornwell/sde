@@ -1,0 +1,28 @@
+The basic equation is INBEAM * TAPER = OUTBEAM
+
+Mode CONV solves for OUTBEAM, and DECONV solves for TAPER, each given
+the other two
+
+The beam fitting algorithm may be LINEAR, NONLINEAR, ARCHIVE, HDR-LINEAR,
+HDR-NONLINEAR, HDR-ARCHIVE, L, N, A, HL, HNL, HA
+.
+InBeam, R, 4, Input Gaussian Beam
+InBFile, C, 1,  or use Beam from this file
+Taper, R, 4, Taper input with this beam
+TFile, C, 1,  or beam from this file
+OutBeam, R, 4, Beam after convolution
+OutBFile, C, 1,  or use Beam from this file
+Mode, C, 1, CONV or DECONV
+FitMode, C, 1, Beam fitting mode
+Outfile, C, 1, Write result to this file in .cur format
+.
+InBeam = 0,0,0,0
+InBFile =
+OutBeam = 0,0,0,0
+OutBFile = 
+Taper = 0,0,0,0
+TFile = 
+Mode = CONV
+FitMode = HDR-LINEAR
+Outfile = 
+.

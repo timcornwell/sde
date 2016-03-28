@@ -1,0 +1,72 @@
+For standard "mathematical" orientation of the intermediate matricies in
+SAOimage, use the "-rot 1" switch.  Note that all of the orientation
+switches are sticky, and will apply to future images even if not specified
+explicitly.  Use "-rot 0" to go back to normal orientation.  SAOimage
+does not display rotated rectangular images properly!
+
+Format is a template for the filenames read in or out.  The name of the
+array will be substitued for the first # found in the string, so
+Format = '/tmp/#.SDE' would specify that the files go in the tmp directory,
+with SDE format.
+
+The NNSVD option just isn't working quite right at the moment, and it's
+use is not recommended.
+
+The beam fitting algorithm may be LINEAR, NONLINEAR, ARCHIVE, HDR-LINEAR,
+HDR-NONLINEAR, HDR-ARCHIVE, L, N, A, HL, HNL, HA
+
+MaxIter applied only to the NNLS option, and is specified in terms of
+the number of pixels in the FluxWindow.  That is, MaxIter = 3.0 is equivalent
+to the limit formerly hard coded into the Lawson&Hanson routine.
+Alternatively, the maximum iteration may be specified directly by NIend.
+If both MaxIter and NIend are set to non-default values, MaxIter takes
+precedence.
+.
+Dirty , C, 1, Dirty [must be specified]
+PSF, C, 1, Point spread function [must be specified]
+Residual, C, 1, Residual image [optional]
+Components, C, 1, Components image [optional]
+DataWindow, C, 1, Window image for dirty map
+FluxWindow, C, 1, Window image for components
+Image, C, 1, Smoothed, deconvolved image [optional]
+BLC, I, 7 * 1, Bottom left corner of window [pixels]
+TRC, I, 7 * 1, Top right corner of window [pixels]
+Half, L, 1, Write inner half of images?
+Algorithm, C, 1, SVD | NNLS | NNSVD
+Double, L, 1, Do calculations in double precision?
+NIbegin, I, 1, Number of Iterations
+NIend, I, 1, Ending iteration
+NIinc, R, 1, Iteration
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec]
+FitAlg, C, 1, Beam Fitting Algorithm
+MinSV, R, 1, Minimum Singular Value ratio
+MaxIter, R, 1, Scaled maximum iteration count
+WriteSVD, L, 1, Write intermediate SVD arrays?
+ReadSVD, L, 1, Read old SVD arrays?
+Format, C, 1, File format template
+/DEBUG, L, 1, Debug
+.
+Dirty = 
+PSF = 
+Residual = 
+Components = 
+DataWindow =
+FluxWindow = 
+Image = 
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Half = T
+Algorithm = SVD
+Double = F
+NIbegin = 1
+NIend = 1
+NIinc = 1.0
+Beam = 0.0, 0.0, 0.0, 0.0
+FitAlg = LINEAR
+MinSV = 0.0
+MaxIter = 0.0
+WriteSVD = F
+ReadSVD = F
+Format =
+/DEBUG = F
+.

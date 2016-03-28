@@ -1,0 +1,160 @@
+The program flydoc can be used to help derive parameters for
+dragon. A typical run looks like:
+
+flydoc I:
+flydoc I: I advise on wide-field imaging
+flydoc I:
+flydoc I: SDE Version 1.0
+flydoc I: Compiled : Fri Jan 29 09:08:35 MST 1993
+flydoc I:
+flydoc I: *fov=30000
+flydoc I: *conf=D
+flydoc I: *cell=60
+flydoc I: *go
+flydoc I: Configuration D
+flydoc I: Wavelength =   0.900 [m]
+flydoc I: Phase error limited to   1.500 radians
+flydoc I: FOV  =     30000.00 [arcsec]
+flydoc I: Cellsize =        60.00 [arcsec]
+flydoc I: Number of pixels across whole field of view =   500
+flydoc I:   NZ       NX,  NY        Facets      Memory usage
+flydoc I:                                       (Mwords)
+flydoc I:     1     100,  100     6 by   6             1.700
+flydoc I:     2     142,  142     4 by   4             1.726
+flydoc I:     4     201,  201     3 by   3             2.192
+flydoc I:     8     285,  285     2 by   2             3.620
+flydoc I:    16     403,  403     2 by   2            10.197
+flydoc I:    32     570,  570     1 by   1            33.105
+flydoc I: Full 3D requires:
+flydoc I:     NX,   NY,   NZ       Memory usage
+flydoc I:                         (Mwords)
+flydoc I:   1000, 1000,   18            55.940
+flydoc I: *conf=C
+flydoc I: *cell=20
+flydoc I: *go
+flydoc I: Configuration C
+flydoc I: Wavelength =   0.900 [m]
+flydoc I: Phase error limited to   1.500 radians
+flydoc I: FOV  =     30000.00 [arcsec]
+flydoc I: Cellsize =        20.00 [arcsec]
+flydoc I: Number of pixels across whole field of view =  1500
+flydoc I:   NZ       NX,  NY        Facets      Memory usage
+flydoc I:                                       (Mwords)
+flydoc I:     1     161,  161    10 by  10             6.228
+flydoc I:     2     228,  228     7 by   7             6.398
+flydoc I:     4     323,  323     5 by   5             7.513
+flydoc I:     8     457,  457     4 by   4            12.844
+flydoc I:    16     646,  646     3 by   3            28.900
+flydoc I:    32     914,  914     2 by   2            88.657
+flydoc I:    64    1292, 1292     2 by   2           336.462
+flydoc I:   128    1828, 1828     1 by   1          1294.133
+flydoc I: Full 3D requires:
+flydoc I:     NX,   NY,   NZ       Memory usage
+flydoc I:                         (Mwords)
+flydoc I:   3000, 3000,   54          1467.940
+flydoc I: *conf=B
+flydoc I: *cell=6
+flydoc I: *go
+flydoc I: Configuration B
+flydoc I: Wavelength =   0.900 [m]
+flydoc I: Phase error limited to   1.500 radians
+flydoc I: FOV  =     30000.00 [arcsec]
+flydoc I: Cellsize =         6.00 [arcsec]
+flydoc I: Number of pixels across whole field of view =  5000
+flydoc I:   NZ       NX,  NY        Facets      Memory usage
+flydoc I:                                       (Mwords)
+flydoc I:     1     318,  318    16 by  16            53.120
+flydoc I:     2     450,  450    12 by  12            60.678
+flydoc I:     4     637,  637     8 by   8            58.153
+flydoc I:     8     901,  901     6 by   6            79.685
+flydoc I:    16    1274, 1274     4 by   4           132.409
+flydoc I:    32    1802, 1802     3 by   3           374.368
+flydoc I:    64    2549, 2549     2 by   2          1306.917
+flydoc I:   128    3605, 3605     2 by   2          5108.378
+flydoc I:   256    5099, 5099     1 by   1         20046.785
+flydoc I: Full 3D requires:
+flydoc I:     NX,   NY,   NZ       Memory usage
+flydoc I:                         (Mwords)
+flydoc I:  10000,10000,  182         54700.941
+flydoc I: *q
+.
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes (arc-seconds)
+Outliers, C, 1, File containing list of outlier fields
+Shift, R, 2, Shift of tangent point (arcseconds)
+FOV, R, 1, Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM
+Stokes, C, 1, 'I|Q|U|V|IV'
+Uvlimits, R, 2, Limits of allowed u,v [wavelengths]
+Muvlimits, R, 2, Limits of allowed u,v for selfcal model [wavelengths]
+Filter, R, 3, Filter for sources [Bmaj, Bmin, Bpa]
+Timerange, I, 8, Timerange (d,h,m,s)
+Vis, C, 1, Visibility data
+NewVis, C, 1, Name of output visibility file
+PSF, C, 1, Name of PSF file
+CLEAN, C, 1, CLEAN image
+OutCLEAN, C, 1, CLEAN images for Outliers
+Model, C, 1, Initial model
+ModelPatch, I, 1, Number of model patch
+CCList, C, 1, Name of CCList file
+Restart, L, 1, Restart from CCList [T|F]
+Niter, I, 1, Total Number of Iterations
+Riter, I, 1, Number of Iterations to resume at
+Flux, R, 1, Final stopping flux
+Fswitch, R, 1, Flux level below which FFTs are used
+FSelfcal, R, 10, Level of selfcal [-ve for A,phi]
+Gain, R, 1, Loop gain
+Tolerance, R, 1, Tolerance
+Beam, R, 4, Clean beam: Bmaj, Bmin, Bpa, Bz
+Tamp, R, 1, Averaging time in seconds for amplitude solution
+Tphase, R, 1, Averaging time in seconds for phase solution
+Reference, I, 1, Reference field
+/Numcl, I, 1, Size of list for cleaning
+/Bpatch, I, 1, Size of beampatch [pixels]
+/Speed, R, 1, Speed [larger means slower]
+Limit, R, 1, Fraction of peak to clean to [0->1]
+TVImage, I, 1, Write to tv? [Imagenumber]
+/Debug, L, 1, Debug
+Parallel, L, 1, Do parallel? [T|F]
+Np, I, 1, Number of patchs = (2*Np+1)**2
+Addresiduals, L, 1, Add residuals to clean image [T|F]
+.
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Outliers=
+Shift = 0., 0.
+FOV = 1.0
+Stokes=I
+Uvlimits = 0.0, 1000000000
+Muvlimits = 0.0, 1000000000
+Filter=0.0, 0.0, 0.0
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Vis = 
+NewVis=
+PSF = 
+CLEAN = 
+OutCLEAN = 
+Model =
+ModelPatch = -1
+CCList = 
+Restart = F
+Niter = 1000
+Riter = 0
+Flux = 0.0
+Fswitch=0.0
+FSelfcal=0.,0.
+Gain = 0.1
+Tolerance=0.00001
+Beam = 0.0, 0.0, 0.0, 0.0
+Tamp = 0
+Tphase = 0
+Reference=1
+/Numcl = 16384
+/Bpatch = 64
+/Speed = 1.0
+Limit=0.0
+/Debug = F
+Parallel=F
+TVImage=-1
+Np = 0
+Addresiduals=T
+.

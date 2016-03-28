@@ -1,0 +1,6 @@
+"vsd" stands for VISIBILITY D TERMS.  These routines could have
+gone into the "vis" directory, but "vis" is rather cluttered.
+Some of these routines deal explicitly with VIS AND D terms, others
+deal ONLY with D terms.
+
+	-MAH, May 4 1993

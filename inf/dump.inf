@@ -1,0 +1,7 @@
+.
+Filename, C, 1, Input file
+Debug, L, 1, Debug status T|F
+.
+Filename =
+Debug = F
+.

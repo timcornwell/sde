@@ -1,0 +1,230 @@
+	1957		I image 1957 at P-band
+	alvaracc	I accumulate allan variance files
+	alvarave	I average Allan variance files
+	amsim		I make simulated mosaic array data
+	annotate	I annotate a blank image
+	ant		I allow interactive array building
+	antdem		I allow interactive array building
+	atmocal		I determine errors in calibration from mod ATMOS
+	atmomake	I create a model atmosphere
+	atmopha2	I apply a model atmosphere to point source
+	atmophas	I apply a model atmosphere to point source
+	atmosett	I corrupt existing visibility data
+	beamcalc	I calculate Gaussian (de)convolution parameters
+	beamdiff	I get diff betwn PSF and Gaussian
+	bmelong		I determine the mean beam elongation
+	bpd		I estimate BP ripples effect on D terms
+	calsf		I calculate Chi Squared
+	clean		I perform CLEAN deconvolution
+	cleanwin	I rewindow deconvolutions
+	closure		I use closure phase information
+	cohtst		I perform a coherence test
+	crdcalc		I calculate coordinate conversions
+	cursor		I interpret SAOimage cursors
+	curv		I form the curvature image of an image
+	cyclic		I am a special imager for cyclic phenomena
+	ddiff		I rotate D terms
+	deplane		I set arrays to a constant value
+	detect		I detect signals in dirty images
+	dplot		I calculate d term statistics
+	dr		I calculate dynamic range of images
+	dragon		I perform wide-field imaging
+	dragonsub	I perform wide-field visibility subtraction
+	drotate		I rotate D terms
+	dump		I dump files
+	fft		I FFT Real or Complex Images or Gridded VIS
+	fft1d		I Do FFT''s of Images
+	ffttst		I time FFTs
+	fftx		I time FFTs
+	fftx2d		I time 2D real to complex (and inverse) FFTs
+	fitbeam		I fit a Gaussian to a PSF
+	fix		Special fixer
+	flydoc		I advise on wide-field imaging
+	flyprep		I prepare visibility data for fly
+	flyscal		I perform wide-field self-calibration
+	flysub		I perform wide-field visibility subtraction
+	gainapply	I apply gains to visibility data
+	gal2c		I convert between GAL and CEL coords
+	getpos		I find positions
+	gfit		I fit gaussians to an image
+	grdtst		I time GRDH2D for several grid sizes
+	gsp		I perform GSP deconvolution
+	hanoise		I calculate noise vs HA of an OBS
+	hdr		I manipulate headers
+	hermitiz	I turn half planes into Hermitian full planes
+	hgeom		I convert image geometry
+	hislist		I print the history records
+	hstsim		I simulate HST data (with aberrations)
+	imerg		I merg images of differing resolution
+	img2exl		I comvert between Image and Excel formats
+	img2list	I convert between image and list formats
+	img2mod		I write pixels to SDE models
+	img2sun		I put an image on the Sun TV
+	imgabs		I take absolute values of images
+	imgave		I add images
+	imgazave	I make 1-D az-averaged RMS plots of 2-D images
+	imgclip		I clip images
+	imgconv		I convolve images
+	imgcopy		I copy images
+	imgdesph	I project spheres
+	imgexp		I exponentiate images
+	imgfid		I find fidelity images
+	imgfit		I fit a Gaussian to an image
+	imglc		I add images
+	imgmake		I create images
+	imgmodel	I insert a model into an image
+	imgmult		I multiply/divide images
+	imgnoise	I add noise to images
+	imgpb		I apply or correct primary beams
+	imgplot		I contour an image
+	imgpower	I raise ine input image to some power
+	imgprt		I print images
+	imgrdclp	I clip images outside the given radii
+	imgres		I find residuals
+	imgrshift	I take absolute values of images
+	imgscale	I scale images
+	imgsetco	I set arrays to a constant value
+	imgstat		I calculate statistics of images
+	imgsub		I sub-section and Sum Images
+	imgsym		I find symmetric and antisymmetric images
+	imgval		I extract values from images
+	imgwin		I window images
+	imgx2x		I translate different types of complex images
+	imgxfr		I make a XFR function
+	imminmax	I make min and max images
+	imshadow	I find shadows on an image
+	imxplot		I contour a complex image image
+	imxpolpa	I find polarization AMP & PA for some region
+	imxrlrot	I rotate the phase of a complex image
+	inls		I perform Iterative NNLS deconvolution
+	ipcs2img	I convert an IPCS groups file to an image
+	ipcscorr	I auto-correlate IPCS data
+	ipcscr		I centroid IPCS data
+	ipcsdp		I de-persist IPCS data
+	ipcsfft		I fft IPCS data
+	ipcsfilt	I filter IPCS data
+	ipcshmm		I recover the Track on MAPPIT data
+	ipcslist	I list ipcs data
+	ipcsmod		I generate model fringe patterns
+	ipcsprob	I find the probability of MAPPIT data
+	ipcsratm	I remove the atmosphere from IPCS data
+	ipcssf		I straighten fringes
+	ipcssim		I generate simulated IPCS data
+	ipcssrt		I sort IPCS data
+	ipcssum		I sum IPCS data
+	k2p		I convert from K to JY/PIXEL or JY/BEAM
+	ldecs		I do linear deconvolution and smoothing
+	lnls		I make LOG N/LOG S faithful images
+	lucy		I perform Lucy deconvolution
+	magtape		I handle magnetic tapes
+	makeconf	I make ring-like arrays
+	makecube	I make cubes
+	makepb		I make primary beams
+	mapper		I make and clean images from visibility data
+	mask		I create or manipulate masks
+	matrix		I manipulate matricies
+	mos2vis		I list mosaic visibility data
+	mosaic		I perform maximum entropy mosaicing
+	mosaicm		I perform maximum entropy mosaicing
+	mosbima		I make mosaic data from BIMA formats
+	moscat		I concatenate mosaic visibility data
+	mosclean	I clean mosaic data bases
+	moscorru	I corrupt mosaic existing mosaic data
+	mosedit		I edit mosaics
+	mosinit		I concatenate mosaic visibility data
+	moslin		I perform linear mosaicing
+	moslist		I list mosaic visibility data
+	mosmake		I assemble u,v data into mosaic data bases
+	mosobs		I aid in scheduling MOSAIC OBSERVATIONS
+	mosscal		I self-calibrate mosaics
+	mossim		I make simulated mosaic array data
+	mossimcp	I am a copy mosaic simulator
+	mossub		I subtract a model from a mosaic database
+	mosuvclp	I do mosaic UV plots and clip wrt a model
+	mosvlba		I make mosaic data from VLBA files
+	mpclean		I perform Multi PSF CLEAN deconvolution
+	mrc		I perform CLEAN deconvolution
+	oisim		I make simulated OI array data
+	padim		I pad images to a larger size
+	pfftx2d		I add photon noise to images
+	phrms		I calculate phase RMS
+	phvm		I perform maximum entropy deconvolution'
+	phwd		I plot things (1D)
+	polcal		I solve for D terms
+	polint		I interpolate and apply D terms
+	polremov	I solve for D terms
+	power		I make power law shaped images
+	precess		I find sources in the galactic plane
+	psfdiff		I take take differences of fitted/actual PSFs
+	pslplt		I plot PSF slices
+	pspl		I make Photon limited Power Spectra
+	puvmap		I make images from visibility data in parallel
+	rvres		I find radially averged residual visibilities
+	sd		I perform single dish imaging
+	sd2mos		I make Mosaic Databases from 2-D Single Dish Img
+	sde		I change the SDE environment file
+	sdregrid	I regrid single dish data onto new planes
+	setbeam		I set beam parameters in image headers
+	si		I make SI data
+	si2mod		I convert SI models to SDE ones
+	size		I find characteristic sizes in an image
+	slice		I take slices through images
+	smooth		I smooth images with an elliptical Gaussian
+	stack		I stack images together
+	stalin		I remove history cards
+	sunmosaic	I perform maximum entropy mosaicing of the SUN
+	sunmosscal	I self-calibrate mosaics of the Sun
+	surfave		I create an average PB from many VPs
+	surfmake	I simulate antenna surface errors
+	surfsim		I make simulated mosaic array data
+	svdclean	I perform SVD CLEAN deconvolution
+	svdconv		I perform SVD deconvolution
+	szmod		I make an SZ observation
+	tcorr		I simulate triple products
+	tcorrpl		I simulate  photon limited triple products
+	testpois	I check for poission statistics
+	testvis		I test visget and visput
+	timemap		I wash the tipper stability data''s floor
+	togal		I find sources in the galactic plane
+	triple		I solve for visibilities from triple product'
+	trkplt		I Plot MAPPIT Track files
+	trp		I triple-produce
+	trpcat		I concatenate triple product data
+	trplist		I list triple product data
+	unclean		I partially reverse a CLEAN deconvolution
+	unsmooth	I find mean uv density
+	uvimrg		I merge images in the Fourier plane
+	uvkfit		I fit to visibility data
+	uvmap		I make images from visibility data
+	uvplt		I plot uv data
+	uvrot		I rotate uv position angles
+	vis2exl		I convert between Image and Excel formats
+	visamat		I perform interactive high-precision imaging
+	visavg		I average visibility data
+	viscat		I concatenate visibility data
+	visccplt	I plot UV plane models
+	viscorru	I corrupt existing visibility data
+	visdetect	I assess fit of a model to visibility data
+	visedit		I edit visibility data
+	visflagv	I edit visibility data by flagging the v axis
+	visimg		I grid visibility data sets into images
+	vislc		I combine visibility data linearly
+	vislist		I list visibility data
+	vismodel	I insert a model into a visibility data set
+	visplot		I list visibility data
+	visres		I find residuals
+	visrewt		I reweight visibility data
+	visrlave	I get ave (RL+LR*)/2 vs TIME
+	visrlrot	I rotate the RL visibility phase
+	visrrewt	I reweight vis for uniform UV density
+	vissim		I make simulated array data
+	vissimpd	I make simulated array data with D terms
+	vissimr		I make simulated array data
+	visstat		I form statistics, images and plots of uv data
+	vissub		I make simulated array data
+	viswd40		I perform maximum entropy deconvolution
+	vpstat		I add images
+	vsmooth		I perform maximum entropy deconvolution
+	wiener		I do Wiener filtering and smoothing
+	world		Hello, world
+	xfrstat		I calculate statistics of transfer functions

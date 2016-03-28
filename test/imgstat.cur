@@ -1,0 +1,5 @@
+Image = D0/3C10NEWCVM.sandia.FTS
+Box =
+BLC = 0, 0, 0, 0, 0, 0, 0
+TRC = 0, 0, 0, 0, 0, 0, 0
+AvgType = AMPSCALAR

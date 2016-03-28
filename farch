@@ -1,0 +1,130 @@
+#!/bin/csh -fb
+#
+# Tweaked to tell the difference between a Convex C2 and a C1.  A kludge,
+# but so is most of this file.  DSB  25-Jan-93
+# Further modified to use the arch command (if available) RGM 27-Jan-1993
+#
+# set verbose
+set IARCH=UNKNOWN
+set uname=UNKNOWN
+set arch=UNKNOWN
+set iarch=UNKNOWN
+#
+# Find where uname or arch or iarch is
+#
+set tdir = ( /bin /usr/bin /usr/ucb /usr/convex /usr/local/bin . )
+foreach dir ($tdir)
+  if (-x ${dir}/uname) set uname = ${dir}/uname
+  if (-x ${dir}/arch) set arch = ${dir}/arch
+  if (-x ${dir}/IARCH) set iarch = ${dir}/IARCH
+end
+# echo uname = $uname
+# echo arch = $arch
+# echo iarch = $iarch
+#
+if (-x $uname) then
+	set os="`$uname -s`"
+	set ht="`$uname -m`"
+	set ro="`$uname -r`"
+	set osht="$os,$ht"
+
+	switch ("$osht")
+	case SunOS,sun3*:
+		set IARCH=SUN3
+		breaksw
+	case SunOS,sun4*:
+                switch ("$ro")
+                case 5*
+			set IARCH=SUN5
+			breaksw
+		case 4*
+			set IARCH=SUN4
+			breaksw
+		endsw
+		breaksw
+	case Darwin,*:
+		set IARCH=DARWIN
+		breaksw
+	case Linux,*:
+		set IARCH=LINUX
+		breaksw
+	case ULTRIX,RISC:
+		set IARCH=PMAX
+		breaksw
+	case OSF1,alpha:
+		set IARCH=ALPHA
+		breaksw
+	case AIX,*:
+		set IARCH=RIOS
+		breaksw
+	case *,9000/*:
+		set IARCH=HP9K
+		breaksw
+	case IRIX,*:
+		set IARCH=irix
+		breaksw
+	case IRIX64,*:
+		set IARCH=irix64
+		breaksw
+	endsw
+#
+# Otherwise try and use the arch command to get the machine type
+# Note at CSIRO arch only exists for the convex and suns but our sysadmin
+#  has written 1 line shells scripts for the other machines we have
+# Please add stuff here as you try new machines
+#
+else if (-x $arch) then
+	switch (`$arch`)
+	case c1:
+		set IARCH=c1
+		breaksw
+	case c2mp:
+		set IARCH=c2
+		breaksw
+	case sun3:
+		set IARCH=SUN3
+		breaksw
+	case sun4:
+		set IARCH=SUN4
+		breaksw
+	case dec-mips:
+		set IARCH=PMAX
+		breaksw
+	case ibmrs:
+		set IARCH=RIOS
+		breaksw
+	endsw
+#
+# This clause doesn't make much sense to me -- DSB (or me -- RGM)
+#
+else if (-x $iarch) then
+	switch (`$iarch`)
+	case sun3:
+		set IARCH=SUN3
+		breaksw
+	case sun4:
+		set IARCH=SUN4
+	default:
+		breaksw
+	endsw
+endif
+#
+# A kludge for a few special machines
+#
+if ($IARCH == SUN4 && -e /dev/cm) set IARCH=cm2
+if ($IARCH == SUN4 && -e /dev/cmni) set IARCH=cm5
+if (-e /usr/bin/getcube) set IARCH=i860
+#
+# A last gasp attempt to guess the machine
+#
+if ($IARCH == UNKNOWN) then
+	if (-e /hp-ux) set IARCH=HP300
+	if (-e /etc/vg) set IARCH=RIOS
+	if (-e /unicos) set IARCH=cray
+	if (-e /usr/alliant) set IARCH=alliant
+endif
+#
+# ugh, done.
+#
+
+echo $IARCH

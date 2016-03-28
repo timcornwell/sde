@@ -1,0 +1,196 @@
+Program: UVMAP - make images from uv data
+Programmer: T.J. Cornwell
+Date: 6 Mar 1988
+Purpose: UVMAP will make 2D and 3D images from uv data, by use of the
+FFT and DFT. The output images can be deconvolved using CLEAN, VM or
+VM3D.
+
+Details:
+
+IMSIZE: Size of image in pixels. First two must be powers of 2 since an
+FFT is used. The last (Z-axis) number may be any number if SLOWZ is TRUE,
+i.e. a DFT in Z is used, but otherwise it must also be a power of 2,
+or 1, of course.
+
+CELLSIZE: Size of cell in arcseconds. HINT: for a 3-D transform, make the
+third number comparable to the other two values.
+
+UVLIMITS: Range of u,v data to be gridded in WAVELENGTHS
+
+FILTER: Apply a Gaussian taper to select source of this size:
+Major axis, Minor Axis, and Position angle. FWHM in arcseconds.
+
+SHIFT: Shift to be applied to the data before gridding (in arcseconds).
++,+ moves the image towards the north-east.
+
+FOV: This determines the type of weighting to be applied to data: if
+FOV = 0 then no weighting is used, otherwise the weighting is such that the
+sidelobe level is optimized over a fraction FOV of the image. UNIFORM
+weighting corresponds to FOV = 1.0. SUPERUNIFORM corresponds to FOV < 1.
+FOV = 0.5 will suppress sidelobes over the inner quarter of the image.
+
+GridWeights: If true, the program will use a grid in the calculation of
+the weights.  This is the default.  For highest quality maps and suppression
+of certain gridding instabilities, a gridless weighting can be used.  This
+is quite slow, and will approach an N^2 algorithm in NVIS as FOV -> 0+.
+
+/GridSize: This parameter makes no difference in the map produced, but
+can make a considerable difference in execution time.  The default of 0
+will cause the routine to guess at a resonable value, and it's usually
+pretty good.
+
+SaveWeights: When making gridless robustness curves, the bulk of the
+computation is repeatedly summing the local weights.  If this is non-blank,
+the program will save the summed local weights to a file which can be
+read back in for subsequent runs.  If anything besides the ROBUST parameter
+is changed between runs, these weights will not be valid!
+
+ReadWeights: Read the summed weights from this file.  Be careful here, as
+the results will be wrong if saved weights do not correspond to the
+current imaging parameters.  You may safely change the robustness, DS,
+and the taper (filter) without altering the values in this file.
+
+WeightImage: Image of the gridded weights.  When used with ConvType = BOX,
+this gives a very good idea of how the weighting scheme is affecting your
+transfer function.
+
+/WtHist: If true, a histogram of the original positive weights will be written
+to the file WTHIST.ps, a histogram of the amplification factor,
+original weight/final weight will be written to the file AMPLHIST.ps,
+and the original positive weights themselves will be written to the
+binary file POSWEIGHTS.  Mostly for debugging, but it can be handy.
+
+DS: If zero, the thermal noise Delta S will be assumed equal on all baselines
+and it will be factored out of the thermal noise calculations.
+If DS(1) is non-zero and DS(2) is zero this should be the thermal noise
+(per correlator) of a visibility with unit weight.  The thermal noise on each
+baseline is then calculated via DeltaS(i) = DS(1) / sqrt( weight(i) )
+
+If both DS(1) & DS(2) are non-zero, DS(1) is the Delta S associated with
+a visibility with weight DS(2).  The thermal noise is calculated as
+DeltaS(i) = DS(1) / sqrt( weight(i)/DS(2) )
+
+ROBUST: In normalized mode, the range of useful robustness is plus or
+minus "a few", with positive numbers tending toward naturally weighted
+maps, and negative numbers tending towards uniform maps.  In absolute
+mode, this value is specified in Janskies.  If more than the first value
+is non-zero, this is taken as an elliptical generalization of robustness,
+with the gridded points being reweighted with an effective robustness
+between ROBUST(1) and ROBUST(2), depending on the position angle.  The
+position angle of the robustness is specified in the sky plane, and is
+the angle which will be reweighted according to ROBUST(1).
+
+RMODE: Robustness mode.  'NORM', 'ABS', 'NONE', 'AZ-NORM'.  ' ' -> 'NONE'
+
+VLBpower: Use VLBI weighting conventions.  Raise all inputs weights to this
+power before anything else.  Common choices are .5 and .25.
+
+NICEPSF: Reweighting of the visibilities so as to achieve the most
+Gaussian PSF possible.
+
+FITPSF: Fit a Gaussian to the central lobe of the beam, for information
+purposes?
+
+STOKES: Polarization to be imaged: I,Q,U, or V. One at a time please.
+
+TIMERANGE: Range of data to be imaged: d,h,m,s format from first day.
+
+CONVTYPE: Type of gridding convolution function:
+	SF => Prolate Spheroidal Wave Function (AIPS default)
+	SZE => Sze Tan special
+	BOX => BoxCar: poor but fast
+I recommend that SF be used.
+
+FFTSIZE: Either 'PWR2' or 'EXACT'.  The default is 'PWR2', in which
+        case all image sizes will be rounded up to a power of two for
+        speed.  'EXACT' is not that much slower, if the sizes have some
+        reasonable prime factorization, and will use image sizes
+        exactly as given.
+
+SLOWZ: Use slow DFT in Z-direction. UVMAP can make 3-D images in two
+ways: FFT in all three coordinates u,v,w or FFT in u,v preceded by
+a DFT in w. The latter is nearly always better since it avoids aliasing
+in the z-direction. (SLOWZ = T)
+
+DFT: Do a slow DFT on all axes.
+
+GEOMETRY: For 3-D images, the final image can be either a cube in
+(x,y,z) or a plane in (x,y). The deconvolution programs accept either
+but the latter is better since it saves space and also forces the
+deconvolved brightness to lie on the celestial sphere. VM3D will
+deconvolve the latter type of image (Use GEOMETRY = SPHERE). CLEAN
+will only take cube images (GEOMETRY = CUBE).
+
+VIS: Name of visibility data file e.g. D2/3C10UV.FTS
+
+VISOUT: Output visibility file, with density weights and taper applied.
+You can import this into AIPS and map there with natural weighting
+to use the more exotic weighting abilities of uvmap.  Note that only
+the stokes parameter mapped here will be written into the output file.
+
+DIRTY & PSF: Names of output Dirty Image and Point Spread Function.
+You can leave either blank if you wish no output.
+
+.INFO
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes in arc-seconds
+Uvlimits, R, 2, UV limits in wavelengths
+Filter, R, 3, Filter for sources of this size: BMAJ, BMIN, BPA (asec)
+Shift, R, 3, Shift in arcseconds
+FOV, R, 1, Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM
+GridWeights, L, 1, Use grid for weight calculations?
+/GridSize, I, 2, Size of binning grid for slow weight calcs
+/BinDebug, I, 1, Select binning routine
+SaveWeights, C, 1, Save ungridded weights to this file
+ReadWeights, C, 1, Read ungridded weights from this file
+WeightImage, C, 1, Image of the gridded weights
+/WtHist, L, 1, Write histogram weights
+DS, R, 2, Delta S for visibility with unit weight
+RMode, C, 1, Robust Mode is NORM, ABS, AZ-NORM or NONE
+Robust, R, 3, Robust weighting parameter(s)
+VLBpower, R, 1, Raise all input weights to this power
+NicePSF, L, 1, Reweight for NICE (Gaussian) PSF?
+FitPSF, L, 1, Fit a Gaussian to PSF?
+Stokes, C, 1, Stokes type I,Q,U, or V
+Timerange, I, 8, Timerange (d,h,m,s)
+ConvType, C, 1, Convolution function SF, SZE or BOX
+FFTSize, C, 1, Image size is PWR2 or EXACT
+SlowZ, L, 1, Slow transform in Z?, T or F
+DFT, L, 1, Slow transform?, T or F
+Vis, C, 1, Visibility data
+VisOut, C, 1, Output visibility file with weights applied
+Dirty, C, 1, Output dirty image
+PSF, C, 1, Output point spread function
+/Debug, L, 1, Debug? T or F
+.DEFAULTS
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Uvlimits = 0.0, 1E10
+Filter = 0.0, 0.0, 0.0
+Shift = 0.0, 0.0, 0.0
+FOV = 1.0
+GridWeights = T
+/GridSize = 0, 0
+/BinDebug = 0
+SaveWeights =
+ReadWeights =
+WeightImage =
+/WtHist = F
+DS = 0.0, 0.0
+RMode = NONE
+Robust = 0.0, 0.0, 0.0
+VLBpower = 1.0
+NicePSF = F
+FitPSF = F
+Stokes = I
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ConvType = SF
+FFTSize = PWR2
+SlowZ = T
+DFT = F
+Vis = 
+VisOut =
+Dirty = 
+PSF = 
+/Debug = F
+.END

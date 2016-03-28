@@ -1,0 +1,13 @@
+model   =	'model'
+results =	'HR1391Res'
+data1   =	'HR1391.Data'
+params  =	'HR1391.Param'
+ftn     =	 1.0	
+tol     =	 0.0001	
+iters   =	 25.0	
+prvar   =	 1.0	
+prmat   =	 1.0	
+fair    =	 0.925	
+sigma   =	 0.6039795639436	
+scale   =	 1.4605963717986259	
+END

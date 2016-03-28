@@ -1,0 +1,56 @@
+This program takes an existing visibility data set and corrupts it with 
+the EASY errors: noise, gain errors, ATMOS errors.
+No pointing errors.
+
+M.H.Holdaway, Dec 9 1991
+
+now here's something you'll REALLY like: Apply a model atmosphere
+to the visibilities to corrupt the phases and amplitudes.
+	Atmosphere
+	RefractIndex
+        AbsCoeff
+	AtVelocity
+	AtHeight
+	AveMM
+	Rpix
+	Tsky
+All apply to the atmosphere
+
+
+.
+VISin, C, 1, Input Vis File
+VISout, C, 1, Output Vis File
+STOKES, C, 1, What Stokes Type
+NRMS, R, 1, Noise RMS, JY
+PHRMS, R, 1, Phase RMS
+GRMS, R, 1, Gain RMS
+AddNoise, L, 1, Add NRMS/PHRMS/GRMS?
+Atmosphere, C, 1, Atmospheric screen file [can be blank]
+RefractIndex, R, 1, effective ref ind of water vapor
+AbsCoeff, R, 1, Optical depth caused by 1 mm water vapor
+AtVelocity, R, 2, Screen velocity [m/s]
+AtHeight, R, 1, Atmosphere Screen height [m]
+AveMM, R, 1, Average Atmosphere [mm water]
+Rpix, R, 2, Ref pix of the atmosphere
+Tsky, R, 1, Sky temperature
+Seed, I, 1, Random number generator seed
+.
+VISin =
+VISout =
+STOKES = I
+NRMS = 0.
+PHRMS = 0.
+GRMS = 0.
+AddNoise = F
+Atmosphere =
+RefractIndex = 7.5
+AbsCoeff = 0.06
+AtVelocity = 12.0, 0.0
+AtHeight = 1000.
+AveMM = 1.0
+Rpix = 1000, 32.
+Tsky = 253.
+Seed = 12345
+.
+
+

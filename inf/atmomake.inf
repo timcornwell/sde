@@ -1,0 +1,39 @@
+program:	atmomake
+prgrammer:	m.a.holdawa
+date:		may 7 1991
+purpose:	To generate a power law distribution of water vapor
+		(model atmosphere).  This atmosphere will be read in 
+		by the program ATMOSIM to simulate the affects of 
+		atmospheric emission, absorption, and phase.
+
+.
+/Debug, L, 1, to debug or not to debug
+Seed, I, 1, random number generator seed [ 4N+1 ]
+Pow1, R, 1, Power law index [Big to Middle]
+Pow2, R, 1, Power law index [Middle to Small]
+Big, R, 1, Largest structure [meters]
+Middle, R, 1, Intermediate structure [meters]
+Small, R, 1, Smallest structure [meters]
+Velocity, R, 2, Atmosphere velocity [m/s]
+Inttime, R, 1, Integration time [s]
+AVE, R, 1, AVE value of atmosphere [mm water]
+DISP, R, 1, dispersion about AVE [mm water]
+Imsize, I, 3, dimensions of atmospheric patch
+Cellsize, R, 3, Size of cells [meters]
+Atmosphere, C, 1, Name of atmosphere file
+.
+/Debug = F
+Seed   = 12345
+Pow1   = -3.66667
+Pow2   = -2.66667
+Big    = 1000.
+Middle = 300.
+Small  = 10.
+Velocity = 4.0, 0.0
+Inttime = 3.5156
+DISP = .2
+AVE = 1.0
+Imsize = 256, 256, 1
+Cellsize = 5.0, 5.0, 1.0
+Atmosphere =
+.

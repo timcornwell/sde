@@ -1,0 +1,25 @@
+.
+BaseName, C, 1, INFILE={basename}I{ext}
+Extension, C, 1, INFILE={basename}I{ext}
+Istart, I, 1, First I
+Iend, I, 1, Last I
+Iinterval, I, 1, Skipping I interval
+Ireference, I, 1, Which I is the reference frequency?
+BLC, I, 7, BLC of image to put to cube
+TRC, I, 7, TRC of image to put to cube
+STEP, I, 7, Step to take
+SUM, I, 7, Pixels to sum over
+OutCube, C, 1, Output Cube Name
+.
+BaseName = 
+Extension = 
+Istart = 1 
+Iend = 1
+Iinterval = 1
+Ireference = 1
+BLC = 0,0,0,0,0,0,0
+TRC = 0,0,0,0,0,0,0
+STEP = 1,1,1,1,1,1,1
+SUM = 0,0,0,0,0,0,0
+OutCube = 
+.

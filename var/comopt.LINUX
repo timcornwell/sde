@@ -1,0 +1,82 @@
+#
+#	National Radio Astronomy Observatory, Socorro, NM 87801
+#	Software Development Environment (SDE)
+#
+# This file comtains the specifications needed to compile and link
+# SDE routines and tasks. This is overridden by comopt.`hostname`
+# so if you want to change this, first copy it to comopt.`hostname`
+# and edit that file.
+#
+# Define type of machine: compiler, machine, operating system
+#
+DEFINES="-DCOMP_GNU -DMACH_LINUX -DOS_LINUX"
+#
+# C preprocessor directives
+#
+CPPFLAGS=$DEFINES" -traditional -I$SDEROOT/source/include"
+#
+# FORTRAN directives: compile only, optimize
+#
+FFLAGS="-c "
+
+#
+# c directives: compile only, optimize
+#
+CFLAGS=$DEFINES" -I$SDEROOT/source/include -c  "
+#
+# loader directives: optimize
+#
+LDFLAGS="  "
+#
+# Shared libraries?
+#
+SHARE="NO"
+#
+# Name of private library 
+#
+PLIB="plib.a"
+#
+# Name of standard public library 
+#
+SLIB="$SDELIB/slib.a"
+#
+# Names of all public libraries used
+#
+#TLIB="$SLIB $SDELIB/nr.a $SDEROOT/pvm/f2c/SUN4/libf2c.a $SDEROOT/pvm/src/SUN4/libpvm.a -Bstatic $SDELIB/libpgplot.a -lX11 -lF77 -lm"
+TLIB="$SLIB -lX11 -lF77 -lm"
+#TLIB="$SLIB $SDELIB/nr.a $SDELIB/libpgplot.a /usr/X11R6/lib/libX11.a -lf2c -lm"
+#
+# Name of inline code file (leave empty if not required)
+#
+FIL=
+#
+# Name of FORTRAN compiler
+#
+FC=gfortran
+#
+# Name of c compiler
+#
+CC=gcc
+#
+# Name of c preprocessor
+#
+CPP=gcc
+#
+# Name of loader
+#
+LD=gfortran
+#
+# Name of library randomizer (Leave empty if not needed)
+#
+RL=
+#
+# Redefinitions for debugging
+#
+if test X$SDEDEBUG = "XYES"
+then
+   FFLAGS="-c -g "
+   CFLAGS=$DEFINES" -I$SDEROOT/source/include -c -g "
+   LDFLAGS=" -g "
+   SHARE="NO"
+   PLIB="sdedbxlib.a"
+fi  

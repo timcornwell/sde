@@ -1,0 +1,9 @@
+.
+PSF, C, 1, PSF image
+DIFF, C, 1, Difference Image
+Level, R, 1, Gaussian level to integrate to
+.
+PSF = 
+DIFF = 
+Level = 0.1
+.

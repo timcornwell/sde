@@ -1,0 +1,17 @@
+.
+Vis, C, 1, Name of Visibility database
+Timerange, I, 8, Timerange (d,h,m,s)
+Uvlimits, R, 2, UV limits in wavelengths
+Stokes, C, 1, Stokes type I,Q,U, or V
+Model, C, 1, Name of model image
+Sigma, R, 1, Sigma for Unit Weight
+NumParams, I, 1, Number of parameters in model
+.
+Vis =  
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Uvlimits = 0.0, 1E10
+Stokes = I
+Model = 
+Sigma = 1.0
+NumParams = 1
+.

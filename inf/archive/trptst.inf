@@ -1,0 +1,17 @@
+.
+Seed, I, 1, Random number seed
+Mode, C, 1, Mode of solution 'AMPPHI' | ' '
+Amp, R, 1, Amplitude error
+Phase, R, 1, Phase error
+Noise, R, 1, Noise level
+Npass, I, 1, Number of passes
+/Debug, L, 1, Debug status
+.
+Seed = 11111
+Mode = 
+Amp = 0.05
+Phase = 360.0
+Noise = 0.1
+Npass = 100
+/Debug = T
+.

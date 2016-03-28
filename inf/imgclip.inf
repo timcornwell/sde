@@ -1,0 +1,26 @@
+
+Zero:   If Zero = 0, just clip
+        If Zero = 1, then instead of setting pixels
+	which are less than MIN to MIN, set them to 0.0
+        If Zero = -1, then instead of setting pixels
+	which are greater than MAX to MAX, set them to 0.0
+
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input cube
+Output, C, 1, Output image
+Max, R, 1, Maximum allowed
+Min, R, 1, Minimum allowed
+Scale, R, 1, Scale (applied before clip)
+Offset, R, 1, Offset (applied before clip)
+Zero, R, 1, Set clipped pixels to zero [0|1|-1]
+.
+/Debug = F
+Image =
+Output = 
+Max = 1e20
+Min = -1e20
+Scale = 1.0
+Offset = 0.0
+Zero = 0.0
+.

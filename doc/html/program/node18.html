@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Directory structure</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Directory structure">
+<meta name="keywords" value="program">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html248 HREF="node19.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html246 HREF="program.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html240 HREF="node17.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html250 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html249 HREF="node19.html"> Standard Include file</A>
+<B>Up:</B> <A NAME=tex2html247 HREF="program.html">Programmer's Guide to  SDE  </A>
+<B> Previous:</B> <A NAME=tex2html241 HREF="node17.html"> Tools for Editing</A>
+<BR> <HR> <P>
+<H1><A NAME=SECTION00090000000000000000> Directory structure</A></H1>
+<P>
+The directory structure is keyed to a root directory which is 
+referred to by the environment variable $SDEROOT. In principle, only
+this need be changed when moving the code to another machine.
+On the home machine, zia at NRAO, the top directory is called
+/zia/u/sde and has the following subdirectories:
+<P>
+<PRE><TT> 
+bin		                            executables
+<P>
+bin/shadows		                        ...shadows of actual tasks
+<P>
+bin/ibm6000		                        ...executables for ibm6000
+<P>
+bin/sparc		                        ...executables for SPARC machines
+<P>
+bin/unix		                        ...scripts (all in Bourne shell)
+<P>
+data		                           Data area
+<P>
+doc		                            Various documentation
+<P>
+hosts		                          Host-specific directories
+<P>
+inf		                            Information files for tasks
+<P>
+library		                     Libraries
+<P>
+library/ibm6000		                 ...for ibm6000
+<P>
+library/ibm6000/object		          ......copies of object modules
+<P>
+library/sparc		                 ...for SPARC
+<P>
+library/sparc/object		          ......copies of object modules
+<P>
+local		                          Scripts for midnight jobs, etc
+<P>
+scratch		                        Scratch area
+<P>
+sdeini		                         Bourne- or Korn-shell initialization file
+<P>
+sdeini.csh		                      C-shell initialization file
+<P>
+source		                         Source code
+<P>
+source/arr		                     Array level routines
+<P>
+source/cal		                     Calibration routines
+<P>
+source/crd		                     Coordinate manipulations
+<P>
+source/fft		                     FFT routines
+<P>
+source/fil		                     File system access
+<P>
+source/fts		                     FITS readers and writers
+<P>
+source/grd		                     Gridding routines
+<P>
+source/hed		                     Header manipulation
+<P>
+source/his		                     History system
+<P>
+source/img		                     Image level routines
+<P>
+source/include		                 Include files
+<P>
+source/main		                    main subroutines
+<P>
+source/mem		                     Maximum Entropy routines
+<P>
+source/mod		                     Model manipulation
+<P>
+source/pix		                     Pixel level routines
+<P>
+source/sim		                     Simulation routines
+<P>
+source/start		                   Main subroutine SDEMAIN
+<P>
+source/task		                    Tasks
+<P>
+source/task/archive		            Once and Future tasks
+<P>
+source/utl		                     Utility routines
+<P>
+source/vis		                     Visibility manipulation
+<P>
+test		                           Test data and results
+<P>
+tools		                          Various tools including MicroEmacs editor
+<P>
+		                               for unfriendly systems, fortran lint, and
+<P>
+		                               tv stuff for ibm6000 and sparc systems
+<P>
+var		                            Site and machine dependent scripts
+<P>
+</TT></PRE>
+<P>
+The data is usually kept in directories with logical names D1, D2, etc.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Wed Jan  3 09:21:29 MST 1996</I>
+</ADDRESS>
+</BODY>

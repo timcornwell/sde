@@ -1,0 +1,16 @@
+program		dcompare
+programmer	m.a. Holdaway
+date		april 27, 1993
+purpose		to compare two D term solutions and
+		try to say something about how they
+		have changed
+
+.
+D1, C, 1, Input D file
+D2, C, 1, Input D file
+Ddiff, C, 1, Output D file [optional]
+.
+D1 =
+D2 =
+Ddiff =
+.

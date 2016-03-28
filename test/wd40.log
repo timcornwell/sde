@@ -1,0 +1,189 @@
+wd40 I:
+wd40 I: I perform maximum entropy deconvolution
+wd40 I:
+wd40 I: SDE Version 1.0
+wd40 I: Compiled : Fri Jun 14 13:09:13 MDT 1991
+wd40 I:
+wd40 I: *get ~/tc/wd40.cur
+wd40 E: File open error in routine USRCMD,  parameter file
+wd40 T: Called from routine USRCMD
+wd40 I:
+wd40 I: Started  : Fri Jun 14 13:48:13 1991
+wd40 I: Finished : Fri Jun 14 13:48:20 1991
+wd40 I: User: 1.140 System: 0.580
+wd40 I: Run on zia
+wd40 I:
+wd40 I: I perform maximum entropy deconvolution
+wd40 I:
+wd40 I: SDE Version 1.0
+wd40 I: Compiled : Fri Jun 14 13:09:13 MDT 1991
+wd40 I:
+wd40 I: *edit
+wd40 I: *inp
+wd40 I: Dirty : Dirty = D0/M31.DRT
+wd40 I: Point spread function : PSF = D0/M31.PSF
+wd40 I: Default [optional] : Default =
+wd40 I: Image of errors [optional] : Error =
+wd40 I: WD  [can already exist, optional] : WD = D0/M31.WD
+wd40 I: Number of Iterations : Niter = 50
+wd40 I: Required total flux [necessary] : Tflux = 1493.00
+wd40 I: Required final fit per sample : Sigma = 1.00000E-03
+wd40 I: Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec] : Beam = 0., 0., 0.,
+wd40 I:  0.
+wd40 I: Tolerance for convergence : Tolerance = 0.300000
+wd40 I: Image to display on tv [WD|CWD|Lambda|] : TV =
+wd40 I: *go
+wd40 I: Opening FITS file D0/M31.DRT for READ as DObs
+wd40 I: Using flat default
+wd40 E: Requested item not found in routine FILSYSOP, Cannot find file /zia/u/sd
+e/data/M31.PSF
+wd40 T: Called from routine FTSOPEN
+wd40 T: Called from routine FILIMGGE
+wd40 I:
+wd40 I: Started  : Fri Jun 14 13:48:36 1991
+wd40 I: Finished : Fri Jun 14 13:49:58 1991
+wd40 I: User: 2.860 System: 0.630
+wd40 I: Run on zia
+wd40 I:
+wd40 I: I perform maximum entropy deconvolution
+wd40 I:
+wd40 I: SDE Version 1.0
+wd40 I: Compiled : Fri Jun 14 13:09:13 MDT 1991
+wd40 I:
+wd40 I: Parameter input error
+wd40 I: *go
+wd40 I: Opening FITS file D0/M31.DRT for READ as DObs
+wd40 I: Opening FITS file D0/M31.PSF for READ as PSF
+wd40 I: Using flat default
+wd40 I: Fit Beam (FWHM in sec) =      4.99996     4.99996   31.2
+wd40 W: Warning: Amplitude of PSF at center was      0.03530
+wd40 I: Will try to fit to 1.0 sigma per point
+wd40 I:  Iteration         Potential      Fit    Gradient
+wd40 I:      1             4365.627    146.755      1.000
+wd40 I:      2             4588.546    137.152      4.273
+wd40 I:      3             5216.457     98.393      3.199
+wd40 I:      4             5447.893     67.837      1.498
+wd40 I:      5             5401.392     47.723      0.720
+wd40 I:      6             5318.857     35.099      0.385
+wd40 I:      7             5387.495     25.466      0.247
+wd40 I:      8             5512.559     22.148      0.171
+wd40 I:      9             5563.561     17.131      0.159
+wd40 I:     10             5565.027     14.595      0.115
+wd40 I:     11             5577.146     12.127      0.096
+wd40 I:     12             5628.511      6.838      0.043
+wd40 I:     13             5641.624      5.577      0.029
+wd40 I:     14             5751.997      5.718      0.033
+wd40 I:     15             5884.161      6.061      0.057
+wd40 I:     16             5992.577      5.157      0.087
+wd40 I:     17             6058.054      4.697      0.074
+wd40 I:     18             6222.428      4.473      0.063
+wd40 I:     19             6436.395      4.478      0.071
+wd40 I:     20             6587.750      3.174      0.088
+wd40 I:     21             6676.335      2.746      0.045
+wd40 I:     22             6748.904      2.203      0.039
+wd40 I:     23             6746.262      1.905      0.015
+wd40 I:     24             6747.376      1.775      0.014
+wd40 I:     25             6749.338      1.714      0.016
+wd40 I:     26             6747.193      1.644      0.018
+wd40 I:     27             6758.538      1.704      0.015
+wd40 I:     28             6784.122      1.662      0.021
+wd40 I:     29             6817.637      1.609      0.024
+wd40 I:     30             6836.695      1.593      0.027
+wd40 I:     31             6854.180      1.424      0.026
+wd40 I:     32             6876.048      1.427      0.016
+wd40 I:     33             6892.788      1.525      0.021
+wd40 I:     34             6897.595      1.265      0.009
+wd40 I:     35             6899.931      1.255      0.006
+wd40 I:     36             6909.820      1.271      0.006
+wd40 I:     37             6921.361      1.239      0.011
+wd40 I:     38             6932.116      1.238      0.011
+wd40 I:     39             6941.438      1.211      0.011
+wd40 I:     40             6956.253      1.180      0.009
+wd40 I:     41             6978.652      1.141      0.008
+wd40 I:     42             6995.449      1.113      0.011
+wd40 I:     43             7013.305      1.090      0.009
+wd40 I:     44             7027.499      1.102      0.010
+wd40 I:     45             7026.557      1.057      0.004
+wd40 I:     46             7024.894      1.059      0.003
+wd40 I:     47             7023.876      1.060      0.004
+wd40 I:     48             7020.853      1.080      0.005
+wd40 I:     49             7021.290      1.094      0.005
+wd40 I:     50             7024.281      1.082      0.007
+wd40 I: Opening FITS file D0/M31.WD for WRITE as WD
+wd40 I: Writing 2-dimensional image WD
+wd40 I:
+wd40 I: Started  : Fri Jun 14 13:50:28 1991
+wd40 I: Finished : Fri Jun 14 14:02:09 1991
+wd40 I: User: 580.510 System: 17.460
+wd40 I: Run on zia
+wd40 I:
+wd40 I: I perform maximum entropy deconvolution
+wd40 I:
+wd40 I: SDE Version 1.0
+wd40 I: Compiled : Fri Jun 14 13:09:13 MDT 1991
+wd40 I:
+wd40 I: *go
+wd40 I: Opening FITS file D0/M31.DRT for READ as DObs
+wd40 I: Opening FITS file D0/M31.PSF for READ as PSF
+wd40 I: Using flat default
+wd40 I: Fit Beam (FWHM in sec) =      4.99996     4.99996   31.2
+wd40 W: Warning: Amplitude of PSF at center was      0.03530
+wd40 I: Will try to fit to 1.0 sigma per point
+wd40 I:  Iteration         Potential      Fit    Gradient
+wd40 I:      1             4365.627    146.755      1.000
+wd40 I:      2             4588.546    137.152      4.273
+wd40 I:      3             5216.457     98.393      3.199
+wd40 I:      4             5447.893     67.837      1.498
+wd40 I:      5             5401.392     47.723      0.720
+wd40 I:      6             5318.857     35.099      0.385
+wd40 I:      7             5387.495     25.466      0.247
+wd40 I:      8             5512.559     22.148      0.171
+wd40 I:      9             5563.561     17.131      0.159
+wd40 I:     10             5565.027     14.595      0.115
+wd40 I:     11             5577.146     12.127      0.096
+wd40 I:     12             5628.511      6.838      0.043
+wd40 I:     13             5641.624      5.577      0.029
+wd40 I:     14             5751.997      5.718      0.033
+wd40 I:     15             5884.161      6.061      0.057
+wd40 I:     16             5992.577      5.157      0.087
+wd40 I:     17             6058.054      4.697      0.074
+wd40 I:     18             6222.428      4.473      0.063
+wd40 I:     19             6436.395      4.478      0.071
+wd40 I:     20             6587.750      3.174      0.088
+wd40 I:     21             6676.335      2.746      0.045
+wd40 I:     22             6748.904      2.203      0.039
+wd40 I:     23             6746.262      1.905      0.015
+wd40 I:     24             6747.376      1.775      0.014
+wd40 I:     25             6749.338      1.714      0.016
+wd40 I:     26             6747.193      1.644      0.018
+wd40 I:     27             6758.538      1.704      0.015
+wd40 I:     28             6784.122      1.662      0.021
+wd40 I:     29             6817.637      1.609      0.024
+wd40 I:     30             6836.695      1.593      0.027
+wd40 I:     31             6854.180      1.424      0.026
+wd40 I:     32             6876.048      1.427      0.016
+wd40 I:     33             6892.788      1.525      0.021
+wd40 I:     34             6897.595      1.265      0.009
+wd40 I:     35             6899.931      1.255      0.006
+wd40 I:     36             6909.820      1.271      0.006
+wd40 I:     37             6921.361      1.239      0.011
+wd40 I:     38             6932.116      1.238      0.011
+wd40 I:     39             6941.438      1.211      0.011
+wd40 I:     40             6956.253      1.180      0.009
+wd40 I:     41             6978.652      1.141      0.008
+wd40 I:     42             6995.449      1.113      0.011
+wd40 I:     43             7013.305      1.090      0.009
+wd40 I:     44             7027.499      1.102      0.010
+wd40 I:     45             7026.557      1.057      0.004
+wd40 I:     46             7024.894      1.059      0.003
+wd40 I:     47             7023.876      1.060      0.004
+wd40 I:     48             7020.853      1.080      0.005
+wd40 I:     49             7021.290      1.094      0.005
+wd40 I:     50             7024.281      1.082      0.007
+wd40 I: Opening FITS file D0/M31.WD for WRITE as WD
+wd40 I: Writing 2-dimensional image WD
+wd40 I:
+wd40 I: Started  : Fri Jun 14 14:09:29 1991
+wd40 I: Finished : Fri Jun 14 14:22:01 1991
+wd40 I: User: 572.900 System: 21.660
+wd40 I: Run on zia

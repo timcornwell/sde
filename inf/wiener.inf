@@ -1,0 +1,12 @@
+.
+Image, C, 1, Input image
+Deconv, C, 1, Deconvolving image
+WFS, C, 1, Deconvolved and smoothed output image
+Beam, R, 3, Smoothing beam ( Bmaj, Bmin, Bpa )
+MinD, R, 1, Minimum denominator for division (fraction of peak)
+.
+Image =
+Deconv =
+WFS =
+Beam = 0.0, 0.0, 0.0
+MinD = 0.1

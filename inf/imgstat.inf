@@ -1,0 +1,15 @@
+.
+Image, C, 1, Name of input image
+Box, C, 1, Name of mask file
+BLC, I, 7, Bottom left corner
+TRC, I, 7, Top right corner
+AvgType, C, 1, Average type (AMPSCALAR or VECTOR)
+/Debug, L, 1, Debug status
+.
+Image = 
+Box =
+BLC = 0,0,0,0,0,0,0
+TRC = 0,0,0,0,0,0,0
+AvgType = AMPSCALAR
+/Debug = F
+.

@@ -1,0 +1,34 @@
+<HEAD>
+<TITLE> Text input and output: TXT routines</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html185 HREF=subsection3_5_6.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html183 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html177 HREF=subsection3_5_4.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html187 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html186 HREF=subsection3_5_6.html> String handling: STR </A>
+<B>Up:</B> <A NAME=tex2html184 HREF=section3_5.html> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html178 HREF=subsection3_5_4.html> User interface: USR </A>
+<HR> <P>
+<H2><A NAME=SECTION0005500000000000000> Text input and output: TXT routines</A></H2>
+<P>
+All text i/o should go through the text handling system. This uses
+string handles for files: these are just simple names rather than
+logical units.
+<UL><LI> <tt>TXTOPEN (HANDLE, FILE, STATUS)</tt>: Open an external file <tt>FILE</tt>
+using a status <tt>STATUS, CHARACTER*(*)</tt> and associate it with a handle.
+<tt>STATUS</tt> can be one of <tt>READ, WRITE</tt> or <tt>READWRITE</tt>.
+<LI> <tt>TXTCLOSE (HANDLE)</tt>: closes the i/o stream with handle <tt>HANDLE</tt>.
+<LI> <tt>TXTREAD (HANDLE, LINE, NCHAR, EOF)</tt>: reads a line from the stream
+and returns the number of characters read <tt>NCHAR, INTEGER</tt> and 
+an end-of-file indicator <tt>EOF, LOGICAL</tt>. A blank line returns
+<tt>NCHAR = 0</tt> and <tt>EOF = .FALSE.</tt>.
+<LI> <tt>TXTWRITE (HANDLE, LINE)</tt>: writes the line to the stream.
+</UL>
+The variables are:
+<P><IMG ALIGN=BOTTOM ALT="" SRC="_29564_tabbing266.xbm"><P>
+<P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:45:41 MST 1994</I>
+</ADDRESS>

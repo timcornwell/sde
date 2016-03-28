@@ -1,0 +1,78 @@
+#
+#	National Radio Astronomy Observatory, Socorro, NM 87801
+#	Software Development Environment (SDE)
+#
+# This file comtains the specifications needed to compile and link
+# SDE routines and tasks. This is overridden by comopt.`hostname`
+# so if you want to change this, first copy it to comopt.`hostname`
+# and edit that file.
+#
+# Define type of machine: compiler, machine, operating system
+DEFINES="-DCOMP_HP -DMACH_HP7X -DOS_SYSV"
+#
+# C preprocessor directives
+#
+CPPFLAGS=$DEFINES" -I$SDEROOT/source/include -C -P"
+#
+# FORTRAN directives: compile only, optimize
+#
+FFLAGS="-c -O -K"
+#
+# c directives: compile only, optimize
+#
+CFLAGS=$DEFINES" -I$SDEROOT/source/include -c -O"
+#
+# loader directives: optimize
+#
+LDFLAGS=" -O "
+#
+# Shared libraries?
+#
+SHARE="NO"
+#
+# Name of private library 
+#
+PLIB="plib.a"
+#
+# Name of standard public library 
+#
+SLIB="$SDELIB/slib.a"
+#
+# Names of all public libraries used
+#
+TLIB="$SLIB "
+#
+# Name of inline code file (leave empty if not required)
+#
+FIL=
+#
+# Name of FORTRAN compiler
+#
+FC=f77
+#
+# Name of c compiler
+#
+CC=cc
+#
+# Name of c preprocessor
+#
+CPP=/lib/cpp
+#
+# Name of loader
+#
+LD=f77
+#
+# Name of library randomizer (Leave empty if not needed)
+#
+RL=
+#
+# Redefinitions for debugging
+#
+if test X$SDEDEBUG = "XYES"
+then
+   FFLAGS="-c -g "
+   CFLAGS=$DEFINES" -I$SDEROOT/source/include -c -g "
+   LDFLAGS=" -g "
+   SHARE="NO"
+   PLIB="sdedbxlib.a"
+fi  

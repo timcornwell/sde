@@ -1,0 +1,75 @@
+<HEAD>
+<TITLE> NNLS</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html171 HREF=subsection3_6_3.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html169 HREF=section3_6.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html163 HREF=subsection3_6_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html173 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html172 HREF=subsection3_6_3.html> Interactive Deconvolution and </A>
+<B>Up:</B> <A NAME=tex2html170 HREF=section3_6.html> Special topics</A>
+<B> Previous:</B> <A NAME=tex2html164 HREF=subsection3_6_1.html> Exotic Weightings</A>
+<HR> <P>
+<H2><A NAME=SECTION0006200000000000000> NNLS</A></H2>
+<P>
+A fairly promising deconvolution algorithm has been implemented, based on
+Non Negative Least Squares matrix inversion.  The task <tt>svdconv</tt>
+performs several algebraic deconvolution algorithms, NNLS among them.  The
+algorithm is a quite straightforward application of a rather complicated
+preexisting constrained linear algebra algorithm.  The task forms the
+matrix connecting an arbitrary region in the dirty map with another
+arbitrary region in the component plane, and solves the resulting algebraic
+equations with the NNLS algorithm from Lawson &Hanson.  NNLS deconvolution
+is somewhat slower than existing algorithms for compact sources, and very
+much slower for extended objects.  The advantage is very high precision
+deconvolution, in particular when used in the hybrid mapping loop for
+VLBI.  Memory is the limiting factor to the source size that can be
+deconvolved.  One copy of the beam matrix must be held in memory, of size
+<IMG ALIGN=BOTTOM ALT="" SRC="_29697_tex2html_wrap235.xbm">, where <IMG ALIGN=BOTTOM ALT="" SRC="_29697_tex2html_wrap237.xbm"> is the number of pixels in the dirty
+map used as input to the algorithm, and <IMG ALIGN=BOTTOM ALT="" SRC="_29697_tex2html_wrap239.xbm"> is the number of pixels
+where the algorithm is allowed to place flux.  It is important that this
+fit into physical memory, as once page swapping sets in performance
+degrades dramatically, and problems that were just practical become quite
+impractical.  Running time is roughly proportional to
+<IMG ALIGN=BOTTOM ALT="" SRC="_29697_tex2html_wrap241.xbm">, and also varies with the SNR of the data, with
+higher quality data taking longer to process.  Currently a map with
+approximately 6000 pixels of significant emission and high SNR can be
+deconvolved in several hours on an IBM RS/6000.
+<P>
+When used in NNLS mode, many of the inputs to <tt>svdconv</tt> can be
+ignored.  Simply set <tt>Algorithm=NNLS</tt>, and ensure that <tt>Dirty</tt>,
+<tt>PSF</tt>, <tt>DataWindow</tt>, and <tt>FluxWindow</tt> all have reasonable
+values.  <tt>Dirty</tt> and <tt>PSF</tt> are images that have been made with <tt>uvmap</tt>.  <tt>DataWindow</tt> is the region of the dirty map that is to be used
+as input to the algorithm.  It is either an image or a cursor file as
+described in the section on SAOimage.  Generally the data window should be
+set as large as possible within convenient computational limits.  So long
+as this includes all regions of significant flux, the details of the window
+probably won't make much difference.  The flux window is essentially a
+CLEAN box.  It determines where the algorithm is allowed to place flux.
+For the purpose of deconvolving a well calibrated image, this also does not
+matter terribly so long as all regions of significant flux are included.
+For the purposes of making a self calibration model, it is more important
+that the flux window approximate the support of the source, but NNLS is
+still less sensitive to the details of the window that CLEAN.  The task
+will print out a status message the first few times through its main loop,
+and somewhat less frequently thereafter.  The residual, component model,
+and restored image can be written out with the <tt>Residual</tt>, <tt>Components</tt>, and <tt>Image</tt> adverbs.  As with all deconvolvers in <i>SDE</i>,
+the restored image is the smoothed components plus the residual image.  If
+the NNLS model is to be taken into <IMG ALIGN=BOTTOM ALT="" SRC="_29697_tex2html_wrap243.xbm">, use the task <tt>img2list</tt> with
+<tt>Mode=&gt;CC</tt> to write the component model as an ASCII file which can be
+read into <IMG ALIGN=BOTTOM ALT="" SRC="_29697_tex2html_wrap245.xbm"> with <tt>TBIN</tt>.
+<P>
+There is a more sophisticated task, <tt>inls</tt>, which attempts to
+iteratively improve a model too large for <tt>svdconv</tt> using NNLS minor
+cycles.  Unfortunately results to date have been disappointing and its use
+is quite experimental.
+<P>
+<HR> <A NAME=tex2html171 HREF=subsection3_6_3.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html169 HREF=section3_6.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html163 HREF=subsection3_6_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html173 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html172 HREF=subsection3_6_3.html> Interactive Deconvolution and </A>
+<B>Up:</B> <A NAME=tex2html170 HREF=section3_6.html> Special topics</A>
+<B> Previous:</B> <A NAME=tex2html164 HREF=subsection3_6_1.html> Exotic Weightings</A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:40:34 MST 1994</I>
+</ADDRESS>

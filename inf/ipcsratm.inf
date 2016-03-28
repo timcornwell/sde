@@ -1,0 +1,32 @@
+Program: ipcsratm - Remove atmospheric effects
+Programmer: R.G Marson
+Date: 3 Dec 1992
+Purpose: Remove the effects of the turbulent atmosphere from IPCS data
+
+Details: ipcsratm will apply the results of the atmospheric track 
+found by ipcshmm to a data file. It does this by
+1/ FFTing each frame along the cols
+2/ Applying the delays for the holes to each baseline
+3/ Accumulating the resulting Power spectrum
+4/ Normalise by dividing each wavelength by dividing by the total # photons
+    in that wavelength
+
+.INFO
+Infile, C, 1, Name of input IPCS file
+Outfile, C, 1, Name of output image
+Trackfile, C, 1, Input Track file
+Window, C, 1, Window to apply
+Pad, R, 1, Padding factor
+Normalise, L, 1, Normalise on each wavelength?
+/Debug, L, 1, Debug status
+Notify, I, 1, Print message every NOTIFY frames
+.DEFAULT
+Infile = 
+Outfile = 
+Trackfile = 
+Window = UNIFORM
+Pad = 1.
+Normalise = T
+/Debug = F
+Notify = 25
+.END

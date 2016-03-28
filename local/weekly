@@ -1,0 +1,44 @@
+#!/bin/ksh
+#
+# Weekly job for /zia/u/sde
+#
+. ~/.env.SunOS5
+setup_compilers     # Sun compilers (GNU compilers already set up)
+echo SDE weekly job on machine `hostname` 
+echo `date`
+PATH=.:~:~/bin:/usr/local:/usr/local/bin:/local/bin:/usr/ucb:/usr/bin:/bin
+. /home/zia/sde/sdeini
+#
+# Save the current version
+#
+set -x
+mv /home/estella/sde/tarfiles/sdetar.w.Z /home/estella/sde/tarfiles/sdetar.lw.Z
+sdetar /home/estella/sde/tarfile/sdetar.w
+compress /home/estella/sde/tarfiles/sdetar.w
+#
+# Now ship SDE to the various machines (both local and remote)
+#
+cd $SDEROOT
+cleanup
+#
+# NRAO RS/6000 in CV
+#
+#rdist -f $SDEROOT/local/distfile.rhesus
+#
+# Commented out by RGM 19/Feb /93
+# rdist -f $SDEROOT/local/distfile.csiro
+#
+# Now update sde on all machines with non-shared libraries
+#
+# Now do same stuff for different machine types
+#
+#     1. purge stuff not used for more than 30 days
+#     2. update sde
+#     3. make shadows
+#
+COMMAND=". .env;purgebin +30;sdeupdate.subs;makeshadows"
+#
+# ibm6000
+#
+rsh aztec -n $COMMAND
+#rsh rhesus -n $COMMAND

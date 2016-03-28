@@ -1,0 +1,3 @@
+
+(defun revise-sde-header "Massage the header of an SDE subroutine or function into a 
+standard format. Only fixes first in a file." (interactive (byte-code "À ‡" [beginning-of-buffer] 2)) (byte-code "Á‡" [beg nil] 1))

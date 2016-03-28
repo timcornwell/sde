@@ -1,0 +1,46 @@
+VISRREWT - performs a reweighting such that the mean radial 
+	profile of the UV density is flat
+programmer: m.a. holdaway
+date:	    june 9, 1994
+
+.
+Imsize, I, 2, UV Image size
+Cellsize, R, 2, Cellsizes in Meters
+Uvlimits, R, 2, UV limits in Meters
+FOV, R, 1, Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM
+NicePSF, L, 1, Reweight for NICE (Gaussian) PSF?
+Timerange, I, 8, Timerange (d,h,m,s)
+ConvType, C, 1, Convolution function SF, SZE or BOX
+Stokes, C, 1, Stokes type
+Vis, C, 1, Visibility data
+Outvis, C, 1, Output Visibility File
+Nbins, I, 1, Number of bins for radial density plot
+Shape, R, 2, S(1)=Bmaj/Bmin, S(2)=position angle of Bmaj
+DevMean, C, 1, Name of plot device for UV Density
+TitleComment, C, 1, Comment on plot title
+Xrange, R, 2, X min and max for plot [0=self scale]
+Yrange, R, 2, Y min and max for plot [0=self scale]
+DoEffectiveUV, L, 1, Convolve UV coverage with antenna illumination?
+Telescope, C, 1, Telescope type for PB
+Teldiam, R, 1, Telescope size for PB
+.DEFAULTS
+Imsize = 128, 128
+Cellsize = 10., 10.
+Uvlimits = 0.0, 1E10
+FOV = 0.0
+NicePSF = F
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ConvType = BOX
+Stokes = I
+Vis = 
+Outvis = 
+Nbins = 100
+Shape = 1.0, 0.0
+DevMean =  /xw
+TitleComment = 
+Xrange = 0., 0.
+Yrange = 0., 0.
+DoEffectiveUV = F
+Telescope = MMA
+Teldiam = 8.0
+.

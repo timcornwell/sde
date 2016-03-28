@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Tools for Editing, Linting, and TV display</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Tools for Editing, Linting, and TV display">
+<meta name="keywords" value="program">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html237 HREF="node18.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html235 HREF="program.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html229 HREF="node16.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html239 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html238 HREF="node18.html"> Directory structure</A>
+<B>Up:</B> <A NAME=tex2html236 HREF="program.html">Programmer's Guide to  SDE  </A>
+<B> Previous:</B> <A NAME=tex2html230 HREF="node16.html"> Porting to other </A>
+<BR> <HR> <P>
+<H1><A NAME=SECTION00080000000000000000> Tools for Editing, Linting, and TV display</A></H1>
+<P>
+In addition to the standard <i> SDE</i>  software, there is a need for some
+general tools. At the moment, these include the MicroEmacs public
+domain editor, Bob Sault's Fortran lint program, and some software
+from SAO to display images under X. There is a makefile for each one
+of these controlled by a script called e.g. makeemacs.  This script
+automatically selects the correct makefile and runs it and then puts
+the executable in $SDEBIN.
+<P>
+MicroEmacs is a nice, stripped version of Emacs for the PC which
+actually runs on most machines. Since it is public domain, please
+help yourself if you want the source code.
+<P>
+It is possible to use any X-terminal or computer running X to display
+images. To use the TV software on the SUN's, login into the <i> SDE</i>  account
+(see Tim Cornwell for the password) and start up X windows (just type
+openwin). Then invoke saoimage by pressing the left hand button
+and selecting appropriately. Saoimage is a very nice piece of software
+which allows many operations on images. The most important for
+<i> SDE</i>  is that it can read fits images and display them. You can
+tell it to load a specific fits file using the menus. <i> SDE</i>  tasks
+which write to the tv actually write to a file with the logical
+name $SDETV which is set on login but which must be specified to
+saoimage when you want to load one of the displayed images.
+There is a different tv file for each workstation so there
+should be no confusion of files. If you rlogin to another machine, then
+you will have to tell SDE. For host noggs you would just say:
+<P>
+	<tt> sdetv noggs</tt>
+<P>
+This replaces the suntv software previously used (although this can
+still be used via the task img2sun). Only image display through X is
+therefore possible. To compile saoimage, cd to tools/saoimage and type
+maketv.
+<P>
+<BR> <HR><A NAME=tex2html237 HREF="node18.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html235 HREF="program.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html229 HREF="node16.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html239 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html238 HREF="node18.html"> Directory structure</A>
+<B>Up:</B> <A NAME=tex2html236 HREF="program.html">Programmer's Guide to  SDE  </A>
+<B> Previous:</B> <A NAME=tex2html230 HREF="node16.html"> Porting to other </A>
+<BR> <HR> <P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Wed Jan  3 09:21:29 MST 1996</I>
+</ADDRESS>
+</BODY>

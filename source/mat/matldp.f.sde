@@ -1,0 +1,187 @@
+C
+C	National Radio Astronomy Observatory, Socorro, NM 87801
+C	Software Development Environment (SDE)
+C++
+C @(#)matldp.f.sde	1.1    6/8/94
+C
+      SUBROUTINE MATLDP (G, X, H)
+C
+CD Minimize || X ||,  subject to G X >= H
+C
+C	G	CH*(*)	input	Name of constraint array.
+C	X	CH*(*)	input	Name of solution vector.
+C	H	CH*(*)	input	Name of constraint vector.
+C
+C This is primarily a debugging version, to allow easy access to the
+C intermediate arrays, SDE style
+C
+C See Lawson & Hanson, _Solving Least Squares Problems_, Chap 23
+C
+C Audit trail:
+C	Initial version
+C				D.S. Briggs	2 Mar 1993
+C--------------------------------------------------------------------
+#include	"stdinc.h"
+C
+      CHARACTER*(*)	G, X, H
+C
+      CHARACTER*(*)	ROUTINE
+      PARAMETER		(ROUTINE = 'MATLDP')
+C
+      CHARACTER*1	GTYPE, HTYPE, XTYPE
+      INTEGER		GNAX, GNAXIS(SYSMXDIM), HNAX, HNAXIS(SYSMXDIM)
+      INTEGER		NAX, RNAX, NAXIS(SYSMXDIM), M, N, I,
+     $     		GADD, HADD, XADD, EADD, FADD, RADD, UADD, PADD
+      REAL		R
+C
+      INTEGER		CRDRNAX, DATADD
+      LOGICAL		DATEXIST
+C=====================================================================
+      IF (ERROR) GO TO 999
+C
+      CALL DATGETAR (G, GNAX, GNAXIS, GTYPE, GADD)
+      RNAX = CRDRNAX(GNAX,GNAXIS)
+      M = GNAXIS(1)
+      N = GNAXIS(2)
+C
+      IF (RNAX.NE.2) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE,
+     $      'Constraint array has bad number of axes')
+         GO TO 999
+      END IF
+C
+      CALL DATGETAR (H, HNAX, HNAXIS, HTYPE, HADD)
+      RNAX = CRDRNAX(HNAX,HNAXIS)
+C
+      IF (RNAX.NE.1) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE,
+     $      'Input constraint vector has bad number of axes')
+         GO TO 999
+      END IF
+C
+      IF (HNAXIS(1).NE.M) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE,
+     $        'Input constraint vector has bad size')
+         GO TO 999
+      END IF
+C
+C Make output arrays as needed
+C
+      IF (.NOT.DATEXIST(X)) THEN
+         HNAXIS(1) = N
+         XTYPE = HTYPE
+         CALL DATMAKAR (X, HNAX, HNAXIS, XTYPE, XADD)
+      ELSE
+         CALL DATGETAR (X, HNAX, HNAXIS, XTYPE, XADD)
+      END IF
+      RNAX = CRDRNAX(HNAX,HNAXIS)
+C
+      IF (RNAX.NE.1) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE,
+     $      'Input solution vector has bad number of axes')
+         GO TO 999
+      END IF
+C
+      IF (HNAXIS(1).NE.N) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE,
+     $        'Input solution vector has bad size')
+         GO TO 999
+      END IF
+C
+      IF ((GTYPE.NE.HTYPE).OR.(GTYPE.NE.XTYPE)) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE,
+     $        'Array type mismatch G H X = ' // GTYPE // ' ' //
+     $        HTYPE // ' ' // XTYPE)
+         GO TO 999
+      END IF
+C
+      IF ((GTYPE.NE.'R').AND.(GTYPE.NE.'D')) THEN
+         MESSAGE = 'Array type ' // GTYPE // ' not supported'
+	 CALL ERRREPOR (ERRBDARG, ROUTINE, MESSAGE)
+	 GO TO 999
+      END IF
+C
+C Create temporary arrays needed
+C
+      NAX = 2
+      NAXIS(1) = N + 1
+      NAXIS(2) = M
+      CALL DATMAKAR ('LDP-E', NAX, NAXIS, GTYPE, EADD)
+      CALL MATTRANS (G, 'LDP-GT')
+      CALL DATCREAT ('LDP-Window')
+      NAXIS(1) = N
+      CALL DATPUTI ('LDP-Window', 'TRC', NAXIS, SYSMXDIM)
+      CALL ARRSETCO ('LDP-E', 0.0, 0.0)
+      CALL ARRINSER ('LDP-GT', 'LDP-E', 'LDP-Window')
+C
+      CALL MATTRANS (H, 'LDP-HT')
+      NAXIS(1) = N + 1
+      NAXIS(2) = 1
+      CALL DATPUTI ('LDP-Window', 'BLC', NAXIS, SYSMXDIM)
+      NAXIS(2) = M
+      CALL DATPUTI ('LDP-Window', 'TRC', NAXIS, SYSMXDIM)
+      CALL ARRINSER ('LDP-HT', 'LDP-E', 'LDP-Window')
+C
+      NAX = 1
+      CALL DATMAKAR ('LDP-F', NAX, NAXIS, GTYPE, FADD)
+      CALL ARRSETCO ('LDP-F', 0.0, 0.0)
+      IF (GTYPE.EQ.'R') THEN
+         MEMR(FADD+N) = 1.0
+      ELSE
+         MEMD(FADD+N) = 1.0D0
+      END IF
+      IF (ERROR) GO TO 990
+C
+      CALL ARRCOPY ('LDP-E', 'LDP-E0')
+      CALL ARRCOPY ('LDP-F', 'LDP-F0')
+      CALL MATNNLS ('LDP-E0', 'LDP-U', 'LDP-F0')
+      IF (ERROR) GO TO 990
+C
+      CALL MATMULT ('LDP-E', 'LDP-U', 'LDP-R')
+      CALL ARRLC ('LDP-R', 1.0, 'LDP-F', -1.0, 'LDP-R')
+C
+      CALL ARRLEN ('LDP-R', R)
+      IF (R.LE.0.0) THEN
+         CALL ERRREPOR (ERRFATAL, ROUTINE, 'No solution exists')
+         GO TO 999
+      END IF
+C
+      IF (SYSDEBUG) THEN
+         CALL MATTRANS ('LDP-E', 'LDP-ET')
+         CALL MATMULT ('LDP-ET', 'LDP-R', 'LDP-P')
+         UADD = DATADD ('LDP-U')
+         PADD = DATADD ('LDP-P')
+         CALL MSGPUT ('I, U(I), P(I)', 'D')
+         DO 50 I = 1, M
+            IF (GTYPE.EQ.'R') THEN
+               WRITE (MESSAGE, 1050) I, MEMR(UADD+I-1), MEMR(PADD+I-1)
+            ELSE
+               WRITE (MESSAGE, 1050) I, MEMD(UADD+I-1), MEMD(PADD+I-1)
+            END IF
+ 1050       FORMAT (I5,2E15.5)
+            CALL MSGPUT (MESSAGE, 'D')
+ 50      CONTINUE
+         CALL DATDELET ('LDP-ET')
+         CALL DATDELET ('LDP-P')
+      END IF
+C
+      RADD = DATADD ('LDP-R')
+      DO 100 I = 1, N
+         IF (GTYPE.EQ.'R') THEN
+            MEMR(XADD+I-1) = -MEMR(RADD+I-1) / MEMR(RADD+N)
+         ELSE
+            MEMD(XADD+I-1) = -MEMD(RADD+I-1) / MEMD(RADD+N)
+         END IF
+ 100  CONTINUE
+C
+      CALL DATDELET ('LDP-E')
+      CALL DATDELET ('LDP-F')
+      CALL DATDELET ('LDP-E0')
+      CALL DATDELET ('LDP-F0')
+      CALL DATDELET ('LDP-U')
+      CALL DATDELET ('LDP-R')
+C
+ 990  IF (ERROR) CALL ERRTRACE (ROUTINE)
+C
+ 999  CONTINUE
+      END

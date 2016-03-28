@@ -1,0 +1,43 @@
+.
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes in arc-seconds
+Uvlimits, R, 2, Limits of allowed u,v (wavelengths)
+Timerange, I, 8, Timerange (d,h,m,s)
+Taverage, R, 1, Integration time for image (seconds)
+Shift, R, 3, Shift in arcseconds
+FOV, R, 1, Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM
+Vis, C, 1, Visibility data
+/Residual, C, 1, Residual image
+/Components, C, 1, Components image
+/CLEAN, C, 1, CLEAN image
+Cube, C, 1, Cube image
+BLC, I, 7 * 1, Bottom left corner of window
+TRC, I, 7 * 1, Top right corner of window
+Box, C, 1, Box image
+Niter, I, 1, Number of Iterations
+Flux, R, 1, Cutoff in flux
+Gain, R, 1, Loop gain
+Beam, R, 4, Clean beam: Bmaj, Bmin, Bpa, Bz
+/DEBUG, L, 1, Debug
+.
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Uvlimits = 0.0, 1000000000
+Timerange = 0,0,0,0,0,0,0,0
+Taverage = 86400
+Shift = 0., 0., 0.
+FOV = 1.0
+Vis = 
+/Residual = 
+/Components = 
+/CLEAN = 
+Cube =
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Box =
+Niter = 1
+Flux = 0.0
+Gain = 0.1
+Beam = 2.5, 2.5, 0.0, 2.5
+/DEBUG = F
+.

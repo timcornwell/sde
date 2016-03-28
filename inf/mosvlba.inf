@@ -1,0 +1,23 @@
+.
+Infile, C, 1, Input strange format file
+Source, C, 1, Name of source
+IF, I, 1, IF number
+BW, R, 1, Bandwidth [MHz]
+Epoch, C, 1, Epoch of output coordinates [1950|2000]
+Scale, R, 2, Scale to Jy
+Pointing, R, 2, Pointing correction in Az, El [degrees]
+Station, C, 1, Name of the station eg AOC, Pie, Kitt, Los etc
+Mosaic, C, 1, Output file
+/Debug, L, 1, Debug status
+.
+Infile =
+Source =
+IF = 1
+BW = 16.0
+Epoch = 1950
+Scale = 1.0, 1.0
+Pointing = 0.0, 0.0
+Station = Pie 
+Mosaic =
+/Debug = F
+.

@@ -1,0 +1,534 @@
+SDE weekly job on machine noggs
+Sat Jul 3 02:00:06 MDT 1993
++ mv /noggs/sde/tarfiles/sdetar.w.Z /noggs/sde/tarfiles/sdetar.lw.Z
++ sdetar sdetar.w
+Writing unix sde to sdetar.w
+tar: /zia/u/sde/inf/archive: Permission denied
+tar: tools/saoimage: No such file or directory
++ compress sdetar.w
++ cp sdetar.w.Z /noggs/sde/tarfiles/sdetar.w.Z
++ rm -f sdetar.w.Z
++ cd /zia/u/sde
++ cleanup
+find: cannot chdir to ./inf/archive: Permission denied
+find: cannot chdir to inf/archive: Permission denied
+/zia/u/sde/scratch
++ COMMAND=. .env;purgebin +30;sdeupdate;makeshadows
++ rsh aztec -n . .env;purgebin +30;sdeupdate;makeshadows
+Will purge all task binaries older than +30 days
+Updating sde for machine RIOS at Sat Jul 3 02:15:13 MDT 1993
+Update of sde libraries and executables
+Checking directory X11
+Checking directory arr
+Checking directory cal
+Checking directory crd
+Checking directory fft
+Checking directory fil
+Checking directory fly
+Checking directory fts
+Checking directory gai
+Checking directory grd
+Checking directory hed
+Checking directory his
+Checking directory img
+Checking directory ipc
+Checking directory main
+Checking directory mat
+Checking directory mem
+Checking directory mod
+Checking directory pix
+Checking directory plt
+Checking directory pvm
+Checking directory sid
+Checking directory sim
+Checking directory tip
+Checking directory trp
+Checking directory utl
+Compiling all required files:
+Compiling utl/sort.c
+Moving object modules to public library /zia/u/sde/lib/RIOS/slib.a
+sort.o
+Updating random access index of /zia/u/sde/lib/RIOS/slib.a
+Checking directory vis
+Checking directory vsd
+Assembling list of servers to be compiled and relinked
+Only choose those for which an executable already exists
+Compiling and linking required servers:
+comserver arrfftrs.f defaulthosts.f flytoviss.f imghgeoms.f pvmd.f vistoimgs.f
+Compiling master routine /zia/u/sde/source/start/start.f
+** toplevel   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29145.start.f.
+Compiling arrfftrs.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29145.arrfftrs.f.
+Linking arrfftrs.f
+Unknown file defaulthosts.f
+Compiling flytoviss.f
+** sdemain   === End of Compilation 1 ===
+** flytovis1   === End of Compilation 2 ===
+1501-510  Compilation successful for file 29145.flytoviss.f.
+Linking flytoviss.f
+Compiling imghgeoms.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29145.imghgeoms.f.
+Linking imghgeoms.f
+Unknown file pvmd.f
+Compiling vistoimgs.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29145.vistoimgs.f.
+Linking vistoimgs.f
+Assembling list of tasks to be compiled and relinked
+Only choose those for which an executable already exists
+Compiling and linking required tasks:
+comtask 1957.f arrfftrs.f clean.f closure.f dragon.f dragonsub.f fftx.f fftx2d.f fly.f flydoc.f flysub.f flytoviss.f grdtst.f hgeom.f imgave.f imgclip.f imghgeoms.f imglc.f imgpb.f imgprt.f imgsetco.f imgstat.f imgsub.f imgxfr.f lnls.f makepb.f mosaic.f mosaicm.f moscat.f moslin.f moslist.f mosmake.f mossub.f padim.f pfftx2d.f puvmap.f saoimage.f sd2mos.f sde.f smooth.f uvkfit.f uvmap.f viscat.f vislist.f visres.f vissim.f vistoimgs.f viswd40.f vm.f world.f
+Compiling master routine /zia/u/sde/source/start/start.f
+** toplevel   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.start.f.
+Compiling 1957.f
+** sdemain   === End of Compilation 1 ===
+** fsel   === End of Compilation 2 ===
+1501-510  Compilation successful for file 29045.1957.f.
+Linking 1957.f
+Unknown file arrfftrs.f
+Compiling clean.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.clean.f.
+Linking clean.f
+Compiling closure.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.closure.f.
+Linking closure.f
+Compiling dragon.f
+** sdemain   === End of Compilation 1 ===
+** flyinip   === End of Compilation 2 ===
+1501-510  Compilation successful for file 29045.dragon.f.
+Linking dragon.f
+Compiling dragonsub.f
+** sdemain   === End of Compilation 1 ===
+** flynames   === End of Compilation 2 ===
+1501-510  Compilation successful for file 29045.dragonsub.f.
+Linking dragonsub.f
+Compiling fftx.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.fftx.f.
+Linking fftx.f
+Compiling fftx2d.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.fftx2d.f.
+Linking fftx2d.f
+Unknown file fly.f
+Compiling flydoc.f
+  255.15   1513-041: (S) Arguments of the wrong type were specified for the INTRINSIC function max.
+** sdemain   === End of Compilation 1 ===
+1501-511  Compilation failed for file 29045.flydoc.f.
+Linking flydoc.f
+Compiling flysub.f
+** sdemain   === End of Compilation 1 ===
+** flynames   === End of Compilation 2 ===
+1501-510  Compilation successful for file 29045.flysub.f.
+Linking flysub.f
+Unknown file flytoviss.f
+Compiling grdtst.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.grdtst.f.
+Linking grdtst.f
+Compiling hgeom.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.hgeom.f.
+Linking hgeom.f
+Compiling imgave.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.imgave.f.
+Linking imgave.f
+Compiling imgclip.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.imgclip.f.
+Linking imgclip.f
+Unknown file imghgeoms.f
+Compiling imglc.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.imglc.f.
+Linking imglc.f
+Compiling imgpb.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.imgpb.f.
+Linking imgpb.f
+Compiling imgprt.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.imgprt.f.
+Linking imgprt.f
+Compiling imgsetco.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.imgsetco.f.
+Linking imgsetco.f
+Compiling imgstat.f
+  470.44   1512-050: (W) Field separator is missing after code in component number 7 of FORMAT statement.  A comma is assumed.
+** sdemain   === End of Compilation 1 ===
+** getpixel   === End of Compilation 2 ===
+** getrpix   === End of Compilation 3 ===
+** getxpix   === End of Compilation 4 ===
+1501-510  Compilation successful for file 29045.imgstat.f.
+Linking imgstat.f
+Compiling imgsub.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.imgsub.f.
+Linking imgsub.f
+Compiling imgxfr.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.imgxfr.f.
+Linking imgxfr.f
+Compiling lnls.f
+** sdemain   === End of Compilation 1 ===
+** lnsimg   === End of Compilation 2 ===
+  569.23   1514-071: (W) Identifier r was previously defined with same type.
+** lnsimg2d   === End of Compilation 3 ===
+1501-510  Compilation successful for file 29045.lnls.f.
+Linking lnls.f
+Compiling makepb.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.makepb.f.
+Linking makepb.f
+Compiling mosaic.f
+** sdemain   === End of Compilation 1 ===
+** imgclres   === End of Compilation 2 ===
+** viscalrr   === End of Compilation 3 ===
+1501-510  Compilation successful for file 29045.mosaic.f.
+Linking mosaic.f
+Compiling mosaicm.f
+** sdemain   === End of Compilation 1 ===
+** imgclres   === End of Compilation 2 ===
+** viscalrr   === End of Compilation 3 ===
+1501-510  Compilation successful for file 29045.mosaicm.f.
+Linking mosaicm.f
+Compiling moscat.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.moscat.f.
+Linking moscat.f
+Compiling moslin.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.moslin.f.
+Linking moslin.f
+Compiling moslist.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.moslist.f.
+Linking moslist.f
+Compiling mosmake.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.mosmake.f.
+Linking mosmake.f
+Compiling mossub.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.mossub.f.
+Linking mossub.f
+Compiling padim.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.padim.f.
+Linking padim.f
+Compiling pfftx2d.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.pfftx2d.f.
+Linking pfftx2d.f
+Compiling puvmap.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.puvmap.f.
+Linking puvmap.f
+Unknown file saoimage.f
+Compiling sd2mos.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.sd2mos.f.
+Linking sd2mos.f
+Compiling sde.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.sde.f.
+Linking sde.f
+Compiling smooth.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.smooth.f.
+Linking smooth.f
+Compiling uvkfit.f
+** sdemain   === End of Compilation 1 ===
+** uvkfits   === End of Compilation 2 ===
+** vresid   === End of Compilation 3 ===
+** func   === End of Compilation 4 ===
+** dfunc   === End of Compilation 5 ===
+** amoeba   === End of Compilation 6 ===
+** dfpmin   === End of Compilation 7 ===
+** frprmn   === End of Compilation 8 ===
+** f1dim   === End of Compilation 9 ===
+** df1dim   === End of Compilation 10 ===
+** linmin   === End of Compilation 11 ===
+** mnbrak   === End of Compilation 12 ===
+** dbrent   === End of Compilation 13 ===
+1501-510  Compilation successful for file 29045.uvkfit.f.
+Linking uvkfit.f
+Compiling uvmap.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.uvmap.f.
+Linking uvmap.f
+Compiling viscat.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.viscat.f.
+Linking viscat.f
+Compiling vislist.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.vislist.f.
+Linking vislist.f
+Compiling visres.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.visres.f.
+Linking visres.f
+Compiling vissim.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.vissim.f.
+Linking vissim.f
+Unknown file vistoimgs.f
+Compiling viswd40.f
+** sdemain   === End of Compilation 1 ===
+** ltrans   === End of Compilation 2 ===
+** ftrans   === End of Compilation 3 ===
+** cchisq   === End of Compilation 4 ===
+1501-510  Compilation successful for file 29045.viswd40.f.
+Linking viswd40.f
+Compiling vm.f
+** sdemain   === End of Compilation 1 ===
+** imgclres   === End of Compilation 2 ===
+1501-510  Compilation successful for file 29045.vm.f.
+Linking vm.f
+Compiling world.f
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 29045.world.f.
+Linking world.f
++ rsh zuni -n . .env;purgebin +30;sdeupdate;makeshadows
+Will purge all task binaries older than +30 days
+Updating sde for machine RIOS31 at Sat Jul 3 04:35:23 CDT 1993
+Update of sde libraries and executables
+Checking directory X11
+Checking directory arr
+Checking directory cal
+Checking directory crd
+Checking directory fft
+Checking directory fil
+Checking directory fly
+Checking directory fts
+Checking directory gai
+Checking directory grd
+Checking directory hed
+Checking directory his
+Checking directory img
+Checking directory ipc
+Checking directory main
+Checking directory mat
+Checking directory mem
+Checking directory mod
+Checking directory pix
+Checking directory plt
+Checking directory pvm
+Checking directory sid
+Checking directory sim
+Checking directory tip
+Checking directory trp
+Checking directory utl
+Compiling all required files:
+Compiling utl/sort.c
+Moving object modules to public library /zia/u/sde/lib/RIOS31/slib.a
+sort.o
+rm: sort.o: No such file or directory
+Updating random access index of /zia/u/sde/lib/RIOS31/slib.a
+Checking directory vis
+Checking directory vsd
+Assembling list of servers to be compiled and relinked
+Only choose those for which an executable already exists
+/zia/u/sde/pvm/RIOS31: No such file or directory
+Tasks up to date
+Assembling list of tasks to be compiled and relinked
+Only choose those for which an executable already exists
+Compiling and linking required tasks:
+comtask closure.f dragon.f fftx.f fftx2d.f grdtst.f mosaic.f mosmake.f uvmap.f viswd40.f world.f
+Compiling master routine /zia/u/sde/source/start/start.f
+Error occurred while initializing the message system in file: xlfsmsg.cat
+Error occurred while initializing the message system in file: xlfmsg.cat
+** toplevel   === End of Compilation 1 ===
+1501-510  Compilation successful for file 17922.start.f.
+Compiling closure.f
+Error occurred while initializing the message system in file: xlfsmsg.cat
+Error occurred while initializing the message system in file: xlfmsg.cat
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 17922.closure.f.
+Linking closure.f
+Compiling dragon.f
+Error occurred while initializing the message system in file: xlfsmsg.cat
+Error occurred while initializing the message system in file: xlfmsg.cat
+** sdemain   === End of Compilation 1 ===
+** flyinip   === End of Compilation 2 ===
+1501-510  Compilation successful for file 17922.dragon.f.
+Linking dragon.f
+Compiling fftx.f
+Error occurred while initializing the message system in file: xlfsmsg.cat
+Error occurred while initializing the message system in file: xlfmsg.cat
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 17922.fftx.f.
+Linking fftx.f
+Compiling fftx2d.f
+Error occurred while initializing the message system in file: xlfsmsg.cat
+Error occurred while initializing the message system in file: xlfmsg.cat
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 17922.fftx2d.f.
+Linking fftx2d.f
+Compiling grdtst.f
+Error occurred while initializing the message system in file: xlfsmsg.cat
+Error occurred while initializing the message system in file: xlfmsg.cat
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 17922.grdtst.f.
+Linking grdtst.f
+Compiling mosaic.f
+Error occurred while initializing the message system in file: xlfsmsg.cat
+Error occurred while initializing the message system in file: xlfmsg.cat
+** sdemain   === End of Compilation 1 ===
+** imgclres   === End of Compilation 2 ===
+** viscalrr   === End of Compilation 3 ===
+1501-510  Compilation successful for file 17922.mosaic.f.
+Linking mosaic.f
+Compiling mosmake.f
+Error occurred while initializing the message system in file: xlfsmsg.cat
+Error occurred while initializing the message system in file: xlfmsg.cat
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 17922.mosmake.f.
+Linking mosmake.f
+Compiling uvmap.f
+Error occurred while initializing the message system in file: xlfsmsg.cat
+Error occurred while initializing the message system in file: xlfmsg.cat
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 17922.uvmap.f.
+Linking uvmap.f
+Compiling viswd40.f
+Error occurred while initializing the message system in file: xlfsmsg.cat
+Error occurred while initializing the message system in file: xlfmsg.cat
+** sdemain   === End of Compilation 1 ===
+** ltrans   === End of Compilation 2 ===
+** ftrans   === End of Compilation 3 ===
+** cchisq   === End of Compilation 4 ===
+1501-510  Compilation successful for file 17922.viswd40.f.
+Linking viswd40.f
+Compiling world.f
+Error occurred while initializing the message system in file: xlfsmsg.cat
+Error occurred while initializing the message system in file: xlfmsg.cat
+** sdemain   === End of Compilation 1 ===
+1501-510  Compilation successful for file 17922.world.f.
+Linking world.f
++ rsh cholla -n . .env;purgebin +30;sdeupdate;makeshadows
+cholla: unknown host
++ rsh negra -n . .env;purgebin +30;sdeupdate;makeshadows
+Will purge all task binaries older than +30 days
+Updating sde for machine SUN4 at Sat Jul 3 05:42:43 MDT 1993
+Update of sde libraries and executables
+Checking directory X11
+Checking directory arr
+Checking directory cal
+Checking directory crd
+Checking directory fft
+Checking directory fil
+Checking directory fly
+Checking directory fts
+Checking directory gai
+Checking directory grd
+Checking directory hed
+Checking directory his
+Checking directory img
+Checking directory ipc
+Checking directory main
+Checking directory mat
+Checking directory mem
+Checking directory mod
+Checking directory pix
+Checking directory plt
+Checking directory pvm
+*.? not found
+Checking directory sid
+Checking directory sim
+Checking directory tip
+Compiling all required files:
+Compiling tip/tipdummy.f
+8881.tipdummy.f:
+ MAIN:
+"tip/tipdummy.f", line 7: Error: unbalanced parentheses, statement skipped
+"tip/tipdummy.f", line 7: Error: unclassifiable statement
+"tip/tipdummy.f", line 22: Warning: local variable "db" never used
+Compilation failed
+mv: 8881.tipdummy.o: Cannot access: No such file or directory
+Unsuccessful compilation: no object modules produced
+Checking directory trp
+Checking directory utl
+Checking directory vis
+Checking directory vsd
+Assembling list of servers to be compiled and relinked
+Only choose those for which an executable already exists
+Compiling and linking required servers:
+comserver arrfftrs.f defaulthosts.f flytoviss.f vistoimgs.f
+Compiling master routine /zia/u/sde/source/start/start.f
+8935.start.f:
+ MAIN toplevel:
+Compiling arrfftrs.f
+8935.arrfftrs.f:
+	sdemain:
+Linking arrfftrs.f
+Unknown file defaulthosts.f
+Compiling flytoviss.f
+8935.flytoviss.f:
+	sdemain:
+"flytoviss.f", line 28: Warning: local variable "datexist" never used
+	flytovis1:
+Linking flytoviss.f
+Compiling vistoimgs.f
+8935.vistoimgs.f:
+	sdemain:
+Linking vistoimgs.f
+Assembling list of tasks to be compiled and relinked
+Only choose those for which an executable already exists
+find: cannot access arrfftrs.f: No such file or directory
+find: cannot access calc.f: No such file or directory
+Compiling and linking required tasks:
+comtask calc.f cursor.f flydoc.f flytoviss.f holography.f imgmodel.trace.f imgplot.trace.f imgsub.trace.f saoimage.f uvmap.f uvplt.trace.f vislist.trace.f visrewt.f visrlave.trace.f vissim.f visstat.f vistoimgs.f vm.f vm.trace.f
+Compiling master routine /zia/u/sde/source/start/start.f
+9156.start.f:
+ MAIN toplevel:
+Unknown file calc.f
+Compiling cursor.f
+9156.cursor.f:
+	sdemain:
+Linking cursor.f
+Compiling flydoc.f
+9156.flydoc.f:
+	sdemain:
+Linking flydoc.f
+Unknown file flytoviss.f
+Unknown file holography.f
+Unknown file imgmodel.trace.f
+Unknown file imgplot.trace.f
+Unknown file imgsub.trace.f
+Unknown file saoimage.f
+Compiling uvmap.f
+9156.uvmap.f:
+	sdemain:
+Linking uvmap.f
+Unknown file uvplt.trace.f
+Unknown file vislist.trace.f
+Compiling visrewt.f
+9156.visrewt.f:
+	sdemain:
+Linking visrewt.f
+Unknown file visrlave.trace.f
+Compiling vissim.f
+9156.vissim.f:
+	sdemain:
+Linking vissim.f
+Compiling visstat.f
+9156.visstat.f:
+	sdemain:
+Linking visstat.f
+Unknown file vistoimgs.f
+Compiling vm.f
+9156.vm.f:
+	sdemain:
+	imgclres:
+Linking vm.f
+Unknown file vm.trace.f

@@ -1,0 +1,55 @@
+In the multiresolution clean, the dirty map and beam are smoothed by a
+gaussian of size frac*beam.  The difference map is formed by Dd = Ds - D
+Dd is first cleaned with a difference beam.  The components thus formed
+are convolved with the dirty beam and smoothing gaussian and subtracted
+from Ds.  Ds is then cleaned normally with the smooth beam.
+
+In all of the inputs below, the first number or filename refers to the
+difference map, and the second to the smooth map.
+.
+Dirty , C, 1, Dirty [must be specified]
+PSF, C, 1, Point spread function [must be specified]
+Residual, C, 2, Residual images [optional]
+Components, C, 2, Components images [optional]
+Box, C, 2, CLEAN Box images [optional]
+CLEAN, C, 1, CLEAN image [optional]
+CCfile, C, 2, Name of lists of Clean components [optional]
+BLC, I, 7 * 1, Bottom left corner of window [pixels]
+TRC, I, 7 * 1, Top right corner of window [pixels]
+Niter, I, 2, Number of Iterations
+Flux, R, 2, Cutoff in flux [Jy/beam]
+Gain, R, 2, Loop gain
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec]
+Frac, R, 1, Size of smoothing gaussian, in multiples of BEAM
+/DEBUG, L, 1, Debug
+Trim, R, 2, Trim level for SDI CLEAN
+Algorithm, C, 2, Algorithm to use [CLARK | HOGBOM | SDI]
+CorMode, C, 1, [ NONE | PARTIAL | FULL ]
+ExtDConv, L, 2, External deconvolution?
+Numcl, I, 2, Size of list for cleaning
+Bpatch, I, 2, Size of beampatch [pixels]
+TempDir, C, 1, Prefix for temporary files
+.
+Dirty = 
+PSF = 
+Residual = 
+Components = 
+Box =
+CLEAN = 
+CCfile =
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Niter = 100
+Flux = 0.0
+Gain = 0.1
+Beam = 0.0, 0.0, 0.0, 0.0
+Frac = 3.0
+Trim = 0.0
+/DEBUG = F
+Algorithm = HOGBOM,HOGBOM
+CorMode = NONE
+ExtDConv = F,F
+Numcl = 32768
+Bpatch = 128
+TempDir =
+.

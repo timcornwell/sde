@@ -1,0 +1,31 @@
+test1 smoothed
+imgstat I:    Average =   1.896E-05
+imgstat I:    Rms     =   2.218E-04
+imgstat I:    Dispers =   2.209E-04
+imgstat I:    Maximum =   5.187E-03
+imgstat I:    Minimum =   0.000E+00
+imgstat I:    Sum     =   1.000E+00
+
+test1 not smoothed
+imgstat I:    Average =   1.896E-05
+imgstat I:    Rms     =   4.354E-03
+imgstat I:    Dispers =   4.354E-03
+imgstat I:    Maximum =   1.000E+00
+imgstat I:    Minimum =   0.000E+00
+imgstat I:    Sum     =   1.000E+00
+
+test2 smoothed
+imgstat I:    Average =   1.896E-05
+imgstat I:    Rms     =   2.218E-04
+imgstat I:    Dispers =   2.209E-04
+imgstat I:    Maximum =   5.187E-03
+imgstat I:    Minimum =   0.000E+00
+imgstat I:    Sum     =   1.000E+00
+
+test2 not smoothed
+imgstat I:    Average =   1.896E-05
+imgstat I:    Rms     =   4.354E-03
+imgstat I:    Dispers =   4.354E-03
+imgstat I:    Maximum =   1.000E+00
+imgstat I:    Minimum =   0.000E+00
+imgstat I:    Sum     =   1.000E+00

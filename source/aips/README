@@ -1,0 +1,3 @@
+This is a repository for AIPS programs that are not general enough to go
+into the normal AIPS release, and that are designed to interface with
+SDE programs.

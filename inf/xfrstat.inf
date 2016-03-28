@@ -1,0 +1,45 @@
+Vis, Timerange & Stokes are only used for a more precise calculation of the
+transfer function envelope.  If omitted, this will be calculated from Xfr.
+
+The beam fitting algorithm may be LINEAR, NONLINEAR, ARCHIVE, HDR-LINEAR,
+HDR-NONLINEAR, HDR-ARCHIVE, L, N, A, HL, HNL, HA
+
+.
+Xfr, C, 1, Transfer function
+Nbins, I, 1, # of bins in envelope
+/Npoints, I, 1, Number of points in sampled envelope
+Thresh, R, 1, Threshold for significance in xfr
+Factor, R, 1, Radial factor for xfr envelope
+Vis, C, 1, Determine envelope from this [opt]
+Stokes, C, 1, Stokes type I,Q,U, or V
+Timerange, I, 8, Timerange (d,h,m,s)
+Mask, C, 1, Precalculated transfer function mask
+OutMask, C, 1, Internally calculated mask
+OutEnv, C, 1, Internally calculated envelope
+EnvMode, C, 1, WORLD or PIXEL
+Beam, R, 4, Smoothing beam ( Bmaj, Bmin, Bpa )
+BeamFile, C, 1, Use beam from this file
+FitAlg, C, 1, Beam fitting algorithm
+Img, C, 1, Image for analysis
+IDeconv, L, 1, Deconvolve Image beam?
+/Debug, L, 1, Debug status
+.
+Xfr =
+Nbins = 30
+/Npoints = 200
+Thresh = 10
+Factor = 1.0
+Vis =
+Stokes = I
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Mask =
+OutMask =
+OutEnv = 
+EnvMode = WORLD
+Beam = 0, 0, 0.0
+BeamFile =
+FitAlg = HDR-LINEAR
+Img =
+IDeconv = F
+/Debug = F
+.

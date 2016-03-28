@@ -1,0 +1,13 @@
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input cube
+Output, C, 1, Output image
+Photons, R, 1, Desired peak photon count
+Background, R, 1, Background photon count
+.
+/Debug = F
+Image =
+Output = 
+Photons = 1.0
+Background = 0.0
+.

@@ -1,0 +1,21 @@
+DEFINES="-DCOMP_SUN -DMACH_SUN3 -DOS_BSD"
+CPPFLAGS=$DEFINES" -I$SDEROOT/source/include"
+FFLAGS="-c -f68881"
+CFLAGS=$DEFINES" -I$SDEROOT/source/include -c -f68881"
+LDFLAGS="-f68881"
+#TLIB="$SDELIB/slib.a -lpgplot -lsuntool -lcgi77 -lcgi -lsunwindow -lpixrect -lF77 -lm"
+#TLIB="$SLIB $SDELIB/libpgplot.so -lX11 -lF77 -lm"
+TLIB="$SLIB -lX11 -lF77 -lm"
+FC=/usr/lang/f77
+CC=cc
+CPP=/lib/cpp
+LD=/usr/lang/f77
+FIL=/usr/lib/libm.il
+RL=ranlib
+if test X$SDEDEBUG = "XYES"
+then
+   FFLAGS="-c -g -f68881"
+   CFLAGS=$DEFINES" -I$SDEROOT/source/include -c -g -f68881"
+   LDFLAGS="-g -f68881"
+fi
+

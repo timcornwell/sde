@@ -1,0 +1,22 @@
+This program reads in a Mosaic DataBase and a single VIS
+file.  It keeps the RA, DEC, and TELESCOPE of the Mosaic Database,
+but replaces the VIS with whatever VIS file is read in
+
+If Pointings is non-blank, read in a file of RA, DEC (in degrees)
+Else, get pointings from the Mosaic Database
+
+.
+Mos, C, 1, Input mosaic database
+Vis, C, 1, Input Vis database
+Pointings, C, 1, List of RA,DEC [optional]
+Telescope, C, 1, Telescope [only used for Pointings]
+Teldiam, R, 1, Telescope Diameter [only used for pointings]
+Outfile, C, 1, Output Mosaic Database
+.
+Mos = 
+Vis = 
+Pointings = 
+Telescope = 
+Teldiam = 25.0
+Outfile = 
+.

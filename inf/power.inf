@@ -1,0 +1,17 @@
+.
+Image, C, 1, Input image
+Output, C, 1, Smoothed image
+Inner, R, 1, Inner scale [wavelengths]
+Outer, R, 1, Outer scale [wavelengths]
+Power, R, 1, Power law index
+Flux, R, 1, Required total flux 
+Seed, I, 1, Seed for random numbers
+.
+Image = 
+Output = 
+Inner = 1.0
+Outer = 1E20
+Power = -1.6666
+Flux = 1.0
+Seed = 200001
+.

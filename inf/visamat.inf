@@ -1,0 +1,78 @@
+Interactive imaging and self-calibration program
+.
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes (arc-seconds)
+Shift, R, 2, Shift of tangent point (arcseconds)
+FOV, R, 1, Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM
+Robust, R, 3, Robustness parameters
+DoRobust, L, 1, Do robust weighting?
+DoGrid, L, 1, Do gridded weighting
+/GridSize, I, 2, Size for gridless weighting
+Stokes, C, 1, 'I|Q|U|V|IV'
+Uvlimits, R, 2, Limits of allowed u,v [wavelengths]
+Muvlimits, R, 2, Limits of allowed u,v for selfcal model [wavelengths]
+Filter, R, 3, Filter for sources [Bmaj, Bmin, Bpa]
+Timerange, I, 8, Timerange (d,h,m,s)
+Vis, C, 1, Visibility data
+NewVis, C, 1, Name of output visibility file
+Model, C, 1, Name of initial model
+FluxWindow, C, 1, Name of Flux Window file
+DataWindow, C, 1, Name of Data Window file
+AMatrix, C, 1, Name of A Matrix file
+DoImage, L, 1, Work with dirty images? [T|F]
+Algorithm, C, 1, Algorithm [NNLS | CLEAN]
+MaxIter, I, 1, Max number of iterations in algorithm
+TFlux, R, 1, Target flux in MEM
+Flux, R, 1, Stopping flux in CLEAN
+Sigma, R, 1, Sigma per data point in MEM
+Niter, I, 1, Number of selfcal/imaging cycles
+Image, C, 1, Name of final image
+CImage, C, 1, Name of restored image
+Residual, C, 1, Residual image
+Beam, R, 4, Clean beam: Bmaj, Bmin, Bpa, Bz
+Threshold, R, 1, Threshold for editing data [sigma]
+Tedit, R, 1, Averaging time for data editting [secs]
+Tamp, R, 1, Averaging time for amplitude solution [secs]
+Tphase, R, 1, Averaging time for phase solution   [secs]
+Mode, C, 1, Solution mode [ | AMPPHI | AMPNORMPHI ]
+DisplayCommand, C, 1, String for displaying images
+DisplayFile, C, 1, Filename for displaying images
+.
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Shift = 0., 0.
+FOV = 1.0
+Robust = 0,0,0
+DoGrid = T
+DoRobust = F
+/GridSize = 0, 0
+Stokes=I
+Uvlimits = 0.0, 1000000000
+Muvlimits = 0.0, 1000000000
+Filter = 0.0, 0.0, 0.0
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Vis = 
+NewVis=
+Model =
+Beam = 0.0, 0.0, 0.0, 0.0
+Image = 
+CImage =
+Residual =
+FluxWindow =
+DataWindow =
+AMatrix = 
+DoImage = T
+Algorithm = NNLS
+TFlux = 0.0
+Flux = 0.0
+Sigma = 0.0
+MaxIter = 0
+Niter = 1
+Threshold = 7.0
+Tedit = 0
+Tamp = 0
+Tphase = 0
+Mode =
+DisplayCommand = saoimage -fits #
+DisplayFile = 
+.

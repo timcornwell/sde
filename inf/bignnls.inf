@@ -1,0 +1,38 @@
+This is a cut down version of SVDCONV for use on really big images.
+(Tiny windows on them, of course.)  It goes to great pains to minimize
+memory usage.  The only thing you get out is the component file, which
+must be recombined with the dirty image via cleanwin.
+
+MaxIter applied only to the NNLS option, and is specified in terms of
+the number of pixels in the FluxWindow.  That is, MaxIter = 3.0 is equivalent
+to the limit formerly hard coded into the Lawson&Hanson routine.
+Alternatively, the maximum iteration may be specified directly by NIend.
+If both MaxIter and NIend are set to non-default values, MaxIter takes
+precedence.
+.
+Dirty , C, 1, Dirty [must be specified]
+PSF, C, 1, Point spread function [must be specified]
+Components, C, 1, Components image [optional]
+DataWindow, C, 1, Window image for dirty map
+FluxWindow, C, 1, Window image for components
+BLC, I, 7 * 1, Bottom left corner of window [pixels]
+TRC, I, 7 * 1, Top right corner of window [pixels]
+Half, L, 1, Write inner half of images?
+Double, L, 1, Do calculations in double precision?
+NIend, I, 1, Ending iteration
+MaxIter, R, 1, Scaled maximum iteration count
+/DEBUG, L, 1, Debug
+.
+Dirty = 
+PSF = 
+Components = 
+DataWindow =
+FluxWindow = 
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Half = T
+Double = F
+NIend = 1
+MaxIter = 0.0
+/DEBUG = F
+.

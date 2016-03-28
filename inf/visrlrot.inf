@@ -1,0 +1,14 @@
+program		visrlrot
+programmer	M.A. Holdaway
+date		April 28 1993
+purpose		To rotate the phase of the polarization visibilities
+
+.
+Vis, C, 1, Input visibility set
+Out, C, 1, Output visibility set
+Theta, R, 1, Angle of rotation [degrees]
+.
+Vis = 
+Out =
+Theta = 0.0
+.

@@ -1,0 +1,45 @@
+Stack takes a number of indexed images, and stacks them together with an
+additional 'INDEX' or 'LOG-INDX' axis.
+
+The input image should include the character '#'.  In the iteration step,
+this will be replaced by the decimal expansion of the iteration number.
+One might use the filename 'CMP.#.FTS' to indicate a series of filenames
+such as 'CMP.10.FTS', 'CMP.20.FTS' and so forth.
+
+The value of Inc determines the iteration step size.  If it is greater than
+zero, the steps will be spaced linearly.  If less than 0, the steps will
+be spaced geometrically.  If equal to zero, the step size will be 1.
+
+Fill determines what to do when the filename from one index is the same
+as that from a previous index.  (To preserve integrity of the index axis,
+the index is calculated as a real, and then rounded to an integer before use.
+Especially near 1, some successive iterations may result in the same index.
+If Fill is COPY, then the previous row will be copied.  If VALUE, it will
+be set to some value.
+.
+Image, C, 1, Input image template
+Output, C, 1, Output image
+Begin, I, 1, Beginning index number
+End, I, 1, Ending index number
+Inc, R, 1, Index increment
+Fill, C, 1, COPY or VALUE
+Value, R, 1, Fill value
+BLC, I, 7 * 1, Bottom left corner of window [pixels]
+TRC, I, 7 * 1, Top right corner of window [pixels]
+Ascend, L, 1, Ascending index?
+Delete, L, 1, Delete input files after completion?
+/Debug, L, 1, Debug
+.
+Image =
+Output =
+Begin = 0
+End = 0
+Inc = 0.0
+Fill = COPY
+Value = 0.0
+BLC = 0, 0, 0, 0, 0, 0, 0
+TRC = 0, 0, 0, 0, 0, 0, 0
+Ascend = T
+Delete = F
+/Debug = F
+.

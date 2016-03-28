@@ -1,0 +1,4 @@
+if test X$MACHINE = "Xibm6000"
+then
+   FFLAGS="-c -g -qcharlen=1000"
+fi

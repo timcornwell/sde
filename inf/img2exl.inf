@@ -1,0 +1,20 @@
+This program converts between SDE image storage formats and the EXCEL
+speadsheet format.  The latter is a common interchange format between
+spreadsheet type programs.  Note that the EXCEL file also contains an
+auxiliary file called <EXCEL>.CRD, which contains the coordinate information
+from the FITS header.
+.
+Image,  C, 1, Image file
+Excel,  C, 1, Excel file
+Box, C, 1, Box file
+I2XL, L, 1, Foward direction?
+TBIN, L, 1, TBIN style output
+Pixels, L, 1, Get pixels in XL2I direction?
+.DEFAULT
+Image =
+Excel =
+Box =
+I2XL = T
+TBIN = F
+Pixels = T
+.END

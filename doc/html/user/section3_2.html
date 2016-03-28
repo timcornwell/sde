@@ -1,0 +1,39 @@
+<HEAD>
+<TITLE> Introduction</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html54 HREF=section3_3.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html52 HREF=user.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html46 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html56 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html55 HREF=section3_3.html> Quick Start</A>
+<B>Up:</B> <A NAME=tex2html53 HREF=user.html>User's Guide to SDE</A>
+<B> Previous:</B> <A NAME=tex2html47 HREF=tableofcontents3_1.html>Contents</A>
+<HR> <P>
+<H1><A NAME=SECTION0002000000000000000> Introduction</A></H1>
+<P>
+The Software Development Environment (<i>SDE</i>) is an attempt to provide a
+simple, friendly environment for the <em>development</em> of imaging algorithms.
+It has many strange and wonderful algorithms not found in other packages.
+The useful ones are supposed to migrate to more common packages, but it
+doesn't always work that way.
+<P>
+<i>SDE</i> is characterized by relatively close ties to the unix family of
+operating systems and by the assumption that virtual memory is plentiful.
+Rather than reinvent the operating system and insulate the programmer
+from the vagaries of many divergent platforms, <i>SDE</i> sacrifices some
+portability in the name of simplicity and relies as much as possible
+on native tools and OS support.  The assumption of plentiful physical and
+virtual memory leads to the common practice of loading all image and
+visibility data completely into memory for the duration of their use.
+This greatly reduces the burden of memory management on the programmer
+and has the side effect of allowing algorithms to proceed at maximum
+speed in the common case where all data can fit within physical memory.
+The tradeoff is that there will be some problems that will not fit
+into virtual memory which might be handled by a sequential disk based
+philosophy.  Fortunately this is rarely a problem.
+<P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:40:34 MST 1994</I>
+</ADDRESS>

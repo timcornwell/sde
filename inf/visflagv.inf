@@ -1,0 +1,9 @@
+.
+Vis, C, 1, Name of Visibility database
+NewVis, C, 1, Name of output visibility file
+Threshold, R, 1, Threshold for distance from v-axis [wavelengths]
+.
+Vis =  
+NewVis =
+Threshold = 100.0
+.

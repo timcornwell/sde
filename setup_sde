@@ -1,0 +1,24 @@
+#!/bin/csh
+#
+# Script to set up environment for SDE. Must be sourced.
+#
+# Revision history:  1.0 TJC 940603
+#
+echo -n "Setting up environment for SDE ..."
+ 
+#
+# If SDEROOT is defined, assume environment variables are inherited.
+# Only define them if it isn't. Aliases etc. always defined.
+#
+
+if ( ! $?SDEROOT ) then
+
+#
+# Always put current directory first in search paths
+#
+   setenv SDEROOT /home/zia/sde
+   source $SDEROOT/sdeini.csh
+
+endif
+
+echo " done."

@@ -1,0 +1,304 @@
+dragon test on host navajo at Thu Nov 30 20:49:59 CST 1995
+SDE Version 1.0
+****
+dragon I:
+dragon I: I perform wide-field imaging
+dragon I:
+dragon I: SDE Version 1.0
+dragon I: Compiled : Wed Nov 29 09:16:22 MST 1995
+dragon I:
+dragon I: * Imsize = 100, 100, 1
+dragon I: * Cellsize = 60.00000000, 60.00000000, 60.00000000
+dragon I: * Shift = 0.0000000000E+00, 0.0000000000E+00
+dragon I: * Outliers= /zia/u/sde/test/BF7.Outliers
+dragon I: * FOV = 1.000000000
+dragon I: * Uvlimits = 200.0000000, 1000.000000
+dragon I: * Muvlimits = 200, 750
+dragon I: * Filter = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+dragon I: * Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+dragon I: * Stokes=IV
+dragon I: * Vis = D0/BF791
+dragon I: * Newvis=D0/BF7.navajo
+dragon I: * CLEAN = D0/BF7.navajo.ICLN
+dragon I: * OutClean=D0/BF7.navajo.OUTCLEAN
+dragon I: * Restart = F
+dragon I: * Niter = 50000
+dragon I: * Flux = 1.000000052E-02
+dragon I: * Fswitch=0.01
+dragon I: * FSelfcal = 1.00000E-01, -5.00000E-02, -2.50000E-02,
+dragon I: > -1.50000E-02, -1.50000E-02, 0., 0., 0., 0.
+dragon I: * Gain = 0.1000000015
+dragon I: * Beam = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00,
+dragon I: > 0.0000000000E+00
+dragon I: * Tamp=1190
+dragon I: * Tphase=119
+dragon I: * Parallel=F
+dragon I: * TVImage = -1
+dragon I: * Np = 3
+dragon I: * inp
+dragon I: Image size : Imsize = 100, 100, 1
+dragon I: Cellsizes (arc-seconds) : Cellsize = 60.00000000, 60.00000000,
+dragon I:  60.00000000
+dragon I: File containing list of outlier fields : Outliers = /zia/u/sde/test/BF
+7.Outliers
+dragon I: Shift of tangent point (arcseconds) : Shift = 0.0, 0.0
+dragon I: Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM : FOV = 1.000
+000000
+dragon I: 'I|Q|U|V|IV' : Stokes = IV
+dragon I: Limits of allowed u,v [wavelengths] : Uvlimits = 200.0000000,
+dragon I:  1000.000000
+dragon I: Limits of allowed u,v for selfcal model [wavelengths] : Muvlimits = 20
+0.0000000,
+dragon I:  750.0000000
+dragon I: Filter for sources [Bmaj, Bmin, Bpa] : Filter = 0.0, 0.0, 0.0
+dragon I: Timerange (d,h,m,s) : Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+dragon I: Visibility data : Vis = D0/BF791
+dragon I: Name of output visibility file : NewVis = D0/BF7.navajo
+dragon I: Name of PSF file : PSF =
+dragon I: CLEAN image : CLEAN = D0/BF7.navajo.ICLN
+dragon I: CLEAN images for Outliers : OutCLEAN = D0/BF7.navajo.OUTCLEAN
+dragon I: Initial model : Model =
+dragon I: Number of model patch : ModelPatch = -1
+dragon I: Name of CCList file : CCList =
+dragon I: Restart from CCList [T|F] : Restart = F
+dragon I: Total Number of Iterations : Niter = 50000
+dragon I: Number of Iterations to resume at : Riter = 0
+dragon I: Final stopping flux : Flux = 0.1000000071E-01
+dragon I: Flux level below which FFTs are used : Fswitch = 0.9999999776E-02
+dragon I: Level of selfcal [-ve for A,phi] : FSelfcal = 0.1000000015, -0.5000000
+075E-01,
+dragon I:  -0.2500000037E-01, -0.1499999966E-01, -0.1499999966E-01, 0.0,
+dragon I:  0.0, 0.0, 0.0, 0.0
+dragon I: Loop gain : Gain = 0.1000000015
+dragon I: Tolerance : Tolerance = 0.9999999747E-05
+dragon I: Clean beam: Bmaj, Bmin, Bpa, Bz : Beam = 0.0, 0.0, 0.0, 0.0
+dragon I: Averaging time in seconds for amplitude solution : Tamp = 1190.000000
+dragon I: Averaging time in seconds for phase solution : Tphase = 119.0000000
+dragon I: Reference field : Reference = 1
+dragon I: Fraction of peak to clean to [0->1] : Limit = 0.0
+dragon I: Write to tv? [Imagenumber] : TVImage = -1
+dragon I: Do parallel? [T|F] : Parallel = F
+dragon I: Number of patchs = (2*Np+1)**2 : Np = 3
+dragon I: * go
+dragon I: Opening FITS file D0/BF791 for READ as Vis
+dragon I: Converting visibilities to IV format
+dragon I: Stokes type I
+dragon I: Stokes type V
+dragon I: First observation on 91MAR16
+dragon I: Selected   95759 visibilities
+dragon I: Uniform weighting
+dragon I: Selected   85954 model visibilities for selfcal
+dragon I: Coordinates for central facet
+dragon I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+dragon I:    1   RA---SIN  100    50.00    1.962E+02  -1.667E-02   0.00E+00
+dragon I:    2   DEC--SIN  100    50.00    3.000E+01   1.667E-02   0.00E+00
+dragon I:    3   FREQ        1     1.00    3.331E+08   9.766E+04   0.00E+00
+dragon I: Fit Beam (FWHM in sec) =    196.16679   166.61349   -8.0
+dragon I: Using limit of    .036 of the peak residual
+dragon I: There will be  49 facets, each of size  100 by  100 by   1
+dragon I: Found    1 outlier fields
+dragon I: Initial visibility fit is    1.039E+00 Jy for unit weight
+dragon I: V noise is    1.804E-03 Jy/Beam
+dragon I: Updating residual images
+dragon I: Field   1 ( -3, -3): Min, max res =    -.02078 ,     .02042 Jy/beam
+dragon I: Field   2 ( -2, -3): Min, max res =    -.02226 ,     .02302 Jy/beam
+dragon I: Field   3 ( -1, -3): Min, max res =    -.02222 ,     .02834 Jy/beam
+dragon I: Field   4 (  0, -3): Min, max res =    -.02833 ,     .03185 Jy/beam
+dragon I: Field   5 (  1, -3): Min, max res =    -.02755 ,     .02913 Jy/beam
+dragon I: Field   6 (  2, -3): Min, max res =    -.02499 ,     .02412 Jy/beam
+dragon I: Field   7 (  3, -3): Min, max res =    -.02037 ,     .02666 Jy/beam
+dragon I: Field   8 ( -3, -2): Min, max res =    -.02293 ,     .02404 Jy/beam
+dragon I: Field   9 ( -2, -2): Min, max res =    -.02299 ,     .04807 Jy/beam
+dragon I: Field  10 ( -1, -2): Min, max res =    -.02750 ,     .02639 Jy/beam
+dragon I: Field  11 (  0, -2): Min, max res =    -.04605 ,     .13410 Jy/beam
+dragon I: Field  12 (  1, -2): Min, max res =    -.02806 ,     .02766 Jy/beam
+dragon I: Field  13 (  2, -2): Min, max res =    -.02401 ,     .06922 Jy/beam
+dragon I: Field  14 (  3, -2): Min, max res =    -.01958 ,     .01904 Jy/beam
+dragon I: Field  15 ( -3, -1): Min, max res =    -.02550 ,     .02255 Jy/beam
+dragon I: Field  16 ( -2, -1): Min, max res =    -.08330 ,     .29020 Jy/beam
+dragon I: Field  17 ( -1, -1): Min, max res =    -.04055 ,     .06971 Jy/beam
+dragon I: Field  18 (  0, -1): Min, max res =    -.10168 ,     .34360 Jy/beam
+dragon I: Field  19 (  1, -1): Min, max res =    -.10865 ,     .32683 Jy/beam
+dragon I: Field  20 (  2, -1): Min, max res =    -.02178 ,     .03424 Jy/beam
+dragon I: Field  21 (  3, -1): Min, max res =    -.02592 ,     .02051 Jy/beam
+dragon I: Field  22 ( -3,  0): Min, max res =    -.02107 ,     .01802 Jy/beam
+dragon I: Field  23 ( -2,  0): Min, max res =    -.02490 ,     .05816 Jy/beam
+dragon I: Field  24 ( -1,  0): Min, max res =    -.08279 ,     .22307 Jy/beam
+dragon I: Field  25 (  0,  0): Min, max res =    -.07424 ,     .21338 Jy/beam
+dragon I: Field  26 (  1,  0): Min, max res =    -.06351 ,     .20611 Jy/beam
+dragon I: Field  27 (  2,  0): Min, max res =    -.06138 ,     .14896 Jy/beam
+dragon I: Field  28 (  3,  0): Min, max res =    -.09161 ,     .33471 Jy/beam
+dragon I: Field  29 ( -3,  1): Min, max res =    -.01878 ,     .03963 Jy/beam
+dragon I: Field  30 ( -2,  1): Min, max res =    -.03303 ,     .06677 Jy/beam
+dragon I: Field  31 ( -1,  1): Min, max res =    -.03467 ,     .09824 Jy/beam
+dragon I: Field  32 (  0,  1): Min, max res =    -.04953 ,     .11474 Jy/beam
+dragon I: Field  33 (  1,  1): Min, max res =    -.06266 ,     .13859 Jy/beam
+dragon I: Field  34 (  2,  1): Min, max res =    -.03708 ,     .13158 Jy/beam
+dragon I: Field  35 (  3,  1): Min, max res =    -.02966 ,     .05982 Jy/beam
+dragon I: Field  36 ( -3,  2): Min, max res =    -.02090 ,     .01980 Jy/beam
+dragon I: Field  37 ( -2,  2): Min, max res =    -.02091 ,     .03726 Jy/beam
+dragon I: Field  38 ( -1,  2): Min, max res =    -.02453 ,     .04873 Jy/beam
+dragon I: Field  39 (  0,  2): Min, max res =    -.03299 ,     .08604 Jy/beam
+dragon I: Field  40 (  1,  2): Min, max res =    -.04422 ,     .15817 Jy/beam
+dragon I: Field  41 (  2,  2): Min, max res =    -.02980 ,     .09645 Jy/beam
+dragon I: Field  42 (  3,  2): Min, max res =    -.02402 ,     .02199 Jy/beam
+dragon I: Field  43 ( -3,  3): Min, max res =    -.01843 ,     .02244 Jy/beam
+dragon I: Field  44 ( -2,  3): Min, max res =    -.02193 ,     .01956 Jy/beam
+dragon I: Field  45 ( -1,  3): Min, max res =    -.01815 ,     .02369 Jy/beam
+dragon I: Field  46 (  0,  3): Min, max res =    -.02488 ,     .02561 Jy/beam
+dragon I: Field  47 (  1,  3): Min, max res =    -.02319 ,     .02574 Jy/beam
+dragon I: Field  48 (  2,  3): Min, max res =    -.02443 ,     .02443 Jy/beam
+dragon I: Field  49 (  3,  3): Min, max res =    -.01992 ,     .02391 Jy/beam
+dragon I: Field  50 (outlier): Min, max res =    -.02304 ,     .07641 Jy/beam
+dragon I: I noise is    5.682E-03 Jy/Beam
+dragon I: Peak calibration rumble is     .10000 Jy/Beam
+dragon I: ***** Starting clean cycle    1 *****
+dragon I: Expected peak sidelobe rumble is     .03084 Jy/Beam
+dragon I: Limited by calibration errors
+dragon I: Cleaning down to     .10000 Jy/beam
+dragon I: Field  18 (  0, -1):     14 comps, Res.=     .09070 Flux=    2.77E-01
+dragon I: Field  28 (  3,  0):     27 comps, Res.=     .08519 Flux=    2.50E-01
+dragon I: Field  19 (  1, -1):     41 comps, Res.=     .08472 Flux=    2.60E-01
+dragon I: Field  16 ( -2, -1):     53 comps, Res.=     .08196 Flux=    2.08E-01
+dragon I: Field  24 ( -1,  0):     79 comps, Res.=     .08861 Flux=    3.35E-01
+dragon I: Field  25 (  0,  0):    125 comps, Res.=     .08972 Flux=    5.63E-01
+dragon I: Field  26 (  1,  0):    153 comps, Res.=     .08925 Flux=    3.53E-01
+dragon I: Field  40 (  1,  2):    159 comps, Res.=     .08406 Flux=    7.41E-02
+dragon I: Field  27 (  2,  0):    171 comps, Res.=     .08399 Flux=    1.41E-01
+dragon I: Field  33 (  1,  1):    182 comps, Res.=     .08625 Flux=    1.19E-01
+dragon I: Field  11 (  0, -2):    187 comps, Res.=     .08409 Flux=    5.60E-02
+dragon I: Field  34 (  2,  1):    191 comps, Res.=     .08633 Flux=    4.52E-02
+dragon I: Field  32 (  0,  1):    199 comps, Res.=     .08917 Flux=    8.05E-02
+dragon I: Field  31 ( -1,  1):    200 comps, Res.=     .08842 Flux=    9.82E-03
+dragon I: Field  41 (  2,  2):    201 comps, Res.=     .08681 Flux=    9.65E-03
+dragon I: All fields: Found    201 comps, Flux =    2.782E+00
+dragon I: Updating model visibilities
+dragon I: Updating residual images
+dragon I: Field   1 ( -3, -3): Min, max res =    -.01725 ,     .01627 Jy/beam
+dragon I: Field   2 ( -2, -3): Min, max res =    -.01837 ,     .01688 Jy/beam
+dragon I: Field   3 ( -1, -3): Min, max res =    -.01752 ,     .02048 Jy/beam
+dragon I: Field   4 (  0, -3): Min, max res =    -.01767 ,     .01865 Jy/beam
+dragon I: Field   5 (  1, -3): Min, max res =    -.01789 ,     .01837 Jy/beam
+dragon I: Field   6 (  2, -3): Min, max res =    -.01655 ,     .01697 Jy/beam
+dragon I: Field   7 (  3, -3): Min, max res =    -.01660 ,     .02848 Jy/beam
+dragon I: Field   8 ( -3, -2): Min, max res =    -.01887 ,     .01556 Jy/beam
+dragon I: Field   9 ( -2, -2): Min, max res =    -.01751 ,     .04302 Jy/beam
+dragon I: Field  10 ( -1, -2): Min, max res =    -.01925 ,     .02147 Jy/beam
+dragon I: Field  11 (  0, -2): Min, max res =    -.03234 ,     .08197 Jy/beam
+dragon I: Field  12 (  1, -2): Min, max res =    -.02086 ,     .01946 Jy/beam
+dragon I: Field  13 (  2, -2): Min, max res =    -.02239 ,     .06656 Jy/beam
+dragon I: Field  14 (  3, -2): Min, max res =    -.01471 ,     .01513 Jy/beam
+dragon I: Field  15 ( -3, -1): Min, max res =    -.01690 ,     .01866 Jy/beam
+dragon I: Field  16 ( -2, -1): Min, max res =    -.03417 ,     .07964 Jy/beam
+dragon I: Field  17 ( -1, -1): Min, max res =    -.03788 ,     .06842 Jy/beam
+dragon I: Field  18 (  0, -1): Min, max res =    -.08518 ,     .12760 Jy/beam
+dragon I: Field  19 (  1, -1): Min, max res =    -.11318 ,     .07473 Jy/beam
+dragon I: Field  20 (  2, -1): Min, max res =    -.01793 ,     .02782 Jy/beam
+dragon I: Field  21 (  3, -1): Min, max res =    -.02079 ,     .01509 Jy/beam
+dragon I: Field  22 ( -3,  0): Min, max res =    -.01673 ,     .01627 Jy/beam
+dragon I: Field  23 ( -2,  0): Min, max res =    -.02502 ,     .05540 Jy/beam
+dragon I: Field  24 ( -1,  0): Min, max res =    -.04873 ,     .08829 Jy/beam
+dragon I: Field  25 (  0,  0): Min, max res =    -.04152 ,     .09510 Jy/beam
+dragon I: Field  26 (  1,  0): Min, max res =    -.03886 ,     .09342 Jy/beam
+dragon I: Field  27 (  2,  0): Min, max res =    -.04114 ,     .08456 Jy/beam
+dragon I: Field  28 (  3,  0): Min, max res =    -.03631 ,     .09075 Jy/beam
+dragon I: Field  29 ( -3,  1): Min, max res =    -.01568 ,     .03718 Jy/beam
+dragon I: Field  30 ( -2,  1): Min, max res =    -.02745 ,     .06468 Jy/beam
+dragon I: Field  31 ( -1,  1): Min, max res =    -.03699 ,     .08983 Jy/beam
+dragon I: Field  32 (  0,  1): Min, max res =    -.04056 ,     .09640 Jy/beam
+dragon I: Field  33 (  1,  1): Min, max res =    -.04369 ,     .09097 Jy/beam
+dragon I: Field  34 (  2,  1): Min, max res =    -.02856 ,     .09651 Jy/beam
+dragon I: Field  35 (  3,  1): Min, max res =    -.02265 ,     .05357 Jy/beam
+dragon I: Field  36 ( -3,  2): Min, max res =    -.01486 ,     .01563 Jy/beam
+dragon I: Field  37 ( -2,  2): Min, max res =    -.01802 ,     .03779 Jy/beam
+dragon I: Field  38 ( -1,  2): Min, max res =    -.02255 ,     .05166 Jy/beam
+dragon I: Field  39 (  0,  2): Min, max res =    -.03480 ,     .08318 Jy/beam
+dragon I: Field  40 (  1,  2): Min, max res =    -.02432 ,     .08485 Jy/beam
+dragon I: Field  41 (  2,  2): Min, max res =    -.02867 ,     .08568 Jy/beam
+dragon I: Field  42 (  3,  2): Min, max res =    -.01933 ,     .01978 Jy/beam
+dragon I: Field  43 ( -3,  3): Min, max res =    -.01554 ,     .01576 Jy/beam
+dragon I: Field  44 ( -2,  3): Min, max res =    -.01626 ,     .01566 Jy/beam
+dragon I: Field  45 ( -1,  3): Min, max res =    -.01450 ,     .02302 Jy/beam
+dragon I: Field  46 (  0,  3): Min, max res =    -.02064 ,     .02352 Jy/beam
+dragon I: Field  47 (  1,  3): Min, max res =    -.01738 ,     .02038 Jy/beam
+dragon I: Field  48 (  2,  3): Min, max res =    -.01732 ,     .01813 Jy/beam
+dragon I: Field  49 (  3,  3): Min, max res =    -.01638 ,     .01693 Jy/beam
+dragon I: Field  50 (outlier): Min, max res =    -.02081 ,     .07660 Jy/beam
+dragon I: I noise is    4.394E-03 Jy/Beam
+dragon I: Current time is Thu Nov 30 21:03:08 1995
+dragon I: ***** Starting clean cycle    2 *****
+dragon I: Expected peak sidelobe rumble is     .01492 Jy/Beam
+dragon I: Limited by calibration errors
+dragon I: Cleaning down to     .10000 Jy/beam
+dragon I: Field  18 (  0, -1):    206 comps, Res.=     .08692 Flux=    3.12E-01
+dragon I: Field  19 (  1, -1):    209 comps, Res.=    -.08251 Flux=    2.29E-01
+dragon I: Field  34 (  2,  1):    210 comps, Res.=     .08686 Flux=    5.49E-02
+dragon I: Field  32 (  0,  1):    211 comps, Res.=     .08691 Flux=    9.01E-02
+dragon I: Field  25 (  0,  0):    216 comps, Res.=     .08972 Flux=    6.09E-01
+dragon I: Field  26 (  1,  0):    218 comps, Res.=     .08835 Flux=    3.72E-01
+dragon I: Field  33 (  1,  1):    219 comps, Res.=     .08579 Flux=    1.28E-01
+dragon I: Field  28 (  3,  0):    220 comps, Res.=     .08168 Flux=    2.59E-01
+dragon I: All fields: Found    220 comps, Flux =    2.888E+00
+dragon I: Updating model visibilities
+dragon I: Updating residual images
+dragon I: Field   1 ( -3, -3): Min, max res =    -.01623 ,     .01592 Jy/beam
+dragon I: Field   2 ( -2, -3): Min, max res =    -.01805 ,     .01684 Jy/beam
+dragon I: Field   3 ( -1, -3): Min, max res =    -.01666 ,     .01951 Jy/beam
+dragon I: Field   4 (  0, -3): Min, max res =    -.01740 ,     .01873 Jy/beam
+dragon I: Field   5 (  1, -3): Min, max res =    -.01742 ,     .01808 Jy/beam
+dragon I: Field   6 (  2, -3): Min, max res =    -.01609 ,     .01647 Jy/beam
+dragon I: Field   7 (  3, -3): Min, max res =    -.01647 ,     .02810 Jy/beam
+dragon I: Field   8 ( -3, -2): Min, max res =    -.01860 ,     .01512 Jy/beam
+dragon I: Field   9 ( -2, -2): Min, max res =    -.01729 ,     .04304 Jy/beam
+dragon I: Field  10 ( -1, -2): Min, max res =    -.01935 ,     .02107 Jy/beam
+dragon I: Field  11 (  0, -2): Min, max res =    -.03182 ,     .08206 Jy/beam
+dragon I: Field  12 (  1, -2): Min, max res =    -.02048 ,     .01976 Jy/beam
+dragon I: Field  13 (  2, -2): Min, max res =    -.02185 ,     .06611 Jy/beam
+dragon I: Field  14 (  3, -2): Min, max res =    -.01470 ,     .01505 Jy/beam
+dragon I: Field  15 ( -3, -1): Min, max res =    -.01717 ,     .01827 Jy/beam
+dragon I: Field  16 ( -2, -1): Min, max res =    -.03372 ,     .07992 Jy/beam
+dragon I: Field  17 ( -1, -1): Min, max res =    -.03765 ,     .06868 Jy/beam
+dragon I: Field  18 (  0, -1): Min, max res =    -.05720 ,     .08192 Jy/beam
+dragon I: Field  19 (  1, -1): Min, max res =    -.06724 ,     .07490 Jy/beam
+dragon I: Field  20 (  2, -1): Min, max res =    -.01772 ,     .02724 Jy/beam
+dragon I: Field  21 (  3, -1): Min, max res =    -.02027 ,     .01439 Jy/beam
+dragon I: Field  22 ( -3,  0): Min, max res =    -.01675 ,     .01620 Jy/beam
+dragon I: Field  23 ( -2,  0): Min, max res =    -.02464 ,     .05512 Jy/beam
+dragon I: Field  24 ( -1,  0): Min, max res =    -.04830 ,     .08765 Jy/beam
+dragon I: Field  25 (  0,  0): Min, max res =    -.04170 ,     .08988 Jy/beam
+dragon I: Field  26 (  1,  0): Min, max res =    -.03927 ,     .08852 Jy/beam
+dragon I: Field  27 (  2,  0): Min, max res =    -.04109 ,     .08480 Jy/beam
+dragon I: Field  28 (  3,  0): Min, max res =    -.03462 ,     .08157 Jy/beam
+dragon I: Field  29 ( -3,  1): Min, max res =    -.01552 ,     .03711 Jy/beam
+dragon I: Field  30 ( -2,  1): Min, max res =    -.02755 ,     .06482 Jy/beam
+dragon I: Field  31 ( -1,  1): Min, max res =    -.03603 ,     .08948 Jy/beam
+dragon I: Field  32 (  0,  1): Min, max res =    -.04046 ,     .08657 Jy/beam
+dragon I: Field  33 (  1,  1): Min, max res =    -.04349 ,     .08611 Jy/beam
+dragon I: Field  34 (  2,  1): Min, max res =    -.02842 ,     .08684 Jy/beam
+dragon I: Field  35 (  3,  1): Min, max res =    -.02210 ,     .05344 Jy/beam
+dragon I: Field  36 ( -3,  2): Min, max res =    -.01480 ,     .01551 Jy/beam
+dragon I: Field  37 ( -2,  2): Min, max res =    -.01760 ,     .03712 Jy/beam
+dragon I: Field  38 ( -1,  2): Min, max res =    -.02196 ,     .05226 Jy/beam
+dragon I: Field  39 (  0,  2): Min, max res =    -.03481 ,     .08279 Jy/beam
+dragon I: Field  40 (  1,  2): Min, max res =    -.02444 ,     .08475 Jy/beam
+dragon I: Field  41 (  2,  2): Min, max res =    -.02855 ,     .08561 Jy/beam
+dragon I: Field  42 (  3,  2): Min, max res =    -.01878 ,     .01942 Jy/beam
+dragon I: Field  43 ( -3,  3): Min, max res =    -.01537 ,     .01582 Jy/beam
+dragon I: Field  44 ( -2,  3): Min, max res =    -.01641 ,     .01589 Jy/beam
+dragon I: Field  45 ( -1,  3): Min, max res =    -.01433 ,     .02322 Jy/beam
+dragon I: Field  46 (  0,  3): Min, max res =    -.02035 ,     .02333 Jy/beam
+dragon I: Field  47 (  1,  3): Min, max res =    -.01721 ,     .02047 Jy/beam
+dragon I: Field  48 (  2,  3): Min, max res =    -.01706 ,     .01805 Jy/beam
+dragon I: Field  49 (  3,  3): Min, max res =    -.01648 ,     .01649 Jy/beam
+dragon I: Field  50 (outlier): Min, max res =    -.02071 ,     .07643 Jy/beam
+dragon I: I noise is    4.321E-03 Jy/Beam
+dragon I: Current time is Thu Nov 30 21:08:16 1995
+dragon I: ***** Reached clean stopping point *****
+dragon I: I noise is    4.321E-03 Jy/Beam
+dragon I: ***** Starting selfcal cycle    1 *****
+dragon I: Before selfcal, visibility fit is    8.310E-01 Jy for unit weight
+dragon I: Selfcalibrating R and L separately
+dragon I: First R
+dragon I: Correcting phase only
+dragon I: Found    419 integration intervals, each less than    119.00 seconds
+dragon I: Interrupt Handler: Abort, Quit, Inputs, Continue, Debug, Trace?

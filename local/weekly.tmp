@@ -1,0 +1,18 @@
+#!/bin/ksh
+#
+# Weekly job for /zia/u/sde
+#
+echo SDE weekly job on machine `hostname` 
+echo `date`
+PATH=.:~:~/bin:/usr/local:/usr/local/bin:/local/bin:/usr/ucb:/usr/bin:/bin
+. /zia/u/sde/sdeini
+#
+# Save the current version
+#
+set -x
+cd $SDEROOT
+cleanup
+rdist -f $SDEROOT/local/distfile.yucca
+
+COMMAND=". .env;purgebin +30;sdeupdate;makeshadows"
+rsh yucca  -n $COMMAND

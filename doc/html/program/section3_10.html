@@ -1,0 +1,160 @@
+<HEAD>
+<TITLE> Standard Include file</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html260 HREF=section3_11.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html258 HREF=program.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html252 HREF=section3_9.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html262 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html261 HREF=section3_11.html> Error messages</A>
+<B>Up:</B> <A NAME=tex2html259 HREF=program.html>Programmer's Guide to SDE </A>
+<B> Previous:</B> <A NAME=tex2html253 HREF=section3_9.html> Directory structure</A>
+<HR> <P>
+<H1><A NAME=SECTION00010000000000000000> Standard Include file</A></H1>
+<P>
+The standard include file must be inserted in all files. It 
+contains:
+<PRE><TT>
+C
+C	National Radio Astronomy Observatory, Socorro, NM 87801
+C	Software Development Environment (SDE)
+C
+C++
+C
+C Standard include file for all sde subroutines. This contains the
+C few global variables used in sde routines.
+C
+C Audit trail:
+C	Cleaned up by removing numeric variables
+C					T.J. Cornwell	Feb 26 1989
+C
+C-----------------------------------------------------------------------
+C
+C All variables must be declared:
+C -------------------------------
+C
+C Prefer to put this here so that it can be switched off if required.
+C
+#if COMP_CONVEX 
+      IMPLICIT 		NONE
+#endif
+#if COMP_SUN
+      IMPLICIT 		UNDEFINED (A-Z)
+#endif
+C
+C Global logical variables:
+C -------------------------
+C
+C ERROR: 		Error status T if an error has occured
+C SYSDEBUG: 		Do we want to debug?
+C SYSMON: 		Not used
+C SYSINTRP:		Has an interrupt from the user occurred?
+C SYSMSG: 		Is the message system on?
+C
+      LOGICAL ERROR, SYSDEBUG, SYSMON, SYSINTRP, SYSMSG
+      INTEGER MSGWIDTH
+      COMMON /SYSI/ ERROR, MSGWIDTH, SYSDEBUG, SYSMON,
+     1   SYSINTRP, SYSMSG
+C
+C Global Strings:
+C ---------------
+C
+C Program name, version string, interrupt action, log name,
+C and name of system e.g. 'NRAO yucca SDE'. This latter is set
+C by the startup routine to be NRAO hostname SDE. SYSPROG is
+C derived from the tail of the invoking string e.g. if you type
+C ~tcornwel/sde/mapper then SYSPROG = mapper
+C
+      CHARACTER SYSPROG*16, SYSVERS*40, SYSINTAC*10,
+     1   SDELOG*32, SYSORIG*64
+      COMMON /SYSC/ SYSPROG, SYSVERS, SYSINTAC, SDELOG, SYSORIG
+C
+C Useful buffers:
+C ---------------
+C
+C These are for immediate use only: do not expect them to remain
+C unchanged over a subroutine call (except for MSGPUT).
+C
+      CHARACTER*256 STRBUF
+      CHARACTER*256  MESSAGE
+      COMMON /STRC/ STRBUF, MESSAGE
+C
+C System parameters:
+C ------------------
+C
+C Max number of array dimensions
+C
+      INTEGER SYSMXDIM		
+      PARAMETER (SYSMXDIM = 7)
+C
+C Max length of names
+C
+      INTEGER SYSMXNAM		
+      PARAMETER (SYSMXNAM = 64)
+C
+C Characters per INT
+C
+      INTEGER SYSCHINT			
+#if MACH_CRAY2
+      PARAMETER (SYSCHINT = 8)
+#else
+      PARAMETER (SYSCHINT = 4)
+#endif
+C
+C Memory reference common:
+C ------------------------
+C
+C All application arrays are accessed by a reference to the appropriate
+C common block. The address with respect to the common block is handled
+C by the dai.c routines e.g. MEMR(DATADD('Vis/UU')) contains the first
+C element of the u coordinates of the visibility data base 'Vis'.
+C
+      INTEGER MEMI(2)
+      LOGICAL MEML(2)
+      REAL MEMR(2)
+      DOUBLE PRECISION MEMD(1)
+      COMPLEX MEMX(1)
+      CHARACTER*(SYSMXNAM) MEMC(1)
+      EQUIVALENCE (MEMI(1), MEMR(1), MEMD(1), MEMX(1), MEML(1))
+      COMMON /SYSMEMI/ MEMI
+      COMMON /SYSMEMC/ MEMC
+C
+C Error reason messages:
+C ----------------------
+C
+C These are the approved strings for use in ERRREPOR. You can use something
+C else but other routines may not understand what you mean.
+C
+      CHARACTER*(*) ERRFATAL
+      PARAMETER (ERRFATAL = 'Fatal error')
+      CHARACTER*(*) ERRBDARG
+      PARAMETER (ERRBDARG = 'Bad subroutine argument')
+      CHARACTER*(*) ERRNOMEM
+      PARAMETER (ERRNOMEM = 'No memory available')
+      CHARACTER*(*) ERRNTFND
+      PARAMETER (ERRNTFND = 'Requested item not found')
+      CHARACTER*(*) ERRLOGIC
+      PARAMETER (ERRLOGIC = 'Program logic error')
+      CHARACTER*(*) ERRNOSLT
+      PARAMETER (ERRNOSLT = 'No slot available')
+      CHARACTER*(*) ERRWRGTP
+      PARAMETER (ERRWRGTP = 'Item is of wrong type')
+      CHARACTER*(*) ERRTRUNC
+      PARAMETER (ERRTRUNC = 'Result truncated')
+      CHARACTER*(*) ERRBADID
+      PARAMETER (ERRBADID = 'Bad identifier supplied')
+      CHARACTER*(*) ERRDB
+      PARAMETER (ERRDB = 'Internal database error')
+      CHARACTER*(*) ERRINPUT
+      PARAMETER (ERRINPUT = 'Input read error')
+      CHARACTER*(*) ERROUTPT
+      PARAMETER (ERROUTPT = 'Output write error')
+      CHARACTER*(*) ERROPEN
+      PARAMETER (ERROPEN = 'File open error')
+      CHARACTER*(*) ERRCLOSE
+      PARAMETER (ERRCLOSE = 'File close error')</TT></PRE>
+<P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:45:41 MST 1994</I>
+</ADDRESS>

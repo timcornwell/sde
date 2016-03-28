@@ -1,0 +1,14 @@
+.
+GLong, D, 1, Galactic Longitude
+GLat, D, 1, Galactic Latitude
+CRA, D, 1, Celestial Right Ascension
+CDEC, D, 1, Celestial Declination
+Direct, I, 1, Direction [1 = Gal to Cel]
+.
+
+GLong = 0.0
+GLat = 0.0
+CRA = 0.0
+CDEC = 0.0
+Direct = 1
+.

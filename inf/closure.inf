@@ -1,0 +1,17 @@
+.
+Vis, C, 1, Name of Visibility database
+Model, C, 10, Name of model image
+NewVis, C, 1, Name of output visibility file
+Tavg, R, 1, Averaging time in seconds
+SolType, C, 1, Solution type,  | AMPPHI | GLOBAL
+Method, C, 1, Method, 'Selfcal' | 'Triple', ' ' => 'Selfcal'
+Threshold, R, 1, Threshold for editing [sigma] 0 for no editing
+.
+Vis =  
+Model = 
+NewVis =
+SolType =
+Method = 
+Tavg = 10.0
+Threshold=0.0
+.

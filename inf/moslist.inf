@@ -1,0 +1,13 @@
+.
+Mos, C, 1, Name of Mosiac Visibility database
+Outfile, C, 1, File for listings (/dev/tty for terminal)
+Stokes, C, 1, Stokes parameter to list [I|Q|U|V]
+Mode, C, 1, [ FULL | SUMMARY ]
+Nlist, I, 1, How many vis to list
+.
+Mos =  
+Outfile =
+Stokes = I
+Mode = FULL
+Nlist = 100
+.

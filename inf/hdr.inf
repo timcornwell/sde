@@ -1,0 +1,28 @@
+Program: HDR - manipulate headers
+Programmer: E.J. Narg
+Date: 22 April 1988
+Purpose: Allows complete fiddling with header items
+
+Details: Put useful stuff here.
+
+.INFO
+Infile, C, 1, Input image
+Out, C, 1, Output image (may be blank)
+Word, C, 1, Name of header item
+Type, C, 1, Type of header item C|I|R|D|L
+String, C, 1, Character string
+Int, I, 1, Integer
+Real, R, 1, Real
+Double, D, 1, Double Precision
+Log, L, 1, Logical
+.DEFAULT
+Infile = 
+Out =
+Word = SIMPLE
+Type = L
+String = 
+Int = 0
+Real = 0.0
+Double = 0.0
+Log = T
+.END

@@ -1,0 +1,22 @@
+Program: XIMGX
+Programmer: M.A.Holdaway
+Date: Feb 18 1990
+Revised: Oct 25 1990
+
+This program converts any accepted type of COMPLEX image storage to any
+other type of COMPLEX image storage.  
+.
+IN1,    C, 1, Input image part 1
+IN2,    C, 1, Input image part 2 (blank if X IN)
+OUT1,   C, 1, Output image part 1
+OUT2,   C, 1, Output image part 2 (blank if X OUT)
+XTYPEIN, C, 1, X | QU | AP | PC
+XTYPEOUT, C, 1, X | QU | AP | PC
+.DEFAULT
+IN1 =
+IN2 =
+OUT1 =
+OUT2 =
+XTYPEIN = X
+XTYPEOUT = QU
+.END

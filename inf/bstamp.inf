@@ -1,0 +1,16 @@
+Stamp Beam parameters onto an image file.
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input image
+Output, C, 1, Output image
+Beam, R, 4, Smoothing beam ( Bmaj, Bmin, Bpa )
+BeamFile, C, 1, Use beam from this file
+FitAlg, C, 1, Beam fitting algorithm
+.
+/Debug = F
+Image =
+Output = 
+Beam = 0, 0, 0, 0
+BeamFile =
+FitAlg = HDR-LINEAR
+.

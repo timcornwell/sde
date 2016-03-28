@@ -1,0 +1,59 @@
+Program: TIMEMAP - A revised version of MAPPER
+Programmer: R.T.Duquet
+Date: April 15th, 1990
+Purpose: To do mapping with various enhancements
+
+Unhid the inputs Residual, Components, CLEAN
+DSB 7-Sept-94
+
+Details: This program will do 2 IFs, will not store blank images,
+         will write components to a disk file. 
+.INFO
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes in arc-seconds
+Uvlimits, R, 2, Limits of allowed u,v (wavelengths)
+Timerange, I, 8, Timerange (d,h,m,s)
+Taverage, R, 1, Integration time for image (seconds)
+Shift, R, 3, Shift in arcseconds
+FOV, R, 1, Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM
+VisAC, C, 1, Visibility data for AC if's
+VisBD, C, 1, Visibility data for BD if's
+Spacing, C, 1, Spacing of output EVEN or RAGGED
+Residual, C, 1, Residual image
+Components, C, 1, Components image
+CLEAN, C, 1, CLEAN image
+CCfile, C, 1, Name of list of Clean components [optional]
+Cube, C, 1, Cube image
+BLC, I, 7 * 1, Bottom left corner of window
+TRC, I, 7 * 1, Top right corner of window
+Box, C, 1, CLEAN Box image
+Niter, I, 1, Number of Iterations
+Flux, R, 1, Cutoff in flux
+Gain, R, 1, Loop gain
+Beam, R, 4, Clean beam: Bmaj, Bmin, Bpa, Bz
+/DEBUG, L, 1, Debug
+.DEFAULT
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Uvlimits = 0.0, 1000000000
+Timerange = 0,0,0,0,0,0,0,0
+Taverage = 86400
+Shift = 0., 0., 0.
+FOV = 1.0
+VisAC = 
+VisBD = 
+Spacing = RAGGED
+Residual = 
+Components = 
+CLEAN = 
+CCfile =
+Cube =
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Box =
+Niter = 1
+Flux = 0.0
+Gain = 0.1
+Beam = 2.5, 2.5, 0.0, 2.5
+/DEBUG = F
+.END

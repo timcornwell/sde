@@ -1,0 +1,22 @@
+Program to make images of what regions are shadowed from
+some illumination view.
+
+The output Shadow image will contain values of "Height"
+wherever on object of "Height" cannot be seen from ViewPoint.
+
+If an input Shadow image is provided, then we will return the
+maximum of (Shadow(i,j), Height) for each shadowed pixel.
+
+.
+Image, C, 1, Input image to check for shadowing
+ShadowIn, C, 1, Input shadow image [optional]
+ShadowOut, C, 1, Output Shadow image
+ViewPoint, R, 3, Point of illumination, [x,y: pix coords; z=height]
+Height, R, 1, Height above pixel to check fro shadowing [units of Image(i,j)]
+.
+Image = 
+ShadowIn = 
+ShadowOut = 
+ViewPoint = 0.0, 0.0, 0.0
+Height = 0.0
+.

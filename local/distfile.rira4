@@ -1,0 +1,6 @@
+HOSTS = ( cornwell@rira4 )
+
+FILES = ( ~/sdeini ~/sdeini.csh ~/var ~/bin/unix ~/doc ~/inf ~/source ~/test ~/tools/emacs ~/library/sparc/libpgplotnoX.so )
+
+${FILES} -> ${HOSTS}
+	install -R ~/sde ;

@@ -1,0 +1,5 @@
+Use "make -f Makefile.zia" to rebuild the executable.  For some strange
+reason, it only seems to work properly from one of the workstations, and
+not on zia itself.  I imagine that there is a different order of include
+directories on zia and arana for gcc.
+

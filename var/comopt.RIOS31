@@ -1,0 +1,21 @@
+DEFINES="-DCOMP_IBM -DMACH_IBM6000 -DOS_SYSV -DPVM"
+CPPFLAGS=$DEFINES" -I$SDEROOT/source/include -C -P"
+FFLAGS="-c -O -qcharlen=1000"
+CFLAGS=$DEFINES" -I$SDEROOT/source/include -c -O "
+LDFLAGS=" -M "
+SHARE="NO"
+SLIB="$SDELIB/slib.a"
+TLIB="$SLIB $SDELIB/nr.a $SDEROOT/pvm/f2c/RIOS/libf2c.a $SDEROOT/pvm/src/RIOS/libpvm.a -lc  -lbsd -lX11 -lg -lc -lxlf -lm"
+FIL=
+FC=xlf
+CC=xlc
+CPP=/lib/cpp
+LD="ld -bh:4 -T512 -H512 /lib/crt0.o"
+RL=ranlib
+if test X$SDEDEBUG = "XYES"
+then
+   FFLAGS="-c -g -qcharlen=1000"
+   CFLAGS=$DEFINES" -I$SDEROOT/source/include -c -g "
+   LDFLAGS=" -v "
+   PLIB="sdedbxlib.a"
+fi

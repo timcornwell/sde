@@ -1,0 +1,11 @@
+.
+Image, C, 1, Input image
+Output, C, 1, Output image
+IThreshold, R, 1, Image threshold [Jy/beam]
+CThreshold, R, 1, Image threshold [Jy/beam*arcsec^2]
+.
+Image=
+Output=
+IThreshold=0.0
+CThreshold=0.0
+.

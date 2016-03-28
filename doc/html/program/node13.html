@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> String handling: STR routines</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" String handling: STR routines">
+<meta name="keywords" value="program">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html195 HREF="node14.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html193 HREF="node7.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html187 HREF="node12.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html197 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html196 HREF="node14.html"> System-related activities: SYS </A>
+<B>Up:</B> <A NAME=tex2html194 HREF="node7.html"> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html188 HREF="node12.html"> Text input and </A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00056000000000000000> String handling: STR routines</A></H2>
+<P>
+String handling is central to <i> SDE</i>  and so there are a number of useful
+routines. Remember that <i> SDE</i>  names can look like Unix directories: 
+e.g. <tt> 'VIS/OBS/I'</tt> for the Stokes I part of the observed visibility.
+We have routines to assemble such names.
+<UL><LI> <tt> STRLEN (STRING)</tt>: returns the length of <tt> STRING, CHARACTER*(*)</tt>
+<em> ignoring spaces</em>.
+<LI> <tt> STRAPPEN (STRING1, STRING2)</tt>: is a subroutine which adds <tt>
+STRING2</tt> to the end of <tt> STRING1</tt> <em> ignoring spaces</em>. There also
+exist <tt> STRAPPE2, STRAPPE3</tt> for multiple strings.
+<LI> <tt> STRM2 (PART1, PART2)</tt>: is a <tt> CHARACTER*(*)</tt> function which
+return <tt> PART1</tt> and <tt> PART2</tt> joined by a /. <tt> STRM3</tt> and <tt>
+STRM4</tt> also exist.
+<LI> <tt> STREXTRA (LIST, N, PART)</tt>: extracts the <tt> N</tt>'th part of the
+comma-delimited <tt> LIST, CHARACTER*(*)</tt> and returns it in <tt>
+PART, CHARACTER*(*)</tt>.
+<LI> <tt> STRINT(N)</tt>: converts an integer to a string.
+<LI> <tt> STRMATCH(LIST, STRING)</tt>: is a <tt> LOGICAL</tt> function which is
+true if <tt> STRING</tt> is contained in <tt> LIST</tt> or if <tt> LIST = '*'</tt>.
+<LI> <tt> STRSEARC (TARGET, LIST, N)</tt>: is an <tt> INTEGER</tt> function which
+returns the index of a target <tt> TARGET, CHARACTER*(*)</tt> in an array
+of strings <tt> LIST(*), CHARACTER*(*)</tt>. If there is no match then
+zero is returned.
+</UL><BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Wed Jan  3 09:21:29 MST 1996</I>
+</ADDRESS>
+</BODY>

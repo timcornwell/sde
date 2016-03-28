@@ -1,0 +1,95 @@
+<HEAD>
+<TITLE> SAOimage, Cursors and Image Display</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html113 HREF=subsection3_5_3.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html111 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html105 HREF=subsection3_5_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html115 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html114 HREF=subsection3_5_3.html> gaussfit &gfit</A>
+<B>Up:</B> <A NAME=tex2html112 HREF=section3_5.html> External tools</A>
+<B> Previous:</B> <A NAME=tex2html106 HREF=subsection3_5_1.html> Command files and </A>
+<HR> <P>
+<H2><A NAME=SECTION0005200000000000000> SAOimage, Cursors and Image Display</A></H2>
+<P>
+Greyscale image display tools within <i>SDE</i> are fairly primitive.  For
+interactive examination of FITS images in a workstation environment,
+SAOimage is the tool of choice.  Since SAOimage was designed to work
+with IRAF, FITS files are not the default, and it must be invoked with
+the <tt>-fits</tt> command line option like
+<P>
+<tt>saoimage -fits IMG.35A</tt>
+<P>
+A critical function filled by SAOimage is the specification of cursors.
+Many SDE imaging tasks can take an arbitrary image as a window
+specification.  The usual convention is that flux is allowed where ever the
+window image is greater than zero.  These window images (also called masks
+or boxes by various tasks) can be produced by manipulating existing images
+or they can be specified interactively with SAOimage.
+<P>
+Within SAOimage there are a host of ways that regions can be specified.
+First read in an image of the sky containing the region desired.  Typically
+this is an unwindowed deconvolved image or flux model.  Cursors are
+specified in a fairly intuitive way via the mouse and buttons under the
+<i>Cursor</i> menu.  Once a cursor is satisfactory, type 's' in the SAOimage
+window to save the current cursor to an internal list.  The saved list is
+written to a file via the <i>write</i> button in the <i>region</i> submenu,
+and produces a file something like this:
+<P>
+<PRE><TT>
+# IMG.35A
+# Thu Jul 14 08:03:18 1994
+# shape x, y, [x dimension, y dimension], [angle]
+ ELLIPSE(127.69,128.08,8.69,3.62,19.983)
+ POINT(126.50,142.25)
+ POINT(113.50,117.25)
+ POLYGON(116.50,134.00,124.25,136.00,119.50,139.50,18.50,14.25,108.75,139.50)</TT></PRE>
+<P>
+With some restrictions, this file can be read directly by any <i>SDE</i> 
+task which expects a window image.  The caveat is that these files do
+not have an embedded coordinate system.  They make sense only relative
+to some reference image.  <i>SDE</i> will attempt to read the image in the
+first line to find the coordinate system.  So long as this image is
+available, all is well.  Problems can emerge if the cursor files are
+copied across directories.  A simple fix here is to edit the reference
+image specification in the cursor file to include a fully qualified
+directory.  Alternatively, if the reference image is to be modified or
+deleted, one can use the task <tt>mask</tt> and mode <tt>SAO</tt> to produce
+a FITS image of the cursor file.  This is independent of the
+reference, and if the <tt>MShrink</tt> option is used, need not be
+particularly large.  The disadvantage is that window images, as
+opposed to the cursor files from SAOimage, must have the same cell
+size as the image on which they will be used.
+<P>
+It is worth emphasizing again that the <i>SDE</i> window philosophy is that
+positions on the sky are selected.  Provided that all the coordinate systems
+necessary can be found, different image geometries between mask, reference
+and target will be handled properly.
+<P>
+We currently run a locally modified version of SAOimage that has
+several bug fixes and minor enhancements over the original.  The
+sophisticated SAOimage user should read the files in
+tools/saoimage.l2/doc and also tools/saoimage.l2/README.local to
+become aware of several additional subtleties and workarounds.
+<P>
+For working hardcopy output, SAOimage can print directly.  For
+publication quality output, the task <tt>imgplot</tt> may be used.  <tt>imgplot</tt> can read the color files produced by SAOimage, and can
+emulate most of its scaling functions.  Thus the greyscale transfer
+function can be adjusted interactively with the cursor within
+SAOimage, written to a color file, and used to produce high quality
+final hardcopy faithful to what is displayed on the screen.
+<P>
+Alternatively, the images may be read into <IMG ALIGN=BOTTOM ALT="" SRC="_29697_tex2html_wrap225.xbm"> or some other package
+for final display.  In <IMG ALIGN=BOTTOM ALT="" SRC="_29697_tex2html_wrap227.xbm">, use IMLOD with INFILE set to
+e.g. 'T:BF7.ICLN' where T is the environment variable used for your
+directory.
+<P>
+<HR> <A NAME=tex2html113 HREF=subsection3_5_3.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html111 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html105 HREF=subsection3_5_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html115 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html114 HREF=subsection3_5_3.html> gaussfit &gfit</A>
+<B>Up:</B> <A NAME=tex2html112 HREF=section3_5.html> External tools</A>
+<B> Previous:</B> <A NAME=tex2html106 HREF=subsection3_5_1.html> Command files and </A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:40:34 MST 1994</I>
+</ADDRESS>

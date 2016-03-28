@@ -1,0 +1,55 @@
+Program: UVCOV - make images from uv data
+Programmer: T.J. Cornwell
+Date: 10 Feb 1989
+Purpose: UVCOV will display the uv coverage on a tv
+
+Details:
+
+IMSIZE: Size of image in pixels. First two must be powers of 2 since an
+FFT is used. The last (Z-axis) number may be any number if SLOWZ is TRUE,
+i.e. a DFT in Z is used, but otherwise it must also be a power of 2,
+or 1, of course.
+
+CELLSIZE: Size of cell in arcseconds. HINT: for a 3-D transform, make the
+third number comparable to the other two values.
+
+UVLIMITS: Range of u,v data to be gridded in WAVELENGTHS
+
+FILTER: Apply a Gaussian taper to select source of this size:
+Major axis, Minor Axis, and Position angle. FWHM in arcseconds.
+
+FOV: This determines the type of weighting to be applied to data: if
+FOV = 0 then no weighting is used, otherwise the weighting is such that the
+sidelobe level is optimized over a fraction FOV of the image. UNIFORM
+weighting corresponds to FOV = 1.0. SUPERUNIFORM corresponds to FOV < 1.
+FOV = 0.5 is the default: it suppresses sidelobes over the inner quarter
+of the image.
+
+STOKES: Polarization to be imaged: I,Q,U, or V. One at a time please.
+
+TIMERANGE: Range of data to be imaged: d,h,m,s format from first day.
+
+VIS: Name of visibility data file e.g. D2/3C10UV.FTS
+
+.INFO
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes in arc-seconds
+Uvlimits, R, 2, UV limits in wavelengths
+Filter, R, 3, Filter for sources of this size: BMAJ, BMIN, BPA (asec)
+FOV, R, 1, Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM
+Stokes, C, 1, Stokes type I,Q,U, or V
+Timerange, I, 8, Timerange (d,h,m,s)
+Vis, C, 1, Visibility data
+/Debug, L, 1, Debug? T or F
+.DEFAULTS
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Uvlimits = 0.0, 1E10
+Filter = 0.0, 0.0, 0.0
+FOV = 1.0
+Stokes = I
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Vis = 
+/Debug = F
+.END
+

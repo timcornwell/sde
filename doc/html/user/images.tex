@@ -1,0 +1,136 @@
+\batchmode
+\documentstyle[twoside,11pt]{article}
+\makeatletter
+\pagestyle{headings}
+\setlength{\evensidemargin}{.25in}
+\setlength{\oddsidemargin}{0.cm}
+\setlength{\textwidth}{15.8cm}
+\setlength{\topmargin}{0.cm}
+\setlength{\textheight}{20cm}
+%
+
+\newcommand {\sde}{{\sf SDE}}
+
+\newcommand {\aips}{${\cal AIPS}$}
+
+\def\caret{\char`\^}
+
+\makeatother
+\newenvironment{tex2html_wrap}{}{}
+\newwrite\lthtmlwrite
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newbox\sizebox
+\begin{document}
+\pagestyle{empty}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+{\newpage
+\clearpage
+\samepage \begin{tabular}{lcccl}
+Format&Extension&\multicolumn{2}{c}{Read/Write}&Task/comments\\ 
+SDE & \tt SDE & \tt READ & \tt WRITE & Everything \\ 
+FITS (image) & \tt FTS & \tt READ & \tt WRITE & Nearly everything \\ 
+FITS (visibility) & \tt FTS & \tt READ & \tt WRITE & Nearly everything \\ 
+PGM image & \tt PGM & \tt READ & \tt WRITE & Read with {\tt imgmake} \\ 
+&&&& Write with nearly anything \\ 
+Excel pixel lists & \tt EXL & \tt READ & \tt WRITE & {\tt img2list}, {\tt gfit}\\ 
+SAOimage color file & & \tt READ & & \tt imgplot \\ 
+SAOimage cursor files & & \tt READ & & {\tt mask}, {\tt imgstat}, most deconvolvers \\ 
+${\cal AIPS}$ \ CC files & & \tt READ & \tt WRITE & {\tt img2list}.  Read into ${\cal AIPS}$ \ with {\tt TBIN}\\ 
+&&&& Convert {\tt TBOUT} format with {\tt acc2sm.awk}\\ 
+${\cal AIPS}$ \ {\tt IMFIT} & & \tt READ & & Convert with {\tt im2sm.awk}\\ 
+Caltech VLBI models & & \tt READ & \tt WRITE & Convert with {\tt cm2sm.awk} \& {\tt sm2cm.awk}
+\end{tabular}
+}
+
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{${\cal AIPS}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline312: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{${\cal AIPS}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline314: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$\pi$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline316: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{section}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{${\cal AIPS}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline318: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{${\cal AIPS}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline320: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$N_{data}\,N_{flux}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline322: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$N_{data}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline324: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$N_{flux}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline326: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$N_{data}\,N_{flux}^2$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline328: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{${\cal AIPS}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline330: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{${\cal AIPS}$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline332: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$(u,v)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline336: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$(0,0)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline338: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$N \log N$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline340: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+{\newpage
+\clearpage
+\samepage \setbox\sizebox=\hbox{$(u,v)$}\lthtmltypeout{latex2htmlSize :tex2html_wrap_inline344: \the\ht\sizebox::\the\dp\sizebox.}\box\sizebox
+}
+
+\stepcounter{subsection}
+\stepcounter{section}
+
+\end{document}

@@ -1,0 +1,41 @@
+.
+Image, C, 1, Name of model image
+Model, C, 1, Name of list of model components
+Cellsize, R, 3, Cellsize of image in arcseconds
+Imsize, I, 3, Image size 
+Phase, R, 1, Rms phase per telescope per integration [degrees]
+Photons, R, 1, Desired peak photon rates [ph/pix/s]
+Background, R, 1, Background level [ph/pix/s]
+Dirty, C, 1, Dirty image
+PSF, C, 1, Point Spread Function after linear deconvolution
+TPSF, C, 1, Initial Point Spread Function
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz
+Mind, R, 1, Minimum value of transfer function
+Wave, R, 1, Wavelength [meters]
+Antloc, R, 4, Antenna locations [meters]
+D, R, 1, Telescope diameters [meters]
+Tint, R, 1, Integration time per step [seconds]
+Theta, R, 1, Maximum angle [degrees]
+Thint, R, 1, Step in angle [degrees]
+DFT, L, 1, Use DFT for transform? [T|F]
+.
+Image = 
+Model = 
+Cellsize = 1.0, 1.0, 1.0
+Imsize = 128, 128, 1
+Phase = 0.0
+Photons = 0.0
+Background = 0.0
+Dirty =
+PSF =
+TPSF =
+Beam = 0.0, 0.0, 0.0, 0.0
+Mind = 0.01
+Wave = 0.155E-6
+Antloc = 0.0, 0.30, 1.20, 1.80
+D = 0.20
+Tint = 1.0
+Theta = 177.0
+Thint = 3.0
+DFT = T
+.

@@ -1,0 +1,37 @@
+.INFO
+Antfile, C, 1, Name of ASCII file specifying array
+Model, C, 1, Name of ASCII file giving model comps.
+Imsize, I, 3, Size of model image
+Cellsize, R, 3, Cellsize in model image
+Map, C, 1, Name of output or input model image
+HAlimits, R, 2, Hour angle limits [hours]
+Dec, R, 1, Declination of source in Model [deg.]
+Freq, R, 1, Frequency of radiation [Hz]
+ELmin, R, 1, Minimum elevation for unflagged data [deg.]
+INTtime, R, 1, Integration time [seconds]
+Autow, R, 1, Autocorrelation weight [0=>none]
+Telescope, C, 1, Name of telescope for header and PB
+Vis, C, 1, Name of output Visibility database
+Triple, C, 1, Name of output Triple product database
+NPhotons, R, 1, Average total number of photons per frame
+NFrames, I, 1, Number of frames per integration
+/Debug, L, 1, Debug status
+.DEF
+Antfile = 
+Model =
+Imsize = 512, 512, 1
+Cellsize = 1., 1., 1.
+Map = 
+HAlimits = -.15,.15
+Dec = 35.
+Freq = 6E14
+ELmin = 25.
+INTtime = 60.
+Autow=0.0
+Telescope = OI
+Vis =  
+Triple =
+/Debug = F
+NPhotons = 0.0
+NFrames = 0
+.END

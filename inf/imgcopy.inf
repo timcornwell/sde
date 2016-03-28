@@ -1,0 +1,15 @@
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input image
+Output, C, 1, Output image
+Real, L, 1, Convert to Real?
+History, L, 1, Copy history?
+Tform, C, 1, Text output format [PGM only]
+.
+/Debug = F
+Image =
+Output = 
+Real = F
+History = T
+Tform = 
+.

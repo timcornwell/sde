@@ -1,0 +1,24 @@
+programm	mossub - mosaic subtraction, as in uvsub
+programmer	m.a.holdaway
+date		april 1 1993
+purpose		To subtract a model times a primary beam from each pointing
+		in a mosaic database.  Nothing fancy is done here for
+		non-coplanar arrays (as in flysub or dragonsub).
+
+Warnings:
+
+* DFT is used in a different way here than in MOSAIC
+
+.
+InMos, C, 1, Input mosaic database
+OutMos, C, 1, Output mosaic database
+Image, C, 1, Input image to simulate
+Stokes, C, 1, Which stokes to do?
+DFT, C, 10, Which telescope to DFT?
+.
+InMos = 
+OutMos = 
+Image = 
+Stokes = I
+DFT=
+.

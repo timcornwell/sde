@@ -1,0 +1,11 @@
+.
+Image, C, 1, Input image
+Output, C, 1, Output image
+Each, R, 1, Flux in each pixel
+Total, R, 1, Flux distributed in all image
+.
+Image =
+Output =
+Each = 0.0
+Total = 0.0
+.

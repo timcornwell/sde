@@ -1,0 +1,16 @@
+program		drotate
+programmer	M.A. Holdaway
+date		april 14 1993
+purpose		to rotate a bunch of D terms by e^{i theta}
+		to facilitate comparison with other D term
+		sets.
+
+.
+Din, C, 1, Input D terms file
+Dout, C, 1, Output D terms file
+Rotate, R, 1, Angle to rotate [degrees]
+.
+Din =
+Dout =
+Rotate = 0.0
+.

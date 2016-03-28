@@ -1,0 +1,16 @@
+Do various useful coordinate conversions.
+
+(Though at the moment, only BOX mode is implemented!)
+.
+Img1, C, 1, Input image
+Img2, C, 1, Auxiliary image
+BLC, I, 7 * 1, Bottom left corner of window [pixels]
+TRC, I, 7 * 1, Top right corner of window [pixels]
+Mode, C, 1, BOX : ' ' => BOX
+.
+Img1 =
+Img2 =
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Mode = BOX
+.

@@ -1,0 +1,41 @@
+Program: MASK - Create mask from SAOimage cursor files.
+Programmer: D.S.Briggs
+Date: 22 Nov 1991
+Purpose: 
+Details: 
+
+Note that some useful modes aren't entirely obvious.  For instance, BACK=1,
+FILL=0, MODE=SAO, INFILE=* will let you use the cursor on an existing
+image to set selected pixels to 0
+
+.INFO
+Cursor, C, 1, Cursor file
+Image, C, 1, Input image
+Mask, C, 1, Output mask
+Mode, C, 1, SAO | MOD-SAO | ABS-TRIM | REL-TRIM
+TrimVal, R, 1, Trim value (absolute or fraction of peak)
+FillVal, R, 1, Mask filling value (usually 1)
+BackVal, R, 1, Background mask value (usually 0)
+ExclVal, R, 1, Excluded mask value (usually 0)
+MShrink, L, 1, Shrink mask file to minimum support?
+InFile, C, 1, Input file to have mask applied
+OutFile, C, 1, Output file with mask applied
+Apply, C, 1, MULT, ADD or SET
+IShrink, L, 1, Shrink output image file to minimum support?
+/Debug, L, 1, Debug T or F (must be set each time)
+.DEFAULT
+Cursor = saoimage.reg
+Image =
+Mask =
+Mode = SAO
+TrimVal = .0001
+FillVal = 1
+BackVal = 0
+ExclVal = 0
+MShrink = F
+InFile = 
+OutFile = *
+Apply = MULT
+IShrink = F
+/Debug = F
+.END

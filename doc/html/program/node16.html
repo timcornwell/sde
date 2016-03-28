@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Porting to other machines</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Porting to other machines">
+<meta name="keywords" value="program">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html226 HREF="node17.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html224 HREF="program.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html218 HREF="node15.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html228 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html227 HREF="node17.html"> Tools for Editing</A>
+<B>Up:</B> <A NAME=tex2html225 HREF="program.html">Programmer's Guide to  SDE  </A>
+<B> Previous:</B> <A NAME=tex2html219 HREF="node15.html"> Compiling and Linking</A>
+<BR> <HR> <P>
+<H1><A NAME=SECTION00070000000000000000> Porting to other machines</A></H1>
+<P>
+Currently, <i> SDE</i>  works on the CRAY 2, CONVEX C-1 and C-2, the SUN 3/60,
+SUN SPARC machines, and IBM RS/6000. Porting <i> SDE</i>  to these machines was
+not too onerous. Distinctions between machines are handled by compiler
+directives in the code. Hence there is only one copy of the code, but
+there may be multiple versions of the code inside one file. The
+c-preprocessor is used to branch under the control of various
+definitions passed down from the compilation. The current allowed
+definitions are:
+<PRE><TT> 
+Operating system:		OS_BSD 		 OS_SYSV
+<P>
+Machine:		MACH_C1 		 MACH_C2 		 MACH_SUN3
+<P>
+		 MACH_SPARC 		 MACH_IBM6000 		 MACH_CRAY2
+<P>
+Compiler:		COMP_CONVEX 		 COMP_SUN 		 COMP_IBM
+<P>
+		 COMP_CRAY
+<P>
+</TT></PRE>
+One of each of these three classes must be chosen. For example, the
+Fortran and c compilers on yucca are called with flags '-DOS_BSD
+-DMACH_C1 -DCOMP_CONVEX'. For e.g. the Convex C1, this is controlled
+by the file <tt> var/comopt.c1</tt>.
+<P>
+The steps required to port to another machine are:
+<UL><LI> Install <i> SDE</i>  on your machine from a tar tape or file. You can put
+it anywhere, as long as you change the environment variable $SDEROOT
+to point to the right place. <b> You must set $SDEROOT before
+calling sdeini or sdeini.csh</b>. Local definitions belong in a file
+called <tt> var/sdeini.hostname</tt> or <tt> var/sdeini.csh.hostname</tt>.
+<LI> <tt> var/sdeini.hostname</tt> or <tt> var/sdeini.csh.hostname</tt> 
+will need changes to include another machine type and other
+directories. Check that all the logical names defined here are
+sensible.
+<LI> The compiler options are set by the Bourne-shell routine 
+<tt> var/comopt.$MACHINE</tt>. Here you should insert some definitions
+appropriate for your machine. See <tt> var/comopt.sparc4.1</tt> for the definitions
+of the definitions.
+<LI> Find out how c and Fortran talk to each other. On most compilers, the
+cross-language calls are fairly simple. Addresses are passed as usual.
+Although for most compilers, the length of <tt> CHARACTER*(*)</tt> strings
+is usually appended to the argument list, the CRAY compilers do
+something much more inscrutable so that we adopt a general solution of
+passing the lengths explicitly.  See the routines in source/main/dat.f
+and source/main/dai.c for how this is done under the currently
+supported machines. This will probably work for other machines so you
+probably won't have to worry about it. One other concern is the naming
+conventions. Most compilers append an underscore to c routine names,
+whilst the CRAY compiler uses upper case names with no underscore.
+This is handled by using the preprocessor to redefine Fortran-callable
+names in c routines.
+<LI> Some compilers cannot handle certain types of operation. String
+operations are notoriously error-prone. In particular, 
+functions which return a 
+<tt> CHARACTER*(*)</tt> string are often mis-compiled. This is awkward for
+<i> SDE</i>  since it uses lots of strings. The current code seems to work on 
+several otherwise buggy compilers, though, so this may not be too much of
+a problem. The secret seems to be to have only one place in such a routine
+where the returned value is actually set.
+<LI> The crucial routines are stored in source/main. These routines MUST
+work if the system is to work at all. A good way to start an installation is
+to make these work and then run the task world which simply prints out
+'Hello, world'. The C-shell procedure sdeinstall will make the relevant
+directories and then build the minimal system
+and run the task world. It then goes on to do a full make of the entire 
+system including all other subroutines and tasks.
+<LI> The directory test contains scripts for testing a working version of 
+SDE. A script <tt> timer</tt> will run through a number of key tasks.
+The output from certified runs on various machines is also present.
+<P>
+</UL>
+<P>
+Once the system is up and running, you can worry about some niceties:
+<UL><LI> The task <tt> sde</tt> maintains a file specifying the environment of sde
+programs. This controls the editor used in the user interface, the
+default type of FITS written (e.g. 16 bit, 32 bit integer or IEEE floating
+point). Each task tries to read sde.cur from either the current
+directory or from $HOME so you may customize either your whole area
+or a given sub-directory.
+<LI> A fairly good FFT comes with <i> SDE</i>  (see source/fft/fftx.f) but
+hand-coded routines are often available and are nearly always much
+better.  Since FFTs are critical to imaging, it is worth getting a
+good one. On yucca, we use the CONVEX VECLIB routine. This is about
+twice as fast as the standard <i> SDE</i>  routine: the CONVEX routine takes
+3-4 msec per 1024-point complex FFT.  On the CRAY 2, the hand-coded
+routine is about 10 times faster. It is also worth using
+machine-specific real-to-complex and complex-to-real FFT routines (see
+source/fft/fftr.f for examples of the use of the CRAY2 routines).
+<LI> On machines which have the capability, memory can be mapped to disk
+space. This avoids filling the system swapping space with <i> SDE</i>  arrays.
+On yucca, location of these is controlled by the SDESCR and SDESCRn
+logical names.  The n'th big array (big is greater than SDEMEM Mbytes
+where the environment variable SDEMEM defaults to 8) is put on disk
+SDESCRn, and the default is SDESCR.  Each file has the name
+SDESCRxppppp where ppppp is the process id and x is a character chosen
+to make the name unique (The unix routine mktemp does this part).
+<LI> On the Convex's and Sun's, we use an interrupt handler which allows
+graceful stopping of various tasks. Control-C will call up an
+interactive interrupt handler. To get a non-interactive job to quit as
+soon as possible, send it a SIGQUIT signal i.e. do kill -3
+process-number.  See source/start/start.f for details.
+</UL>
+<P>
+<BR> <HR><A NAME=tex2html226 HREF="node17.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html224 HREF="program.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html218 HREF="node15.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html228 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html227 HREF="node17.html"> Tools for Editing</A>
+<B>Up:</B> <A NAME=tex2html225 HREF="program.html">Programmer's Guide to  SDE  </A>
+<B> Previous:</B> <A NAME=tex2html219 HREF="node15.html"> Compiling and Linking</A>
+<BR> <HR> <P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Wed Jan  3 09:21:29 MST 1996</I>
+</ADDRESS>
+</BODY>

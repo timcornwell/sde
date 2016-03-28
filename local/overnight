@@ -1,0 +1,54 @@
+#!/bin/ksh
+#
+# Overnight job for /zia/u/sde
+#
+. ~/.env.SunOS5
+setup_compilers     # Sun compilers (GNU compilers already set up)
+echo SDE overnight job on machine `hostname` 
+echo `date`
+#
+# Set up paths
+#
+PATH=.:~:~/bin:/usr/local:/usr/local/bin:/local/bin:/usr/ucb:/usr/bin:/bin
+export SDEROOT=/home/zia/sde
+. $SDEROOT/sdeini
+set -x
+#
+# Make backups
+#
+mv /home/estella/sde/tarfiles/sdetar.d.Z /home/estella/sde/tarfiles/sdetar.y.Z
+sdetar sdetar.d
+compress sdetar.d
+cp sdetar.d.Z /home/estella/sde/tarfiles/sdetar.d.Z
+/bin/rm -f sdetar.*
+
+# Make emacs tags file
+#
+cd $SDEROOT/source;etags ???/*.f main/*.f start/*.f
+#
+# Clean up
+#
+cd;cleanup
+#
+# Now do same stuff for different machine types
+#
+#     1. purge stuff not used for more than 30 days
+#     2. update sde
+#     3. make shadows
+#
+COMMAND=". /home/zia/sde/.env;purgebin +30;sdeupdate;makeshadows"
+#
+# Solaris
+#
+setup_compilers
+purgebin +30
+sdeupdate
+makeshadows
+#
+# SGI machine at NCSA
+#
+#rdist -f $SDEROOT/local/distfile.monet
+#COMMAND="source /export/monet/miriad/.cshrc;purgebin +30;sdeupdate;makeshadows"
+#rsh monet.ncsa.uiuc.edu -n $COMMAND
+
+

@@ -1,0 +1,7 @@
+
+/bin/rm *.o
+f77 -c *.f
+/bin/rm badluk.o
+ar r $SDELIB/nr.a *.o
+ranlib $SDELIB/nr.a
+/bin/rm *.o

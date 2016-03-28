@@ -1,0 +1,7 @@
+.
+Triple, C, 1, Name of triple product database
+Outfile, C, 1, File for listings
+.
+Triple =  
+Outfile =
+.

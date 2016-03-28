@@ -1,0 +1,38 @@
+Program: HSTVM - a Maximum Entropy deconvolution program for HST images
+Programmer: T.J. Cornwell
+Date: 7 July 1990
+Purpose: To deconvolve a point spread function from an image by maximising the
+image entropy or emptiness subject to the data constraints.
+
+This program performs the totally wonderful Cornwell-Evans MEM algorithm.
+.
+Dirty, C, 32, Dirty Images
+PSF, C, 32, Point spread functions
+Default , C, 1, Default [optional]
+VM, C, 1, VM  [can already exist, optional]
+Entropy, C, 1, Entropy type [H|L1]
+Niter, I, 1, Number of Iterations (<0 for automatic stopping)
+Scale, R, 1, Scale factor to convert into photons
+Readout, R, 1, Readout noise [original units]
+/Debug, L, 1, Debug? T or F
+/Tolerance, R, 1, Tolerance for convergence
+/Npoints, R, 1, Starting points per beam
+/Gain, R, 1, Gain in iteration process
+/MaxGrad, R, 1, Stop if gradient exceeds this value
+TV, C, 1, Image to display on tv [VM|CVM|Step|Residual|None]
+.
+Dirty = 
+PSF = 
+Default = 
+VM = 
+Entropy = H
+Niter = -30
+Scale = 1.0
+Readout = 0.0
+/Debug = F
+/Tolerance = 0.05
+/Npoints = 1.0
+/Gain = 0.3
+/MaxGrad = 100.0
+TV = VM
+.

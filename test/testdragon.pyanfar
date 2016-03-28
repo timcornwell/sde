@@ -1,0 +1,104 @@
+dragon test on host pyanfar at Fri Aug 30 01:51:22 MDT 1996
+SDE Version 1.0
+****
+dragon I:
+dragon I: I perform wide-field imaging
+dragon I:
+dragon I: SDE Version 1.0
+dragon I: Compiled : Fri Aug 30 01:51:27 MDT 1996
+dragon I:
+dragon I: * Imsize = 100, 100, 1
+dragon I: * Cellsize = 60.00000000, 60.00000000, 60.00000000
+dragon I: * Shift = 0.0000000000E+00, 0.0000000000E+00
+dragon I: * Outliers= /zia/u/sde/test/BF7.Outliers
+dragon I: * FOV = 1.000000000
+dragon I: * Uvlimits = 200.0000000, 1000.000000
+dragon I: * Muvlimits = 200, 750
+dragon I: * Filter = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+dragon I: * Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+dragon I: * Stokes=IV
+dragon I: * Vis = D0/BF791
+dragon I: * Newvis=D0/BF7.pyanfar
+dragon I: * CLEAN = D0/BF7.pyanfar.ICLN
+dragon I: * OutClean=D0/BF7.pyanfar.OUTCLEAN
+dragon I: * Restart = F
+dragon I: * Niter = 50000
+dragon I: * Flux = 1.000000052E-02
+dragon I: * Fswitch=0.01
+dragon I: * FSelfcal = 1.00000E-01, -5.00000E-02, -2.50000E-02,
+dragon I: > -1.50000E-02, -1.50000E-02, 0., 0., 0., 0.
+dragon I: * Gain = 0.1000000015
+dragon I: * Beam = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00,
+dragon I: > 0.0000000000E+00
+dragon I: * Tamp=1190
+dragon I: * Tphase=119
+dragon I: * Parallel=F
+dragon I: * TVImage = -1
+dragon I: * Np = 3
+dragon I: * inp
+dragon I: Image size : Imsize = 100, 100, 1
+dragon I: Cellsizes (arc-seconds) : Cellsize = 60.0000, 60.0000, 60.0000
+dragon I: File containing list of outlier fields : Outliers = /zia/u/sde/test/BF
+7.Outliers
+dragon I: Shift of tangent point (arcseconds) : Shift = 0.0, 0.0
+dragon I: Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM : FOV = 1.000
+00
+dragon I: 'I|Q|U|V|IV' : Stokes = IV
+dragon I: Limits of allowed u,v [wavelengths] : Uvlimits = 200.000, 1000.000
+dragon I: Limits of allowed u,v for selfcal model [wavelengths] : Muvlimits = 20
+0.000,
+dragon I:  750.000
+dragon I: Filter for sources [Bmaj, Bmin, Bpa] : Filter = 0.0, 0.0, 0.0
+dragon I: Timerange (d,h,m,s) : Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+dragon I: Visibility data : Vis = D0/BF791
+dragon I: Name of output visibility file : NewVis = D0/BF7.pyanfar
+dragon I: Name of PSF file : PSF =
+dragon I: CLEAN image : CLEAN = D0/BF7.pyanfar.ICLN
+dragon I: CLEAN images for Outliers : OutCLEAN = D0/BF7.pyanfar.OUTCLEAN
+dragon I: Initial model : Model =
+dragon I: Number of model patch : ModelPatch = -1
+dragon I: Name of CCList file : CCList = D0/BF7.anasazi.SDE
+dragon I: Restart from CCList [T|F] : Restart = F
+dragon I: Total Number of Iterations : Niter = 50000
+dragon I: Number of Iterations to resume at : Riter = 632
+dragon I: Final stopping flux : Flux = 1.00000E-02
+dragon I: Flux level below which FFTs are used : Fswitch = 1.00000E-02
+dragon I: Level of selfcal [-ve for A,phi] : FSelfcal = 1.00000E-01, -5.00000E-0
+2,
+dragon I:  -2.50000E-02, -1.50000E-02, -1.50000E-02, 0.0, 0.0, 0.0, 0.0,
+dragon I:  0.0
+dragon I: Loop gain : Gain = 1.00000E-01
+dragon I: Tolerance : Tolerance = 1.00000E-05
+dragon I: Clean beam: Bmaj, Bmin, Bpa, Bz : Beam = 0.0, 0.0, 0.0, 0.0
+dragon I: Averaging time in seconds for amplitude solution : Tamp = 1190.00
+dragon I: Averaging time in seconds for phase solution : Tphase = 119.000
+dragon I: Reference field : Reference = 1
+dragon I: Fraction of peak to clean to [0->1] : Limit = 0.0
+dragon I: Write to tv? [Imagenumber] : TVImage = -1
+dragon I: Do parallel? [T|F] : Parallel = F
+dragon I: Number of patchs = (2*Np+1)**2 : Np = 3
+dragon I: Add residuals to clean image [T|F] : Addresiduals = T
+dragon I: * go
+dragon E: Cannot save current parameters
+dragon E: Output write error in routine USRPUTBF,  buffer error
+dragon E: Output write error in routine USRPUTPR,  info
+dragon W: Multiple errors reported by routine USRPUTPR
+dragon T: Called from routine USRPUTPR
+dragon T: Called from routine USRCTL
+dragon I:
+dragon I: Started  : Fri Aug 30 01:53:18 1996
+dragon I: Finished : Fri Aug 30 01:53:30 1996
+dragon I: User: 0.462 System: 0.214
+dragon I: Run on pyanfar
+imgstat I:
+imgstat I: I calculate statistics of images
+imgstat I:
+imgstat I: SDE Version 1.0
+imgstat I: Compiled : Wed Aug 28 09:17:04 MDT 1996
+imgstat I:
+imgstat I: * Image = D0/BF7.pyanfar.ICLN
+imgstat I: * Box =
+imgstat I: * BLC = 50, 540, 0, 0, 0, 0, 0
+imgstat I: * TRC = 208, 680, 0, 0, 0, 0, 0
+imgstat I: * AvgType = AMPSCALAR
+imgstat I: * go

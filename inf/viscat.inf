@@ -1,0 +1,21 @@
+This task makes no attempt to determine if the actual visibility data
+lines up or not.  It simply combines the visibility arrays element by
+element.  The coordinate data and output weights are taken from the
+first vis file.
+.
+Vis, C, 32, Names of visibility database
+Stokes, C, 1, Name of Stokes parameters e.g. IQUV
+Uvlimits, R, 2, UV limits in wavelengths
+Timerange, I, 8, Timerange (d,h,m,s)
+Outfile, C, 1, Name of output visibility database
+CopyAll, L, 1, Copy negative weights?
+CopyHis, C, 1, (T | F | SDE) Copy history?  
+.
+Vis =
+Stokes = IQUV
+Uvlimits = 0.0, 1E10
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Outfile =
+CopyAll = T
+CopyHis = T
+.

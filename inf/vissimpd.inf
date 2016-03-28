@@ -1,0 +1,52 @@
+If VisObs is specified, Antfile, HAlimits, Dec, Freq, and INTtime are not
+needed.
+.INFO
+Antfile, C, 1, Name of ASCII file specifying array
+Model, C, 1, Name of ASCII file giving model comps.
+Imsize, I, 3, Size of model image
+Cellsize, R, 3, Cellsize in model image
+Map, C, 1, Name of output or input model image
+Pfrac, R, 1, fraction of I to give P
+HAlimits, R, 2, Hour angle limits [hours]
+Dec, R, 1, Declination of source in Model [deg.]
+Freq, R, 1, Frequency of radiation [Hz]
+ELmin, R, 1, Minimum elevation for unflagged data [deg.]
+INTtime, R, 1, Integration time [seconds]
+Autow, R, 1, Autocorrelation weight (0=> none)
+DRMS, R, 1, RMS D term value
+Cfrac, R, 1, Fraction correlation in D terms
+DriftRMS, R, 1, RMS Drift in D terms per day
+ACdrift, R, 1, Drift in AC phase [degrees]
+NRMS, R, 1, Noise RMS for VIS
+DTINT, R, 1, Time interval for D terms
+SEED, I, 1, Random Number Seed
+DTerms, C, 1, Name of SDE file for fake DTERMS
+ADTerms, C, 1, Name of ASCI file for fake DTERMS
+Vis, C, 1, Name of output Visibility database
+/Debug, L, 1, Debug status
+.DEF
+Antfile = 
+Model =
+Imsize = 512, 512, 1
+Cellsize = 1., 1., 1.
+Map = 
+Pfrac = 0.0
+HAlimits = -.15,.15
+Dec = 35.
+Freq = 1.4E9
+ELmin = 25.
+INTtime = 60.
+Autow=0.0
+DRMS = .02
+Cfrac = 0.0
+DriftRMS = .02
+ACdrift = 0.0
+NRMS = 0.0
+DTINT = 600.0
+SEED = 4001
+DTerms =
+ADTerms =
+Vis =  
+/Debug=F
+.END
+

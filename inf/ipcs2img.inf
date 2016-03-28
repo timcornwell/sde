@@ -1,0 +1,22 @@
+Program: ipcs2img - Converts an IPCS file to an image
+Programmer: R.G Marson
+Date: 13 Jan 89
+Purpose: ipcs2img allows display of ipcs data files on a Sun tv.
+
+Details: ipcs2img converts a IPCS groups format file (with three random axes,
+XPIXEL, YPIXEL, and FRAME) into a 2 dimensional image. It does this by summing
+along the third axis.
+
+.info
+Infile, C, 1, Name of input image
+Outfile, C, 1, Name of output file
+Xaxis, C, 1, What to display on the X axis (XPIXEL, YPIXEL, FRAME)
+Yaxis, C, 1, What to display on the Y axis (XPIXEL, YPIXEL, FRAME)
+/Debug, L, 1, Debug status
+.def
+Infile = 
+Outfile =
+Xaxis = XPIXEL
+Yaxis = YPIXEL
+/Debug = F
+.end

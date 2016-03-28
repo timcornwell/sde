@@ -1,0 +1,9 @@
+.
+Images, C, 16, Images to be averaged
+Weights, R, 16, Weights of the images
+Output, C, 1, Name of averaged image
+.
+Images =
+Weights = 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+Output =
+.

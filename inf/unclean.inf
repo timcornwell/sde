@@ -1,0 +1,49 @@
+This program allows one to manipulate an existing CLEAN image.  No
+additional CLEANing is performed, but 'Algorithm' should be set to the
+same value as when the original CLEANing was done.  The components file
+must have been saved in .SDE format.
+
+If NIinc is positive, it specifies an linear increment in Niter between the
+range NIbegin and NIend.  If NIinc is negative, it specifies a geometric
+increment.  If it is zero, then only a single output at NIbegin is
+produced.
+
+Any of the output filenames may contain a '*', which will be replaced by
+the iteration number.  If you do not do this, multiple output files will
+overwrite each other!
+
+If the cutoff flux is specified, the iteration loop will be terminated
+when the minimum of the CLEAN image is less than -ABS(Flux)
+.
+Dirty , C, 1, Dirty [must be specified]
+PSF, C, 1, Point spread function [must be specified]
+InComponents, C, 1, Components image [must be specified]
+OutComponents, C, 1, Output Components image [optional]
+Residual, C, 1, Residual image [optional]
+CLEAN, C, 1, CLEAN image [optional]
+CCfile, C, 1, Name of list of Clean components [optional]
+BLC, I, 7 * 1, Bottom left corner of window [pixels]
+TRC, I, 7 * 1, Top right corner of window [pixels]
+Algorithm, C, 1, Algorithm to use [CLARK | HOGBOM]
+NIbegin, I, 1, Beginning CC iteration number
+NIend, I, 1, Ending CC iteration number
+NIinc, R, 1, CC interation number increment
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec]
+/DEBUG, L, 1, Debug
+.
+Dirty =
+PSF =
+InComponents =
+OutComponents =
+Residual =
+CLEAN =
+CCfile =
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Algorithm = CLARK
+NIbegin = 0
+NIend = 0
+NIinc = 0.0
+Beam = 0.0, 0.0, 0.0, 0.0
+/DEBUG = F
+.

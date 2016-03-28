@@ -1,0 +1,13 @@
+.
+Infile, C, 1, Input strange format file
+Source, C, 1, Name of source
+Sideband, C, 1, LSB | USB
+Mos, C, 1, Output file
+/Debug, L, 1, Debug status
+.
+Infile =
+Source =
+Sideband = LSB
+Mos =
+/Debug = F
+.

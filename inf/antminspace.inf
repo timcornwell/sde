@@ -1,0 +1,24 @@
+program		antminspace
+date		October 20, 1995
+programmer	M.A. Holdaway
+
+purpose		We read in an existing antenna file, check and fiddle so
+		that all antennas are more than the required minimum
+		spacing apart, and write out a new file.
+
+		We require that the input antenna file be in local coordinates.
+
+
+.
+Antfile, C, 1, Input antenna file, local coords
+NAntfile, C, 1, New antenna file, local coords
+Minspace, R, 1, Minimum allowed spacing [m]
+Dr, R, 1, Increment in radial antenna movement [m]
+Dtheta, R, 1, Increment in angular antenna movement [deg]
+.
+Antfile = 
+NAntfile = 
+Minspace = 10.0
+Dr = 0.1
+Dtheta = 10
+.

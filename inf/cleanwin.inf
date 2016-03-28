@@ -1,0 +1,69 @@
+Remakes CMP, CLEAN and residual images with full sized imaged.
+
+It can correct for overly restrictive clean windows, and also provides
+a convenient way to vary the restoration parameters.
+
+If Rescale is true, an effort is made to preserve the fidelity of the
+residual flux scale by rescaling the residuals according to the volume
+of the fitted PSF beam and the volume of the restoring beam.  It's not
+the default, but arguably the right thing to do for superresolution work.
+A less controversial approach is to simply CLEAN to convergence where
+the residual scale is irrelevant.  Neither is perfectly correct.
+
+The beam fitting algorithm may be LINEAR, NONLINEAR, ARCHIVE, HDR-LINEAR,
+HDR-NONLINEAR, HDR-ARCHIVE, L, N, A, HL, HNL, HA
+
+Note that a good way to set most of these parameters is to simply do
+"get clean.cur"
+
+If SmoPix is true, then the deconvolution was performed with a non-delta
+pixel function.  PixBeam is the gaussian parameters of the pixel function.
+If zero, it will be obtained from the PSF via FitAlg.  If SmoPSF is non
+blank, it means the smoothed pixel function was rescaled, which must
+be accounted for properly to get the flux scale correct.  SmoPSF should
+be the PSF after smoothing, while PSF is the orginal PSF of the image
+.
+Dirty , C, 1, Dirty [must be specified]
+PSF, C, 1, Point spread function [must be specified]
+Components, C, 1, Components image [must be specified]
+CLEAN, C, 1, CLEAN image [opt]
+Residual, C, 1, Residual image [opt]
+RawResid, C, 1, Residual image before rescaling [opt]
+OutComponents, C, 1, Padded components image [opt]
+SmoComponents, C, 1, Smoothed components [opt]
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec]
+FitAlg, C, 1, Beam fitting algorithm
+RBeam, C, 1, Restoring beam [opt]
+Rescale, L, 1, Rescale residuals?
+Resmooth, L, 1, Resmooth residuals?
+SmoPix, L, 1, Gaussian pixel representation?
+PixBeam, R, 4, Pixel function parameters
+SmoPSF, C, 1, Smoothed PSF used in deconv
+BLC, I, 7 * 1, Bottom left corner of window [pixels]
+TRC, I, 7 * 1, Top right corner of window [pixels]
+Full, L, 1, Full size image?
+Algorithm, C, 1, Algorithm to use [CLARK | HOGBOM | SDI]
+/DEBUG, L, 1, Debug
+.
+Dirty = 
+PSF = 
+Components = 
+CLEAN = 
+Residual = 
+RawResid =
+OutComponents =
+SmoComponents =
+Beam = 0.0, 0.0, 0.0, 0.0
+FitAlg = HDR-LINEAR
+RBeam =
+Rescale = F
+Resmooth = F
+SmoPix = F
+PixBeam = 0, 0, 0, 0
+SmoPSF = 
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Full = F
+Algorithm =
+/DEBUG = F
+.

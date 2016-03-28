@@ -1,0 +1,23 @@
+Program: testpois
+Programmer: R.G. Marson
+Date: 20 Sep 1990
+Purpose: Test the poission statistics routines in SDE
+
+Details: testpois generates a histogram using the poisson random
+number generator in SDE
+
+.
+Mean, R, 1, Mean of the Poisson Distribution
+Trials, I, 1, Number of Trials to conduct
+Seed, I, 1, Seed for the Random Number Generator
+Hsize, I, 1, Size (number of bins) of the histogram array (0-> 5 * mean)
+Outfile, C, 1, filename of the Histogram array
+/Debug, L, 1, Debug status
+.
+Mean = 5.5
+Trials = 1000
+Seed = 14621
+Hsize = 0
+Outfile = 
+/Debug = F
+.

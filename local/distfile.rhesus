@@ -1,0 +1,15 @@
+
+HOSTS = ( sde@rhesus )
+
+FILES = (~/farch ~/sdeini ~/sdeini.csh ~/doc ~/inf ~/source ~/bin/unix ~/var ~/pvm)
+
+${FILES} -> ${HOSTS}
+	except ~/source/SCCS;
+	except ~/bin/unix/SCCS;
+	except ~/source/task/SCCS;
+	except_pat .*~\$;
+	except_pat .*\.o\$;
+	except_pat .*\.cur\$;
+	install -R -i -y -w /home/rhesus/sde;
+	notify tcornwel@nrao.edu;
+

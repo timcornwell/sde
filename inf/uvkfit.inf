@@ -1,0 +1,38 @@
+Program: UVKFIT
+Programmer: T.J. Cornwell
+Date: 10 Nov 1988
+Purpose: To fit to visibility data
+
+This program is special purpose: it was written for the solar wind
+experiment.
+.
+Uvlimits, R, 2, Uv range allowed
+Timerange, I, 8, Time range allowed
+Taverage, R, 1, Averaging time [sec]
+Vis, C, 1, Name of input file
+NewVis, C, 1, Name of output file
+Listing, C, 1, Name of listing file
+Flux, R, 1, Initial Flux
+A, R, 1, A parameter
+B, R, 1, B parameter
+Theta, R, 1, Position angle
+X, R, 1, Offset in RA
+Y, R, 1, Offset in Dec
+Power, R, 1, Exponent
+Vary, L, 7, Allow to vary?
+.
+Uvlimits = 0., 1E10
+Timerange = 0,0,0,0,1000,0,0,0
+Taverage=10.0
+Vis = 
+NewVis =
+Listing=
+Flux = 1.0
+A = 1.0
+B = 1.0
+Theta = 0.0
+X = 0.0
+Y = 0.0
+Power = 1.0
+Vary = T,T,T,T,T,T,T
+.

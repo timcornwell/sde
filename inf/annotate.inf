@@ -1,0 +1,25 @@
+Annotate a blank page.
+
+The coordinate system for the blank image is the unit square.  In most
+respects, this resembles the barest shell of imgplot.
+.
+Annotate, C, 1, Annotation file
+CHeight, R, 1, Character height
+NBotLab, R, 1, Leave room for this many extra bottom labels
+NTopLab, R, 1, ... top labels
+NRightLab, R, 1, ... right labels
+NLeftLab, R, 1, ... left labels
+Box, L, 1, Draw a box?
+Device, C, 1, Device name for plotting
+/Debug, L, 1, Debug status
+.
+Annotate = 
+CHeight = .6
+NBotLab = 0.
+NTopLab = 0.
+NRightLab = 0.
+NLeftLab = 0.
+Box = F
+Device = temp.ps/ps
+/Debug = F
+.

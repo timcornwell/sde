@@ -1,0 +1,31 @@
+Program: SF - Straighten fringes
+Programmer: R.G. Marson
+Date: 14-Jan-1991
+Purpose: SF (Straighten Fringes) does exactly that. It re-bins IPCS data
+so the fringes are straight irrespective of what the observing wavelength was.
+
+Details: It is currently assumed that a linear relationship exists
+between column number and wavelength. This program will then create a
+lookup table showing where photons landing on the center of a pixel on
+the detector should be mapped to to create straight fringes. This
+lookup will invariably try to put photons in non integer pixel values
+(eg. a photon in pixel 10 might be mapped to 12.34). If Method is
+NEAREST then the photon in pixel 10 will always be mapped to pixel 12
+(nearest neighbour) but if Method is LINEAR then 34% of the time the
+photon in pixel 10 will be mapped to pixel 13 (linear interpolation)
+
+.INFO
+Infile, C, 1, Input IPCS file
+Range, R, 2, Wavelengths of the end columns (in nm)
+Method, C, 1, Interpolation method (Nearest or Linear)
+Center, R, 1, Row containing the 'straight' fringe (-1000 -> center)
+Outfile, C, 1, Output IPCS file
+/Debug, L, 1, Debug T or F (must be set each time)
+.DEFAULT
+Infile =  
+Range = 500.0, 600.0
+Method = Linear
+Center = -1000.0
+Outfile = 
+/Debug = F
+.END

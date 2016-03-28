@@ -1,0 +1,11 @@
+ Uvlimits = 200.0000000, 1000.000000
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ Vis = D0/BF7
+ NewVis = D0/BF7SCAL
+ Gains = BF7.gains
+ SolType =
+ Method =
+ Checkpoint = D0/BF7SCAL.SDE
+ Tavg = 60.00000000
+ Flux = 0.4999999888E-02
+ Threshold = 0.0000000000E+00

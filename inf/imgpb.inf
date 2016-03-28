@@ -1,0 +1,15 @@
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input cube
+Output, C, 1, Output image
+Mode, C, 1, APPLY | CORRECT
+Telescop, C, 1, Type of Antenna
+Teldiam, R, 1, Diameter of Antenna
+.
+/Debug = F
+Image =
+Output = 
+Mode = APPLY
+Telescop = 
+Teldiam = 7.5
+.

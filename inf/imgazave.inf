@@ -1,0 +1,37 @@
+.
+Image, C, 1, Input image
+Box, C, 1, Box [optional]
+Dev, C, 1, Graphics Device
+List, C, 1, ASCII output
+Average, C, 1, RMS | MEAN  ' ' => RMS
+Xmin, R, 1, min x
+Xmax, R, 1, max x
+Ymin, R, 1, min Y
+Ymax, R, 1, max Y
+Nbins, I, 1, number of bins
+Copy, L, 1, Copy undefined bins from last good value?
+Undef, R, 1, Otherwise use this value
+Scale, R, 1, scale factor for X
+Title, C, 1, title
+Xlabel, C, 1, label for X axis
+Ylabel, C, 1, label for Y axis
+AxisType, I, 1, (0=normal, 30=log-log)
+.
+Image =
+Box =
+Dev = /tek
+List =
+Average = RMS
+Xmin = 0.
+Xmax = 0.
+Ymin = 0.
+Ymax = 0.
+Scale = 1.0
+Nbins = 200
+Copy = T
+Undef = 0.
+Title = Azimuthaly Averaged RMS
+Xlabel = 
+Ylabel =
+AxisType = 0
+.

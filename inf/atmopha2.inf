@@ -1,0 +1,104 @@
+PROGRAM:	atmophas
+PROGRAMMER:	m.a.holdaway
+DATA:		May 10 1991
+
+PURPOSE:	1)	To test out the atmosphere simulation
+			routines and to develop the correct formalism
+		2)	To determine a relationship between the
+			site testing Allen Invariance and 
+			interferometric phase
+
+
+
+Use:			From a model atmosphere, we produce
+			A) the output for an interferometer observing a 1 Jy
+			   point source.
+			B) the output for a very small (~cm) Frazier Owen
+			   type total power measuring device.
+
+
+
+Atmosphere		A model atmosphere image: RX, RY, RZ, FREQ axes
+			Made by ATMOMAKE.  Pixel values are precipitable
+			water in millimeters
+
+Refractive Index	The effective refractive index for pure water vapor.
+			My calulations indicate this number is about 1.6
+
+
+TSKY			Sky Temperature
+
+
+Rpix			You can choose the reference at one end of the
+			image to offset the effect of the velocity:
+
+
+      -------------------------------------
+      |                                   |
+      |                                   |
+      |                          v        |
+      |                        <----*     |
+      |                                   |
+      |                                   |
+      -------------------------------------
+
+
+
+
+.
+/Debug, L, 1, to debug or not to debug
+Atmos1, C, 1, Atmospheric screen file
+Atmos2, C, 1, Atmospheric screen file
+Antfile, C, 1, Station file for Interferometer
+TPAfile, C, 1, Station file for 4 degree TP
+TPTelescope, C, 1, Telescope for TP
+TPTelDiam, R, 1, Diameter for TP Tele
+Vis, C, 1, Output Interferometer visibility
+TPVis, C, 1, Output 4 degree TP
+AllanVar, C, 1, Output Allan Variance for INT
+TPAllanVar, C, 1, Output Allan Variance for TP
+RefractIndex, R, 1, Refract. Ind. for water
+TSKY, R, 1, Sky Temperature
+AtVel1, R, 2, Screen velocity [m/s]
+AtVel2, R, 2, Screen velocity [m/s]
+AtHt1, R, 1, Screen height [m]
+AtHt2, R, 1, Screen height [m]
+AveMM1, R, 1, Average Atmosphere, [mm water]
+AveMM2, R, 1, Average Atmosphere, [mm water]
+Rpix, R, 2, Ref pix if Atmosphere
+Freq, R, 1, Observing frequency
+Dec, R, 1, Observing frequency
+Tint, R, 1, Integration time [sec]
+Nint, I, 1, Number of integrations
+AutoC, L, 1, Do autocorrelation
+AutoW, R, 1, Autocorrelation weight
+.
+/Debug = F 
+Atmos1 = 
+Atmos2 = 
+Antfile = 
+TPAfile = 
+TPTelescope = AIRY
+TPTelDiam = .02
+Vis = 
+TPVis = 
+AllanVar = 
+TPAllanVar =
+RefractIndex = 1.63
+TSKY = 273.
+AtVel1 = 4., 0.0
+AtVel2 = 4., 0.0
+AtHt1 = 1000.
+AtHt2 = 1000.
+AveMM1 = 1.0
+AveMM2 = 1.0
+Rpix = 128, 128
+Freq = 2.3E+11
+Dec = 35.
+Tint = 3.5156
+Nint = 1024
+AutoC = F
+AutoW = 0.0
+.
+
+

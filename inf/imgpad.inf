@@ -1,0 +1,20 @@
+Program: imgpad - pad images
+Programmer: R. G. Marson
+Date: 24 Sept 1992
+Purpose: Pad images with zero in a variety of ways.
+
+Details: Unlike padim this always puts the image in the center
+regardless of the ref value.
+
+
+.INFO
+Image, C, 1, Input image
+Output, C, 1, Padded output image
+Padsize, I, 7, Size of output image
+Padval, R, 1, Padding value
+.DEFAULT
+Image = 
+Output = 
+Padsize = 256, 256, 1, 1, 1, 1, 1
+Padval = 0.0
+.END

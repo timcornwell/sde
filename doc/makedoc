@@ -1,0 +1,8 @@
+
+#
+# Make documentation for SDE files
+#
+/bin/rm -f $SDEROOT/doc/short.headers
+cd $SDEROOT/source
+grep "^CD" main/*.f ???/*.f > $SDEROOT/doc/short.headers
+emacs -batch $SDEROOT/doc/short.headers -l $SDEROOT/doc/short.headers.el

@@ -1,0 +1,39 @@
+SDE timings on host noggs at Wed Aug 28 09:05:18 MDT 1996
+SDE Version 1.0
+****
+**** Testing general routines ****
+****
+Must recompile world.f
+Compiling master routine /zia/u/sde/source/start/start.f
+Compiling /zia/u/sde/source/task/world.f
+Linking /zia/u/sde/source/task/world.f
+world I:
+world I: Hello, world
+world I:
+world I: SDE Version 1.0
+world I: Compiled : Wed Aug 28 09:05:23 MDT 1996
+world I:
+world I:
+world I: Started  : Wed Aug 28 09:06:31 1996
+world I: Finished : Wed Aug 28 09:06:31 1996
+world I: User: 0.355 System: 0.340
+world I: Run on noggs
+****
+**** Expected Rms     =   1.402E-01 JY/BEAM ****
+**** Expected Maximum =   6.791E-01 JY/BEAM ****
+**** Expected Minimum =  -3.135E-01 JY/BEAM ****
+****
+**** Now testing FFT routines ****
+****
+Must recompile fftx.f
+Compiling master routine /zia/u/sde/source/start/start.f
+Compiling /zia/u/sde/source/task/fftx.f
+Linking /zia/u/sde/source/task/fftx.f
+fftx I:
+fftx I: I time FFTs
+fftx I:
+fftx I: SDE Version 1.0
+fftx I: Compiled : Wed Aug 28 09:06:42 MDT 1996
+fftx I:
+fftx I: Time per   256 complex FFT =     10.235 milliseconds
+fftx I: Time per   512 complex FFT =     22.249 milliseconds

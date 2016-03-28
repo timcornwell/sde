@@ -1,0 +1,39 @@
+Program: imgtvd - Display an image on the Sun tv display
+Programmer: T.J. Cornwell
+Date: 6 June 1989
+Purpose: imgtvd allows display of images on a Sun tv.
+
+Details: imgtvd writes a byte file which is read by the tv.e server routine
+run on a Sun. To use imgtvd, first log into a Sun and start sunview. You
+will automatically get a tv screen started up. Use imgtvd to write the file
+then move the cursor to the tv screen and press F3 to refresh the screen.
+F1 will start up a mini-zoom window. To change the setup of the tv screen
+(e.g. to get more planes, or to use monochrome) move the cursor to
+the top border of the tv screen abd press the right button on the mouse.
+To change the transfer function of the tv, press the right button while 
+moving the cursor inside the window.
+
+imgtvd has the following commands:
+
+	go load	- load an image from the file Image
+	go show	- show an image on the tv (you must still press F3)
+
+A short-cut to the use of imgtvd is to use the unix script tv. Simply type:
+
+	tv D1/3C10MAP.FTS
+
+to display the image with default parameters (i.e. all the image, and
+full pixel range).
+.
+Image, C, 1, Name of input image
+/Debug, L, 1, Debug status
+Pixrange, R, 2, Pixel range to load
+BLC, I, 7, Bottom Left Corner
+TRC, I, 7, Top Right Corner
+.
+Image = 
+Pixrange = 0., 0.
+BLC = 1,1,1,1,1,1,1
+TRC = 1,1,1,1,1,1,1
+/Debug = F
+.

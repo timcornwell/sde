@@ -1,0 +1,131 @@
+<HEAD>
+<TITLE> Compiling and Linking</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html216 HREF=section3_7.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html214 HREF=program.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html208 HREF=subsection3_5_7.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html218 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html217 HREF=section3_7.html> Porting to other </A>
+<B>Up:</B> <A NAME=tex2html215 HREF=program.html>Programmer's Guide to SDE </A>
+<B> Previous:</B> <A NAME=tex2html209 HREF=subsection3_5_7.html> System-related activities: SYS </A>
+<HR> <P>
+<H1><A NAME=SECTION0006000000000000000> Compiling and Linking</A></H1>
+<P>
+There are canned scripts for compiling and linking subroutines and tasks.
+To compile a subroutine and place it in the main library do:
+<P>
+<tt>comsub filename</tt>
+<P>
+where <tt>filename</tt> must have extension <tt>.f</tt> or <tt>.c</tt>. To 
+compile and link a task and put the executable in the main area do:
+<P>
+<tt>comtask filename</tt>
+<P>
+where only <tt>.f</tt> extensions are allowed. Sometimes the main 
+library (e.g. library/convex/slib.a) gets corrupted. Use <tt>maklib</tt>
+to remake it.
+<P>
+For private code, use a <tt>-p</tt> option for <tt>comsub, comtask</tt> and
+<tt>maklib</tt> (this must be the first argument).  This allows use of a
+private library plib.a as well as the standard library.
+<P>
+There is a make-like facility for updating SDE. To update everything,
+use <tt>sdemake</tt>. To update everything in a given subroutine directory
+do <tt>sdemake.subs dir</tt>.
+<P>
+<i>SDE</i> is maintained on the home machine (zia) using SCCS to
+control access. There are scripts <tt>checkin</tt> and <tt>checkout</tt> to
+check code in and out. <tt>check</tt> lists any files currently checked
+out, and <tt>checkforget</tt> will forget a <tt>checkout</tt>.  See Tim
+Cornwell if you want to do this.
+<P>
+Currently code is not compiled for debugging. To debug a routine or
+task, use <tt>comsub</tt> or <tt>comtask</tt> with a <tt>-d</tt> (for debug)
+flag. This will compile routines into a local library sdedbxlib.a
+which is linked in as required. Note that unix loaders are single pass
+so that if you want to debug a standard <i>SDE</i> routine, it and the
+calling routines must be compiled for debugging and placed in
+sdedbxlib.a. The standard unix utility dbx can then be used for
+debugging. In addition, there is an <tt>sdelint</tt> procedure to both c
+and Fortran routines. This is quite useful in case of a really
+stubborn bug. The procedure for debugging is therefore as follows:
+<P>
+<OL><LI> Get into a specific private directory in which you will be debugging
+e.g. /zia/u/tcornwel/sde
+<P>
+<LI> If you want to edit an /sde/ routine and you are connected to
+the home of /sde/ i.e. /zia/u/sde and you are a member of the /sde/
+group then do <tt>newgrp sde</tt> to get the correct permissions, and
+then checkout any files you may want to change e.g.
+<P>
+<tt>checkout $SDEROOT/source/fts/ftsimgwr.f</tt>
+<P>
+<LI> compile local routines for debugging e.g.
+<P>
+<tt>comsub -d ftsimgwr.f</tt>
+<P>
+<LI> compile any other routines you may need to be in the debugging library
+e.g.
+<P>
+<tt>comsub -d $SDEROOT/source/fil/filimgpu.f</tt>
+<P>
+<LI> compile a task for debugging e.g.
+<P>
+<tt>comtask -d $SDEROOT/source/task/imglc.f</tt>
+<P>
+This will put the executable in your current directory so that you can
+<P>
+<LI> use <tt>dbx</tt> or <tt>dbxtool</tt> to run the executable e.g. in <tt>dbxtool</tt>:
+<P>
+<PRE><TT>
+(dbxtool) cd /zia/u/tcornwel/sde
+(dbxtool) debug sde
+Reading symbolic information...
+Read 4455 symbols
+(dbxtool) stop at &quot;/zia/u/sde/source/start/start.f&quot;:99
+(2) stop at &quot;/zia/u/sde/source/start/start.f&quot;:99
+(dbxtool) run
+etc.</TT></PRE>
+<P>
+</OL>
+<P>
+This procedure allows <tt>dbx</tt> or <tt>dbxtool</tt> to pick up the
+correct code and lines numbers for both files in the local directory
+and in the SDE directory.
+<P>
+Compiler options are set by a file, <tt>comopt</tt>. This calls in turn a
+file <tt>var/comopt.$MACHINE</tt> (e.g. <tt>var/comopt.sparc4.1</tt>) which
+contains the default compiler settings for that $MACHINE. To override
+for a directory, put a file <tt>comopt</tt> in that directory and compile
+from that directory. To override for a specific routine use a file
+<tt>file.comopt</tt> in the directory in which file resides.
+<P>
+There is a <tt>dbx</tt> initialization file, <tt>.dbxinit</tt>, in the <i>SDE</i> 
+home directory which may be copied to your home directory.  It will
+then be read automatically when <tt>dbx</tt> starts up.  It provides 
+a number of single letter aliases for common commands, as well as
+several aliases to allow access to the sde common memory arrays.
+(Because of peculiarities in how the arrays are declared, the obvious
+approach of simply using ``<tt>print MEMR(100)</tt>'' or similar
+constructs will not work.  Instead, use ``<tt>MEMR 100</tt>'' to produce
+the equivalent result.  ``<tt>MEMR2 100 150</tt>'' will print the values
+of the <tt>MEMR</tt> array from <tt>MEMR(100)</tt> to <tt>MEMR(150)</tt>.  Properly
+parenthesized expressions may be used for the indicies, so that
+``<tt>MEMR2 RADD (RADD+9)</tt>'' will produce the desired result, presuming
+that <tt>RADD</tt> is a local variable containing an index into the <tt>MEMR</tt>
+array.  There are one and two argument forms of this alias for the
+`<tt>I</tt>', `<tt>R</tt>', `<tt>D</tt>', `<tt>X</tt>', `<tt>L</tt>', and `<tt>C</tt>'
+<tt>MEM</tt> arrays.  Due to addressing constraints, the <tt>MEMX2</tt> and
+<tt>MEMC2</tt> aliases produce a bit of unwanted data at the end of the
+output.
+<P>
+<HR> <A NAME=tex2html216 HREF=section3_7.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html214 HREF=program.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html208 HREF=subsection3_5_7.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html218 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html217 HREF=section3_7.html> Porting to other </A>
+<B>Up:</B> <A NAME=tex2html215 HREF=program.html>Programmer's Guide to SDE </A>
+<B> Previous:</B> <A NAME=tex2html209 HREF=subsection3_5_7.html> System-related activities: SYS </A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:45:41 MST 1994</I>
+</ADDRESS>

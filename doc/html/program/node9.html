@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Error handling: ERR routines</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Error handling: ERR routines">
+<meta name="keywords" value="program">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html151 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html149 HREF="node7.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html143 HREF="node8.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html153 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html152 HREF="node10.html"> Messages: MSG routines</A>
+<B>Up:</B> <A NAME=tex2html150 HREF="node7.html"> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html144 HREF="node8.html"> Database access: DAT </A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00052000000000000000> Error handling: ERR routines</A></H2>
+<P>
+The error handling system consists of a small number of routines.
+<UL><LI> <tt> ERRREPOR (REASON, ROUTINE, TEXT)</tt>: report an error to the error
+handling system. The error message is stored away and <tt> ERROR</tt> is set
+to be true.
+<LI> <tt> ERRCHANG (REASON, ROUTINE, TEXT)</tt>: changes an existing error which
+was reported in routine <tt> ROUTINE</tt>.
+<LI> <tt> ERRREASO (REASON)</tt>: gives the reason for the last reported error. 
+If appropriate, an error can then be cancelled using <tt> ERRCANCE</tt>.
+<LI> <tt> ERRCANCE</tt>: deletes all error conditions.
+<LI> <tt> ERRTRACE (ROUTINE)</tt>: is called to indicate that an error was 
+reported by a subroutine called from this one.
+</UL>
+The variables are:
+<PRE><TT> 
+<tt> REASON</tt>		<tt> CHARACTER*(*)</tt>		Reason for error: usually from the standard list
+<P>
+<tt> ROUTINE</tt>		<tt> CHARACTER*(*)</tt>		Name of the routine in which an error occurred
+<P>
+<tt> TEXT</tt>		<tt> CHARACTER*(*)</tt>		Further explanatory text
+<P>
+</TT></PRE><BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Wed Jan  3 09:21:29 MST 1996</I>
+</ADDRESS>
+</BODY>

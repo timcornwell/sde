@@ -1,0 +1,32 @@
+program:	VISRLAVE
+programmer:	M.A. Holdaway
+purpose:	to average (RL + LR*)/2
+		
+date:		April 22 1993
+
+
+
+Rotated:  If polarization calibration has been applied once already,
+	  ROTATED = TRUE
+	  If polarization calibration has not been applied, then
+	  ROTATED = FALSE
+
+Timerange:  If 2Timerange(2) = 0.0, use 8Timarange
+
+.
+Vis, C, 1, Input Data visibility set
+Uvlimits, R, 2, UV limits for vis
+2Timerange, R, 2, Timerange for vis [days]
+8Timerange, I, 8, Timerange for vis [d,h,m,s]
+Rotate, I, 1, PA rotation: [ -1=undo | 0 | 1=do ]
+DivideI, L, 1, Divide by average I?
+Out, C, 1, Text file for output average RL
+.
+Vis = 
+Uvlimits = 0.0, 1.0E+9
+2Timerange = 0.0, 2.0
+8Timerange = 0,0,0,0,0,0,0,0
+Rotate = 0
+DivideI = T
+Out =
+.

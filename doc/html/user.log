@@ -1,0 +1,90 @@
+This is TeX, C Version 3.14t3 (format=lplain 93.1.6)  3 JAN 1996 09:11
+**user
+(user.tex
+LaTeX Version 2.09 <7 Dec 1989>
+(/opt/local/lib/tex/inputs/article.sty
+Document Style `article' <16 Mar 88>.
+(/opt/local/lib/tex/inputs/art11.sty)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+) (user.aux) (user.toc)
+\tf@toc=\write3
+ [1
+
+] [2
+
+] [3]
+[4]
+Underfull \vbox (badness 10000) has occurred while \output is active
+\vbox(569.05511+0.0)x449.55362
+.\glue(\topskip) 3.30833
+.\hbox(6.69167+2.43333)x449.55362, glue set 219.60611fil
+..\hbox(0.0+0.0)x0.0
+..\elvtt v
+..\elvtt m
+..\penalty 10000
+..\glue 5.74869
+..etc.
+.\glue(\parskip) 0.0
+.\glue(\baselineskip) 4.475
+.\hbox(6.69167+2.43333)x449.55362, glue set 190.86267fil
+..\hbox(0.0+0.0)x0.0
+..\elvtt v
+..\elvtt m
+..\penalty 10000
+..\glue 5.74869
+..etc.
+.etc.
+
+ [5]
+[6]
+Overfull \hbox (24.10892pt too wide) in paragraph at lines 198--213
+[][] 
+
+\hbox(91.13744+85.66245)x449.55362
+.\hbox(0.0+0.0)x17.0
+.\hbox(91.13744+85.66245)x456.66254
+..\mathon
+..\vbox(91.13744+85.66245)x456.66254
+...\hbox(9.51996+4.08003)x456.66254 []
+...\glue(\lineskip) 0.0
+...\hbox(9.51996+4.08003)x456.66254 []
+...\glue(\lineskip) 0.0
+...\hbox(9.51996+4.08003)x456.66254 []
+...etc.
+..\mathoff
+.\penalty 10000
+.\glue(\parfillskip) 0.0 plus 1.0fil
+.\glue(\rightskip) 0.0
+
+[7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
+[22] [23]
+Overfull \hbox (3.22433pt too wide) in paragraph at lines 1073--1073
+ [] \elvtt -0.1499999966E-01, -0.1499999966E-01, 0.0000000000E+00, 0.0000000000
+E+00,[] 
+
+\hbox(6.69167+1.52081)x449.55362
+.\glue(\leftskip) 27.37506
+.\hbox(0.0+0.0)x0.0
+.\penalty 10000
+.\glue 5.74869
+.\elvtt -
+.etc.
+
+[24] [25] (user.aux) ) 
+Here is how much of TeX's memory you used:
+ 158 strings out of 4463
+ 1444 string characters out of 63242
+ 35617 words of memory out of 262141
+ 2102 multiletter control sequences out of 9500
+ 19302 words of font info for 73 fonts, out of 72000 for 255
+ 14 hyphenation exceptions out of 607
+ 13i,8n,15p,167b,247s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on user.dvi (25 pages, 63144 bytes).

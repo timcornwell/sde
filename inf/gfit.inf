@@ -1,0 +1,81 @@
+Modes:  Use as "GO <mode>  It is recorded in the curfile as 'GOCMD'
+
+Fitting modes:
+ GO LFIT	(Linear fit)
+ GO RFIT	(Radius & linear fit)
+ GO GFIT	(Global fit for all parameters)
+ GO FFIT	(LFIT, RFIT, FIT in succession)
+
+Translation modes:
+ GO >SAOMODEL  (from SDE MODEL)
+ GO >PARAMS    (from SDE MODEL)
+ GO SAOMODEL>  (to SDE MODEL)
+ GO PARAMS>    (to SDE MODEL)
+ GO >EXCEL     (from SDE IMAGE)
+ GO EXCEL>     (to SDE IMAGE)
+
+This program provides a relatively smooth interface to the fitting program
+gaussfit.  Gaussfit is an extremely flexible but tempermental program, and
+this is a non-completely successful attempt to insulate the user from some
+of its worst problems.  In addition, gfit provides a somewhat more user
+friendly front end and allows the user to enter an initial
+guess via SAOimage cursors.
+
+You'll need to understand gaussfit to use gfit effectively.  Documentation
+can be found in $SDEROOT/tools/gaussfit/main
+
+.
+Image, C, 1, Image file
+Fit, C, 1, Fitted image
+Residual, C, 1, Residual image
+Box, C, 1, Box file
+Model, C, 1, SDE model file
+Params, C, 1, Gaussfit model parameter file
+SModel, C, 1, SAOImage model file
+GModel, C, 1, Gaussfit generic model file
+Excel, C, 1, Excel format data file
+Env, C, 1, Environment file
+Results, C, 1, Results file
+Fair, R, 1, Fair reduction parm
+Huber, R, 1, Huber reduction parm
+Tukey, R, 1, Tukey reduction parm
+Minsum, L, 1, Use Minsum method?
+IRLS, L, 1, Use IRLS method?
+ORM, L, 1, Orthogonal reduction method?
+Double, L, 1, Double iter. of condition eqns?
+Triang, L, 1, Orthogonal reduction method?
+Lambda, R, 1, Marq-Levenberg parm
+Factor, R, 1, Marq-Levenberg parm
+Iters, I, 3, Iteration limit
+Tol, R, 1, Tolerance for stopping
+Prmat, L, 1, Print condition matrix?
+Prvar, L, 1, Print covariance matrix?
+GOCMD, C, 1, Go command
+.DEFAULT
+Image =
+Fit =
+Residual =
+Box =
+Model =
+Params =
+SModel =
+GModel =
+Excel =
+Env =
+Results =
+Fair = 0.0
+Huber = 0.0
+Tukey = 0.0
+Minsum = F
+IRLS = F
+ORM = T
+Double = F
+Triang = T
+Lambda = 0.0
+Factor = 0.0
+Iters = 10, 0, 0
+Tol = 1.e-5
+Prmat = F
+Prvar = F
+GOCMD =
+.END

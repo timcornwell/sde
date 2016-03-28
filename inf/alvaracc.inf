@@ -1,0 +1,8 @@
+Task to combine several allan variance files into a single allan variance file
+.
+Infiles, C, 20, Single run Allan Variance files
+Outfile, C, 1, Horizontal multi-A*V file [can exist already]
+.
+Infiles =
+Outfile =
+.

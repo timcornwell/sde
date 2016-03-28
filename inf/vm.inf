@@ -1,0 +1,60 @@
+Program: VM - a Maximum Entropy deconvolution program
+Programmer: T.J. Cornwell
+Date: 4 Nov 1987
+Purpose: To deconvolve a point spread function from an image by maximising the
+image entropy or emptiness subject to the data constraints.
+
+This program performs the totally wonderful Cornwell-Evans MEM algorithm.
+
+The beam fitting algorithm may be LINEAR, NONLINEAR, ARCHIVE, HDR-LINEAR,
+HDR-NONLINEAR, HDR-ARCHIVE, L, N, A, HL, HNL, HA
+
+.
+Dirty , C, 1, Dirty  
+PSF, C, 1, Point spread function 
+Default , C, 1, Default [optional]
+VM , C, 1, VM  [can already exist, optional]
+CVM , C, 1, Convolved VM plus residuals [optional]
+Box, C, 1, Soft window image [optional]
+Residual, C, 1, Residual image [optional]
+BLC, I, 7 * 1, Bottom left corner of window [optional]
+TRC, I, 7 * 1, Top right corner of window [optional]
+Niter, I, 1, Number of Iterations (<0 for automatic stopping)
+Tflux, R, 1, Required total flux (less than zero for a guess)
+Sigma, R, 1, Required final fit in Jy/Beam
+Entropy, C, 1, Form to optimize, Entropy or L1 norm [H|L1]
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec]
+FitAlg, C, 1, Beam fitting algorithm
+ICF, R, 4, Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec]
+/Debug, L, 1, Debug? T or F
+/Tolerance, R, 1, Tolerance for convergence
+/Npoints, R, 1, Starting points per beam
+/Gain, R, 1, Gain in iteration process
+/MaxGrad, R, 1, Stop if gradient exceeds this value
+ImagePlane, L, 1, Are the residual independent in the image plane?
+TV, C, 1, Image to display on tv [VM|CVM|Step|Residual|None]
+.
+Dirty = 
+PSF = 
+Default = 
+VM = 
+CVM = 
+Residual = 
+Box =
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Niter = 10
+Tflux = -1.0
+Sigma = 0.001
+Entropy = H
+Beam = 0., 0., 0., 0.
+FitAlg = LINEAR
+ICF = 0., 0., 0., 0.
+/Debug = F
+/Tolerance = 0.05
+/Npoints = 10.0
+/Gain = 0.3
+/MaxGrad = 100.0
+ImagePlane = F
+TV = VM
+.

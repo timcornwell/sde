@@ -1,0 +1,11 @@
+6                                               / Number of Antennas
+-33.8625                                        / Site Latitude in degrees
+1.00        1.00                                / Baseline and diameter scaling
+@+207.264       0.0             0.0     13.7    / Antenna positions and Sizes
+@-597.408       0.0             0.0     13.7    /  @Beast,Bnorth,Belev,Diameter
+@-987.552       0.0             0.0     13.7    /or Bx,   By,    Bz,   Diameter
+@-1377.697      0.0             0.0     13.7    /
+@0.0         -207.264           0.0     13.7    /Data is for Fleurs 6 Dish
+@0.0         -597.408           0.0     13.7    /         array
+/ Bx, By, Bz or Beast, Bnorth, Belev are measured in meters if
+/   the Baseline scaleing is 1.0

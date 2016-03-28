@@ -1,0 +1,1389 @@
+\documentstyle[11pt,twoside]{article}
+\pagestyle{headings}
+\begin{document}
+\newcommand{\sde}{{\sf SDE}}
+\title{Programmer's Guide to \sde\ }
+\author{T.J. Cornwell}
+\maketitle
+\tableofcontents
+\newpage
+\newpage
+\section{Introduction}
+\subsection{What is the \sde\ ?}
+
+The Software Development Environment (\sde\ ) is an attempt to provide a
+simple, friendly environment for the {\em development} of imaging algorithms.
+The principal features of \sde\ are:
+\begin{itemize}
+\item High level handling of images and visibility databases as complete 
+entities.  Inside an \sde\ program, an image can be referred to by a
+name such as {\tt `PointSpreadFunction'} or {\tt `XFR'}.
+\item A fairly complete collection of modules for handling images, etc.
+in sophisticated ways. For example, a Fourier transform can be performed
+with the call:
+\begin{verbatim}
+        CALL IMGFFT ('PointSpreadFunction', 'XFR')
+\end{verbatim}
+At this level, routines are written so that all the information
+neccessary for performing the transform is associated with the names of
+entities.
+\item All data is assumed to fit into memory (either physical or virtual)
+and so little explicit i/o is required.
+\item All application code is written in Fortran-77. Some system code is
+written in c. 
+\end{itemize}
+The \sde\ was designed by Tim Cornwell and Pat Moore in late 1986 and
+early 1987. Much of the system code was written by Pat during that
+time. Most of the application code has been developed by Tim Cornwell,
+Mark Holdaway, Dan Briggs, and Ralph Marson.
+
+The \sde\ is not intended to replace large production systems such as
+AIPS or IRAF, but rather to provide a friendly environment for the
+development of algorithms. It is intended that once an algorithm has been
+written and tested using SDE, it should be ported to a production
+system like AIPS. \sde\ is not supported by NRAO on any machines. Take it
+as you find it.
+
+\subsection{Philosophy}
+
+The principal motivation for writing the \sde\ was the observation that
+the bulk of the code in any image processing task is concerned with
+things which are extraneous to the actual algorithm. For example, the
+user interface, the file system, the history mechanism, the error
+checking mechanism all usually take many lines of code in most
+systems, while the actual algorithm can consist of a few lines of
+code. Hence, while the logical operations inside a task may be quite
+simple, it may be very difficult to discover them from the code or to
+augment them significantly. This makes both code maintenance and code
+development difficult and inordinately time-consuming. We decided to
+build a very modular system. Some of the advantages of modularity are
+obvious, others less so:
+\begin{itemize}
+\item Code can be re-used where required. Ordinary subroutines are good
+examples.
+\item Information can be hidden from the programmer. With a nice, clean
+interface specification, something quite complicated can be made to
+look simple. 
+\item Modules can be changed internally without changing the external
+appearance. Hence maintenance and development is easier.
+\item Psychologically, it helps to break a complex problem into small
+parts, each of which can be attacked independently.
+\item Modules can be contributed by many different people provided that
+the interfaces are well-specified.
+\item Modules usually force the production of routines in which the
+action of a routine is not subtly dependent on the state of global
+variables which may be in an uncertain state.
+\end{itemize}
+In practice, clean definition of modules requires a high-level description
+of the things to be operated on. Fortran cannot do this very well. For
+example, an image logically consists of a number of things: the actual
+pixel values, the dimensions, the units, the coordinates, the history, and
+so on. In a decent language these things can be assembled into a single
+structure, apointer to which can be passed around easily. In Fortran, the 
+lack of structures and pointers leads one into the temptation of letting the
+innards of a thing like an image be spread all around: in a variable here,
+a {\tt COMMON} block there. The applications programmer then has to
+handle all this stuff explicitly. Use of c would solve some of these
+problems but would introduce others because of it's unsuitability for 
+numerical work. Another solution would be to use a higher
+level language like ADA, but in reality most machines do not have
+good compilers for the modern languages. In \sde\ this dilemma is resolved by
+developing a mechanism for handling structures in Fortran. We designed
+and coded a hierarchical database system, written in c, which allows the use
+of structures. With a few conventions for coding, it allows one to
+call subroutines which look like:
+\begin{verbatim}
+      CALL VISGRID('Vis', 'OBS/I', 'GriddedVis', .TRUE.)
+\end{verbatim}
+for the gridding of visibility data (Observed Stokes I), or
+\begin{verbatim}
+      CALL IMGCCLEA ('Dirty', 'PSF', 'XFR', 'CCLEAN', 
+     1   'Resid', 'Vis')
+\end{verbatim}
+to perform a Barry Clark clean of a dirty image.
+
+Other important design choices were:
+\begin{itemize} 
+\item We decided to concentrate on applications software, and to
+rely upon the host-operating system for file handling, tape access, etc.
+We simply did not have the resources to re-design all that stuff.
+SDE can easily be made to run on most UNIX machines.
+\item We decided that array processors were a thing of the past. We
+would concentrate on writing vectorizable code on machines like the
+Convex C-1.
+\item We decided to use a simple user-interface initially. We hope to
+change this one day, but again this was low on our list of priorities.
+\end{itemize}
+
+\newpage
+\section{A simple example: Hello, world}
+
+Let us consider a concrete example of an \sde\ routine. Here is the
+\sde\ version of the venerable `Hello, world' routine found in
+so many books on programming languages. This also serves as a good test of
+the minimal \sde\ system.
+
+The actual code is:
+\begin{verbatim}
+      SUBROUTINE SDEMAIN
+C++
+C  Program to say 'Hello, World'
+C
+C  Arguments: CALL SDEMAIN
+C  Audit trail:
+C       Simple Hello, world program. This is a good test of the
+C       minimal sde system: only routines in source/main are required.
+C                               T.J.Cornwell    Jan 5 1989
+C 
+C-----------------------------------------------------------------------
+#include        "stdinc.h"
+C
+      CHARACTER*(*)     ROUTINE
+      PARAMETER         (ROUTINE = 'WORLD')
+C
+C==================================================================
+      CALL MSGWELCO ('Hello, world')
+C
+      END
+\end{verbatim}
+This is compiled with the command: {\tt comtask world.f}, and run by typing
+{\tt world} at the prompt. The output is:
+\begin{verbatim}
+% world
+world I:
+world I: Hello, world
+world I:
+world I: Compiled : Sun Jan 22 21:15:11 1989
+world I:
+world I:
+world I: Started  : Fri Jan 27 16:01:01 1989
+world I: Finished : Fri Jan 27 16:01:02 1989
+world I: User:     0.54 System:     0.49
+\end{verbatim}
+
+A few explanations are required:
+\begin{itemize}
+\item {\tt SUBROUTINE SDEMAIN}: Note the absence of a {\tt PROGRAM} card.
+{\tt SDEMAIN} is actually called by a main routine which does a lot of
+initialization and cleaning-up, and also contains system-specific code
+such as error-handlers.  The applications programmer normally never
+sees the very top level routine.
+\item Note the standard precursor comments which describe the routine. These
+are usually much more useful for a real subroutine.
+\item {\tt \#include `stdinc.h'} must be present in every
+Fortran routine. This defines a number of global variables which can be
+used in every routine.
+\item {\tt CHARACTER*(*) ROUTINE}: Each routine contains it's name
+in this form. While not necessary in this example, it will be used in other
+examples below.
+\item {\tt CALL MSGWELCO ('Hello, world')} writes the message {\tt Hello, 
+world} and also the
+time of compilation of the main task. (The end messages are written
+by the top-level routine which actually calls {\tt SDEMAIN}).
+\item Each message is prefaced with the name of the task and a code
+indicating the type of message. 
+\end{itemize}
+
+\newpage
+\section{A more detailed example: imglc}
+Now that we can talk to the user, let's actually do something. The next
+routine makes a linear combination of two images:
+\begin{verbatim}
+      SUBROUTINE SDEMAIN
+C++
+C  Program to make a linear combination of two images
+C
+C  Arguments: CALL SDEMAIN
+C  Audit trail:
+C       New version with history cards added
+C                               T.J.Cornwell    Jan 25 1989
+C
+C-----------------------------------------------------------------------
+#include        "stdinc.h"
+C
+      CHARACTER*(*)     ROUTINE
+      PARAMETER         (ROUTINE = 'IMGLC')
+C
+      CHARACTER*(SYSMXNAM)    INFILE1,
+     1                          INFILE2,
+     2                          OUTFILE,
+     3                          BUNIT1, 
+     4                          BUNIT2
+      INTEGER           NDUMMY
+      REAL              W1,W2
+C==================================================================
+C
+      CALL MSGWELCO ('I add images')
+      CALL USRCTL
+C
+C Get Images
+C
+      CALL USRGETC ('Image1', INFILE1, 1, NDUMMY)
+      CALL FILIMGGE ('Image1', INFILE1, '*')
+      CALL USRGETC ('Image2',INFILE2, 1, NDUMMY)
+      CALL FILIMGGE ('Image2', INFILE2, '*')
+C
+C Get Weights
+C
+      CALL USRGETR('Weight1',W1,1,NDUMMY)
+      CALL USRGETR('Weight2',W2,1,NDUMMY)
+      CALL USRGETC('Output',OUTFILE,1,NDUMMY)
+C
+C Check to see if the units are the same
+C
+      CALL DATGETC ('Image1', 'BUNIT', BUNIT1, 1, NDUMMY)
+      CALL DATGETC ('Image2', 'BUNIT', BUNIT2, 1, NDUMMY)
+      IF (BUNIT1.NE.BUNIT2) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE, 'Units differ')
+         GO TO 999
+      END IF
+C      
+C Call main routine to make a linear combination
+C
+      CALL IMGCLONE ('Image1', 'Output')
+      CALL ARRLC ('Image1',W1,'Image2',W2,'Output')
+C
+C Write History info
+C
+      CALL HISOPEN ('Output')
+      CALL HISINPUT ('Output')
+C
+C Write result 
+C
+      CALL FILIMGPU('Output',OUTFILE,' ')
+C
+ 999  CONTINUE
+      END
+\end{verbatim}
+
+A typical run of the program looks like:
+\begin{verbatim}
+% imglc
+imglc I:
+imglc I: I add images
+imglc I:
+imglc I: Compiled : Fri Jan 27 16:34:35 1989
+imglc I:
+* Image1 = D2/3C10MAP.FTS
+* Image2 = D2/3C10BEAM.FTS
+* Weight1 = 1.0
+* Weight2 = -1.0
+* inp
+First input image : Image1 = D2/3C10MAP.FTS
+Second input image : Image2 = D2/3C10BEAM.FTS
+Output image : Output =
+Weight of first image : Weight1 = 1.000000
+Weight of second image : Weight2 = -1.000000
+* Output = D2/SUM
+* go
+imglc I: Opening FITS file D2/3C10MAP.FTS for READ as Image1
+imglc I: No tables were found
+imglc I: Opening FITS file D2/3C10BEAM.FTS for READ as Image2
+imglc I: No tables were found
+imglc I: Opening FITS file D2/SUM for WRITE as Output
+imglc I: Writing 2-dimensional image Output
+imglc I:
+imglc I: Started  : Fri Jan 27 16:37:35 1989
+imglc I: Finished : Fri Jan 27 16:37:53 1989
+imglc I: User:     3.69 System:     0.48
+\end{verbatim}
+
+Commentary:
+\begin{itemize}
+\item {\tt CHARACTER*(SYSMXNAM)} declares the (standard) size of
+strings {\tt INFILE1, INFILE2, OUTFILE}.
+\item {\tt CALL USRCTL} calls the user-interface routines to
+talk to the user. At this stage the user inputs parameters.
+If desired {\tt USRCTL} can be called repeatedly to get new values
+for the parameters. The actual specification of the parameters is found
+from a text-file called the information file described below.
+\item {\tt USRGETC} is used to get the name of the first input file
+from the user-interface. {\tt 'Image1'} is the name as known by the
+user, {\tt INFILE1} is the place where it will be stored, {\tt 1}
+is the number of values to get, and {\tt NDUMMY} is the number of
+values actually returned from the user-interface. It is worth emphasizing 
+that {\tt USRGETC} does not talk to the user directly. Instead it only 
+retrieves values stored by {\tt USRCTL}.
+\item {\tt FILIMGGE} reads {\tt 'Image1'} from the disk file system,
+where is it known as {\tt INFILE1} ( = {\tt D1/3C10MAP.FTS} in the
+above example). The file system is based upon FITS files. The default
+type is IEEE-format 32-bit FITS but a special, machine-specific format
+can be invoked by using an extension of \sde\ e.g. {D1/3C10MAP.SDE}.
+Note also that all visibility files must be written as \sde\ files.
+IEEE FITS files are written very quickly on Convexes and Sparcstations.
+\item {\tt USRGETR} is used to read the values of the weights from the user
+interface.
+\item {\tt DATGETC} get the units of the images (e.g. 'JY/BEAM') from
+the file that was read by {\tt FILIMGGE}.
+'BUNIT' is a standard item in an image header.
+\item {\tt ERRREPOR} is used to report an error to the error handling
+system. The arguments are first, a standard string, allowed values of
+which are found in {\tt stdinc.h}, second, the name of the routine in which
+the error occurred, and third, some supplemental information. At this point
+no messages are output to the user. Instead the errors are stored up so
+that a higher-level routine can cancel them if appropriate (using 
+{\tt ERRCANCE}). At this point we jump out of the routine and pop
+back up the various levels. The error messages are ultimately flushed
+by the supervisor routine which called {\tt SDEMAIN}. The error system
+is not terribly sophisticated but it is adequate and very useful in
+debugging. 
+\item {\tt IMGCLONE} makes an image (in memory) which is a copy of 
+{\tt 'Image1'}.
+\item {\tt ARRLC} makes a linear combination of the two images
+which replaces the previous content of {\tt 'Output'} (in memory).
+\item {\tt HISOPEN} opens space for history records to be attached
+to {\tt 'Output'} (in memory still).
+\item {\tt HISINPUT} copies the input parameters to {\tt 'Output'}
+in a standard form:
+\begin{verbatim}
+imglc / run at Fri Jan 27 16:37:46 1989
+imglc / version compiled at Fri Jan 27 16:34:35 1989
+imglc  Image1 = D2/3C10MAP.FTS
+imglc  Image2 = D2/3C10BEAM.FTS
+imglc  Output = D2/SUM
+imglc  Weight1 = 1.000000
+imglc  Weight2 = -1.000000
+\end{verbatim}
+
+\item {\tt FILIMGPU} writes from memory to the disk file system.
+\end{itemize}
+In this example, we see a number of key attributes of \sde\ code. First,
+at this top level, the number of lines of code required to do something
+interesting is very small. Second, subroutine calls are fairly uncluttered.
+Third, lots of potentially confusing information is hidden.
+
+Let us now delve down deeper into the routines and look at {\tt ARRLC}
+in detail. This will show us how the string names such as {\tt'Image1'}
+are translated into Fortran arrays.
+\begin{verbatim}
+      SUBROUTINE ARRLC (A1, W1, A2, W2, A3)
+C++
+C  Linear combination of two arrays
+C
+C  Arguments: CALL ARRLC (A1, W1, A2, W2, A3)
+C 
+C       A1      CH*(*)  input   Name of array
+C       W1      REAL    input   Weight
+C       A2      CH*(*)  input   Name of array
+C       W2      REAL    input   Weight
+C       A3      CH*(*)  input   Name of array
+C  Audit trail:
+C       Linear combination of two arrays
+C                               T.J.Cornwell    Jan 5 1989
+C 
+C--------------------------------------------------------------------
+#include        "stdinc.h"
+C
+      CHARACTER*(*)     A1, A2, A3
+      REAL              W1, W2
+C
+C
+      CHARACTER*(*)     ROUTINE
+      PARAMETER         (ROUTINE = 'ARRLC')
+C
+      CHARACTER*1       T1, T2, T3
+      INTEGER           I, N1, N2, N3, NAXIS1(SYSMXDIM),
+     1                  NAXIS2(SYSMXDIM), NAXIS3(SYSMXDIM)
+      INTEGER           ADD1, ADD2, ADD3, NT
+      LOGICAL           DATEXIST
+C=====================================================================
+      IF (ERROR) GO TO 999
+C
+      CALL DATGETAR (A1, N1, NAXIS1, T1, ADD1)
+      CALL DATGETAR (A2, N2, NAXIS2, T2, ADD2)
+      IF (N1.NE.N2) THEN
+         CALL ERRREPOR (ERRBDARG, ROUTINE, 
+     1      'Different number of axes')
+         GO TO 999
+      END IF
+      NT = 1
+      DO 10 I = 1, N1
+         IF (NAXIS1(I).NE.NAXIS2(I)) THEN
+            CALL ERRREPOR (ERRBDARG, ROUTINE, 'Axes do not match')
+            GO TO 999
+         ELSE
+            NT = NT * NAXIS1(I)
+         END IF
+  10  CONTINUE
+C
+C Check types of arrays
+C
+      IF (T1.NE.T2) THEN
+         WRITE (MESSAGE, 1000) T1, T2
+ 1000    FORMAT ('Array types for images 1 and 2 disagree : ',A1,
+     1      1X,A1)
+         CALL ERRREPOR (ERRBDARG, ROUTINE, MESSAGE)
+         GO TO 999
+      END IF
+C
+C Make output array if it does not exist
+C
+      IF (.NOT.DATEXIST(A3)) THEN
+         T3 = T1
+         N3 = N1
+         DO 20 I = 1, N3
+            NAXIS3(I) = NAXIS1(I)
+  20     CONTINUE
+         CALL DATMAKAR (A3, N3, NAXIS3, T3, ADD3)
+      ELSE
+         CALL DATGETAR (A3, N3, NAXIS3, T3, ADD3)
+         IF (N1.NE.N3) THEN
+            CALL ERRREPOR (ERRBDARG, ROUTINE, 
+     1         'Different number of axes')
+            GO TO 999
+         END IF
+         IF (T1.NE.T3) THEN
+            WRITE (MESSAGE, 1100) T1, T3
+ 1100       FORMAT (
+     1         'Types for image 1 and output image disagree : ',
+     2         A1,1X,A1)
+          CALL ERRREPOR (ERRBDARG, ROUTINE, MESSAGE)
+            GO TO 999
+         END IF
+         DO 30 I = 1,N3
+            IF (NAXIS3(I).NE.NAXIS1(I)) THEN
+               CALL ERRREPOR (ERRBDARG, ROUTINE,
+     1            'Axes disagree')
+               GO TO 999
+            END IF
+  30     CONTINUE
+      END IF
+C
+C Call appropriate routine
+C
+      IF (T1.EQ.'R') THEN
+         CALL PIXRLC (MEMR(ADD1), W1, MEMR(ADD2), W2, MEMR(ADD3), 
+     1      NT)
+      ELSE
+         CALL ERRREPOR (ERRBDARG, ROUTINE, 'Array type '//T1//
+     1      'Not supported')
+      END IF
+ 990  IF (ERROR) CALL ERRTRACE (ROUTINE)
+C
+ 999  CONTINUE
+      END
+\end{verbatim}
+
+Commentary:
+\begin{itemize}
+\item {\tt IF (ERROR) GO TO 999} Error checking is performed on {\em entry}
+to subroutines. This means that subroutines are not cluttered with
+error check code. {\tt ERROR} is one of the few global variables.
+It is true if an error has been reported using {\tt ERRREPOR} (see below).
+\item {\tt CALL DATGETAR} gets the various parameters of an array named
+{\tt A1}: the number of axes {\tt N1} (up to 7), 
+the number of pixels on each axis {\tt NAXIS1}, the type of the array {\tt T1},
+and the address {\tt ADD1} where the pixel values are stored. The last would
+ideally be a pointer variable, but in Fortran we have to use a subterfuge:
+{\tt ADD1} is an address in a global {\tt COMMON}. For real arrays ({\tt T1
+= 'R'}), {\tt MEMR(ADD1)} is the address of the first value of the array
+{\tt A1}. The various {\tt DAT} routines are actually an interface to a
+c package which performs all the memory allocation and handling. \sde\ arrays
+are made by a call to {\tt DATMAKAR}. In the example of imglc, the arrays
+containing the image data are made by {\tt FILIMGGE}.
+\item Various checking code follows next. This ensures that the arrays
+can be combined properly. This requires checking of dimensionality and
+type. The young and reckless dispense with this at their own peril.
+\item {\tt MESSAGE} is a character array declared in stdinc.h (cf Appendix B).
+\item The real work is finally performed by {\tt PIXRLC} which does
+linear combination of real arrays. I have not yet needed {\tt PIXILC}
+or {\tt PIXDLC}, but they can be inserted when neccessary. Note that
+{\tt PIXRLC} is passed the addresses of the first elements, and the total
+number of pixels.
+\item {\tt ERRTRACE} is used to trace errors. If an error occurred in a
+subroutine called from this routine, then the name of this routine is added
+to a stack, and the entire sequence of error messages is popped at the
+end of the task. Errors in this routine are not traced in this way.
+\item {\tt ARRLC} is slightly long-winded but it performs a fair amount
+of checking. Of course, once written it can be called by many different
+routines.
+\end{itemize}
+
+To complete the description of imglc, here is {\tt PIXRLC}:
+\begin{verbatim}
+      SUBROUTINE PIXRLC (A1, W1, A2, W2, A3, N)
+C++
+C  Linear combination of two arrays
+C
+C  Arguments: CALL PIXRLC (A1, W1, A2, W1, A3, N)
+C 
+C       A1      REAL    input   Real array
+C       W1      REAL    input   Weight
+C       A2      REAL    input   Real array
+C       W2      REAL    input   Weight
+C       A3      REAL    output  Real array
+C       N       INT     input   Number of elements
+C  Audit trail:
+C       New version
+C                               T.J.Cornwell    Jan 5 1989
+C
+C--------------------------------------------------------------------
+#include        "stdinc.h"
+C
+      REAL              A1(*), A2(*), A3(*), W1, W2
+      INTEGER           N
+C
+C
+      INTEGER           I
+C=====================================================================
+      IF (ERROR) GO TO 999
+      DO 10 I = 1, N
+         A3(I) = W1 * A1(I) + W2 * A2(I)
+ 10   CONTINUE
+C
+ 999  CONTINUE
+      END
+\end{verbatim}
+Commentary:
+\begin{itemize}
+\item We have (finally) reached ordinary Fortran arrays. The code at this
+level is trivial. 
+\item This is what we call a pixel-stream subroutine: the dimensionality is
+unimportant and so the arrays can be treated as one-dimensional.
+\item Error tracing is not needed here.
+\end{itemize}
+
+Now that we have seen how to write an \sde\ task, it is probably worth 
+emphasizing just why this level of complication is required, and what we
+have gained. 
+\begin{description}
+\item{Orthogonality}: The code at each level is quite simple and involves
+only concepts appropriate at the level. For example, at the lowest pixel
+level we need consider only the pixel values, not the dimensionality.
+Similarly, at the array level, we need only consider the attributes of
+the arrays, not their origin or fate. At the top, image level, only the
+attributes relevant to an image (units in this examples) are examined.
+\item{Intelligence}: The philosophy is that
+each subroutine must be sufficiently intelligent and autonomous to allow
+incorporation into a higher level routine.
+\item{Brevity}: Short subroutines are vital for clarity. With this multi-level
+approach, errors at any level are easier to spot and correct.
+\item{Versatility}: {\tt ARRLC} can now be used in another context.
+\end{description}
+
+\newpage
+\section{The main subroutines}
+
+\sde\ has a core set of subroutines which are vital to any working task.
+These must work for any task to live and breathe. We now describe these
+in detail.
+\subsection{Database access: DAT routines}
+These routines create and manipulate entries in the database. 
+The database (in memory) is ordered in a similar way to a 
+unix directory with up to
+16 levels. A good example is found in the structure used for images:
+\begin{tabbing}
+Dirty..............................\=Directory.....\=Name of top level image\kill
+Dirty\>Directory\>Name of top level\\
+Dirty/ARRAY\>Directory\>Location of pixel array\\
+Dirty/ARRAY/DATA\>Real\>Actual pixels\\
+Dirty/ARRAY/NAXIS\>Integer\>Axis information\\
+Dirty/CDELT\>Real\>Coordinate increments\\
+Dirty/CROTA\>Real\>Coordinate rotations\\
+Dirty/CRPIX\>Real\>Coordinate reference pixels\\
+Dirty/CRVAL\>Double\>Coordinate reference values\\
+Dirty/CTYPE\>Char\>Coordinate axis types\\
+Dirty/FILACCESS\>Char\>File access mode\\
+Dirty/FILEID\>Integer\>Internal file id\\
+Dirty/FILNAME\>Char\>File name\\
+Dirty/FILSYS\>Char\>File system type\\
+Dirty/HII\>Directory\>History card directory\\
+Dirty/ORIGIN\>Char\>Place where image was made
+\end{tabbing}
+
+Note that there are two ways of storing data. First, arrays are
+stored by value and the items are actually copied into and out of the
+database. Second, arrays are stored by pointer only: the database
+system allocates a region of memory for the array values to be copied
+into. It is the responsibility of the programmer to actually put the
+array values in that location. Typically, the first sort of storage is
+used for header items, while the second is used for image pixels, etc.
+
+The subroutines for dealing with the database are:
+
+\begin{itemize}
+\item {\tt DATCREAT (NAME)}: creates an entry in the database (in memory).
+\item {\tt DATDELET (NAME)}: deletes an entry in the database (in memory).
+\item {\tt DATEXIST (NAME)}: is a {\tt LOGICAL} function which is true if
+{\tt NAME} exists.
+\item {\tt DATRENAM (INNAME, OUTNAME)}: rename an entry from {\tt INNAME} to
+{\tt OUTNAME}.
+\item {\tt DATDUMP (NAME)}: dumps the structure of an entry. Useful for
+debugging.
+\item {\tt DATHEDLI (NAME, NODES, NLIST, NTYPE, NSIZE)}: makes a list of
+the entry. Think of this as a directory listing. {\tt NODES} is the
+number of nodes found, {\tt NLIST} is the list of names, {\tt NTYPE} is
+the list of types, and {\tt NSIZE} is the list of sizes.
+\item {\tt DATREAD (NAME, INFILE)}: read an entry from disk file {\tt INFILE}
+in a special machine-dependent, but compact format. For 
+self-contained applications this is the easiest form of file to use. 
+\item {\tt DATWRITE (NAME, OUTFILE)}: write an entry to a disk file {\tt 
+OUTFILE} in the format which is read by {\tt DATREAD}.
+\item {\tt DATGETR (NAME, ITEM, VALUE, NVALS, ANVALS)}: get a real value or
+values {\tt VALUE} called {\tt ITEM} from the database entry {\tt NAME}. The 
+number
+of values requested is the integer {\tt NVALS}, the actual value returned
+is the integer {\tt ANVALS}. Also {\tt DATGETC, DATGETI, DATGETD, DATGETX,
+DATGETL} for string, integer, double, complex and logical types.
+\item {\tt DATFGETR (NAME, ITEM)}: is a function returning a single value.
+Also {\tt DATFGETI, DATFGETD, DATFGETX,
+DATFGETL} for integer, double, complex and logical types.
+\item {\tt DATPUTR (NAME, ITEM, VALUE, NVALS)}: put a real value or values
+{\tt VALUE} called {\tt ITEM} in the database entry {\tt NAME}. The number
+number of values inserted is the integer {\tt NVALS}.
+Also {\tt DATPUTC, DATPUTI, DATPUTD, DATPUTX,
+DATPUTL} for string, integer, double, complex and logical types.
+\item {\tt DATMAKAR (NAME, NAX, NAXIS, ATYPE, ADD)}: make an array of type
+{\tt ATYPE} with {\tt NAX} axes. The size of each axis is given in
+{\tt NAXIS}, and the address of the array is returned in ADD. Valid
+types are {\tt 'R', 'I', 'L', 'D', 'X', 'C'}. Addresses are relative
+to {\tt MEM?} where {\tt ?} is the array type.  For example, the first
+element of a complex array is found in {\tt MEMX(ADD)}.
+\item {\tt DATGETAR (NAME, NAX, NAXIS, ATYPE, ADD)}: gets the parameters of the
+array called {\tt NAME}.
+\item {\tt DATADD (NAME)}: is a function returning just the address of the 
+values of an array.
+\item {\tt DATDELAR (NAME)}: deletes an array.
+\end{itemize}
+where the variables have these types:
+\begin{tabbing}
+{\tt OUTNAME }\={\tt CHARACTER*(*) }\= Name of entry in database \kill
+{\tt NAME }\>{\tt CHARACTER*(*) }\> Name of entry in database \\
+{\tt INNAME }\>{\tt CHARACTER*(*) }\> Name of entry in database \\
+{\tt OUTNAME }\>{\tt CHARACTER*(*) }\> Name of entry in database \\
+{\tt INFILE}\>{\tt CHARACTER*(*) }\> Name of external input file \\
+{\tt OUTFILE}\>{\tt CHARACTER*(*) }\> Name of external output file \\
+{\tt ITEM}\>{\tt CHARACTER*(*) }\> Name of item in database entry \\
+{\tt VALUE}\>{\tt        }\> Array of values of item\\
+{\tt NVALS}\>{\tt INTEGER}\>Number of values\\
+{\tt ADD}\>{\tt INTEGER}\>Address of values in {\tt MEM?}
+\end{tabbing}
+
+As well as these routines, there are other routines which are used internally
+and should not be called directly. These usually begin with {\tt DAI} rather
+than {\tt DAT}.
+
+\subsection{Error handling: ERR routines}
+
+The error handling system consists of a small number of routines.
+\begin{itemize}
+\item {\tt ERRREPOR (REASON, ROUTINE, TEXT)}: report an error to the error
+handling system. The error message is stored away and {\tt ERROR} is set
+to be true.
+\item {\tt ERRCHANG (REASON, ROUTINE, TEXT)}: changes an existing error which
+was reported in routine {\tt ROUTINE}.
+\item {\tt ERRREASO (REASON)}: gives the reason for the last reported error. 
+If appropriate, an error can then be cancelled using {\tt ERRCANCE}.
+\item {\tt ERRCANCE}: deletes all error conditions.
+\item {\tt ERRTRACE (ROUTINE)}: is called to indicate that an error was 
+reported by a subroutine called from this one.
+\end{itemize}
+The variables are:
+\begin{tabbing}
+{\tt ROUTINE....}\={\tt CHARACTER*(*)....}\=Name of the routine in which an error occurred\kill
+{\tt REASON}\>{\tt CHARACTER*(*)}\>Reason for error: usually from the standard list\\
+{\tt ROUTINE}\>{\tt CHARACTER*(*)}\>Name of the routine in which an error occurred\\
+{\tt TEXT}\>{\tt CHARACTER*(*)}\>Further explanatory text
+\end{tabbing}
+
+\subsection{Messages: MSG routines}
+
+The message system is very simple. 
+\begin{itemize}
+\item {\tt MSGWELCO (TEXT)}: writes the introductory message {\tt TEXT} to
+the user, and also the data and time of compilation.
+\item {\tt MSGPUT (MSG, TYPE)}: writes a message {\tt MSG} which is
+{\tt CHARACTER*(*)}
+to the user with a code {\tt TYPE}, {\tt
+CHARACTER*1}, which denotes what type
+of message it is. Valid types are {\tt 'I'} for informative (most common),
+{\tt 'W'} for warning, {\tt 'E'} for fatal error, and {\tt 'D'} for a
+debugging message.
+\end{itemize}
+
+\subsection{User interface: USR routines}
+
+The user interface consists on a control routine, {\tt USRCTL} and
+several routines for getting values.
+\begin{itemize}
+\item {\tt USRCTL}: is called to allow the user to input parameters. 
+\item {\tt USRGETR (NAME, VALUE, NVALS, ANVALS)}: returns the value(s) of
+a parameter {\tt NAME, CHARACTER*(*)} in an array {\tt VALUE,
+REAL}. {\tt NVALS, INTEGER} values are asked for, {\tt ANVALS, 
+INTEGER} returned. As you might expect by now, there also exist {\tt
+USRGETI, USRGETD, USRGETX, USRGETL, USRGETC}.
+\item {\tt USRGETGO (GOCMD)}: gets the command which go was given. The user
+can type 'go list', for example. {\tt GOCMD, CHARACTER*(*)} then has
+the value 'list'. This is useful for interactive tasks. {\tt USRCTL} can
+be called in an infinite loop, and {\tt GOCMD} acted on as
+appropriate.
+\end{itemize}
+
+{\tt USRCTL} performs the following operations:
+\begin{enumerate}
+\item The information about the task parameters is read from a file
+{\em taskname.inf} which can be kept either in the current directory or in the
+global INF directory. This file contains descriptions of the parameters,
+and default values.
+\item The parameter values from the previous run are read from the file
+{\em taskname.cur}. If this does not exist then the default values are used.
+\item The user is prompted with a * to give inputs.
+\item At EOF (Control-D or Control-Z as appropriate) or on receipt of the
+command go, the file {\em taskname.cur} is written with the current parameter
+values, and {\tt USRCTL} exits.
+\end{enumerate}
+
+The format of the information file is:
+\begin{verbatim}
+Program: IMGLC - Perform linear combination of two images
+Programmer: T.J. Cornwell
+Date: 1 Jan 1989
+Purpose: IMGLC allows two images to be added with arbitrary weights.
+
+Details: Put useful stuff here.
+
+.INFO
+Image1, C, 1, First Input image
+Image2, C, 1, Second Input image
+Output, C, 1, Output image
+Weight1, R, 1, Weight of first image
+Weight2, R, 1, Weight of second image
+/Debug, L, 1, Debug T or F (must be set each time)
+.DEFAULT
+Image1 = 
+Image2 = 
+Output = 
+Weight1 = 1.0
+Weight2 = 1.0
+/Debug = F
+.END
+\end{verbatim}
+Commentary:
+\begin{itemize}
+\item The first part is the help text which tells about the task itself.
+This should contain information useful to the user. This can be read by
+the user by typing help at the * prompt.
+\item The next, {\tt INFO}, section contains specificiations of the
+input parameters. The fields are: first, the name as known to the
+user, second, the type (one of {\tt R, I, D, X, L, D, C}), third, the
+number of values, and fourth, an explanatory string.
+\item The {\tt DEFAULT} section contains default values for the variables.
+Note that strings can be left empty.
+\item A variable may be hidden from the user by prepending it with a /.
+Such a variable does not show in the inputs, and it is not saved in the
+file of current values. Hence the default value must be sensible. This
+capability is most useful for parameters which are only useful in
+debugging. A useful trick is to have a parameter called Debug, which is
+read into the global debug status variable {\tt SYSDEBUG}. We accomplish
+this with a call to {\tt USRGETL}:
+\begin{verbatim}
+      CALL USRGETL ('Debug', SYSDEBUG, 1, ANVAL)
+\end{verbatim}
+Debug can be hidden by prepending it with a / in the information file. Note
+that the internal name does not need a prepended /.
+\end{itemize}
+
+\subsection{Text input and output: TXT routines}
+
+All text i/o should go through the text handling system. This uses
+string handles for files: these are just simple names rather than
+logical units.
+\begin{itemize}
+\item {\tt TXTOPEN (HANDLE, FILE, STATUS)}: Open an external file {\tt FILE}
+using a status {\tt STATUS, CHARACTER*(*)} and associate it with a handle.
+{\tt STATUS} can be one of {\tt READ, WRITE} or {\tt READWRITE}.
+\item {\tt TXTCLOSE (HANDLE)}: closes the i/o stream with handle {\tt HANDLE}.
+\item {\tt TXTREAD (HANDLE, LINE, NCHAR, EOF)}: reads a line from the stream
+and returns the number of characters read {\tt NCHAR, INTEGER} and 
+an end-of-file indicator {\tt EOF, LOGICAL}. A blank line returns
+{\tt NCHAR = 0} and {\tt EOF = .FALSE.}.
+\item {\tt TXTWRITE (HANDLE, LINE)}: writes the line to the stream.
+\end{itemize}
+The variables are:
+\begin{tabbing}
+{\tt HANDLE....}\={\tt CHARACTER*(*)....}\=Handle by which this i/o stream is known\kill
+{\tt HANDLE}\>{\tt CHARACTER*(*)}\>Handle by which this i/o stream is known\\
+{\tt FILE}\>{\tt CHARACTER*(*)}\>Name of external file: can include logical names\\
+{\tt LINE}\>{\tt CHARACTER*(*)}\>Line for input or output
+\end{tabbing}
+
+\subsection{String handling: STR routines}
+
+String handling is central to \sde\ and so there are a number of useful
+routines. Remember that \sde\ names can look like Unix directories: 
+e.g. {\tt 'VIS/OBS/I'} for the Stokes I part of the observed visibility.
+We have routines to assemble such names.
+\begin{itemize}
+\item {\tt STRLEN (STRING)}: returns the length of {\tt STRING, CHARACTER*(*)}
+{\em ignoring spaces}.
+\item {\tt STRAPPEN (STRING1, STRING2)}: is a subroutine which adds {\tt
+STRING2} to the end of {\tt STRING1} {\em ignoring spaces}. There also
+exist {\tt STRAPPE2, STRAPPE3} for multiple strings.
+\item {\tt STRM2 (PART1, PART2)}: is a {\tt CHARACTER*(*)} function which
+return {\tt PART1} and {\tt PART2} joined by a /. {\tt STRM3} and {\tt
+STRM4} also exist.
+\item {\tt STREXTRA (LIST, N, PART)}: extracts the {\tt N}'th part of the
+comma-delimited {\tt LIST, CHARACTER*(*)} and returns it in {\tt
+PART, CHARACTER*(*)}.
+\item {\tt STRINT(N)}: converts an integer to a string.
+\item {\tt STRMATCH(LIST, STRING)}: is a {\tt LOGICAL} function which is
+true if {\tt STRING} is contained in {\tt LIST} or if {\tt LIST = '*'}.
+\item {\tt STRSEARC (TARGET, LIST, N)}: is an {\tt INTEGER} function which
+returns the index of a target {\tt TARGET, CHARACTER*(*)} in an array
+of strings {\tt LIST(*), CHARACTER*(*)}. If there is no match then
+zero is returned.
+\end{itemize}
+
+\subsection{System-related activities: SYS routines}
+
+Access to the system is minimal. The main functions of the SYS routines are
+time and date retrieval, command execution, and logical name translation.
+\begin{itemize}
+\item {\tt SYSDATEC (DTSTRING)}: is a subroutine which returns the date in
+the {\tt CHARACTER*(*)} string {\tt DTSTRING} in the format '23/11/87'
+\item {\tt SYSDATET (DTSTRING)}: is a subroutine which returns the date and
+time in {\tt DTSTRING}. The format is 'Sun Jan 22 21:15:11 1989'.
+\item {\tt SYSETIME (DTSTRING)}: is a subroutine which returns the elapsed time
+and CPU (if available) in {\tt DTSTRING}
+\item {\tt SYSSYSTM (COMMAND)}: is an {\tt INTEGER} function which executes
+a command line {\tt COMMAND} on the host system, and returns
+an error status.
+\item {\tt SYSTRANS (NAME1, NAME2)}: is a subroutine which performs logical 
+name translation of {\tt NAME1} to {\tt NAME2}.
+It calls getenv to translate any part it can.
+\end{itemize}
+
+\newpage
+\section{Compiling and Linking}
+
+There are canned scripts for compiling and linking subroutines and tasks.
+To compile a subroutine and place it in the main library do:
+
+{\tt comsub filename}
+
+\noindent where {\tt filename} must have extension {\tt .f} or {\tt .c}. To 
+compile and link a task and put the executable in the main area do:
+
+{\tt comtask filename}
+
+\noindent where only {\tt .f} extensions are allowed. Sometimes the main 
+library (e.g. library/convex/slib.a) gets corrupted. Use {\tt maklib}
+to remake it.
+
+For private code, use a {\tt -p} option for {\tt comsub, comtask} and
+{\tt maklib} (this must be the first argument).  This allows use of a
+private library plib.a as well as the standard library.
+
+There is a make-like facility for updating SDE. To update everything,
+use {\tt sdemake}. To update everything in a given subroutine directory
+do {\tt sdemake.subs dir}.
+
+\sde\ is maintained on the home machine (zia) using SCCS to
+control access. There are scripts {\tt checkin} and {\tt checkout} to
+check code in and out. {\tt check} lists any files currently checked
+out, and {\tt checkforget} will forget a {\tt checkout}.  See Tim
+Cornwell if you want to do this.
+
+Currently code is not compiled for debugging. To debug a routine or
+task, use {\tt comsub} or {\tt comtask} with a {\tt -d} (for debug)
+flag. This will compile routines into a local library sdedbxlib.a
+which is linked in as required. Note that unix loaders are single pass
+so that if you want to debug a standard \sde\ routine, it and the
+calling routines must be compiled for debugging and placed in
+sdedbxlib.a. The standard unix utility dbx can then be used for
+debugging. In addition, there is an {\tt sdelint} procedure to both c
+and Fortran routines. This is quite useful in case of a really
+stubborn bug. The procedure for debugging is therefore as follows:
+
+\begin{enumerate}
+\item Get into a specific private directory in which you will be debugging
+e.g. /zia/u/tcornwel/sde
+
+\item If you want to edit an /sde/ routine and you are connected to
+the home of /sde/ i.e. /zia/u/sde and you are a member of the /sde/
+group then do {\tt newgrp sde} to get the correct permissions, and
+then checkout any files you may want to change e.g.
+
+{\tt checkout \$SDEROOT/source/fts/ftsimgwr.f}
+
+\item compile local routines for debugging e.g. 
+
+{\tt comsub -d ftsimgwr.f}
+
+\item compile any other routines you may need to be in the debugging library
+e.g. 
+
+{\tt comsub -d \$SDEROOT/source/fil/filimgpu.f}
+
+\item compile a task for debugging e.g. 
+
+{\tt comtask -d \$SDEROOT/source/task/imglc.f}
+
+This will put the executable in your current directory so that you can
+
+\item use {\tt dbx} or {\tt dbxtool} to run the executable e.g. in {\tt 
+dbxtool}:
+
+\begin{verbatim}
+(dbxtool) cd /zia/u/tcornwel/sde
+(dbxtool) debug sde
+Reading symbolic information...
+Read 4455 symbols
+(dbxtool) stop at "/zia/u/sde/source/start/start.f":99
+(2) stop at "/zia/u/sde/source/start/start.f":99
+(dbxtool) run
+etc.
+\end{verbatim}
+
+\end{enumerate}
+
+This procedure allows {\tt dbx} or {\tt dbxtool} to pick up the
+correct code and lines numbers for both files in the local directory
+and in the SDE directory.
+
+Compiler options are set by a file, {\tt comopt}. This calls in turn a
+file {\tt var/comopt.\$MACHINE} (e.g. {\tt var/comopt.sparc4.1}) which
+contains the default compiler settings for that \$MACHINE. To override
+for a directory, put a file {\tt comopt} in that directory and compile
+from that directory. To override for a specific routine use a file
+{\tt file.comopt} in the directory in which file resides.
+
+There is a {\tt dbx} initialization file, {\tt .dbxinit}, in the \sde\
+home directory which may be copied to your home directory.  It will
+then be read automatically when {\tt dbx} starts up.  It provides 
+a number of single letter aliases for common commands, as well as
+several aliases to allow access to the sde common memory arrays.
+(Because of peculiarities in how the arrays are declared, the obvious
+approach of simply using ``{\tt print MEMR(100)}'' or similar
+constructs will not work.  Instead, use ``{\tt MEMR 100}'' to produce
+the equivalent result.  ``{\tt MEMR2 100 150}'' will print the values
+of the {\tt MEMR} array from {\tt MEMR(100)} to {\tt MEMR(150)}.  Properly
+parenthesized expressions may be used for the indicies, so that
+``{\tt MEMR2 RADD (RADD+9)}'' will produce the desired result, presuming
+that {\tt RADD} is a local variable containing an index into the {\tt MEMR}
+array.  There are one and two argument forms of this alias for the
+`{\tt I}', `{\tt R}', `{\tt D}', `{\tt X}', `{\tt L}', and `{\tt C}'
+{\tt MEM} arrays.  Due to addressing constraints, the {\tt MEMX2} and
+{\tt MEMC2} aliases produce a bit of unwanted data at the end of the
+output.
+
+\newpage
+\section{Porting to other machines}
+
+Currently, \sde\ works on the CRAY 2, CONVEX C-1 and C-2, the SUN 3/60,
+SUN SPARC machines, and IBM RS/6000. Porting \sde\ to these machines was
+not too onerous. Distinctions between machines are handled by compiler
+directives in the code. Hence there is only one copy of the code, but
+there may be multiple versions of the code inside one file. The
+c-preprocessor is used to branch under the control of various
+definitions passed down from the compilation. The current allowed
+definitions are:
+\begin{tabbing}
+Operating system:....\=OS\_BSD.............. \= OS\_BSD............. \= DOS................ \= SYSV........ \=\kill
+Operating system:\>OS\_BSD \> OS\_SYSV\\
+Machine:\>MACH\_C1 \> MACH\_C2 \> MACH\_SUN3 \\
+\> MACH\_SPARC \> MACH\_IBM6000 \> MACH\_CRAY2\\
+Compiler:\>COMP\_CONVEX \> COMP\_SUN \> COMP\_IBM \\
+\> COMP\_CRAY
+\end{tabbing}
+One of each of these three classes must be chosen. For example, the
+Fortran and c compilers on yucca are called with flags '-DOS\_BSD
+-DMACH\_C1 -DCOMP\_CONVEX'. For e.g. the Convex C1, this is controlled
+by the file {\tt var/comopt.c1}.
+
+The steps required to port to another machine are:
+\begin{itemize}
+\item Install \sde\ on your machine from a tar tape or file. You can put
+it anywhere, as long as you change the environment variable \$SDEROOT
+to point to the right place. {\bf You must set \$SDEROOT before
+calling sdeini or sdeini.csh}. Local definitions belong in a file
+called {\tt var/sdeini.hostname} or {\tt var/sdeini.csh.hostname}.
+\item {\tt var/sdeini.hostname} or {\tt var/sdeini.csh.hostname} 
+will need changes to include another machine type and other
+directories. Check that all the logical names defined here are
+sensible.
+\item The compiler options are set by the Bourne-shell routine 
+{\tt var/comopt.\$MACHINE}. Here you should insert some definitions
+appropriate for your machine. See {\tt var/comopt.sparc4.1} for the definitions
+of the definitions.
+\item Find out how c and Fortran talk to each other. On most compilers, the
+cross-language calls are fairly simple. Addresses are passed as usual.
+Although for most compilers, the length of {\tt CHARACTER*(*)} strings
+is usually appended to the argument list, the CRAY compilers do
+something much more inscrutable so that we adopt a general solution of
+passing the lengths explicitly.  See the routines in source/main/dat.f
+and source/main/dai.c for how this is done under the currently
+supported machines. This will probably work for other machines so you
+probably won't have to worry about it. One other concern is the naming
+conventions. Most compilers append an underscore to c routine names,
+whilst the CRAY compiler uses upper case names with no underscore.
+This is handled by using the preprocessor to redefine Fortran-callable
+names in c routines.
+\item Some compilers cannot handle certain types of operation. String
+operations are notoriously error-prone. In particular, 
+functions which return a 
+{\tt CHARACTER*(*)} string are often mis-compiled. This is awkward for
+\sde\ since it uses lots of strings. The current code seems to work on 
+several otherwise buggy compilers, though, so this may not be too much of
+a problem. The secret seems to be to have only one place in such a routine
+where the returned value is actually set.
+\item The crucial routines are stored in source/main. These routines MUST
+work if the system is to work at all. A good way to start an installation is
+to make these work and then run the task world which simply prints out
+'Hello, world'. The C-shell procedure sdeinstall will make the relevant
+directories and then build the minimal system
+and run the task world. It then goes on to do a full make of the entire 
+system including all other subroutines and tasks.
+\item The directory test contains scripts for testing a working version of 
+SDE. A script {\tt timer} will run through a number of key tasks.
+The output from certified runs on various machines is also present. 
+
+\end{itemize}
+
+Once the system is up and running, you can worry about some niceties:
+\begin{itemize}
+\item The task {\tt sde} maintains a file specifying the environment of sde
+programs. This controls the editor used in the user interface, the
+default type of FITS written (e.g. 16 bit, 32 bit integer or IEEE floating
+point). Each task tries to read sde.cur from either the current
+directory or from \$HOME so you may customize either your whole area
+or a given sub-directory.
+\item A fairly good FFT comes with \sde\ (see source/fft/fftx.f) but
+hand-coded routines are often available and are nearly always much
+better.  Since FFTs are critical to imaging, it is worth getting a
+good one. On yucca, we use the CONVEX VECLIB routine. This is about
+twice as fast as the standard \sde\ routine: the CONVEX routine takes
+3-4 msec per 1024-point complex FFT.  On the CRAY 2, the hand-coded
+routine is about 10 times faster. It is also worth using
+machine-specific real-to-complex and complex-to-real FFT routines (see
+source/fft/fftr.f for examples of the use of the CRAY2 routines).
+\item On machines which have the capability, memory can be mapped to disk
+space. This avoids filling the system swapping space with \sde\ arrays.
+On yucca, location of these is controlled by the SDESCR and SDESCRn
+logical names.  The n'th big array (big is greater than SDEMEM Mbytes
+where the environment variable SDEMEM defaults to 8) is put on disk
+SDESCRn, and the default is SDESCR.  Each file has the name
+SDESCRxppppp where ppppp is the process id and x is a character chosen
+to make the name unique (The unix routine mktemp does this part).
+\item On the Convex's and Sun's, we use an interrupt handler which allows
+graceful stopping of various tasks. Control-C will call up an
+interactive interrupt handler. To get a non-interactive job to quit as
+soon as possible, send it a SIGQUIT signal i.e. do kill -3
+process-number.  See source/start/start.f for details.
+\end{itemize}
+
+\newpage
+\section{Tools for Editing, Linting, and TV display}
+
+In addition to the standard \sde\ software, there is a need for some
+general tools. At the moment, these include the MicroEmacs public
+domain editor, Bob Sault's Fortran lint program, and some software
+from SAO to display images under X. There is a makefile for each one
+of these controlled by a script called e.g. makeemacs.  This script
+automatically selects the correct makefile and runs it and then puts
+the executable in \$SDEBIN.
+
+MicroEmacs is a nice, stripped version of Emacs for the PC which
+actually runs on most machines. Since it is public domain, please
+help yourself if you want the source code. 
+
+It is possible to use any X-terminal or computer running X to display
+images. To use the TV software on the SUN's, login into the \sde\ account
+(see Tim Cornwell for the password) and start up X windows (just type
+openwin). Then invoke saoimage by pressing the left hand button
+and selecting appropriately. Saoimage is a very nice piece of software
+which allows many operations on images. The most important for
+\sde\ is that it can read fits images and display them. You can
+tell it to load a specific fits file using the menus. \sde\ tasks
+which write to the tv actually write to a file with the logical
+name \$SDETV which is set on login but which must be specified to
+saoimage when you want to load one of the displayed images.
+There is a different tv file for each workstation so there
+should be no confusion of files. If you rlogin to another machine, then
+you will have to tell SDE. For host noggs you would just say:
+
+	{\tt sdetv noggs}
+
+This replaces the suntv software previously used (although this can
+still be used via the task img2sun). Only image display through X is
+therefore possible. To compile saoimage, cd to tools/saoimage and type
+maketv.
+
+\newpage
+\appendix
+
+\section{Directory structure}
+
+The directory structure is keyed to a root directory which is 
+referred to by the environment variable \$SDEROOT. In principle, only
+this need be changed when moving the code to another machine.
+On the home machine, zia at NRAO, the top directory is called
+/zia/u/sde and has the following subdirectories:
+
+\begin{tabbing}
+library/convex/object............\=       ......copies of object modules\kill
+bin\>                            executables\\
+bin/shadows\>                        ...shadows of actual tasks\\
+bin/ibm6000\>                        ...executables for ibm6000\\
+bin/sparc\>                        ...executables for SPARC machines\\
+bin/unix\>                        ...scripts (all in Bourne shell)\\
+data\>                           Data area\\
+doc\>                            Various documentation\\
+hosts\>                          Host-specific directories\\
+inf\>                            Information files for tasks\\
+library\>                     Libraries\\
+library/ibm6000\>                 ...for ibm6000\\
+library/ibm6000/object\>          ......copies of object modules\\
+library/sparc\>                 ...for SPARC\\
+library/sparc/object\>          ......copies of object modules\\
+local\>                          Scripts for midnight jobs, etc\\
+scratch\>                        Scratch area\\
+sdeini\>                         Bourne- or Korn-shell initialization file\\
+sdeini.csh\>                      C-shell initialization file\\
+source\>                         Source code\\
+source/arr\>                     Array level routines\\
+source/cal\>                     Calibration routines\\
+source/crd\>                     Coordinate manipulations\\
+source/fft\>                     FFT routines\\
+source/fil\>                     File system access\\
+source/fts\>                     FITS readers and writers\\
+source/grd\>                     Gridding routines\\
+source/hed\>                     Header manipulation\\
+source/his\>                     History system\\
+source/img\>                     Image level routines\\
+source/include\>                 Include files\\
+source/main\>                    main subroutines\\
+source/mem\>                     Maximum Entropy routines\\
+source/mod\>                     Model manipulation\\
+source/pix\>                     Pixel level routines\\
+source/sim\>                     Simulation routines\\
+source/start\>                   Main subroutine SDEMAIN\\
+source/task\>                    Tasks\\
+source/task/archive\>            Once and Future tasks\\
+source/utl\>                     Utility routines\\
+source/vis\>                     Visibility manipulation\\
+test\>                           Test data and results\\
+tools\>                          Various tools including MicroEmacs editor\\
+\>                               for unfriendly systems, fortran lint, and\\
+\>                               tv stuff for ibm6000 and sparc systems\\
+var\>                            Site and machine dependent scripts
+\end{tabbing}
+
+The data is usually kept in directories with logical names D1, D2, etc.
+
+\newpage
+\section{Standard Include file}
+
+The standard include file must be inserted in all files. It 
+contains:
+\begin{verbatim}
+C
+C	National Radio Astronomy Observatory, Socorro, NM 87801
+C	Software Development Environment (SDE)
+C
+C++
+C
+C Standard include file for all sde subroutines. This contains the
+C few global variables used in sde routines.
+C
+C Audit trail:
+C	Cleaned up by removing numeric variables
+C					T.J. Cornwell	Feb 26 1989
+C
+C-----------------------------------------------------------------------
+C
+C All variables must be declared:
+C -------------------------------
+C
+C Prefer to put this here so that it can be switched off if required.
+C
+#if COMP_CONVEX 
+      IMPLICIT 		NONE
+#endif
+#if COMP_SUN
+      IMPLICIT 		UNDEFINED (A-Z)
+#endif
+C
+C Global logical variables:
+C -------------------------
+C
+C ERROR: 		Error status T if an error has occured
+C SYSDEBUG: 		Do we want to debug?
+C SYSMON: 		Not used
+C SYSINTRP:		Has an interrupt from the user occurred?
+C SYSMSG: 		Is the message system on?
+C
+      LOGICAL ERROR, SYSDEBUG, SYSMON, SYSINTRP, SYSMSG
+      INTEGER MSGWIDTH
+      COMMON /SYSI/ ERROR, MSGWIDTH, SYSDEBUG, SYSMON,
+     1   SYSINTRP, SYSMSG
+C
+C Global Strings:
+C ---------------
+C
+C Program name, version string, interrupt action, log name,
+C and name of system e.g. 'NRAO yucca SDE'. This latter is set
+C by the startup routine to be NRAO hostname SDE. SYSPROG is
+C derived from the tail of the invoking string e.g. if you type
+C ~tcornwel/sde/mapper then SYSPROG = mapper
+C
+      CHARACTER SYSPROG*16, SYSVERS*40, SYSINTAC*10,
+     1   SDELOG*32, SYSORIG*64
+      COMMON /SYSC/ SYSPROG, SYSVERS, SYSINTAC, SDELOG, SYSORIG
+C
+C Useful buffers:
+C ---------------
+C
+C These are for immediate use only: do not expect them to remain
+C unchanged over a subroutine call (except for MSGPUT).
+C
+      CHARACTER*256 STRBUF
+      CHARACTER*256  MESSAGE
+      COMMON /STRC/ STRBUF, MESSAGE
+C
+C System parameters:
+C ------------------
+C
+C Max number of array dimensions
+C
+      INTEGER SYSMXDIM		
+      PARAMETER (SYSMXDIM = 7)
+C
+C Max length of names
+C
+      INTEGER SYSMXNAM		
+      PARAMETER (SYSMXNAM = 64)
+C
+C Characters per INT
+C
+      INTEGER SYSCHINT			
+#if MACH_CRAY2
+      PARAMETER (SYSCHINT = 8)
+#else
+      PARAMETER (SYSCHINT = 4)
+#endif
+C
+C Memory reference common:
+C ------------------------
+C
+C All application arrays are accessed by a reference to the appropriate
+C common block. The address with respect to the common block is handled
+C by the dai.c routines e.g. MEMR(DATADD('Vis/UU')) contains the first
+C element of the u coordinates of the visibility data base 'Vis'.
+C
+      INTEGER MEMI(2)
+      LOGICAL MEML(2)
+      REAL MEMR(2)
+      DOUBLE PRECISION MEMD(1)
+      COMPLEX MEMX(1)
+      CHARACTER*(SYSMXNAM) MEMC(1)
+      EQUIVALENCE (MEMI(1), MEMR(1), MEMD(1), MEMX(1), MEML(1))
+      COMMON /SYSMEMI/ MEMI
+      COMMON /SYSMEMC/ MEMC
+C
+C Error reason messages:
+C ----------------------
+C
+C These are the approved strings for use in ERRREPOR. You can use something
+C else but other routines may not understand what you mean.
+C
+      CHARACTER*(*) ERRFATAL
+      PARAMETER (ERRFATAL = 'Fatal error')
+      CHARACTER*(*) ERRBDARG
+      PARAMETER (ERRBDARG = 'Bad subroutine argument')
+      CHARACTER*(*) ERRNOMEM
+      PARAMETER (ERRNOMEM = 'No memory available')
+      CHARACTER*(*) ERRNTFND
+      PARAMETER (ERRNTFND = 'Requested item not found')
+      CHARACTER*(*) ERRLOGIC
+      PARAMETER (ERRLOGIC = 'Program logic error')
+      CHARACTER*(*) ERRNOSLT
+      PARAMETER (ERRNOSLT = 'No slot available')
+      CHARACTER*(*) ERRWRGTP
+      PARAMETER (ERRWRGTP = 'Item is of wrong type')
+      CHARACTER*(*) ERRTRUNC
+      PARAMETER (ERRTRUNC = 'Result truncated')
+      CHARACTER*(*) ERRBADID
+      PARAMETER (ERRBADID = 'Bad identifier supplied')
+      CHARACTER*(*) ERRDB
+      PARAMETER (ERRDB = 'Internal database error')
+      CHARACTER*(*) ERRINPUT
+      PARAMETER (ERRINPUT = 'Input read error')
+      CHARACTER*(*) ERROUTPT
+      PARAMETER (ERROUTPT = 'Output write error')
+      CHARACTER*(*) ERROPEN
+      PARAMETER (ERROPEN = 'File open error')
+      CHARACTER*(*) ERRCLOSE
+      PARAMETER (ERRCLOSE = 'File close error')
+\end{verbatim} 
+
+\newpage
+\section{Error messages}
+
+The following {\tt CHARACTER*(*)} strings are defined in stdinc.h for
+use in {\tt ERRREPOR}.
+\begin{tabbing}
+{\tt ERRNTFND..........} \= 'Requested item not found'\kill
+{\tt ERRFATAL} \> 'Fatal error'\\
+{\tt ERRBDARG} \> 'Bad subroutine argument'\\
+{\tt ERRNOMEM} \> 'No memory available'\\
+{\tt ERRNTFND} \> 'Requested item not found'\\
+{\tt ERRLOGIC} \> 'Program logic error'\\
+{\tt ERRNOSLT} \> 'No slot available'\\
+{\tt ERRWRGTP} \> 'Item is of wrong type'\\
+{\tt ERRTRUNC} \> 'Result truncated'\\
+{\tt ERRBADID} \> 'Bad identifier supplied'\\
+{\tt ERRDB} \> 'Internal database error'\\
+{\tt ERRINPUT} \> 'Input read error'\\
+{\tt ERROUTPT} \> 'Output write error'\\
+{\tt ERROPEN} \> 'File open error'\\
+{\tt ERRCLOSE} \> 'File close error'
+\end{tabbing}
+\newpage
+\section{Environment variables}
+
+The following environment variables are used. The last column gives a
+typical value.
+
+\begin{tabbing}
+Include file with compile time....\=SYSVER........\=/sde/source/include/sysver.h.....\kill
+The root directory\>SDEROOT\>/sde\\
+Log file for \sde\ tasks\>SDELOG\> \\
+Scratch area\>SDESCR\>/sde/scratch\\
+Threshold for scratch files\>SDEMEM\>8\\
+Machine type\>MACHINE\>c1\\
+Place where binaries are kept\>SDEBIN\>/sde/bin/c1\\
+Area for test data\>D0\>/sde/data\\
+Scratch disk area\>T1\>./\\
+Include file with compile time\>SYSVER\>/sde/source/include/sysver.h\\
+Library of routines\>SDELIB\>/sde/library/c1\\
+Area for inf files\>SDEINF\>/sde/inf/\\
+Area for this machine\>SDEHOST\>/sde/hosts/yucca\\
+Name of tv file\>SDETV\>/sde/hosts/tecate/tvfile
+\end{tabbing}
+
+\newpage
+\section{Installing \sde\ on a UNIX machine}
+
+We don't support \sde\ and will discourage you from taking it away. However, it
+you decide to do so, then you will need to know how to install \sde\ on your
+machine. 
+
+\begin{enumerate}
+\item \sde\ is available by anonymous ftp from zia.aoc.nrao.edu
+(192.43.204.7) in directory /pub/sde.
+\item Get tar tape or file and run tar to extract all files into
+some convenient place (probably this should be the desired final home).
+\item Edit {\tt var/sdeini.hostname} or {\tt var/sdeini.csh.hostname} 
+to insert definition of environment variables for your host. Either
+setenv or export SDEROOT to point to the relevant place and then
+either . or source the relevant initialization file to set up the
+environment variables for the next steps.
+\item Edit {\tt var/comopt.hostname} to include compiler options for your host.
+Use this to override the options set in {\tt var/comopt.\$MACHINE}.
+\item run the script {\tt sdeinstall}. This script will create all the 
+necessary directories and compile everything.
+\end{enumerate}
+Remember that there are support for or no guarantees to the /sde/
+software. You are on your own!
+\end{document}

@@ -1,0 +1,10 @@
+results =	'Results'
+data1   =	'Data'
+params  =	'Params'
+tol     =	 0.00001	
+iters   =	 10.0	
+prmat   =	 1.0	
+ftn     =	 1.0	
+prvar   =	 1.0	
+fair    =	 0.925	
+END

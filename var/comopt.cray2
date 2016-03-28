@@ -1,0 +1,11 @@
+   DEFINES="-DCOMP_CRAY -DMACH_CRAY2 -DOS_SYSV"
+   CPPFLAGS="-P "$DEFINES" -I$SDEROOT/source/include"
+   FFLAGS=" -m 4 "
+   CFLAGS=$DEFINES" -I$SDEROOT/source/include -c "
+   LDFLAGS=" "
+   TLIB="$SDELIB/slib.a $SDELIB/pgplot/libpgplot.a /usr/lib/libnet.a"
+   FC=cft77
+   CC=cc
+   CPP=/lib/cpp
+   LD=segldr
+   RL=

@@ -1,0 +1,15 @@
+.
+Vis1, C, 1, First input database
+Vis2, C, 1, Second input database
+Output, C, 1, Output database
+Weight1, R, 1, Weight of first image
+Weight2, R, 1, Weight of second image
+Stokes, C, 1, Stokes parameters
+.
+Vis1 = 
+Vis2 = 
+Output = 
+Weight1 = 1.0
+Weight2 = 1.0
+Stokes = I
+.

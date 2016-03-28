@@ -1,0 +1,11 @@
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input cube
+Output, C, 1, Output image
+Mode, C, 1, APPLY | CORRECT
+.
+/Debug = F
+Image =
+Output = 
+Mode = APPLY
+.

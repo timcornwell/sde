@@ -1,0 +1,27 @@
+.
+Uvlimits, R, 2, Limits of allowed u,v (wavelengths)
+Timerange, I, 8, Timerange (d,h,m,s)
+Vis, C, 1, Visibility data
+NewVis, C, 1, Name of output visibility file
+Checkpoint, C, 1, Name of checkpoint file
+Add, L, 1, Add instead of subtract? [T|F]
+PBCorrect, L, 1, Correct for frequency dependent PB? [T|F]
+DPatch, I, 1, Patch to ignore
+BLC, I, 7, Bottom Left Corner of deleted region
+TRC, I, 7, Top Right Corner of deleted region
+FSwitch, R, 1, Level above which to DFT
+/Debug, L, 1, Debug
+.
+Uvlimits = 0.0, 1000000000
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Vis = 
+NewVis =
+Checkpoint = 
+Add = F
+PBCorrect = F
+DPatch=0
+BLC=0,0,0,0,0,0,0
+TRC=0,0,0,0,0,0,0
+FSwitch=0.0
+/Debug = F
+.

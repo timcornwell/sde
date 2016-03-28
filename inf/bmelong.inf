@@ -1,0 +1,31 @@
+programmer		m.a.holdaway
+program			bmelong
+purpose			calculates the mean beam elongation over the sky
+
+.
+Antfile, C, 1, Input Antfile
+NDECS, I, 1, how many decs
+Dlimits, R, 2, DecLimits
+Decs, R, 20, Decs to use [from North to South]
+HAlim, R, 20, Extreme values of HA
+TINT, R, 1, Int time in Seconds
+ELmin, R, 1, Min El in Degrees
+FOV, R, 1, Weighting
+NICEPSF, L, 1, Do nice PSF wt?
+CellSize, R, 3, PSF cellsize at 230GHz
+Imsize, I, 3, IMsize
+Elong, R, 3, Elongation of input array
+.
+Antfile = 
+NDECS = 2
+Dlimits = 90.0, -65.
+Decs = 80,70,60,50,40,30,20,10,0,-10,-20,-30,-40,-50,-60,0,0,0,0,0
+HAlim = 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
+TINT = 600.0
+ELmin = 5.0
+FOV = 1.0
+NICEPSF = F 
+CellSize = .025, .025
+Imsize = 128, 128
+Elong = 1.0, 1.0, 1.0
+.

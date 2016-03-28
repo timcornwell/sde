@@ -1,0 +1,21 @@
+.
+Image, C, 1, Name of model image
+Scale, R, 1, Scale factor to convert into photons
+Readout, R, 1, Readout noise [original units]
+Photons, R, 1, Desired peak photon rates [ph/pix]
+Dirty, C, 1, Dirty image
+PSF, C, 1, Point Spread Function
+A, R, 1, Aberration constant A
+B, R, 1, Aberration constant B
+Wave, R, 1, Wavelength [meters]
+.
+Image = 
+Scale = 1.0
+Readout = 0.0
+Photons = 0.0
+Dirty =
+PSF =
+A = 0.0
+B = 0.0
+Wave = 0.155E-6
+.

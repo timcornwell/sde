@@ -1,0 +1,7 @@
+Program to get the shape of an image from the SAOIMAGE region file
+
+.
+SAOregion, C, 1, SAOIMAGE region (cursor) file
+.
+SAOregion = saoimage.cur
+.

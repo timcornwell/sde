@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Quick Start</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Quick Start">
+<meta name="keywords" value="user">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html64 HREF="node4.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html62 HREF="user.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html56 HREF="node2.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html66 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html65 HREF="node4.html"> Interface to other </A>
+<B>Up:</B> <A NAME=tex2html63 HREF="user.html">User's Guide to  SDE </A>
+<B> Previous:</B> <A NAME=tex2html57 HREF="node2.html"> Introduction</A>
+<BR> <HR> <P>
+<H1><A NAME=SECTION00030000000000000000> Quick Start</A></H1>
+<P>
+<UL><LI> Find out where the home directory of sde  is. For the AOC 
+workstations it is /zia/u/sde. Depending upon
+your shell, either export or setenv the environment variable SDEROOT
+to this e.g.
+<P>
+<tt> export SDEROOT=/zia/u/sde</tt>
+<P>
+and then do:
+<P>
+<tt> source $SDEROOT/sdeini.csh</tt> for the c shell
+<P>
+<tt> . $SDEROOT/sdeini</tt> for the Bourne or Korn shell
+<P>
+<LI> <i> SDE</i>  programs are run from unix command 
+level. Each program looks after its own inputs, and saves them from
+run to run in any directory. To run a program just type the name at
+the UNIX prompt: e.g.
+<P>
+<tt> uvmap</tt>
+<P>
+The program will then start up and ask you for inputs. After setting the
+inputs you type <tt> go</tt>, and the program will run.
+You can then run it in the background and free up your terminal. To
+do this type Z and then <tt> bg</tt> to run it in the background. <tt> fg</tt> will
+retrieve it and run it in the foreground. For an emergency stop, or
+to stop clean after a satisfactory number of clean iterations, type
+C while the program is in the foreground. The unix command <tt> jobs</tt>
+will list your current processes, and <tt> ps v</tt> will tell you how much time
+is being using.
+<LI> To get a list of available tasks, do <tt> sdetasks</tt>.
+<LI> <i> SDE</i>  tasks communicate with each other and with other packages
+via disk files, either FITS or internal SDE formats.
+</UL>
+<P>
+A typical run would be:
+<P>
+<PRE>noggs{sde}$ vm
+vm I:
+vm I: I perform maximum entropy deconvolution
+vm I:
+vm I: SDE Version 1.0
+vm I: Compiled : Thu Nov  8 02:55:50 MST 1992
+vm I:
+vm I: *?
+vm I:  Commands available :
+vm I:    &lt;parameter&gt; [= value(s)]   : see or set
+vm I:    get  &lt;file&gt;   : get parameters
+vm I:    save &lt;file&gt;   : save parameters
+vm I:    inputs        : list parameters
+vm I:    edit          : edit parameters
+vm I:    ?             : display this message
+vm I:    help          : display help file
+vm I:    go &lt;cmd&gt;      : run program
+vm I:    rgo &lt;node&gt;    : run program remotely
+vm I:    batch         : run program in batch
+vm I:    ! &lt;command&gt;   : shell command
+vm I:  Values fields may include:
+vm I:    $&lt;parm&gt;       : value of parameter
+vm I:    ${&lt;parm&gt;}     : value of parameter
+vm I:    \$&lt;parm&gt;      : deferred value of parameter
+vm I:    ^&lt;old&gt;^&lt;new&gt;  : substitute substring
+vm I:    ^             : repeat last substitution
+vm I:    &lt;val&gt;,,&lt;val&gt;  : don't set omitted values
+vm I:    &lt;val&gt;,&lt;val&gt;,  : continue onto next line
+vm I: *inp
+vm I: Dirty : Dirty = D0/3C10NEWMAP.FTS
+vm I: Point spread function : PSF = D0/3C10NEWBEAM.FTS
+vm I: Default [optional] : Default =
+vm I: VM  [can already exist, optional] : VM =
+vm I: Convolved VM plus residuals [optional] : CVM = D0/3C10NEWCVM.FTS
+vm I: Bottom left corner of window [optional] : BLC = 33, 33, 1, 1,
+vm I:  1, 1, 1
+vm I: Top right corner of window [optional] : TRC = 96, 96, 1, 1, 1,
+vm I:  1, 1
+vm I: Number of Iterations (&lt;0 for automatic stopping) : Niter = -30
+vm I: Required total flux (less than zero for a guess) : Tflux = -60.0000
+vm I: Required final fit in Jy/Beam : Sigma = 1.00000E-02
+vm I: Form to optimize, Entropy or L1 norm [H|L1] : Entropy = H
+vm I: Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec] : Beam = 45.0000,
+vm I:  45.0000, 0., 0.
+vm I: Are the residual independent in the image plane? : ImagePlane = F
+vm I: Image to display on tv [VM|CVM|Step|Residual|None] : TV = VM
+vm I: *TV =
+vm I: *vm=D0/3C10NEWVM.FTS
+vm I: *go
+vm I: Maximising entropy -I*logI
+vm I: Opening FITS file D0/3C10NEWMAP.FTS for READ as InitialDirty
+vm I: Opening FITS file D0/3C10NEWBEAM.FTS for READ as PSF
+vm I: Using flat default
+vm I: Iteration          Entropy        Flux        Fit     Gradient
+vm I:      1                8.323     59.245     18.563      0.541
+vm I:      2                8.318     59.588     18.586      0.000
+vm I:      3                8.306     59.541     16.828      0.001
+vm I:      4                8.272     59.822     14.305      0.002
+vm I:      5                8.208     60.398     11.167      0.005
+vm I:      6                8.128     60.719      8.079      0.008
+vm I:      7                8.054     60.169      5.648      0.012
+vm I:      8                7.994     58.742      3.969      0.018
+vm I:      9                7.947     56.784      2.867      0.031
+vm I:     10                7.892     53.989      1.968      0.059
+vm I:     11                7.841     50.449      1.418      0.063
+vm I:     12                7.793     48.220      1.037      0.072
+vm I:     13                7.804     47.825      1.163      0.060
+vm I:     14                7.789     47.749      1.006      0.024
+vm I: Opening FITS file D0/3C10NEWVM.FTS for WRITE as VM
+vm I: Writing 2-dimensional image VM
+vm I: Opening FITS file D0/3C10NEWCVM.FTS for WRITE as CVM
+vm I: Writing 2-dimensional image CVM
+vm I:
+vm I: Started  : Sat Nov 10 10:40:39 1992
+vm I: Finished : Sat Nov 10 10:42:03 1992
+vm I: User:    28.06 System:     1.85
+vm I: Run on noggs
+noggs{sde}$
+</PRE>
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Fri Jan 19 13:47:44 MST 1996</I>
+</ADDRESS>
+</BODY>

@@ -1,0 +1,2 @@
+#0 1 * * * ksh /home/zia/sde/local/overnight > /home/zia/sde/local/overnight.log 2>&1
+#0 2 * * 6 ksh /home/zia/sde/local/weekly > /home/zia/sde/local/weekly.log 2>&1

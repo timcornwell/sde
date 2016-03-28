@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Command files and Batch processing</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Command files and Batch processing">
+<meta name="keywords" value="user">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html101 HREF="node7.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html99 HREF="node5.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html93 HREF="node5.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html103 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html102 HREF="node7.html"> SAOimageCursors and </A>
+<B>Up:</B> <A NAME=tex2html100 HREF="node5.html"> External tools</A>
+<B> Previous:</B> <A NAME=tex2html94 HREF="node5.html"> External tools</A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00051000000000000000> Command files and Batch processing</A></H2>
+<P>
+Since there is no command processor in <i> SDE</i>  you will have to use
+one of the shells. Here is a typical script for the Bourne/Korn shell.
+It runs the program si many times, substituting various values of the
+parameters <tt> Phase</tt> and <tt> Photons</tt>. The output file names are
+constructed with these values encoded.
+<P>
+<PRE>#!/bin/sh 
+#
+export SDELOG=blucloop.log
+for phase in 0 30 60 120
+do
+for nph in 1E5 1E4 1E3
+do
+si &lt;&lt; EOF
+ Image = C6/PSUN.PMOD
+ Model =
+ Cellsize = 7.00000E-03, 7.00000E-03, 7.00000E-03
+ Imsize = 512, 512, 1
+ Phase = ${phase}
+ Photons = ${nph}
+ Background = 2000.0
+ Dirty = C6/BPH${nph}P${phase}.DRT
+ PSF = C6/BPH${nph}P${phase}.PSF
+ Beam = 1.50000E-02, 1.50000E-02, 0., 0.
+ Mind = 1.00000E-03
+ Antloc = 0., 0.300000, 1.20000, 1.80000
+ D = 0.200000
+ Tint = 1.00000
+ Theta = 177.00000
+ Thint = 3.00000
+ DFT = T
+ inp
+ go
+EOF
+done
+done
+</PRE>
+<P>
+Put this into a file and change the protection to execute i.e.
+<P>
+<tt> chmod +x filename</tt>
+<P>
+Or run it in a batch system e.g.
+<P>
+<tt> at 2am filename</tt>
+<P>
+When stringing multiple tasks together in a single command file, the
+following awkward but effective syntax allows one to extract values from
+one task to be used as input to another.  This example puts the rms
+and dispersion measured from an image into shell variable for later use.
+<P>
+<PRE>#!/bin/ksh 
+#
+eval $(\
+imgstat &lt;&lt; EOF | \
+  awk  'BEGIN {rms=-1; disp=-1}
+        /Rms/ {rms = $5 + 0}
+        /Dispers/ {disp = $5 + 0}
+        END {print &quot;rms=&quot;rms  &quot;;  disp=&quot;disp}'
+Image = IMG
+Box = OFF-SOURCE.MASK
+BLC = 0, 0, 0, 0, 0, 0, 0
+TRC = 0, 0, 0, 0, 0, 0, 0
+AvgType = AMPSCALAR
+go
+EOF
+)
+echo &quot;RMS is $rms  Dispersion is $disp&quot;
+</PRE>
+<P>
+More complicated scripts are to be found in the bin/unix area.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Fri Jan 19 13:47:44 MST 1996</I>
+</ADDRESS>
+</BODY>

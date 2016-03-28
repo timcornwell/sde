@@ -1,0 +1,27 @@
+program		hanoise
+programmer	m.a.holdaway
+purpose		shows noise as a function of HA range
+
+Currently, this program calculates the logarithmic rate at which
+noise increases with time as a function of hour angle.  For
+a totally transparent atmosphere (or for that matter, for an object
+which is at a STATIONARY elevation), the logarithmic noise rate
+should be -0.5.  As the HA gets larger, the noise increases, and
+the noise rate tends towards 0.0
+.
+HA, R, 1, 
+DeltaHA, R, 1, 
+Dec, R, 1, 
+Lat, R, 1, 
+Elmin, R, 1, 
+AFACT, R, 1, 
+Dev, C, 1, 
+.
+HA = 3.0
+DeltaHA = .1
+Dec = 0.0
+Lat = 19.75
+Elmin = 10.0
+AFACT = 1.0
+Dev = /xw
+.

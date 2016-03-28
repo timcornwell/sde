@@ -1,0 +1,5 @@
+      CHARACTER*(*) SYSGVR
+      PARAMETER (SYSGVR = 'SDE Version 1.0')
+      CHARACTER*(*) SYSVRINI
+      PARAMETER (SYSVRINI = 
+     $ 'Sat 24 Apr 2010 12:34:20 EST')

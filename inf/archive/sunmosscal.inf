@@ -1,0 +1,27 @@
+.
+Mos, C, 1, Name of Mosaic Visibility database
+Model, C, 1, Name of model image
+NewMos, C, 1, Name of output mosaic visibility file
+Tavg, R, 1, Averaging time in seconds
+SolType, C, 1, Solution type, ' '|'AMPPHI'
+Uvlimits, R, 2, Uvlimits in wavelengths
+Timerange, I, 8, Timerange of allowed data d,h,m,s,d,h,m,s
+Threshold, R, 1, Threshold for editing in sigma
+/Solrad, R, 1, Radius of Sun in arcseconds
+/Psun, R, 1, Period of Sun in days
+Tref, R, 1, Reference time in hours
+Timestep, R, 1, Step time in hours
+.
+Mos =  
+Model = 
+NewMos =
+SolType =
+Tavg = 10.0
+Uvlimits = 0.0, 1E10
+Timerange = 0,0,0,0,0,0,0,0
+Threshold = 5.0
+/Solrad = 960
+/Psun = 27.0
+Tref = 0.0
+Timestep = 1.0
+.

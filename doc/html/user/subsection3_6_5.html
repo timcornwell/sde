@@ -1,0 +1,88 @@
+<HEAD>
+<TITLE> Wide field imaging</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html202 HREF=section3_7.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html200 HREF=section3_6.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html196 HREF=subsection3_6_4.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html204 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html203 HREF=section3_7.html>  About this document </A>
+<B>Up:</B> <A NAME=tex2html201 HREF=section3_6.html> Special topics</A>
+<B> Previous:</B> <A NAME=tex2html197 HREF=subsection3_6_4.html> Array design and </A>
+<HR> <P>
+<H2><A NAME=SECTION0006500000000000000> Wide field imaging</A></H2>
+<P>
+Wide field imaging has changed substantially over the past few years.
+The best task to use now is dragon. This performs the <em>polyhedron</em>
+clean described by Cornwell and Perley, 1992, together with optional
+selfcalibration steps.
+<P>
+<OL><LI> Export the u,v data to SDE using FITTP to write a disk-FITS.
+Put the file in an area of your own and cd to it.
+<P>
+<LI> Run dragon to make a clean image and self-calibrated 
+data. For 327MHz observing of the full primary beam in
+D-configuration, typical inputs are:
+<P>
+<PRE><TT>
+ Imsize = 100, 100, 1
+ Cellsize = 60.00000000, 60.00000000, 60.00000000
+ Outliers = SDEROOT/test/BF7.Outliers
+ Shift = 0.0000000000E+00, 0.0000000000E+00
+ FOV = 1.000000000
+ Stokes = IV
+ Uvlimits = 200.0000000, 1000.000000
+ Muvlimits = 200.0000000, 750.0000000
+ Filter = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ Vis = D0/BF791
+ NewVis = D0/BF7
+ PSF =
+ CLEAN = D0/BF7.ICLN
+ OutCLEAN = D0/BF7.OUTCLEAN
+ CCList =
+ Restart = F
+ Niter = 50000
+ Riter = 0
+ Flux = 0.1000000071E-01
+ Fswitch = 0.9999999776E-02
+ FSelfcal = 0.1000000015, -0.5000000075E-01, -0.2500000037E-01,
+ -0.1499999966E-01, -0.1499999966E-01, 0.0000000000E+00, 0.0000000000E+00,
+ 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+ Gain = 0.1000000015
+ Tolerance = 0.9999999747E-05
+ Beam = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00,
+ 0.0000000000E+00
+ Tamp = 1190.000000
+ Tphase = 119.0000000
+ Reference = 1
+ TVImage = -1
+ Parallel = F
+ Np = 3</TT></PRE>
+<P>
+This makes a 7 by 7 faceted image, where each facet has 100 by 100
+pixels each of cell size 60 arcseconds. The Stokes switch specifies
+that in the selfcal step, RR and LL are to be calibrated separately.
+FOV=1 specifies uniform weighting (use 0.0 for natural). Muvlimits
+sets the range of spacings used to calculate gains in the selfcal
+step. UDistance specifies flagging of all points within wavelengths of
+the local V axis (note that this is calculated differently for every
+facet). NewVis writes the selfcalibrated data set.  FSelfcal
+determines levels of peak residual at which selfcalibration will be
+performed. FSwitch specifies that a DFT is to be used for pixels
+brighter than 10 mJy/beam. Tamp and Tphase set the time scales for
+amplitude and phase solutions (usually you set the former to a larger
+number). Reference sets the reference field for which noise levels are
+calculated. TVImage specifies an image to display (-1 means none, and
+0 means all). Np=3 specifies that (2*Np+1)**2 patches will be used
+(e.g. 49 for np=3).
+<P>
+<LI> To determine parameters for other configurations use the
+program flydoc.
+<P>
+</OL>
+<P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:40:34 MST 1994</I>
+</ADDRESS>

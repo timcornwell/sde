@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Exotic Weightings</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Exotic Weightings">
+<meta name="keywords" value="user">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html159 HREF="node12.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html157 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html151 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html161 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html160 HREF="node12.html"> NNLS</A>
+<B>Up:</B> <A NAME=tex2html158 HREF="node10.html"> Special topics</A>
+<B> Previous:</B> <A NAME=tex2html152 HREF="node10.html"> Special topics</A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00061000000000000000> Exotic Weightings</A></H2>
+<P>
+Most of the deconvolvers found in <i> SDE</i>  operate in the image plane.  These
+tasks all take the dirty map and dirty beam as input.  Consequently most of
+the exotic weighting strategies are found in the task which creates the
+dirty beam and map, <tt> uvmap</tt>.  These are not yet found in the integrated
+mapping/selfcal task, <tt> dragon</tt> or the visibility based maximum entropy
+task, <tt> viswd40</tt>.
+<P>
+The field of view parameter, <tt> FOV</tt>, controls the fraction of the map
+over which sidelobes of the dirty beam are to be minimized.  <tt> FOV=1.0</tt>
+corresponds to the usual uniform weighting.  <tt> FOV=0.333</tt> will optimize
+over the inner ninth of the map by area, and is similar to <tt> UVBOX=1</tt>
+within <IMG  ALIGN=BOTTOM ALT="" SRC="img5.gif"> .  This is often called superuniform weighting, and usually
+results in a somewhat smaller main beam and uglier sidelobes.  In general,
+<tt> FOV=1/(2n+1)</tt> is similar to <tt> UVBOX=n</tt>.
+<P>
+Robust weighting is selected by setting the option <tt> RMode</tt> to <tt>
+NORM</tt>, and the position along the Resolution-SNR tradeoff curve is
+controlled by the value of the parameter, <tt> Robust</tt>.  In these units,
+<tt> Robust=0.0</tt> will likely end up near the knee of the tradeoff curve,
+with a value of <tt> Robust=2.0</tt> being nearly indistinguishable from
+natural weighting.  <tt> Robust=-2.0</tt> will be very close to whatever
+weighting is selected by <tt> FOV</tt>.  The software which produces the
+tradeoff curves is currently a cranky shellscript and not suitable for
+public use.  Consequently, one must simply try a few values of <tt> Robust</tt>
+to find one suitable for your project.  Set the value of <tt> FitPSF</tt> to
+<tt> True</tt>, set <tt> Dirty</tt> and <tt> PSF</tt> to null values, and everything
+else as you wish.  No output files will be written, and <tt> uvmap</tt> will
+produce a report including something like the following:
+<P>
+<PRE>uvmap I: Weighting for fraction of field of view =   1.00
+uvmap I: Weights:  min, max, avg, sum, disp
+uvmap I:    22.9632  160.7424  132.5284 14378134.00   18.0210
+uvmap I: Normalized robust parameter =  -2.0000
+uvmap I: Adjusted weights:  min, max, avg, sum, disp
+uvmap I:     0.0000    0.0407    0.0016      175.43    0.0026
+uvmap I: Weighting completed: User: 10.950 System: 1.880
+uvmap I: Expected RMS thermal noise is Delta S (unit wt) times  5.193E-04
+uvmap I: Thermal RMS degraded by factor of   1.969 from best case
+uvmap I: Sum of weights =    1.754299E+02
+uvmap I: Old Style AIPS/SDE Beam Fit:
+uvmap I: Fit Beam (FWHM in sec) =      0.20681     0.18499   68.8
+uvmap I: Linear Beam Fit:
+uvmap I: Fit Beam (FWHM in sec) =      0.20681     0.17880   68.8
+uvmap I: Non-Linear Beam Fit:
+uvmap I: Fit Beam (FWHM in sec) =      0.20833     0.18004   69.7
+uvmap I: Made PSF: User: 42.370 System: 2.900
+</PRE>
+<P>
+<tt> uvmap</tt> reports the expected thermal RMS noise in the dirty map in
+normalized units such that natural weighting is 1.0.  Other weightings will
+typically produce a value one to several times greater than this.  In this
+case it is 1.969 times worse than natural weighting.  The other information
+of interest is the fitted beam size, which is given as the major and minor
+axis in arcsecond and the position angle in degrees from North through
+East.  There are three fits given, each with a different criteria for the
+fit.  The linear beam fit is what is used in <IMG  ALIGN=BOTTOM ALT="" SRC="img6.gif">  and the non-linear fit
+will be slightly more accurate for projects needing precise photometry.
+Take your pick, they're rarely very different.  For the moment, one merely
+adjusts the value of <tt> Robust</tt> until a reasonable tradeoff between
+resolution and SNR is found.
+<P>
+Gridless weighting is selected by setting the logical option <tt>
+GridWeights</tt> to <tt> False</tt>.  This options calculates the true local weight
+density by directly examining the distance between every pair of points in
+the database.  This avoids certainly kinds of gridding errors where some
+points are weighted anomalously high.  The routine is slower than the
+normal weighting routine, but it is clever enough about caching
+intermediate results that it is not unusably slow.  This is mostly useful
+for super-uniformly weighted data sets, or those with very short
+integration times.  If more than a small amount of robustness is used,
+gridless weighting is probably not needed.  When mapping out the robustness
+tradeoff curve as above, one can save the results of the weight density
+calculation from one run of <tt> uvmap</tt> to be used in the next.  If <tt>
+SaveWeights</tt> is non-null, the weight density will be written to that file.
+If <tt> ReadWeights</tt> is non-null, the weight density will be read from the
+file.  Be careful when using <tt> ReadWeights</tt>.  If anything that affects
+the gridding geometry has changed, (nearly any parameter besides the
+robustness), the weights will not be correct.
+<P>
+<BR> <HR><A NAME=tex2html159 HREF="node12.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html157 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html151 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html161 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html160 HREF="node12.html"> NNLS</A>
+<B>Up:</B> <A NAME=tex2html158 HREF="node10.html"> Special topics</A>
+<B> Previous:</B> <A NAME=tex2html152 HREF="node10.html"> Special topics</A>
+<BR> <HR> <P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Fri Jan 19 13:47:44 MST 1996</I>
+</ADDRESS>
+</BODY>

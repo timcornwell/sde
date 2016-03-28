@@ -1,0 +1,17 @@
+.
+Image1, C, 1, image 1
+Image2, C, 1, image 2
+Output, C, 1, result
+Opcode, C, 1, M=multiply | D=Divide | MC = I1 x I2*
+Clip, R, 1, Clip level for Divide
+Fit, L, 1, fit image2 to image1 if true
+Mask, L, 1, image2 may be a mask
+.
+Image1 =
+Image2 =
+Output =
+Opcode = M
+Clip = 1.0E-9
+Fit = F
+Mask = F
+.

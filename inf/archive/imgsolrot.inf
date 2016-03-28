@@ -1,0 +1,11 @@
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input cube
+Output, C, 1, Output image
+Phi, R, 1, Angle to rotate (radians)
+.
+/Debug = F
+Image =
+Output = 
+Phi = 0.0
+.

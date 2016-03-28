@@ -1,0 +1,16 @@
+date		July 21 1995
+program		jyb2jyp
+programmer	m.a. holdaway
+purpose:	to convert an image between JY/BEAM and JY/PIXEL or vise versa
+		Tries to use header beam if not given in inputs
+.
+Image, C, 1, Input image
+Output, C, 1, Output image
+UnitsOut, C, 1, Desired output units [dies if == input units]
+Beam, R, 4, Beam [if 0, look up in header]
+.
+Image = 
+Output = 
+UnitsOut = JY/PIXEL
+Beam = 0.0, 0.0, 0.0, 0.0
+.

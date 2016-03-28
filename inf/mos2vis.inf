@@ -1,0 +1,11 @@
+This program reads in a mosaic database and writes out a single pointings
+worth of visibilities
+.
+Mos, C, 1, Mosaic database
+Pointing, I, 1, Pointing number
+Visfile, C, 1, Output visibility file
+.
+Mos =
+Pointing = 1
+Visfile =
+.

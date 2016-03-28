@@ -1,0 +1,23 @@
+program:	mosmake
+date:		long, long time ago
+purpose:	To assemble a mosaic database from a list of
+		visibility files.
+		If there are very many visibility files, it will be
+		more convenient to create a text file which contains
+		the name of one visibility file on each line, and
+		comments starting with '#'.  This can handle up to
+		500 pointings.
+
+.
+Vis, C, 100, Visibility data set  (required if not ListFile)
+Mosaic, C, 1, Mosaic data base
+Telescope, C, 1, Telescope name
+ListFile, C, 1, Txt file with Vis File Names
+DeletePOL, L, 1, Delete Q and U stokes?
+.DEFAULT
+Vis = 
+Mosaic = 
+Telescope = 
+ListFile = 
+DeletePOL = F
+.END

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Interactive Deconvolution and Selfcalibration</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Interactive Deconvolution and Selfcalibration">
+<meta name="keywords" value="user">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html181 HREF="node14.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html179 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html173 HREF="node12.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html183 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html182 HREF="node14.html"> Array design and </A>
+<B>Up:</B> <A NAME=tex2html180 HREF="node10.html"> Special topics</A>
+<B> Previous:</B> <A NAME=tex2html174 HREF="node12.html"> NNLS</A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00063000000000000000> Interactive Deconvolution and Selfcalibration</A></H2>
+<P>
+The NNLS algorithm described in the previous section has been
+incorporated into an interactive program for deconvolution and
+selfcalibration. This task, visamat, is best suited to high precision
+imaging of compact objects: that is those spanning no more than about
+3000 to 4000 pixels. Unlike most sde tasks, visamat can take a number
+of different go commands:
+<P>
+<PRE>      init       - get visibility data, initialize images, A, X and B
+      iterate    - selfcal then image
+      itdisp     - selfcal then image and display
+      getvis     - get visibility data
+      putvis     - put visibility data
+      getmodel   - get initial model
+      initimag   - initialize images
+      initaxb    - initialize A, X, and B
+      image      - make image by solving A X = B
+      display    - display restored image
+      selfcal    - selfcal data
+      edit       - edit visibility data
+      putimage   - put final image
+      putcimag   - put final restored image
+      putresid   - put residual image
+      putamatr   - put amatrix
+      exit       - exit program, writing results
+      quit       - quit program
+</PRE>
+<P>
+The typical steps required:
+<UL><LI> Set the inputs,
+<LI> go init to read the visibility data and make the initial images,
+<LI> go getmodel to read in and Fourier transform an initial model,
+<LI> go itdisp to iterate through selfcalibration and deconvolution,
+displaying the image at the end of each cycle using the DisplayCommand
+set in the inputs. go iter omits the display stage.
+<LI> go exit to write the final images and visibility data and then
+quit the program. go quit just quits without writing data.
+</UL>
+<P>
+Some typical inputs are:
+<PRE> Imsize = 256, 256, 1
+ Cellsize = 0.1999999949E-03, 0.1999999949E-03, 1.000000000
+ Shift = 0.0000000000E+00, 0.0000000000E+00
+ FOV = 1.0000000000E+00
+ Stokes = I
+ Uvlimits = 0.0000000000E+00, 0.1000000000E+10
+ Muvlimits = 0.0000000000E+00, 0.1000000000E+10
+ Filter = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ Vis = 3C84.AVG.1
+ NewVis = 3C84.AVG.1.SCAL
+ Model =
+ FluxWindow = 3C84.flux
+ DataWindow = 3C84.data
+ AMatrix =
+ DoImage = T
+ Algorithm = NNLS
+ Niter = 1
+ Image = 3C84.NNLS
+ CImage = 3C84.CNNLS
+ Residual =
+ Beam = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00,
+ 0.0000000000E+00
+ Threshold = 7.000000000
+ Tedit = 300.0000000
+ Tamp = 30.00000000
+ Tphase = 30.00000000
+ Mode = AMPNORMPHI
+ DisplayCommand = saoimage -d noggs:0.0 -fits # &amp;
+</PRE>
+<P>
+<OL><LI> visamat can work with constraints as either dirty image
+pixels or as visibility samples. Since the former are usually fewer in
+number, it is probably best to work in the image plane (DoImage = T).
+<LI> visamat can perform deconvolution via either the CLEAN algorithm
+or via the NNLS algorithm. The latter is the default and is recommended.
+<LI> visamat allows separate time scales for amplitude and phase
+selfcalibration.
+<LI> The mode of selfcalibration can be:
+<DL ><DT>' '
+<DD> Phase only
+<DT>AMPPHI
+<DD> Amplitude and phase
+<DT>AMPNORMPHI
+<DD> Amplitude and phase, but with amplitude change
+renormalized back to unity.
+<P>
+ </DL>
+<LI>  DisplayCommand is a string that is executed after substitution
+of the hash symbol with the file name SDEDispfile, which is the name
+of the scratch file that visamat writes into. Another use is to write
+a script to plot this image file and then set DisplayCommand to that
+script.
+<LI> The windows for the dirty image (DataWindow) and the output
+image (FluxWindow) can be set using saoimage as described in the 
+previous section. It is best to make these quite tight.
+</OL><BR> <HR><A NAME=tex2html181 HREF="node14.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html179 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html173 HREF="node12.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html183 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html182 HREF="node14.html"> Array design and </A>
+<B>Up:</B> <A NAME=tex2html180 HREF="node10.html"> Special topics</A>
+<B> Previous:</B> <A NAME=tex2html174 HREF="node12.html"> NNLS</A>
+<BR> <HR> <P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Fri Jan 19 13:47:44 MST 1996</I>
+</ADDRESS>
+</BODY>

@@ -1,0 +1,14 @@
+Program: IMGSYM
+Programmer: M.A.Holdaway
+Date: 17 June 1990
+Purpose: Make symmetric and antisymmetric parts of images
+
+.INFO
+Image, C, 1, Name of input image
+Symmetric, C, 1, Output Image
+AntiSymmetric, C, 1, Output Image
+.DEFAULT
+Image =
+Symmetric =
+AntiSymmetric =
+.END

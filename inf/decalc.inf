@@ -1,0 +1,11 @@
+.
+Delays, R, 10, Delays [ns]
+Bandwidth, R, 1, Bandwidth
+Channels, I, 1, Number of channels
+SpecAvg, I, 1, Spectral Averaging
+.
+Delays = 0
+Bandwidth = 8E6
+Channels = 512
+SpecAvg = 16
+.

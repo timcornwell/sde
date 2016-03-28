@@ -1,0 +1,698 @@
+main/dat.f:	 Call back routine to list directory
+main/err.f:	 severe errors. Each callable routine makes use of the ERI_START
+main/filexist.f:	 Check to see if a file exists
+main/msg.f:	 Write message to user
+main/str.f:	 Almost like STRAPPE2.....but trailing blanks are not significant
+main/str.f:	 Insert an integer into a template string
+main/sys.f:	 Get date in string in format '23/11/87'
+main/txt.f:	 Close a text file for access.
+main/usr.f:	 These routines are the interface between the user and the program.
+main/usr.f:	   User interface control: call this routine to start the user interface
+arr/arr1dplt.f:	   Make a scatter plot using two arrays for coordinates
+arr/arr2dplt.f:	 Make a scatter plot using two arrays for coordinates
+arr/arr3corr.f:	 Triple Correlate two arrays together
+arr/arrabs.f:	 Form the absolute value array
+arr/arrabshi.f:	 Make a histogram of the absolute value of an array
+arr/arradd.f:	 Add two REAL arrays together
+arr/arrairb1.f:	 Make a lookup table for a blocked aperture "Airy" disk
+arr/arrairbv.f:	 Make a lookup table for a blocked aperture "Airy" disk VOLTAGE pattern
+arr/arrairv.f:	 Make a lookup table for a "Airy" disk VOLTAGE pattern
+arr/arrairv1.f:	 Make a lookup table for a "Airy" disk VOLTAGE pattern
+arr/arrairy.f:	 Make a lookup table for the Airy disk
+arr/arrairy1.f:	 Make a lookup table for the Airy disk, out to first NULL ONLY
+arr/arrairyb.f:	 Make a lookup table for a blocked aperture "Airy" disk
+arr/arrairyv.f:	 Make a lookup table for the Airy disk
+arr/arralvar.f:	 Calculates the Allan Variance for INARR
+arr/arranplt.f:	 Plot antenna locations, Always in local coordinates
+arr/arrap2x.f:	 Makes a complex array out of two real arrays: COMP = REAL1 * EXP( i REAL2)
+arr/arrbsch.f:	     
+arr/arrbxcar.f:	 Boxcar average an array
+arr/arrcat.f:	 Concatenate two one-dimensional arrays
+arr/arrcdiv.f:	 Divide one array by another: A3 = A1/A2, clipping below MINA2
+arr/arrcinv.f:	 Invert an array, clipping below MINA
+arr/arrclip.f:	 Clip an array
+arr/arrclip2.f:	 Clip to value:   If A1(i) < AMIN1, set A3(i) to AMIN2 (else A3(i)=A2(I))
+arr/arrcmult.f:	 Multiply two arrays together, using conjugate of A2 if it is COMPLEX
+arr/arrconj.f:	  Complex Conjugate of an array
+arr/arrcopy.f:	 Copy one array to another: A2 = A1
+arr/arrcppl.f:	 Copy one array hyperplane to another: A2 = A1
+arr/arrcs.f:	 Make a lookup table for the cosine/sine function
+arr/arrcvtx.f:	 Convert array to complex
+arr/arrdescat.f:	     
+arr/arrdiv.f:	 Divide one array by another: A3 = A1/A2
+arr/arredit.f:	 EDIT an array
+arr/arreq.f:	 Return true if arrays are exactly equal
+arr/arrequal.f:	 Equalize an array
+arr/arrexp.f:	 Array level Exponentiation:  OUT(i) = EXP(FACT * IN(i))
+arr/arrexpan.f:	 Expand an array, returning the same name and with info intact
+arr/arrfftr.f:	 Real to complex Fourier transform. Operates on SDE arrays.
+arr/arrfftx.f:	 Complex to complex Fourier transform. 
+arr/arrflim.f:	 Find a limit such that at most NL points are greater than it in
+arr/arrgauss.f:	 Put Gaussian noise into an array 
+arr/arrgpb.f:	 Make a lookup table for the Gaussian Primary beam
+arr/arrgsp.f:	 GSP an array
+arr/arrgtape.f:	 Taper an array with a Gaussian
+arr/arrgvp.f:	 Make a lookup table for the Gaussian Voltage Pattern
+arr/arrhist.f:	 Make a histogram of an array
+arr/arrimag.f:	 Take IMAG part of complex image
+arr/arrindx.f:	     
+arr/arrinser.f:	 Add array A into array B at window
+arr/arrinv.f:	 Invert an array
+arr/arrlc.f:	 Linear combination of two arrays
+arr/arrlist.f:	 List out arrays on MSGPUT
+arr/arrlist2.f:	 List out arrays on MSGPUT  (Many argument version)
+arr/arrlog.f:	 take the LOG of an array
+arr/arrlog10.f:	 take the LOG10 of an array
+arr/arrmask.f:	 On output, sets pixels between AMIN and AMAX to FLUX1, others to FLUX2
+arr/arrmode.f:	 Find the mode of the array.
+arr/arrmpow.f:	 Taper an array with a power law function
+arr/arrmpowa.f:	 Taper an array with a power law function
+arr/arrmult.f:	 Mask an array A1 by A2
+arr/arrnbox.f:	 Find number of boxs each of length XINC needed to contain the
+arr/arrnint.f:	 Form the absolute value array
+arr/arrpbmod.f:	 Creates a PB from models: PB = 1 + C(1)X^2 + C(2)X^4 + C(3)X^6
+arr/arrpc2x.f:	 Makes a complex array out of two real arrays: COMP = REAL1 * EXP(i 2 REAL2)
+arr/arrphase.f:	 Phase rotation of an array
+arr/arrpoiss.f:	 Put poisson noise into an array 
+arr/arrpower.f:	 Raise IN to POWER
+arr/arrpread.f:	 READ an array from PVM
+arr/arrprint.f:	 Print an array
+arr/arrpro.f:	 Promote images to common type
+arr/arrpwrit.f:	 Write an array to PVM
+arr/arrqu2x.f:	 Makes a complex array out of two real arrays: COMP = REAL1 + iREAL2
+arr/arrrave.f:	 Get a radial average of an image
+arr/arrrdclp.f:	 Clips IMAGE to CLIP for R < MINRAD and R > MAXRAD
+arr/arrrdmrg.f:	 Merges two uv data sets
+arr/arrreal.f:	 Take real part of complex image
+arr/arrrms.f:	 Form rms
+arr/arrrrms.f:	 Calculate robust rms
+arr/arrrshft.f:	 We simply shift an image by SHIFT pixels, blanking the 
+arr/arrrsym.f:	 Breaks a real array into symmetric and antisymmetric parts
+arr/arrrvalu.f:	 Returns the REAL value of the pixel specified by CRDS in array NAME
+arr/arrscale.f:	 Scale an array
+arr/arrscat.f:	 Make a scatter array using two arrays for coordinates
+arr/arrscopy.f:	 Array Select-Copy (Input to output, based on a weight)
+arr/arrsetav.f:	 Sets AVE and RMS of the non-zero parts of an array
+arr/arrsetco.f:	 Set an array to a constant
+arr/arrsffit.f:	 Fits and removes a linear (pointing) and a quadratic (focus) term from arr
+arr/arrsign.f:	 Transfer the sign of A2 to A1
+arr/arrsinc.f:	 Make a lookup table for SINC(X)
+arr/arrsoflx.f:	  From source locations and sizes in INFOPOS, we find FLUX
+arr/arrsopos.f:	 Determine the location and width of all sources in ARR
+arr/arrsort.f:	     
+arr/arrsqrt.f:	 Form the sqrt of an array
+arr/arrstat.f:	 Calculate array statistics in window
+arr/arrsubse.f:	 Subsection an array
+arr/arrsubtr.f:	 Subtract two REAL arrays : A3 = A1 - A2
+arr/arrsum.f:	 Sum the elements in the array
+arr/arruvplt.f:	 Plot u,v points
+arr/arrvlapb.f:	 Make a lookup table for the VLA PB, out to first NULL ONLY
+arr/arrvlbap.f:	 Make a lookup table for a VLBA aperture disk
+arr/arrwchis.f:	 Form weighted chisq
+arr/arrwiene.f:	 Wiener filter an array A with another B: operates in FT
+arr/arrx2ap.f:	 Read in a complex image COM and put out its AMP and CHI
+arr/arrx2pc.f:	 Read in a complex image COM and put out its AMP and CHI
+arr/arrx2qu.f:	 Input a Complex image X and put out its REAL (Q) and IMAGINARY (U) parts
+arr/arrxlc.f:	 Linear combination of two arrays with complex A's
+cal/calantpo.f:	 Calculate antenna position from correlator u,v,w's
+cal/calantso.f:	 Calculate antenna gains from correlator gains. The gain on
+cal/calcf.f:	 Find correlation of antenna gains: this is stored as a 3-D complex
+cal/calcfpix.f:	 Find calibration correlation function
+cal/calcfplo.f:	 Plot antenna gain correlation function
+cal/calcorpi.f:	 Find calibration correlation function
+cal/calgblso.f:	 Calculate single global gains from correlator gains. The gain on
+cal/callist.f:	 List antenna gains, and residuals from self-cal.
+cal/calplot.f:	 Plot antenna gains
+cal/calsf.f:	 Find structure fn of antenna gains: this is stored as a 3-D complex
+cal/calsflip.f:	 Print calibration structure function.
+cal/calsflis.f:	 Print antenna gain structure function
+cal/calsfpix.f:	 Find calibration structure function
+cal/calsfplo.f:	 Plot antenna gain structure function
+cal/calsfplp.f:	 Plot calibration structure function
+crd/crdae2rd.f:	 Get RA, DEC given AZ, EL, LAT, and TIME
+crd/crdatmpo.f:	 Find position in atmosphere From antenna position, az, el, time, wind 
+crd/crdatmsh.f:	 Shift the reference values of ATMOS to be centered at AZ, EL
+crd/crdc2gal.f:	 Converts Celestial RA and DEC to Galactic Longitude and Latitude
+crd/crdcheck.f:	 Checks that two database entries have the same crds
+crd/crdclbox.f:	 Clip a box to less than or equal to size of image.
+crd/crdcopy.f:	 Copies the coordinate info from NAME1 to NAME2:  
+crd/crddel.f:	 Delete coordinate information for a directory entry
+crd/crdgal2c.f:	 Converts Galactic Longitude and Latitude to Celestial RA and DEC
+crd/crdget.f:	 Get coordinate information for a directory entry. An error is
+crd/crdgfreq.f:	 Looks up the frequency header info and returns the frequency if
+crd/crdhalf.f:	 Adjust BLC, TRC to be no more than half an axis.
+crd/crdinsin.f:	 From a SIN projection, computes true RA and DEC.
+crd/crdlist.f:	 Standard listing of coordinate system
+crd/crdnhalf.f:	 Adjust BLC, TRC to be no more than half an axis minus 1 pixel
+crd/crdpread.f:	 Read coordinate system from PVM
+crd/crdprec.f:	 Precess coordinates between two epochs
+crd/crdptow.f:	 Convert World from Pixel coordinates. Slow: do not use for each pixel.
+crd/crdput.f:	 PUT coordinate information for a directory entry
+crd/crdpwrit.f:	 Write coordinate system to PVM
+crd/crdrd2ae.f:	 Get AZ, El given RA, DEC, LAT, and TIME
+crd/crdrget.f:	 Get coordinate information for a directory entry. An error is
+crd/crdrnax.f:	 Find number of real axes
+crd/crdrnaxm.f:	 Find number of real axes and return them in NAXIS
+crd/crdrp2pc.f:	 Will shift the reference pixel to the pointing center
+crd/crdrpcen.f:	 Will shift the reference pixel to NX/2 (or 1, if gridded vis), NY/2 
+crd/crdshbox.f:	 Shift a box with respect to IN into a box with respect to OUT
+crd/crdshift.f:	 Find the shift which will align VIS with IMG. The shift is to be
+crd/crdsin.f:	 Computes the RA, DEC on a SIN projection for a real RA, DEC
+crd/crdwtop.f:	 Convert World to Pixel coordinates. Slow: do not use for each pixel.
+fft/fft12rx.f:	 Multiple One dimensional FFT's Real -> Complex. On a 2D array
+fft/fft12xr.f:	 Multiple One dimensional FFT's Complex -> Real. On a 2D array
+fft/fft12xx.f:	 Multiple One dimensional FFT's Complex -> Complex. On a 2D array
+fft/fft1rx.f:	 One dimensional FFT Real -> Complex. 
+fft/fft1xr.f:	 One dimensional FFT  Complex. -> Real
+fft/fft1xx.f:	 One dimensional FFT  Complex. -> Complex
+fft/fft2rx.f:	 Two dimensional FFT Real -> Complex. 
+fft/fftconj.f:	 Conjugate axis types e.g. 'RA---SIN' becomes 'UU---SIN'.
+fft/fftconja.f:	 Transform the axis information from IN to reflect a Fourier
+fft/fftconjx.f:	 Transform the axis information from IN to reflect a Fourier Transform
+fft/fftf2.f:	 Returns True if its arguement is a power of 2
+fft/fftf235.f:	 Returns True if its arguement is a power of 2 and  3 and/or 5
+fft/fftpwr2.f:	 Finds the next power of two.
+fft/fftr.f:	 Does an real-to-complex forward or complex-to-real inverse.
+fft/fftr1d.f:	 Compute One dimensional FFT of array: real to complex.
+fft/fftr1d2.f:	 Interface routine for R-to-X FFT, handles padding.
+fft/fftr2d.f:	 Compute Two dimensional FFT of complex array. 
+fft/fftr3d.f:	 Compute Three dimensional FFT of complex array. 
+fft/fftvistp.f:	 Determines if gridded visibility is hermitian (H) or not (N)
+fft/fftx.f:	   The following calls the CONVEX VECLIB routine FFTL to perform
+fft/fftx1d.f:	 Compute One dimensional FFT of array: complex to complex.
+fft/fftx1d2.f:	 Interface routine for X-to-X FFT, 
+fft/fftx2d.f:	 Compute Two dimensional FFT of complex array. 
+fil/filalvge.f:	 Reads in a Frazier Owen style Allan Variance file.
+fil/filalvpu.f:	 Writes out a Frazier Owen style Allan Variance file.
+fil/filav2pu.f:	 Writes out an accumulated style Allan Variance file. (horizontal)
+fil/filbemge.f:	 Get beam parameters.
+fil/filclose.f:	 Close file with name NAME 
+fil/filexist.f:	 Check to see if a file exists
+fil/filexlge.f:	 Get image from 'Excel' file
+fil/filexlpu.f:	 Write masked image to 'Excel' file
+fil/filgetan.f:	 Read an array specification ASCII file.  Several coord systems recognized
+fil/filgetmo.f:	 Read a model from an ASCII file
+fil/filgetms.f:	 Read a Conway 'Spectral Index' model from an ASCII
+fil/filgrpge.f:	 Get groups file.
+fil/filgrppu.f:	 Put groups file.
+fil/filgrpre.f:	 READ parameters from file with name NAME
+fil/filimgge.f:	 Get image file.
+fil/filimgpu.f:	 Put image file.
+fil/filimgre.f:	 READ image from file with name NAME
+fil/filimgwr.f:	 Write file with name NAME
+fil/filimgxp.f:	 Put (complex) image file.
+fil/filimmge.f:	 Reads in multiple images as a group
+fil/filimmpu.f:	 Writes out a group of image files 
+fil/filmasge.f:	 Get mask file.  Load it as an image from disk or recalculate it as
+fil/filopen.f:	 Open file with name NAME for ACCESS
+fil/filpgmge.f:	 Get PGM style pixel values into an existing image
+fil/filpgmpu.f:	 Put image file in psuedo "PGM" format.
+fil/filputan.f:	 Write an array specification ASCII file. This can convert to the
+fil/filputmo.f:	 Write a model from a directory entry to a text file
+fil/filrenam.f:	 Rename a file
+fil/filrmspu.f:	 Writes out PHASE RMS as a function of UVdist, AVE TIME
+fil/filsyscl.f:	 Close file 
+fil/filsysop.f:	 Open file 
+fil/filtblsr.f:	 READ tables from file with name NAME
+fil/filtblsw.f:	 Write file with name NAME
+fil/filtrkge.f:	 Get track file.
+fly/flyccimg.f:	 Insert a clean component list into the corrseponding image.
+fly/flymodel.f:	 Subroutine to form model visibility from clean components.
+fly/flytovis.f:	 Do optimum transform using DFT for high points
+fts/ftiiniti.f:	 Initialize commons for writing a header. The type can be SIMPLE or XTENSION
+fts/ftiparsi.f:	 Split FITS card into into KEYWORD and OBJECT strings : i.e. 
+fts/ftiparso.f:	 Translate KEYWORDs to FITS cards.
+fts/ftireadt.f:	 Read Table columns into array locations in MEMR
+fts/ftiwrite.f:	 Write Table columns from array locations in MEMR
+fts/ftsclose.f:	 Close FITS file on disk 
+fts/ftsfndsc.f:	 Find scaling factors for array and insert into header
+fts/ftsgrpre.f:	 Read in GROUPS for FITS file for the random pars specified. To be read
+fts/ftsgrpwr.f:	 Write GROUPS into FITS file for the random pars specified.
+fts/ftsimgre.f:	 Read in binary data from FITS file into the array specified.
+fts/ftsimgwr.f:	 Write out binary data to FITS file from the array specified.
+fts/ftsopen.f:	 Open FITS file on disk and read in header
+fts/ftsreadh.f:	 Read in header from FITS file and either translate to
+fts/ftstblre.f:	 Read in binary data from FITS file into the tables specified.
+fts/ftstblsk.f:	 Skip binary data from FITS file.
+fts/ftstblsr.f:	 Read in TABLES for FITS file for the tables specified. To be read
+fts/ftstblsw.f:	 Write out TABLES for FITS file for the tables specified. To be 
+fts/ftstblwr.f:	 Write out binary data to FITS file from the tables specified.
+fts/ftswrith.f:	 Write out header to FITS file.
+gai/gaiapplp.f:	 Apply gains to visibility data.  (pixel level)
+gai/gaiapply.f:	 Apply gains to visibility data.
+gai/gailist.f:	 List complex antenna gains
+gai/gailistp.f:	 List Antenna Gains (pixel level)
+grd/grdccf.f:	 Calculate convolution correction functions.
+grd/grdcf.f:	 Calculate convolution functions: Normalize to unit volume
+grd/grddeh23.f:	 DeGrid two dimensional complex data. There must be no points within the 
+grd/grddeh2d.f:	 De-Grid two dimensional complex data. There must be no points within the 
+grd/grdh1d.f:	 Grid one dimensional complex data. Points within the support size of the
+grd/grdh23d.f:	 Grid two dimensional complex data. There must be no points within the 
+grd/grdh2d.f:	 Grid two dimensional complex data.  This version will properly grid only
+grd/grdh3d.f:	 Grid three dimensional complex data. There must be no points within the 
+grd/grdif.f:	 Calculate interpolation functions
+grd/grdqh23d.f:	 Grid two dimensional complex data. There must be no points within the 
+grd/grdqh2d.f:	 Grid two dimensional complex data. There must be no points within the 
+grd/grdqh3d.f:	 Grid three dimensional complex data. There must be no points within the 
+grd/grdqr2d.f:	 Grid two dimensional real data fast
+grd/grdr1d.f:	 Grid one dimensional real data. 
+grd/grdr2d.f:	 Grid two dimensional real data. 
+grd/grdsf.f:	 Find Spheroidal function with M = 6, alpha = 1 using the rational
+grd/grdsze.f:	 Find the optimum gridding function described by Sze Tan in his
+grd/grduwt.f:	 Reweight a visibility data set. The output image must exist before 
+grd/grduwt2d.f:	 2-D uniform weighting. This version will properly reweight only
+grd/grduwt3d.f:	 2-D uniform weighting. This version will properly reweight only
+hed/hed.f:	 Copy header to another directory entry. Do not copy array: only
+hed/hedgetpb.f:	 Given IN, Gets ALL PB or VP atributes. Even makes the PB and passes ADD
+hed/hedsetob.f:	 Copies OBSERVATION HEADER parameters from IN to OUT: OBRA, OBDEC, TELESCOP....
+his/his.f:	 Close history mechanism for directory entry.
+img/flysub.f:	 Program to subtract visibility data as produced by fly.
+img/img3ft.f:	 Direct Fourier transform from Image to Vis. data 
+img/img3ft2.f:	 Pixel-level DFT routine IMG->VIS in 3D
+img/img3ft3.f:	 Pixel-level DFT routine IMG->VIS in 3D
+img/imgatmak.f:	 Make an antenna-time image directory entry.
+img/imgbmshp.f:	 Fits a Gaussian beam to the PSF and writes BMAJ, BMIN, BPA into
+img/imgccimg.f:	 Insert a clean component list into the corrseponding image.
+img/imgcclea.f:	 Clark-Clean an image.
+img/imgclean.f:	 Clean an image.
+img/imgclis.f:	 List the components of a Clark-Cleaned image. The first two lines are
+img/imgclone.f:	 Clone an image to another directory entry. Do not copy array: only
+img/imgcolla.f:	 Project a sphere onto the plane X-Y. 
+img/imgconv.f:	 Convolve model by PSF corresponding to a XFR, If PSF is non-blank
+img/imgcorr.f:	 Correlate model by PSF corresponding to a XFR, If PSF is non-blank
+img/imgcube.f:	 Make a cube from a 2-d image
+img/imgcurv.f:	 Form second derivative of an image
+img/imgdesph.f:	 Project a sphere onto the plane X-Y. 
+img/imgdft.f:	 Direct Fourier transform from Image to Vis. data
+img/imgdft2d.f:	 Pixel-level DFT routine IMG->VIS in 2D
+img/imgdft3d.f:	 Pixel-level DFT routine IMG->VIS in 3D
+img/imgdfte2.f:	 Pixel-level DFT routine IMG->VIS in 2D, applies primary beam before
+img/imgdftp2.f:	 Pixel-level DFT routine IMG->VIS in 2D, applies primary beam before
+img/imgdftpb.f:	 Direct Fourier transform to Image to Vis. data after applying
+img/imgdftpe.f:	 Direct Fourier transform to Image to Vis. data--pointing erros
+img/imgdfts2.f:	 Pixel-level DFT routine IMG->VIS in 2D, with beam switching, applies 
+img/imgdftv2.f:	 Pixel-level DFT routine IMG->VIS in 2D, each ant has its own 2-D VP
+img/imgdftvp.f:	 Does DFT point by point, considers different VP's for each antenna
+img/imgdoub2.f:	 Pad input grid to at least double size, update header. The output
+img/imgdoubl.f:	 Pad input grid to at least double size, update header. The output
+img/imgfft.f:	 FFT an image. This will automatically update the header, find
+img/imgfitto.f:	 Expands IN to fit EXAMPLE; must have same DELT; OUT cannot exist previously
+img/imgfndsd.f:	 Find worse sidelobe by looking outside fitted Gaussian
+img/imggridc.f:	 Perform grid correction for an image.
+img/imggsp.f:	 GSP an image.
+img/imghgeom.f:	 Geometric transform of one image to geometry of the header of another.
+img/imgimag.f:	 Take the IMAG part of a complex image
+img/imgk2p.f:	 Convert the units of an image to per pixel
+img/imglink.f:	 LINK an image to another directory entry. Do not copy array: only
+img/imglucy.f:	 LUCY an image.
+img/imgmake.f:	 Make a directory entry for an image matching the coordinates
+img/imgmake0.f:	 Make a directory entry for an image. Can make 1, 2 or 3-D
+img/imgmakex.f:	 Make transfer function corresponding to a given PSF: we need to
+img/imgmodel.f:	 Put a specified model into an image
+img/imgmschk.f:	 Check mask for compatability with image.
+img/imgmspsf.f:	 Make a nice PSF for mosaicing by minimizing sidelobes outside
+img/imgnwin.f:	 Given a image and a window blank out everything INside the window
+img/imgomake.f:	 Make a directory entry for an image. Can make 2 or 3-D
+img/imgp2pb.f:	 Convert the units of an image to per beam
+img/imgpad.f:	 Pad input grid to output size with padding value, 
+img/imgpb.f:	 Primary beam correction routine.
+img/imgpbav2.f:	 Pixel-level DFT routine IMG->VIS in 2D, each ant has its own 2-D VP
+img/imgpbave.f:	 From a VP for each antenna, we make an average PB
+img/imgpbclp.f:	 clips image below(above) the PBLEV primary beam level
+img/imgpbmin.f:	 From IN, generate the smallest image OUT which includes the entire PB
+img/imgpowf.f:	 Smooth an image with a power law function. The image transform
+img/imgpowfa.f:	 Smooth an image with a kinked anisotropic power law function. 
+img/imgrave.f:	 Makes a radial average of the image in question
+img/imgreal.f:	 Take the real part of a complex image
+img/imgresid.f:	 Find residuals for a given model: defined by DIRTY-PSF*MODEL
+img/imgsaoms.f:	 Create mask from SAOImage cursor files.
+img/imgsdicl.f:	 Clean an image.  (SDI style)
+img/imgshft.f:	 Shift the array by SHIFT pixels in each direction
+img/imgsmoot.f:	 Smooth an image with a specified Gaussian.
+img/imgsph.f:	 Expand into a sphere from the plane X-Y. 
+img/imgstrim.f:	 Trim an image to minimum support.
+img/imgsubps.f:	 Subsection a PSF for use in BGC Clean, fix up the header
+img/imgsubse.f:	 Subsection and Sum image, fix up the header
+img/imgtovis.f:	 Transform an image to vis data set. The output image must exist before 
+img/imgtvd.f:	 Display an image on a tv. This version assumes X11 with color TV
+img/imgtype.f:	 From CRD TYPEs, find out if this is an X IMAGE or a GRIDDED VIS
+img/imgunsmo.f:	 Unsmooth an image with a specified Gaussian.
+img/imgwin.f:	 Given a image and a window blank out everything outside the window
+img/imgxrenv.f:	 Calculate envelope of transfer function
+img/imgxrenv.f:	 Calculate envelope of half plane transfer function, pixel level
+ipc/dly2indx.f:	 Given an Delay set convert this to an INDEX
+ipc/indx2dly.f:	 Given an INDEX convert this into a delay set
+ipc/ipcacorr.f:	 Auto-Correlate two ipcs data runs together
+ipc/ipcatmt.f:	 Initialise the probability of atmospheric state changes with Time
+ipc/ipcloc.f:	 Given a fringe pattern determine where a photon should land
+ipc/ipcmkcm.f:	 Given a fringe pattern turn this into a cumulative distribution
+ipc/ipcmkfr.f:	 Make an 'ideal' fringe pattern given the appropriate parameters
+ipc/ipcnxtdl.f:	 Compute the next set of delays
+ipc/ipcnxtfr.f:	 Compute the next set of delays assuming a model of the atmosphere
+ipc/ipcprob.f:	 Given a set of fringe patterns, frame of photons return the prob(patterns)
+ipc/ipcprobs.f:	 Give a fringe pattern and a frame of photons return the prob. of the pattern
+ipc/ipcratm.f:	 Applies the  atmospheric corrections on a frame by frame basis
+ipc/ipcsfig.f:	     
+ipc/ipcsfrlu.f:	 Make a lookup table for fringe straightening of IPCS data
+ipc/ipcsfrmv.f:	 Move the photons in the detector to compensate for wavelength
+ipc/ipcsget.f:	 Get ipcs data from a file. 
+ipc/ipcsput.f:	 Put ipcs data to a file. 
+ipc/ipcssort.f:	 Sort IPCS data into specified order
+ipc/ipcstype.f:	 Type ipcs data
+ipc/ipcstypep.f:	 List ipcs data
+ipc/ipctbck.f:	 Trace Back through an array and extract the track
+ipc/ipcvit.f:	 This routine Traces through IPCS data using the Vitterbi Algorithm
+ipc/ipcvla.f:	 Initialise the visibility lookup array.
+ipc/ipcwave.f:	 Given the detector size and Wavelength coverage calculate Wavelength
+ipc/ipcwin.f:	 Extract the window of all Frames from FRSTART to FREND
+mem/mem.f:	 CALCULATE ENTROPY, FLUX, ETC
+mem/mew.f:	 Find changes in alpha and beta
+mem/mum.f:	 CALCULATE ENTROPY, FLUX, ETC
+mem/muw.f:	 Find changes in alpha and beta
+mod/modimg.f:	 Make an image from a description of a model: the model has parts
+mod/modimg1d.f:	 Make an image from a description of a model.
+mod/modimg2d.f:	 Make an image from a description of a model.
+mod/modlist.f:	 List a model
+mod/modsi2st.f:	 Convert a spectral index model (INMOD) to a standard SDE model
+pix/pix1dgxt.f:	 Taper an image. Pixel level routine. 1-D complex only.
+pix/pix1dpxt.f:	 Taper an image with a power law. Pixel level routine. 1-D complex only.
+pix/pix1drcl.f:	 Clean an image. Pixel level routine. 1-D real only.
+pix/pix2dcur.f:	 Apply parabolic filter. Pixel level routine. 2-D complex only.
+pix/pix2dgxt.f:	 Taper an image. Pixel level routine. 2-D complex only.
+pix/pix2dpxa.f:	 Taper an image with a kinked anisotropic power law. Pixel level routine. 
+pix/pix2dpxt.f:	 Taper an image with a power law. Pixel level routine. 2-D complex only.
+pix/pix2drcc.f:	 Clark-Clean an image. Pixel level routine. 2-D real only.
+pix/pix2drcl.f:	 Clean an image. Pixel level routine. 2-D real only.
+pix/pix2drli.f:	 Make list of pixels > SLIM. Pixel level routine. 2-D real only.
+pix/pix2drma.f:	 Make image from list of pixels. Pixel level routine. 2-D real only.
+pix/pix2drmw.f:	 Multiply list of pixels. Pixel level routine. 2-D real only.
+pix/pix2drrs.f:	 Rescale clean components based on local resolution.  2-D real only.
+pix/pix2drts.f:	 Select image pixels based on trim level.  2-D real only.
+pix/pix2drxl.f:	 Dump a 2D real image to an Excel file, pixel level
+pix/pix2dxmr.f:	 Radial merging of AR1, AR2: complex 2-D images
+pix/pix2dxwi.f:	 Taper an image with inverse amplitudes of another. 
+pix/pix2ffit.f:	 Fits C*(X^2 + Y^2) to a 2-D real array
+pix/pix2fsub.f:	 Subtracts a parabola from ARR: ARR = ARR - C*(X*X + Y*Y)
+pix/pix2hgeo.f:	 Translates and adds an input map 'A' into a (larger) output map 'B'.
+pix/pix2sfit.f:	 Fits A*X + B*Y to a 2-D real array
+pix/pix2ssub.f:	 Subtracts a the plane ARR = A*X + B*Y from ARR
+pix/pix3drcc.f:	 Clark-Clean an image. Pixel level routine. 3-D real only.
+pix/pix3drcl.f:	 Clean an image. Pixel level routine. 3-D real only.
+pix/pix3drli.f:	 Make list of pixels > SLIM. Pixel level routine. 3-D real only.
+pix/pix3drma.f:	 Make image from list of pixels. Pixel level routine. 3-D real only.
+pix/pix3drmw.f:	 Multiply list of pixels. Pixel level routine. 3-D real only.
+pix/pix3dxgt.f:	 Taper an image. Pixel level routine. 3-D complex only.
+pix/pix3hgeo.f:	 Translates an input map into a (larger) output map.
+pix/pixairbv.f:	 Make the 1/10 blocked VOLTAGE pattern in a work array
+pix/pixairv.f:	 Make the AIRY VOLTAGE pattern in a work array
+pix/pixairy.f:	 Make the Airy disk in a work array
+pix/pixairyb.f:	 Make the 1/10 blocked Airy disk in a work array
+pix/pixairyv.f:	 Make the VOLTAGE pattern in a work array
+pix/pixalvar.f:	 Calculate the Allan Variance for a number of integration times
+pix/pixap2x.f:	 Converts a AMP and PHASE arrays into a COMPLEX array
+pix/pixbmshp.f:	 Fits a Gaussian beam to section of A centered on IPEAK
+pix/pixbs2d.f:	 Primary beam correction via look up table: For BEAM SWITCHING
+pix/pixccopy.f:	 Copy an array with increments
+pix/pixclis2.f:	 List pixels to an ASCII file in format:
+pix/pixclis3.f:	 List pixels to an ASCII file in format:
+pix/pixclprm.f:	 We write out an array in which all values below CMIN or above CMAX are removed
+pix/pixcolla.f:	 Project a sphere onto the plane X-Y.
+pix/pixconj.f:	 Complex conjugate of an array
+pix/pixcor1d.f:	 Correct array for a given function
+pix/pixcor2d.f:	 Correct array for a given function
+pix/pixcor3d.f:	 Correct array for a given function
+pix/pixcorx2.f:	 Correct array for a given function
+pix/pixcrdiv.f:	 Divide two REAL arrays together
+pix/pixcrinv.f:	 Invert an array
+pix/pixcs.f:	 Make the cos/sin lookup table in a work array
+pix/pixcsetc.f:	 Initialize an array
+pix/pixcxdiv.f:	 Divide two COMPLEX arrays, clipping below MINA2
+pix/pixcxinv.f:	 Invert an array
+pix/pixcxmul.f:	 Multiply two COMPLEX arrays together, using the conjugate of A2
+pix/pixdadd.f:	 Add two DOUBLE PRECISION arrays together
+pix/pixdbsch.f:	     
+pix/pixdcopy.f:	 Copy an array with increments
+pix/pixddiv.f:	 Divide two DOUBLE PRECISION arrays together
+pix/pixddscat.f:	     
+pix/pixdeq.f:	 Return true if arrays are exactly equal
+pix/pixdesph.f:	 Project a sphere onto the plane X-Y. The center of the sphere
+pix/pixdindx.f:	     
+pix/pixdinse.f:	 Add array A into array B
+pix/pixdlc.f:	 Linear combination of two arrays
+pix/pixdlis2.f:	 List out arrays on MSGPUT  (Many argument version)
+pix/pixdmult.f:	 Multiply two DOUBLE PRECISION arrays together
+pix/pixdprin.f:	 Print an array
+pix/pixdrfbx.f:	 Draw a filled box into an array
+pix/pixdrfel.f:	 Draw a filled ellipse into an array
+pix/pixdrfpl.f:	 Draw a filled polygon in an array
+pix/pixdrfpl.f:	 Draw a filled polygon in an array
+pix/pixdrfpl.f:	 Draw a filled polygon in an array
+pix/pixdrpnt.f:	 Draw a (point) pixel into an array
+pix/pixdscal.f:	 Scale an array
+pix/pixdscpy.f:	 Copy an array conditionally on a weight
+pix/pixdsetc.f:	 Initialize an array
+pix/pixdsign.f:	 Transfer the sign of A2 to A1 and write it to A3
+pix/pixdstat.f:	 Calculate array statistics of DOUBLE array only
+pix/pixdsubt.f:	 Subtract two DOUBLE PRECISION arrays together
+pix/pixflim.f:	 Find a limit so that at most NL members have an absolute value
+pix/pixgpb.f:	 Make the Gaussian disk in a work array
+pix/pixgvp.f:	 Make the Gaussian disk in a work array
+pix/pixiadd.f:	 Add two INTEGER arrays together
+pix/pixibsch.f:	     
+pix/pixicopy.f:	 Copy an array with increments
+pix/pixidiv.f:	 Divide two INTEGER arrays together
+pix/pixidscat.f:	     
+pix/pixiindx.f:	     
+pix/pixiinse.f:	 Add array A into array B
+pix/pixilis2.f:	 List out arrays on MSGPUT  (Many argument version)
+pix/piximag.f:	 Extracts IMAG part of a complex image
+pix/piximult.f:	 Multiply two INTEGER arrays together
+pix/pixiprin.f:	 Print an array
+pix/pixireal.f:	 Converts integer array to real 
+pix/pixisama.f:	 Return location of absolute maximum
+pix/pixiscat.f:	     
+pix/pixiscat.f:	    Plot x vs y onto array out (Integer arrays only)
+pix/pixiscpy.f:	 Copy an array conditionally on a weight
+pix/pixisel.f:	 Select valid points
+pix/pixisetc.f:	 Initialize an array
+pix/pixisign.f:	 Transfer the sign of A2 to A1 and write it to A3
+pix/pixisubt.f:	 Subtract two INTEGER arrays together
+pix/pixlcopy.f:	 Copy an array with increments
+pix/pixlindx.f:	     
+pix/pixlint.f:	 Lagrangian interpolation routine.
+pix/pixnant.f:	 Given the Baseline numbers extract the number of antennas
+pix/pixnbox.f:	 Finds the number of distinct DA intervals in A
+pix/pixpb2d.f:	 Primary beam correction via look up table
+pix/pixpb2dv.f:	 2DVLA primary beam for VLA
+pix/pixpbcor.f:	 Pixel Primary Beam Corrupt.  Approximate by Gaussian after BFRACT
+pix/pixpbmod.f:	 Creates a PB from models: PB = 1 + C(1)X^2 + C(2)X^4 + C(3)X^6
+pix/pixpbrad.f:	 Convert PBLEV to RADIUS for the given PB parameters
+pix/pixpc2x.f:	 Polarized amplitude and polarization position angle to X
+pix/pixpggrf.f:	 For some reason, PGPLOT's PGROUND doesn't work, so....
+pix/pixpghis.f:	 Makes a PGPLOT HISTOGRAM of ARRAY on DEVICE
+pix/pixphase.f:	 Phase rotation of an array
+pix/pixphfix.f:	 Fixup phases of an array to minimize discontinuities
+pix/pixqu2x.f:	 Converts the two real arrays RARR and IARR into the real and imaginary
+pix/pixr2x.f:	 Converts a real array to a complex one
+pix/pixrabs.f:	 Form absolute value
+pix/pixrabsh.f:	 Form a histogram of the absolute value of an array: an element (I) 
+pix/pixradd.f:	 Add two REAL arrays together
+pix/pixrbsch.f:	     
+pix/pixrbxcr.f:	 Boxcar average an array (real pixel level)
+pix/pixrclip.f:	 Clip an array
+pix/pixrclp2.f:	 Clip to value:   If A1(i) < AMIN1, set A3 to AMIN2;   
+pix/pixrcopy.f:	 Copy an array with increments
+pix/pixrcorr.f:	 Correlate two arrays
+pix/pixrcorr.f:	 Audit trail:
+pix/pixrdiv.f:	 Divide two REAL arrays together
+pix/pixrdp.f:	   Depersist one Frame of IPCS Data 
+pix/pixrdscat.f:	     
+pix/pixreal.f:	 Extracts real part of a complex image
+pix/pixredit.f:	 EDIT an array
+pix/pixreq.f:	 Return true if arrays are exactly equal
+pix/pixrequa.f:	 Equalize an array, and return inverse histogram
+pix/pixrexp.f:	 Real Pixel level Exponentiation:  OUT(i) = EXP(FACT * IN(i))
+pix/pixrexts.f:	 Find largest exterior value
+pix/pixrgaus.f:	 Add Gaussian noise to an array
+pix/pixrgsp.f:	 Clip an array
+pix/pixrhist.f:	 Form a histogram of an array: an element (I) of the histogram is
+pix/pixrhistp.f:	 Calculate a histogram using Poisson Stats
+pix/pixrindx.f:	     
+pix/pixrinse.f:	 Add array A into array B
+pix/pixrinv.f:	 Invert an array
+pix/pixrlc.f:	 Linear combination of two arrays
+pix/pixrlis2.f:	 List out arrays on MSGPUT  (Many argument version)
+pix/pixrlog.f:	      OUT = LOG ( IN )
+pix/pixrmask.f:	 For Pixels with flux between MIN and MAX, give flux of FLUX1
+pix/pixrmax.f:	 Return the maximum of an array
+pix/pixrmin.f:	 Return the minimum of an array
+pix/pixrmode.f:	 Find the mode of an array.  (Real, pixel level)
+pix/pixrmult.f:	 Multiply two REAL arrays together
+pix/pixrnint.f:	 Form NINT
+pix/pixrpad.f:	 Place A inside B with left margin LSHIFT
+pix/pixrpixv.f:	 PIXVAL 
+pix/pixrpois.f:	 Add Poission noise to an array
+pix/pixrpowe.f:	 Raise IN to POWER
+pix/pixrprin.f:	 Print an array
+pix/pixrrdcl.f:	 CLIPS the IMAGE to CLIP outside of MINRAD, MAXRAD degrees
+pix/pixrrms.f:	 Find rms value
+pix/pixrrrms.f:	 Form robust rms
+pix/pixrscal.f:	 Scale an array
+pix/pixrscat.f:	     
+pix/pixrscat.f:	    Plot x vs y onto array out (Real arrays only)
+pix/pixrscpy.f:	 Copy an array conditionally on a weight
+pix/pixrsel.f:	 Select valid points
+pix/pixrseta.f:	 Determines the average of all non-zero pixels
+pix/pixrsetc.f:	 Initialize an array
+pix/pixrsign.f:	 Transfer the sign of A2 to A1 and write it to A3
+pix/pixrsqrt.f:	 Form sqrt
+pix/pixrstat.f:	 Calculate array statistics of REAL array only
+pix/pixrsubs.f:	 Subsection and Sum array
+pix/pixrsubt.f:	 Subtract two REAL arrays together
+pix/pixrsum.f:	 Sums the elements of an array
+pix/pixrsym.f:	 Generates the symetric and antisymmetric parts of IN
+pix/pixrvali.f:	 Find number of valid points 
+pix/pixrvalu.f:	 This function returns the value of real ARRAY(I1, I2, I3, I4, I5, I6, I7)
+pix/pixrwchi.f:	 Find chisq.
+pix/pixrxexp.f:	 Comlex Pixel level Exponentiation:  OUT(i) = EXP(FACT * IN(i))
+pix/pixrzave.f:	 Determines the average of all non-zero pixels
+pix/pixsinc.f:	 Pixel level routine for making a SINC function
+pix/pixsinci.f:	 Perform mid-point sinc interpolation
+pix/pixsoflx.f:	 Determines the flux in N regions specified by X,Y; DX,DY
+pix/pixsopos.f:	 Determines the major regions of emission in ARR
+pix/pixsph.f:	 Expand into a sphere from the plane X-Y. The center of the sphere
+pix/pixvlapb.f:	 Make the VLA PB in a work array
+pix/pixvlbap.f:	 Make the VLBA power pattern in a work array
+pix/pixx2ap.f:	 Converts a 2D complex array into AMP and PHASE
+pix/pixx2pc.f:	 Converts a 2D complex array into AMP and CHI;  Z = AMP * EXP (i 2*CHI)
+pix/pixx2qu.f:	 Converts a 2D complex array into real arrays of the real and imaginary parts
+pix/pixxabs.f:	 Copy an array with increments
+pix/pixxadd.f:	 Add two COMPLEX arrays together
+pix/pixxamp2.f:	 Extracts AMPLITUDE Squared part of a complex image
+pix/pixxbxcr.f:	 Boxcar average an array (real pixel level)
+pix/pixxcopy.f:	 Copy an array with increments
+pix/pixxdiv.f:	 Divide two COMPLEX arrays together
+pix/pixxdscat.f:	    Recover x, y, data values from a 2D array
+pix/pixxeq.f:	 Return true if arrays are exactly equal
+pix/pixxexp.f:	 Comlex Pixel level Exponentiation:  OUT(i) = EXP(FACT * IN(i))
+pix/pixxindx.f:	     
+pix/pixxinse.f:	 Add array A into array B
+pix/pixxlc.f:	 Linear combination of two complex arrays
+pix/pixxlis2.f:	 List out arrays on MSGPUT  (Many argument version)
+pix/pixxmult.f:	 Multiply two COMPLEX arrays together
+pix/pixxpad.f:	 Place A inside B with left margin LSHIFT
+pix/pixxprin.f:	 Print an array
+pix/pixxrdcl.f:	 CLIPS the IMAGE to CLIP outside of MAXRAD, inside of MINRAD
+pix/pixxreal.f:	 Extracts real part of a complex image
+pix/pixxscal.f:	 Scale an array
+pix/pixxscpy.f:	 Copy an array conditionally on a weight
+pix/pixxsel.f:	 Select valid points
+pix/pixxsetc.f:	 Initialize an array
+pix/pixxsta2.f:	 Calculate array statistics of COMPLEX array only  (VECTOR avg)
+pix/pixxstat.f:	 Calculate array statistics of COMPLEX array only
+pix/pixxsubs.f:	 Subsection a COMPLEX array
+pix/pixxsubt.f:	 Subtract two COMPLEX arrays
+pix/pixxwchi.f:	 Find chisq.
+pix/pixxxlc.f:	 Linear combination of two complex arrays with complex weights
+plt/plt1dpts.f:	 Plot points using the coordinates of two arrays
+plt/plt1dpts.f:	 Audit trail:
+plt/pltdpts.f:	 Plot visibility points.
+plt/pltphrms.f:	 Outputs a LOG-LOG plot of the highest time RMS vs UVDISTANCE
+plt/pltuvpts.f:	 Plot visibility points.
+pvm/arrfftrh.f:	 HOST for PVM implementation of ARRFFTR
+pvm/flytovish.f:	 Parallel interface to FLYTOVISH
+pvm/imghgeomh.f:	 Parallel interface to IMGHGEOM
+pvm/vistoimgh.f:	 Parallel interface to VISTOIMG
+sim/simpe.f:	 Simulate antenna pointing errors
+sim/simuv.f:	 Make a u,v database for a simulated array ANT with obs. parms.
+trp/trpcat.f:	 Concatenate triple product data
+utl/utlg2l.f:	 Convert local coordinate system from geocentric system. IGNORE LONG
+utl/utlg2v.f:	 Convert geocentric system to VLB Mk II system
+utl/utlgint.f:	    Greatest integer function
+utl/utll2g.f:	 Convert local coordinate system to geocentric system. IGNORE LONG
+utl/utlmjd2d.f:	 Converts Modified Julian day number to date of form 90MAY17
+utl/utlquadf.f:	 Solves the quardatic formula
+utl/utlv2g.f:	 Convert Mk II VLBI coordinate system to geocentric system.
+vis/visantpo.f:	 Find antenna positions. This creates arrays to hold the antenna
+vis/visantpp.f:	 Find antenna positions by least-squares fit to the u,v coordinates
+vis/visatf.f:	 Fix Strange AIPS defintion of time i.e. subtract 5 days * (array#-1)
+vis/visatmop.f:	 Applies a model ATMOSPHERE to the visibilities
+vis/visatmos.f:	 Applies the ATMOSphere to the VIS
+vis/viscal.f:	 Calibrate data
+vis/viscalpi.f:	 Calibrate data
+vis/viscat.f:	 Concatenate visibility data
+vis/vischisq.f:	 Calculate Chi^2 wrt model
+vis/vischsqp.f:	 Calculate Chi^2 wrt model, pixel level
+vis/visclone.f:	 Clone visibility data
+vis/visconv2.f:	 Convert an array of stokes parameters in-place: only for I and V
+vis/visconvp.f:	 Convert an array of stokes parameters in-place
+vis/visconvs.f:	 Convert an array of stokes parameters in-place
+vis/viscorrp.f:	 Corrupt data, and store antenna gains. Returns global
+vis/viscorru.f:	 Corrupt Visibility data. 
+vis/visdegri.f:	 Degrid a visibility data set. The output dataset must exist before 
+vis/visdet.f:	 Detect signal in visibility data
+vis/visdetp.f:	 Find fit to data
+vis/visdft.f:	 Direct Fourier transform to Image from Vis. data
+vis/visdft3d.f:	 Pixel-level DFT routine VIS->IMG in 3D
+vis/visdfte2.f:	 Pixel-level DFT routine VIS->IMG in 2D, applies primary beam after
+vis/visdftp2.f:	 Pixel-level DFT routine VIS->IMG in 2D, applies primary beam after
+vis/visdftpb.f:	 Direct Fourier transform to Image from Vis. data after applying
+vis/visdftpe.f:	 Direct Fourier transform to Vis. data to image--pointing errors
+vis/visdfts2.f:	 Pixel-level DFT routine VIS->IMG in 2D, applies primary beam after
+vis/visdts.f:	     
+vis/visedit.f:	 Edit visibility data on the basis on discrepancy from model.
+vis/viseditp.f:	 Edit data on basis of local rms. Returns global
+vis/visedits.f:	 Fla data on the basis of visibility discrepancies. 
+vis/visflagv.f:	 Edit visibility data on the basis on distance from v axis
+vis/visfsel.f:	 Select visibility data according to a function FSEL which is called
+vis/visfselp.f:	 Select visibility data using a logical function FSEL. FSEL is 
+vis/visget.f:	 Get visibility data from a file. 
+vis/visgrid.f:	 Grid a visibility data set. The output image must exist before 
+vis/visgtint.f:	 Find the integration time in a visibility data base
+vis/visgtip.f:	 Get integration time from visibility database.  (pixel level)
+vis/vislisbp.f:	 List visibility data in baseline order
+vis/vislistb.f:	 List visibility data  in order of baseline
+vis/vislistp.f:	 List visibility data
+vis/vismosge.f:	 Get mosaic visibility data from a file. 
+vis/vismospu.f:	 Put mosaic visibility data to a file. 
+vis/vismxant.f:	 Find the min, max antenna number in a database.
+vis/visnant.f:	 Find the maximum antenna number in a visibility data base
+vis/visnorm.f:	 Return normalization factor between model and data
+vis/visnormp.f:	 Find normalization factor OBS/MODEL
+vis/visphrmp.f:	 Calculates the RMS and the deviation from straight line of PH
+vis/visphrms.f:	 Calculates RMS phase over various averaging times
+vis/vispoinp.f:	 Set data to point source
+vis/vispoint.f:	 Set visibility to point source
+vis/visput.f:	 Put visibility data to a file. 
+vis/visreorg.f:	 Reorganizes the visibilities from a sub-directory for each
+vis/visriplt.f:	 Plot real part vs imaginary part of visibilities 
+vis/visrvar.f:	 Find Reciprocal variances from dispersion of data
+vis/visrvarp.f:	 Return dispersion in the visibility
+vis/visscal.f:	 Self-Calibrate data. This creates arrays to hold the antenna
+vis/visscalp.f:	 Self-Calibrate data, and store antenna gains. Returns global
+vis/vissclon.f:	 Clone visibility data from one STOKES to another STOKES
+vis/vissd.f:	 Form single dish image
+vis/vissdp.f:	 Pixel-level DFT routine VIS->IMG in 2D, makes single dish image
+vis/visseawp.f:	 Change AUTOCORRELATION WT, pixel level routine
+vis/vissel.f:	 Select visibility data according to TIMERANG and UVLIMITS.
+vis/visselpi.f:	 Select visibility data.
+vis/vissetaw.f:	  Change AUTOCORRELATION WEIGHT in a visibility data set
+vis/visshifp.f:	 Shift visibility data.
+vis/visshift.f:	 Phase-rotate to acheive a shift in position
+vis/vissigma.f:	 Find visibility data sigma
+vis/vissigmp.f:	 Find sigma of data
+vis/vissta0p.f:	 Find min/max of various quantities in a visibility data set.  (pix level)
+vis/vissta1p.f:	 Find min/max of various quantities in a visibility data set.  (pix level)
+vis/visstat0.f:	 Find min/max of various quantities in a visibility data set.
+vis/visstat1.f:	 Find min/max of various quantities in a visibility data set.
+vis/visstd.f:	 Re-format a uv file just read from FITS file into a more sensible
+vis/vissub.f:	 Find valid subset of visibility data
+vis/vistapep.f:	 Shift visibility data.
+vis/vistaper.f:	 Taper visibility data
+vis/vistoimg.f:	 Transform a visibility data set. The output image must exist before 
+vis/vistotrp.f:	 Insert a visibility data set into a triple product data set. The
+vis/vistpl.f:	 Plot visibilities vs time
+vis/vistplp.f:	 Plot visibility data in baseline order
+vis/vistrp.f:	 Extract visibility data from triple product data i.e. use closure
+vis/vistrppi.f:	 Find estimates of visibility function from triple product data
+vis/visttrpp.f:	 Insert a visibility data set into a triple product data set.

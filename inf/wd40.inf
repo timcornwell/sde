@@ -1,0 +1,31 @@
+.
+Dirty , C, 1, Dirty  
+PSF, C, 1, Point spread function 
+Default , C, 1, Default [optional]
+Error, C, 1, Image of errors [optional]
+WD , C, 1, WD  [can already exist, optional]
+CWD , C, 1, Convolved WD plus residuals [optional]
+Niter, I, 1, Number of Iterations 
+Nconj, I, 1, Number of successive conjugate steps
+Tflux, R, 1, Required total flux [necessary]
+Sigma, R, 1, Required final fit per sample
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec]
+/Debug, L, 1, Debug? T or F
+Tolerance, R, 1, Tolerance for convergence
+TV, C, 1, Image to display on tv [WD|CWD|Lambda|]
+.
+Dirty = 
+PSF = 
+Default = 
+Error =
+WD = 
+CWD = 
+Niter = 100
+Nconj = 10
+Tflux = 1.0
+Sigma = 1.0
+Beam = 0., 0., 0., 0.
+/Debug = F
+Tolerance = 0.01
+TV =
+.

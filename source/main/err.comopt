@@ -1,0 +1,10 @@
+
+#
+# Routine-specific compiler options file
+#
+#
+case `hostname` in
+yucca | cholla | nrao1)
+   FFLAGS="-c -72 -db -ngr -fi "
+   ;;
+esac

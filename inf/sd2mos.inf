@@ -1,0 +1,34 @@
+program		sd2mos
+programmer	m.a. holdaway
+date		march 25 1993
+purpose		to make a mosaic database from a single dish image.
+		The mosaic database can subsequently be MOSCATed with
+		an existing mosaic database.
+
+
+
+.
+SDImage, C, 1, Input Single Dish Image [Jy/Beam please]
+Stokes, C, 1, One Stokes parameter to use
+MosOut, C, 1, Output Mosaic Database
+Telescop, C, 1, Telescope Name
+Teldiam, R, 1, Telescope diameter
+Antfile, C, 1, SD antenna file needed for KLUDGE reasons
+Freq, R, 1, Frequency [MHz; 0=look in header]
+Wt, R, 1, Wt of each single dish point
+BLC, I, 2, Bottom Left Corner of SD image [0=1]
+TRC, I, 2, Top Right Corner of SD image [0=NX]
+SKIP, I, 2, Take every SKIP pixel [0=1]
+.
+SDImage = 
+Stokes = I
+MosOut = 
+Telescop = 
+Teldiam = 0.0
+Antfile = 
+Freq = 0.0
+Wt = 1.0
+BLC = 0, 0
+TRC = 0, 0
+SKIP = 1, 1
+.

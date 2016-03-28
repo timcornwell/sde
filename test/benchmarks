@@ -1,0 +1,39 @@
+
+
+In the course of fiddling around with SDE over the past few months, I have
+accumulated some interesting benchmarks on some very small jobs. These
+are not to be taken too seriously but they do show some interesting
+trends. My code is quite vanilla and is fairly efficient. 
+
+		fftx	uvmap	vm
+
+C1 (veclib)	7.0	19.6	14.6		Standard veclib FFT
+   (scalar)	203.4				Fortran FFT (scalar)
+   (vector)	14.0				Fortran FFT (vector)
+C2		4.0	6.9	5.8
+Sun3		920.7	203.0	283.0
+Sun4		118.8	52.1	50.1
+Sparc1		55.0	24.5	25.3
+Compaq		186.0	---	---
+Cray2		1.1	3.6	3.1
+
+Notes:
+(1) fftx does 2000 1024 complex FFTS so that for example, on a C1 using the
+veclib FFT, a single 1024 complex-to-complex FFT takes about 3.5 ms.
+(2) uvmap grids 8832 points onto a 128 * 128 grid and Fourier transforms.
+(3) vm does 14 iterations on the output of uvmap.
+(4) In all cases the compilation was chosen to minimize execution CPU
+time. The Sparcstation implementation uses substitution of inline code
+for some operations. This is trivial to arrange with the Fortran compiler.
+(5) The Sun3 did not have an FPA.
+(6) Both the Compaq and the Sparcstation have a Weitek chip.
+(7) A Fortran-based FFT was used. This is the AIPS FFT with some small
+improvements.
+
+Some amusing conclusions:
+
+	- A sparcstation is very good value. It could do some interesting
+number-crunching.
+	- A scalar Convex C1 is slower than a Compaq 386/20!
+	- The Convex compiler is not as good as the Sun compiler.
+

@@ -1,0 +1,18 @@
+.
+Dirty , C, 1, Dirty  (must be specified)
+PSF, C, 1, Point spread function (must be specified)
+Box, C, 1, Region where flux is allowed
+TFlux, R, 1, Total Flux
+Lucy, C, 1, Lucy image
+Niter, I, 1, Number of Iterations
+/DEBUG, L, 1, Debug
+.
+Dirty = 
+PSF = 
+Box = 
+TFlux = 1.0
+Lucy = 
+Niter = 30
+/DEBUG = F
+.
+

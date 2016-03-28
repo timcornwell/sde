@@ -1,0 +1,1 @@
+/zia/u/sde/sdeini.csh

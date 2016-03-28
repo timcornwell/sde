@@ -1,0 +1,70 @@
+; WTRAN
+;---------------------------------------------------------------
+;! Transfer weights from single chan UV file to multi chan file
+;# Task UV SPECTRAL
+;  This software is the subject of a User agreement and is
+;  confidential in nature. It shall not be sold or otherwise
+;  made available or disclosed to third parties.
+;---------------------------------------------------------------
+WTRAN     LLLLLLLLLLLLUUUUUUUUUUUU CCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+WTRAN     Task which transfers UV weights
+INNAME                             Input UV file name (name)
+                                   Multichannel input
+INCLASS                            Input UV file name (class)
+INSEQ             0.0     9999.0   Input UV file name (seq. #)
+INDISK            0.0        9.0   Input UV file disk unit #
+IN2NAME                            Second UV file name (name)
+                                   Single channel input
+IN2CLASS                           Second UV file name (class)
+IN2SEQ            0.0     9999.0   Second UV file name (seq. #)
+IN2DISK           0.0        9.0   Second UV file disk unit #
+OUTNAME                            Output UV file name (name)
+OUTCLASS                           Output UV file name (class)
+OUTSEQ           -1.0     9999.0   Output UV file name (seq. #)
+OUTDISK           0.0        9.0   Output UV file disk unit #.
+----------------------------------------------------------------
+WTRAN
+Task:  This task will transfer the weights from a single channel
+       UV data file to a multi channel spectral line UV data file.
+       The files must correspond exactly, other than the frequency
+       axis and weights.
+Adverbs:
+  INNAME.....Input UV file name (name).      Standard defaults.
+  INCLASS....Input UV file name (class).     Standard defaults.
+  INSEQ......Input UV file name (seq. #).    0 => highest.
+  INDISK.....Disk drive # of input UV file.  0 => any.
+  IN2NAME....Single channel UV file name
+  IN2CLASS...Second file class
+  IN2SEQ.....Second file sequence number.
+  IN2DISK....Second file sequence number.
+  OUTNAME....Output UV file name (name).     Standard defaults.
+  OUTCLASS...Output UV file name (class).    Standard defaults.
+  OUTSEQ.....Output UV file name (seq. #).   0 => highest unique
+  OUTDISK....Disk drive # of output UV file. 0 => highest with
+             space for the file.
+----------------------------------------------------------------
+WTRAN transferrs weights between corresponding data sets
+DOCUMENTOR: D.S.Briggs (NRAO Socorro)
+
+                          PURPOSE
+
+WTRAN transfers the weights from a single channel UV data file
+to a multi channel spectral line UV data file.  The files must
+correspond exactly, other than the frequency axis and weights.
+The intended use is for situations where exotic reweighting
+programs can only handle single channel data.  This task can
+then be used to transfer the weights to actual full dataset.
+
+The data sets must line up in nearly all respects other than
+frequency.  The same number of visibilities must be present in
+both sets, so when copying a subsection with UVCOP, make sure to
+copy all visibilities including those flagged bad.  If the
+single channel dataset comes from SDE or the Dec-10, it may lack
+an IF axis in the header.  Use the task ADDIF to add a null IF
+axis.  SDE data will be stored as STOKES parameters rather than
+correlators.  Use SPLIT with DOCAL=0 to convert an AIPS dataset
+into the corresponding format.
+
+A visibility will be flagged good in the output set if it is
+flagged good in both input sets.  If not, the output weight will
+be the negative absolute value of the weight in the second set.

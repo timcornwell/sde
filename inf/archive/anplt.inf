@@ -1,0 +1,13 @@
+.
+Antfile, C, 1, Name of Antennas database
+X, C, 1, Name of x axis
+Y, C, 1, Name of y axis
+Skip, I, 1, Increment in points to plot
+Plotfile, C, 1, Plot file
+.
+Antfile =  
+X = LX
+Y = LY
+Skip = 1
+Plotfile = /tek
+.

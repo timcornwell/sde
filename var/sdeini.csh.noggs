@@ -1,0 +1,2 @@
+   setenv SDESCR /`hostname`/sde/scratch
+   source $SDEROOT/var/sdeini.csh.aoc

@@ -1,0 +1,23 @@
+.
+Vis, C, 1, Vis file
+Stokes, C, 1, Stokes to Plot [I|Q|U|V|RL|LR]
+Timerange, I, 8, Timerange (d,h,m,s)
+UVLimits, R, 2, UV Range in wavelengths
+DevAM, C, 1, Graphics device for amplitude
+DevPH, C, 1, Graphics device for phase
+DevRI, C, 1, Graphics device for Real vs Imaginary
+Ant1, I, 1, Antenna 1
+Ant2, I, 1, Antenna 2
+Style, I, 1, 0=line;other=character
+.
+Vis =
+Stokes = I
+Timerange = 0,0,0,0,0,0,0,0
+UVLimits = 0.0, 1E+10
+DevAM = /xw
+DevPH = /xw
+DevRI = /xw
+Ant1 = 1
+Ant2 = 2
+Style = 0
+.

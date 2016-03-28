@@ -1,0 +1,29 @@
+Program: IMGMAKE
+Programmer: D.S.Briggs
+.INFO
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes in arc-seconds
+Shift, R, 2, Shift in arc-seconds
+RA, R, 3, Right Ascension [HMS]
+Dec, R, 3, Declination [DMS]
+Freq, D, 1, Frequency [Mhz]
+Matype, C, 1, Map type
+Value, R, 1, Contstant pixel value
+Image, C, 1, Input image [optional]
+PGM, C, 1, PGM file containing pixels values
+Output, C, 1, Output image
+/Debug, L, 1, Debug? T or F
+.DEFAULTS
+Imsize = 128, 128, 1
+Cellsize = 8, 8, 0
+Shift = 0, 0
+RA = 0, 0, 0
+Dec = 30, 0, 0
+Freq = 1420
+Matype = R
+Value = 0
+Image =
+PGM =
+Output =
+/Debug = F
+.END

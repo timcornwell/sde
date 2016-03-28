@@ -1,0 +1,47 @@
+<HEAD>
+<TITLE> Interface to other packages</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html76 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html74 HREF=user.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html68 HREF=section3_3.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html78 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html77 HREF=section3_5.html> External tools</A>
+<B>Up:</B> <A NAME=tex2html75 HREF=user.html>User's Guide to SDE</A>
+<B> Previous:</B> <A NAME=tex2html69 HREF=section3_3.html> Quick Start</A>
+<HR> <P>
+<H1><A NAME=SECTION0004000000000000000> Interface to other packages</A></H1>
+<P>
+<i>SDE</i> tasks primarily use FITS files as both their storage and their
+interchange format.  The images written in this format can be read by
+nearly any image processing package that understands FITS.  The
+visibility databases are written in random groups FITS format, and
+should be readable by any package capable of doing sensible things
+with them.  Some nonstandard objects such as complex images must be
+stored in native <i>SDE</i> format, which merely dumps an entire subtree of
+the memory database to disk in an architecture dependent manner.
+Anything can be written as a <tt>.SDE</tt> file, but the only thing which
+can be done with these files is read them back into <i>SDE</i>.  Their
+advantage is slightly faster IO speed and guaranteed bitwise fidelity.
+FITS images are machine independent, portable to many packages, and
+can be examined directly by SAOimage, so FITS storage is preferable
+when possible.
+<P>
+Several other files types are supported in limited contexts.  PGM images
+serve as an entry point to a wide variety of image display and processing
+software, including <tt>xv</tt>.  Excel pixel lists are the format required
+by the general purpose fitting program, <tt>gaussfit</tt>, and is commonly
+supported by spreadsheets.  Some of the least used list based formats have
+simply been supported by short awk scripts found in the bin/unix area
+which convert to and from the standard <i>SDE</i> model format.
+<P>
+In the following table, the fixed extension can be used to force SDE
+to write a file of a given type when there is more than one possibility.
+The default is FITS format.
+<P>
+<P><P><IMG ALIGN=BOTTOM ALT="" SRC="_29697_tabular40.gif"><P>
+<P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:40:34 MST 1994</I>
+</ADDRESS>

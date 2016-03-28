@@ -1,0 +1,7 @@
+.INFO
+PSF, C, 1, PSF file
+/Debug, L, 1, Debug? T or F
+.DEFAULTS
+PSF = 
+/Debug = F
+.END

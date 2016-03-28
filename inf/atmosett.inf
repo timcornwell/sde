@@ -1,0 +1,14 @@
+Program to set the reference time of an ATMOS to the first visibility's
+time from a VisSet, or to some value the user choses.
+.
+VIS, C, 1, Input visfile [leave blank if YOU set T0]
+T0, R, 1, Reference time for ATMOS [leave blank for VIS]
+ATMOIN, C, 1, Input atmosphere image
+ATMOOUT, C, 1, Output atmosphere image
+.
+VIS = 
+T0 = 0.0
+ATMOIN = 
+ATMOOUT = 
+.
+

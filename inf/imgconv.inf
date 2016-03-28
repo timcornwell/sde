@@ -1,0 +1,11 @@
+.
+Image, C, 1, Input image
+PSF, C, 1, PSF
+Output, C, 1, Output image
+Fit, L, 1, Fit Image to PSF?
+.
+Image=
+PSF=
+Output= 
+Fit=T
+.

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Array design and simulations</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Array design and simulations">
+<meta name="keywords" value="user">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html192 HREF="node15.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html190 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html184 HREF="node13.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html194 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html193 HREF="node15.html"> Wide field imaging</A>
+<B>Up:</B> <A NAME=tex2html191 HREF="node10.html"> Special topics</A>
+<B> Previous:</B> <A NAME=tex2html185 HREF="node13.html"> Interactive Deconvolution and </A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00064000000000000000> Array design and simulations</A></H2>
+<P>
+There are tools in <i> SDE</i>  for designing and simulating interferometric
+arrays.
+<P>
+To design an array layout interactively use the task <tt> ant</tt>. This
+will reads and writes text files containing specifications of
+array locations. It allows plotting of antenna locations, <b>u,v</b> coverage,
+etc. The antenna file format is described in the file <tt> doc/sample.ant</tt>,
+or even <tt> src/fil/filgetan.f</tt>.
+<P>
+<PRE>6                                           ! Number of Antennas
+-33.8625                                    ! Site Latitude in degrees
+1.00    1.00                                ! Baseline and diameter scaling
+@+207.264       0.0           0.0   13.7    ! Antenna positions and Sizes
+@-597.408       0.0           0.0   13.7    !  @Beast,Bnorth,Belev,Diameter
+@-987.552       0.0           0.0   13.7    !  or Bx, By, Bz, Diameter
+@-1377.697      0.0           0.0   13.7    !
+@0.0            -207.264      0.0   13.7    ! Data is for Fleurs 6 Dish array
+@0.0            -597.408      0.0   13.7
+</PRE>
+<P>
+Bx, By, Bz or Beast, Bnorth, Belev are measured in meters if
+the Baseline scaling is 1.0.
+<P>
+For simulations of interferometric arrays, there are three programs:
+<tt> vissim</tt> for simple interferometry, <tt> oisim</tt> for simulations of
+optical interferometers (it writes triple product files as well as
+visibility files), and <tt> mossim</tt> for simulations of mosaicing
+arrays (it writes mosaic databases).
+<P>
+The model image for the simulations can be specified either as
+an image or via a textfile containing a model description. The format
+of the latter is contained in doc/sample.mod
+<P>
+<PRE>1.0,     0.0, 0.0, 0.0, 0.0, 0.0, 'POINT'
+1000.0, 10.0, 0.0, 1.0, 5.0, 100.0, 'DISK'
+1000.0,  0.0,10.0, 1.0, 5.0, 10.0, 'GAUS'
+1000.0,-10.0, 0.0, 1.0, 5.0, 1.0, 'RECT'
+</PRE>
+<P>
+The format of each line is:
+<tt> Flux, X Pos, Y Pos, Maj. Axis Size, Minor Axis size, Position angle, 
+Type</tt>
+<P>
+where the units are:
+<P>
+<tt> Flux</tt> - Integrated over all of component.
+<P>
+<tt> X,Y Pos</tt> - Relative to centre of image (0.0, 0.0). In Arcsecs.
+<P>
+<tt> Maj, Minor Axis</tt> - In Arcsecs.
+<P>
+<tt> Position angle</tt> - Degrees, North through East
+<P>
+<tt> Type</tt> - Point, Gaus, Disk, Rect, Shell, or Sphere
+<P>
+
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Fri Jan 19 13:47:44 MST 1996</I>
+</ADDRESS>
+</BODY>

@@ -1,0 +1,88 @@
+<HEAD>
+<TITLE> Philosophy</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html90 HREF=section3_3.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html88 HREF=section3_2.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html84 HREF=subsection3_2_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html92 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html91 HREF=section3_3.html> A simple example: </A>
+<B>Up:</B> <A NAME=tex2html89 HREF=section3_2.html> Introduction</A>
+<B> Previous:</B> <A NAME=tex2html85 HREF=subsection3_2_1.html> What is the </A>
+<HR> <P>
+<H2><A NAME=SECTION0002200000000000000> Philosophy</A></H2>
+<P>
+The principal motivation for writing the <i>SDE</i> was the observation that
+the bulk of the code in any image processing task is concerned with
+things which are extraneous to the actual algorithm. For example, the
+user interface, the file system, the history mechanism, the error
+checking mechanism all usually take many lines of code in most
+systems, while the actual algorithm can consist of a few lines of
+code. Hence, while the logical operations inside a task may be quite
+simple, it may be very difficult to discover them from the code or to
+augment them significantly. This makes both code maintenance and code
+development difficult and inordinately time-consuming. We decided to
+build a very modular system. Some of the advantages of modularity are
+obvious, others less so:
+<UL><LI> Code can be re-used where required. Ordinary subroutines are good
+examples.
+<LI> Information can be hidden from the programmer. With a nice, clean
+interface specification, something quite complicated can be made to
+look simple. 
+<LI> Modules can be changed internally without changing the external
+appearance. Hence maintenance and development is easier.
+<LI> Psychologically, it helps to break a complex problem into small
+parts, each of which can be attacked independently.
+<LI> Modules can be contributed by many different people provided that
+the interfaces are well-specified.
+<LI> Modules usually force the production of routines in which the
+action of a routine is not subtly dependent on the state of global
+variables which may be in an uncertain state.
+</UL>
+In practice, clean definition of modules requires a high-level description
+of the things to be operated on. Fortran cannot do this very well. For
+example, an image logically consists of a number of things: the actual
+pixel values, the dimensions, the units, the coordinates, the history, and
+so on. In a decent language these things can be assembled into a single
+structure, apointer to which can be passed around easily. In Fortran, the 
+lack of structures and pointers leads one into the temptation of letting the
+innards of a thing like an image be spread all around: in a variable here,
+a <tt>COMMON</tt> block there. The applications programmer then has to
+handle all this stuff explicitly. Use of c would solve some of these
+problems but would introduce others because of it's unsuitability for 
+numerical work. Another solution would be to use a higher
+level language like ADA, but in reality most machines do not have
+good compilers for the modern languages. In <i>SDE</i> this dilemma is resolved by
+developing a mechanism for handling structures in Fortran. We designed
+and coded a hierarchical database system, written in c, which allows the use
+of structures. With a few conventions for coding, it allows one to
+call subroutines which look like:
+<PRE><TT>
+      CALL VISGRID('Vis', 'OBS/I', 'GriddedVis', .TRUE.)</TT></PRE>
+for the gridding of visibility data (Observed Stokes I), or
+<PRE><TT>
+      CALL IMGCCLEA ('Dirty', 'PSF', 'XFR', 'CCLEAN', 
+     1   'Resid', 'Vis')</TT></PRE>
+to perform a Barry Clark clean of a dirty image.
+<P>
+Other important design choices were:
+<UL><LI> We decided to concentrate on applications software, and to
+rely upon the host-operating system for file handling, tape access, etc.
+We simply did not have the resources to re-design all that stuff.
+SDE can easily be made to run on most UNIX machines.
+<LI> We decided that array processors were a thing of the past. We
+would concentrate on writing vectorizable code on machines like the
+Convex C-1.
+<LI> We decided to use a simple user-interface initially. We hope to
+change this one day, but again this was low on our list of priorities.
+</UL>
+<P>
+<HR> <A NAME=tex2html90 HREF=section3_3.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html88 HREF=section3_2.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html84 HREF=subsection3_2_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html92 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html91 HREF=section3_3.html> A simple example: </A>
+<B>Up:</B> <A NAME=tex2html89 HREF=section3_2.html> Introduction</A>
+<B> Previous:</B> <A NAME=tex2html85 HREF=subsection3_2_1.html> What is the </A>
+<HR> <P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:45:41 MST 1994</I>
+</ADDRESS>

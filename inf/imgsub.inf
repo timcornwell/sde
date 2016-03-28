@@ -1,0 +1,32 @@
+Program: imgsub - Subsection an Image
+Programmer: T. Cornwell
+Details: imgsub will extract a subimage from an image. It can also
+sum over a number of pixels before extracting the subimage (Sum option).
+eg. to extract a 128x128 pixel image from a 256x256 one by sub-sampling
+    use STEP = 2, 2; SUM = 1, 1
+    BUT to extract a 128x128 pixel image from a 256x256 one by summing the 
+        4 adjacent pixels
+    use STEP = 2, 2; SUM = 2, 2
+eg. To sum along the rows of a 128x128 image to produce a 1x128 image
+     use STEP = 128, 1; SUM = 128, 1; BLC = 1, 1; TRC = 128, 128
+
+I do not know what happens if silly values of STEP & SUM are used 
+ie. program may not be bullet-proof. Setting SUM=1,1,1,1,1,1,1
+Turns off the sum option
+.
+In, C, 1, Name of input image
+Out, C, 1, Name of output image
+BLC, I, 7, Bottom left corner
+TRC, I, 7, Top right corner
+STEP, I, 7, Pixel Increment
+SUM, I, 7, How many adjacent pixels to sum over
+Shrink, L, 1, Shrink output to minimum support?
+.
+In =
+Out =
+BLC = 1,1,1,1,1,1,1
+TRC = 1,1,1,1,1,1,1
+STEP = 1,1,1,1,1,1,1
+SUM = 1,1,1,1,1,1,1
+Shrink = F
+.

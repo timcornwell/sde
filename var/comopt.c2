@@ -1,0 +1,17 @@
+DEFINES="-DCOMP_CONVEX -DMACH_C2 -DOS_BSD"
+CPPFLAGS=$DEFINES" -I$SDEROOT/source/include"
+FFLAGS="-c -72 -O2 "
+CFLAGS=$DEFINES" -I$SDEROOT/source/include -c "
+LDFLAGS=" "
+TLIB="$SDELIB/slib.a /usr/lib/libveclib.a /usr/lib/libpgplotieee.a -lF77 -lC1"
+FC=/usr/convex/fc
+CC=cc
+CPP=/lib/cpp
+LD=/usr/convex/fc
+RL=ranlib
+if test X$SDEDEBUG = "XYES"
+then
+   FFLAGS="-c -72 -db "
+   CFLAGS=$DEFINES" -I$SDEROOT/source/include -c -g "
+   LDFLAGS="-db "
+fi

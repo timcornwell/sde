@@ -1,0 +1,61 @@
+Program: ipcssim - Make simulated ipcs data
+Programmer: R.G. Marson
+Date: 1 Aug 1991
+Last Revised: 9th June 1993
+Purpose:  Generate simulated IPCS data as collected by the MAPPIT 
+interferometer  so we can try our algorithms. 
+
+Details: 
+Frames    - Number of Frames to generate. Typical MAPPIT observations
+            have about 60,000 frames.
+Photons   - Average number of photons in each frame. Typically this is about 
+            100 photons/frame for good data
+Dark      - Dark current or background count rate if the detector not exposed.
+            A negative value turns this off. I do not have a good feel for this
+            yet but think it is less than 5 photons/frame for MAPPIT data.
+Tzero     - Tau_0 is the Fried parameter describing at how long it takes
+            for the varience in the phase at one hole to be 1 radian
+FrFile    - Name of the SDE file containing the model fringes
+IPCSfile  - Name of the output file for the simulated data. This is a
+            groups format FITS file (or an SDE file)
+TrackFile - Name of the output file describing what delays wher actually
+            used above each hole at each time step.
+Notify    - A message is printed after this many frames of data have been 
+            generated
+Seed      - Random number seed which can be any integer
+/Rzero    - R_0 is the spatial Fried Parameter (Not currently used)
+/Ftime    - The time bettwen frames Normally 6ms for MAPPIT data
+/Expansion -  As it is impossible to predict how big the output file will be
+            before it is generated an estimate is made and multiplied by
+            this factor. Tweak this factor if the estimates are too 
+            big or small and giving trouble.
+/Debug    - Standard SDE debugging flag
+.INFO
+Frames, I, 1, Number of frames
+Photons, R, 1, Average Number of photons
+Dark, R, 1, Dark current
+Tzero, R, 1, Tau_Zero (Fried Parameter)
+Rzero, R, 1, R_Zero (Fried Parameter)
+IPCSfile, C, 1, Output IPCS data
+Frfile, C, 1, Input Fringe Model
+Trackfile, C, 1, The Real Track
+Notify, I, 1, Print message aft NOTIFY frames
+/Ftime, R, 1, Time between each Frame (secs)
+Seed, I, 1, Random number seed (integer)
+/Debug, L, 1, Debug T or F (must be set each time)
+/Expansion, R, 1, Factor to multiply estimated output array by.
+.DEFAULT
+Frames = 1
+Photons = 100.0
+Dark = -1.0
+Tzero = 0.010
+Rzero = 0.010
+IPCSfile = T0/ipcs.fit
+Frfile = T0/fringe.SDE
+Trackfile = T0/track.SDE
+Notify = 1000
+/Ftime = 6E-3
+Seed = 1
+/Debug = F
+/Expansion = 2.0
+.END

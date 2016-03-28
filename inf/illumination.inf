@@ -1,0 +1,19 @@
+program		illumination
+programmer	m.a. holdaway
+date		aug 3 1995
+purpose		Given a template image, we will make an illumination
+		pattern of the form (1-PED) * (1-R^2)^POWER + PED
+
+.
+Image, C, 1, Input image
+Output, C, 1, Output image
+Power, R, 1, Power in (1-R^2)^POWER
+Pedastal, R, 1, Pedastal level
+Diameter, R, 1, Dish Diameter
+.
+Image = 
+Output = 
+Power = 2.0
+Pedastal = 0.28
+Diameter = 8.0
+.

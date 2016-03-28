@@ -1,0 +1,17 @@
+program:	bonnfix
+programmer:	m.a.holdaway
+date:		May 31 1995
+purpose:	To correct BONN survey image headers.
+		They need to have FREQ axes, not LAMBDA axes.
+		Also, they need to have the BEAMS in the header.
+.
+In, C, 1, Input Image
+Out, C, 1, Output Image
+Beam, R, 4, Beam parameters in arcseconds
+Units, C, 1, Units of Bonn Image
+.
+In = 
+Out = 
+Beam = 564, 564, 0, 0
+Units = mK
+.

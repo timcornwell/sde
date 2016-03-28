@@ -1,0 +1,791 @@
+\documentstyle[11pt,twoside]{article}
+\pagestyle{headings}
+\setlength{\evensidemargin}{.25in}
+\setlength{\oddsidemargin}{0.cm}
+\setlength{\textwidth}{15.8cm}
+\setlength{\topmargin}{0.cm}
+\setlength{\textheight}{20cm}
+%
+\begin{document}
+\newcommand{\sde}{{\sf SDE}}
+\newcommand{\aips}{${\cal AIPS}$}
+\def\caret{\char`\^}
+\title{User's Guide to \sde}
+\author{T.J.~Cornwell
+        \and D.S.~Briggs}
+\maketitle
+\tableofcontents
+\cleardoublepage
+\section{Introduction}
+
+The Software Development Environment (\sde) is an attempt to provide a
+simple, friendly environment for the {\em development} of imaging algorithms.
+It has many strange and wonderful algorithms not found in other packages.
+The useful ones are supposed to migrate to more common packages, but it
+doesn't always work that way.
+
+\sde\ is characterized by relatively close ties to the unix family of
+operating systems and by the assumption that virtual memory is plentiful.
+Rather than reinvent the operating system and insulate the programmer
+from the vagaries of many divergent platforms, \sde\ sacrifices some
+portability in the name of simplicity and relies as much as possible
+on native tools and OS support.  The assumption of plentiful physical and
+virtual memory leads to the common practice of loading all image and
+visibility data completely into memory for the duration of their use.
+This greatly reduces the burden of memory management on the programmer
+and has the side effect of allowing algorithms to proceed at maximum
+speed in the common case where all data can fit within physical memory.
+The tradeoff is that there will be some problems that will not fit
+into virtual memory which might be handled by a sequential disk based
+philosophy.  Fortunately this is rarely a problem.
+
+\newpage
+\section{Quick Start}
+
+\begin{itemize}
+\item Find out where the home directory of sde  is. For the AOC 
+workstations it is /zia/u/sde. Depending upon
+your shell, either export or setenv the environment variable SDEROOT
+to this e.g.
+
+{\tt export SDEROOT=/zia/u/sde}
+
+and then do:
+
+{\tt source \$SDEROOT/sdeini.csh} for the c shell
+
+{\tt . \$SDEROOT/sdeini} for the Bourne or Korn shell
+
+\item \sde\ programs are run from unix command 
+level. Each program looks after its own inputs, and saves them from
+run to run in any directory. To run a program just type the name at
+the UNIX prompt: e.g.
+
+{\tt uvmap}
+
+The program will then start up and ask you for inputs. After setting the
+inputs you type {\tt go}, and the program will run.
+You can then run it in the background and free up your terminal. To
+do this type \caret Z and then {\tt bg} to run it in the background. {\tt fg} will
+retrieve it and run it in the foreground. For an emergency stop, or
+to stop clean after a satisfactory number of clean iterations, type
+\caret C while the program is in the foreground. The unix command {\tt jobs}
+will list your current processes, and {\tt ps v} will tell you how much time
+is being using.
+\item To get a list of available tasks, do {\tt sdetasks}.
+\item \sde\ tasks communicate with each other and with other packages
+via disk files, either FITS or internal SDE formats.
+\end{itemize}
+
+A typical run would be:
+
+\begin{verbatim}
+noggs{sde}$ vm
+vm I:
+vm I: I perform maximum entropy deconvolution
+vm I:
+vm I: SDE Version 1.0
+vm I: Compiled : Thu Nov  8 02:55:50 MST 1992
+vm I:
+vm I: *?
+vm I:  Commands available :
+vm I:    <parameter> [= value(s)]   : see or set
+vm I:    get  <file>   : get parameters
+vm I:    save <file>   : save parameters
+vm I:    inputs        : list parameters
+vm I:    edit          : edit parameters
+vm I:    ?             : display this message
+vm I:    help          : display help file
+vm I:    go <cmd>      : run program
+vm I:    rgo <node>    : run program remotely
+vm I:    batch         : run program in batch
+vm I:    ! <command>   : shell command
+vm I:  Values fields may include:
+vm I:    $<parm>       : value of parameter
+vm I:    ${<parm>}     : value of parameter
+vm I:    \$<parm>      : deferred value of parameter
+vm I:    ^<old>^<new>  : substitute substring
+vm I:    ^             : repeat last substitution
+vm I:    <val>,,<val>  : don't set omitted values
+vm I:    <val>,<val>,  : continue onto next line
+vm I: *inp
+vm I: Dirty : Dirty = D0/3C10NEWMAP.FTS
+vm I: Point spread function : PSF = D0/3C10NEWBEAM.FTS
+vm I: Default [optional] : Default =
+vm I: VM  [can already exist, optional] : VM =
+vm I: Convolved VM plus residuals [optional] : CVM = D0/3C10NEWCVM.FTS
+vm I: Bottom left corner of window [optional] : BLC = 33, 33, 1, 1,
+vm I:  1, 1, 1
+vm I: Top right corner of window [optional] : TRC = 96, 96, 1, 1, 1,
+vm I:  1, 1
+vm I: Number of Iterations (<0 for automatic stopping) : Niter = -30
+vm I: Required total flux (less than zero for a guess) : Tflux = -60.0000
+vm I: Required final fit in Jy/Beam : Sigma = 1.00000E-02
+vm I: Form to optimize, Entropy or L1 norm [H|L1] : Entropy = H
+vm I: Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec] : Beam = 45.0000,
+vm I:  45.0000, 0., 0.
+vm I: Are the residual independent in the image plane? : ImagePlane = F
+vm I: Image to display on tv [VM|CVM|Step|Residual|None] : TV = VM
+vm I: *TV =
+vm I: *vm=D0/3C10NEWVM.FTS
+vm I: *go
+vm I: Maximising entropy -I*logI
+vm I: Opening FITS file D0/3C10NEWMAP.FTS for READ as InitialDirty
+vm I: Opening FITS file D0/3C10NEWBEAM.FTS for READ as PSF
+vm I: Using flat default
+vm I: Iteration          Entropy        Flux        Fit     Gradient
+vm I:      1                8.323     59.245     18.563      0.541
+vm I:      2                8.318     59.588     18.586      0.000
+vm I:      3                8.306     59.541     16.828      0.001
+vm I:      4                8.272     59.822     14.305      0.002
+vm I:      5                8.208     60.398     11.167      0.005
+vm I:      6                8.128     60.719      8.079      0.008
+vm I:      7                8.054     60.169      5.648      0.012
+vm I:      8                7.994     58.742      3.969      0.018
+vm I:      9                7.947     56.784      2.867      0.031
+vm I:     10                7.892     53.989      1.968      0.059
+vm I:     11                7.841     50.449      1.418      0.063
+vm I:     12                7.793     48.220      1.037      0.072
+vm I:     13                7.804     47.825      1.163      0.060
+vm I:     14                7.789     47.749      1.006      0.024
+vm I: Opening FITS file D0/3C10NEWVM.FTS for WRITE as VM
+vm I: Writing 2-dimensional image VM
+vm I: Opening FITS file D0/3C10NEWCVM.FTS for WRITE as CVM
+vm I: Writing 2-dimensional image CVM
+vm I:
+vm I: Started  : Sat Nov 10 10:40:39 1992
+vm I: Finished : Sat Nov 10 10:42:03 1992
+vm I: User:    28.06 System:     1.85
+vm I: Run on noggs
+noggs{sde}$ 
+\end{verbatim}
+
+\newpage
+\section{Interface to other packages}
+
+\sde\ tasks primarily use FITS files as both their storage and their
+interchange format.  The images written in this format can be read by
+nearly any image processing package that understands FITS.  The
+visibility databases are written in random groups FITS format, and
+should be readable by any package capable of doing sensible things
+with them.  Some nonstandard objects such as complex images must be
+stored in native \sde\ format, which merely dumps an entire subtree of
+the memory database to disk in an architecture dependent manner.
+Anything can be written as a {\tt .SDE} file, but the only thing which
+can be done with these files is read them back into \sde.  Their
+advantage is slightly faster IO speed and guaranteed bitwise fidelity.
+FITS images are machine independent, portable to many packages, and
+can be examined directly by SAOimage, so FITS storage is preferable
+when possible.
+
+Several other files types are supported in limited contexts.  PGM images
+serve as an entry point to a wide variety of image display and processing
+software, including {\tt xv}.  Excel pixel lists are the format required
+by the general purpose fitting program, {\tt gaussfit}, and is commonly
+supported by spreadsheets.  Some of the least used list based formats have
+simply been supported by short awk scripts found in the bin/unix area
+which convert to and from the standard \sde\ model format.
+
+In the following table, the fixed extension can be used to force SDE
+to write a file of a given type when there is more than one possibility.
+The default is FITS format.
+
+\medskip
+\begin{tabular}{lcccl}
+Format&Extension&\multicolumn{2}{c}{Read/Write}&Task/comments\\
+SDE & \tt SDE & \tt READ & \tt WRITE & Everything \\
+FITS (image) & \tt FTS & \tt READ & \tt WRITE & Nearly everything \\
+FITS (visibility) & \tt FTS & \tt READ & \tt WRITE & Nearly everything \\
+PGM image & \tt PGM & \tt READ & \tt WRITE & Read with {\tt imgmake} \\
+&&&& Write with nearly anything \\
+Excel pixel lists & \tt EXL & \tt READ & \tt WRITE & {\tt img2list}, {\tt gfit}\\
+SAOimage color file & & \tt READ & & \tt imgplot \\
+SAOimage cursor files & & \tt READ & & {\tt mask}, {\tt imgstat}, most deconvolvers \\
+\aips\ CC files & & \tt READ & \tt WRITE & {\tt img2list}.  Read into \aips\ with {\tt TBIN}\\
+&&&& Convert {\tt TBOUT} format with {\tt acc2sm.awk}\\
+\aips\ {\tt IMFIT} & & \tt READ & & Convert with {\tt im2sm.awk}\\
+Caltech VLBI models & & \tt READ & \tt WRITE & Convert with {\tt cm2sm.awk} \& {\tt sm2cm.awk}
+\end{tabular}
+
+\newpage
+\section{External tools}
+
+\subsection{Command files and Batch processing}
+
+Since there is no command processor in \sde\, you will have to use
+one of the shells. Here is a typical script for the Bourne/Korn shell.
+It runs the program si many times, substituting various values of the
+parameters {\tt Phase} and {\tt Photons}. The output file names are
+constructed with these values encoded.
+
+\begin{verbatim}
+#!/bin/sh 
+#
+export SDELOG=blucloop.log
+for phase in 0 30 60 120
+do
+for nph in 1E5 1E4 1E3
+do
+si << EOF
+ Image = C6/PSUN.PMOD
+ Model =
+ Cellsize = 7.00000E-03, 7.00000E-03, 7.00000E-03
+ Imsize = 512, 512, 1
+ Phase = ${phase}
+ Photons = ${nph}
+ Background = 2000.0
+ Dirty = C6/BPH${nph}P${phase}.DRT
+ PSF = C6/BPH${nph}P${phase}.PSF
+ Beam = 1.50000E-02, 1.50000E-02, 0., 0.
+ Mind = 1.00000E-03
+ Antloc = 0., 0.300000, 1.20000, 1.80000
+ D = 0.200000
+ Tint = 1.00000
+ Theta = 177.00000
+ Thint = 3.00000
+ DFT = T
+ inp
+ go
+EOF
+done
+done
+\end{verbatim}
+
+Put this into a file and change the protection to execute i.e.
+
+{\tt chmod +x filename}
+
+Or run it in a batch system e.g.
+
+{\tt at 2am filename}
+
+When stringing multiple tasks together in a single command file, the
+following awkward but effective syntax allows one to extract values from
+one task to be used as input to another.  This example puts the rms
+and dispersion measured from an image into shell variable for later use.
+
+\begin{verbatim}
+#!/bin/ksh 
+#
+eval $(\
+imgstat << EOF | \
+  awk  'BEGIN {rms=-1; disp=-1}
+        /Rms/ {rms = $5 + 0}
+        /Dispers/ {disp = $5 + 0}
+        END {print "rms="rms  ";  disp="disp}'
+Image = IMG
+Box = OFF-SOURCE.MASK
+BLC = 0, 0, 0, 0, 0, 0, 0
+TRC = 0, 0, 0, 0, 0, 0, 0
+AvgType = AMPSCALAR
+go
+EOF
+)
+echo "RMS is $rms  Dispersion is $disp"
+\end{verbatim}
+
+\noindent
+More complicated scripts are to be found in the bin/unix area.
+
+\subsection{SAOimage, Cursors and Image Display}
+
+Greyscale image display tools within \sde\ are fairly primitive.  For
+interactive examination of FITS images in a workstation environment,
+SAOimage is the tool of choice.  Since SAOimage was designed to work
+with IRAF, FITS files are not the default, and it must be invoked with
+the {\tt -fits} command line option like
+
+{\tt saoimage -fits IMG.35A}
+
+A critical function filled by SAOimage is the specification of cursors.
+Many SDE imaging tasks can take an arbitrary image as a window
+specification.  The usual convention is that flux is allowed where ever the
+window image is greater than zero.  These window images (also called masks
+or boxes by various tasks) can be produced by manipulating existing images
+or they can be specified interactively with SAOimage.
+
+Within SAOimage there are a host of ways that regions can be specified.
+First read in an image of the sky containing the region desired.  Typically
+this is an unwindowed deconvolved image or flux model.  Cursors are
+specified in a fairly intuitive way via the mouse and buttons under the
+{\sf Cursor} menu.  Once a cursor is satisfactory, type 's' in the SAOimage
+window to save the current cursor to an internal list.  The saved list is
+written to a file via the {\sf write} button in the {\sf region} submenu,
+and produces a file something like this:
+
+\begin{verbatim}
+# IMG.35A
+# Thu Jul 14 08:03:18 1994
+# shape x, y, [x dimension, y dimension], [angle]
+ ELLIPSE(127.69,128.08,8.69,3.62,19.983)
+ POINT(126.50,142.25)
+ POINT(113.50,117.25)
+ POLYGON(116.50,134.00,124.25,136.00,119.50,139.50,18.50,14.25,108.75,139.50)
+\end{verbatim}
+
+With some restrictions, this file can be read directly by any \sde\
+task which expects a window image.  The caveat is that these files do
+not have an embedded coordinate system.  They make sense only relative
+to some reference image.  \sde\ will attempt to read the image in the
+first line to find the coordinate system.  So long as this image is
+available, all is well.  Problems can emerge if the cursor files are
+copied across directories.  A simple fix here is to edit the reference
+image specification in the cursor file to include a fully qualified
+directory.  Alternatively, if the reference image is to be modified or
+deleted, one can use the task {\tt mask} and mode {\tt SAO} to produce
+a FITS image of the cursor file.  This is independent of the
+reference, and if the {\tt MShrink} option is used, need not be
+particularly large.  The disadvantage is that window images, as
+opposed to the cursor files from SAOimage, must have the same cell
+size as the image on which they will be used.
+
+It is worth emphasizing again that the \sde\ window philosophy is that
+positions on the sky are selected.  Provided that all the coordinate systems
+necessary can be found, different image geometries between mask, reference
+and target will be handled properly.
+
+We currently run a locally modified version of SAOimage that has
+several bug fixes and minor enhancements over the original.  The
+sophisticated SAOimage user should read the files in
+tools/saoimage.l2/doc and also tools/saoimage.l2/README.local to
+become aware of several additional subtleties and workarounds.
+
+For working hardcopy output, SAOimage can print directly.  For
+publication quality output, the task {\tt imgplot} may be used.  {\tt
+imgplot} can read the color files produced by SAOimage, and can
+emulate most of its scaling functions.  Thus the greyscale transfer
+function can be adjusted interactively with the cursor within
+SAOimage, written to a color file, and used to produce high quality
+final hardcopy faithful to what is displayed on the screen.
+
+Alternatively, the images may be read into \aips\ or some other package
+for final display.  In \aips, use IMLOD with INFILE set to
+e.g. 'T:BF7.ICLN' where T is the environment variable used for your
+directory.
+
+\subsection{\tt gaussfit \& gfit}
+
+{\tt gaussfit} is an extremely flexible but rather temperamental general
+purpose fitting program written by William Jefferys et al.\ at the
+University of Texas.  \sde\ provides a task, {\tt gfit}, which is intended
+to insulate the user somewhat from the vagaries and complexities of {\tt
+gaussfit}.  It provides a number of prewritten {\tt gaussfit} models which
+are a direct translation of the standard \sde\ variety, reads and writes
+{\tt gaussfit} parameter files, runs the fitting program in a subshell and
+provides translation functions to interpret the results in the \sde\
+environment.  In spite of the intentions, you will need to understand the
+basics of {\tt gaussfit} to use {\tt gfit} effectively.  See the manual in
+tools/gaussfit/man.  A particularly nice feature of {\tt gfit} is the
+ability to specify initial guesses to the program via SAOimage cursor
+files.
+
+\subsection{\tt calc}
+
+None of the standard unix shells include floating point variables or
+functions.  Many of the more sophisticated shellscripts require this,
+so the solution is to use a calculator program that evaluates its
+arguments and prints the results.  \sde\ has adopted the program {\tt calc},
+written by David Bell.  Typical examples are
+
+\smallskip
+{\tt result=\$(calc "r(\$a+1.5,5)")}
+
+\smallskip
+{\tt label=\$(calc "s(pi(),3)")}
+
+\smallskip\noindent
+The first example sets the shell variable {\tt result} to the value of {\tt
+a} plus 1.5, rounded to 5 places.  The second sets {\tt label} to $\pi$,
+rounded to 3 significant figures.  {\tt result}, {\tt a}, and {\tt label}
+are all character strings as far as the shell is concerned.  The functions
+{\tt r()} and {\tt s()} are defined within a small local library file,
+and scripts which use them must include the line
+
+{\tt export CALCRC=\$SDEROOT/bin/unix/calc.lib}
+
+\noindent
+before the invocation of {\tt calc} which uses the function.
+
+\smallskip
+{\tt calc} is considerably more powerful than the typical use within SDE
+would indicate.  It is well worth investigating as a portable arbitrary
+precision calculation tool.
+
+\newpage
+\section{Special topics}
+
+\subsection{Exotic Weightings}
+Most of the deconvolvers found in \sde\ operate in the image plane.  These
+tasks all take the dirty map and dirty beam as input.  Consequently most of
+the exotic weighting strategies are found in the task which creates the
+dirty beam and map, {\tt uvmap}.  These are not yet found in the integrated
+mapping/selfcal task, {\tt dragon} or the visibility based maximum entropy
+task, {\tt viswd40}.
+
+The field of view parameter, {\tt FOV}, controls the fraction of the map
+over which sidelobes of the dirty beam are to be minimized.  {\tt FOV=1.0}
+corresponds to the usual uniform weighting.  {\tt FOV=0.333} will optimize
+over the inner ninth of the map by area, and is similar to {\tt UVBOX=1}
+within \aips.  This is often called superuniform weighting, and usually
+results in a somewhat smaller main beam and uglier sidelobes.  In general,
+{\tt FOV=1/(2n+1)} is similar to {\tt UVBOX=n}.
+
+Robust weighting is selected by setting the option {\tt RMode} to {\tt
+NORM}, and the position along the Resolution-SNR tradeoff curve is
+controlled by the value of the parameter, {\tt Robust}.  In these units,
+{\tt Robust=0.0} will likely end up near the knee of the tradeoff curve,
+with a value of {\tt Robust=2.0} being nearly indistinguishable from
+natural weighting.  {\tt Robust=-2.0} will be very close to whatever
+weighting is selected by {\tt FOV}.  The software which produces the
+tradeoff curves is currently a cranky shellscript and not suitable for
+public use.  Consequently, one must simply try a few values of {\tt Robust}
+to find one suitable for your project.  Set the value of {\tt FitPSF} to
+{\tt True}, set {\tt Dirty} and {\tt PSF} to null values, and everything
+else as you wish.  No output files will be written, and {\tt uvmap} will
+produce a report including something like the following:
+
+\begin{verbatim}
+uvmap I: Weighting for fraction of field of view =   1.00
+uvmap I: Weights:  min, max, avg, sum, disp
+uvmap I:    22.9632  160.7424  132.5284 14378134.00   18.0210
+uvmap I: Normalized robust parameter =  -2.0000
+uvmap I: Adjusted weights:  min, max, avg, sum, disp
+uvmap I:     0.0000    0.0407    0.0016      175.43    0.0026
+uvmap I: Weighting completed: User: 10.950 System: 1.880
+uvmap I: Expected RMS thermal noise is Delta S (unit wt) times  5.193E-04
+uvmap I: Thermal RMS degraded by factor of   1.969 from best case
+uvmap I: Sum of weights =    1.754299E+02
+uvmap I: Old Style AIPS/SDE Beam Fit:
+uvmap I: Fit Beam (FWHM in sec) =      0.20681     0.18499   68.8
+uvmap I: Linear Beam Fit:
+uvmap I: Fit Beam (FWHM in sec) =      0.20681     0.17880   68.8
+uvmap I: Non-Linear Beam Fit:
+uvmap I: Fit Beam (FWHM in sec) =      0.20833     0.18004   69.7
+uvmap I: Made PSF: User: 42.370 System: 2.900
+\end{verbatim}
+
+{\tt uvmap} reports the expected thermal RMS noise in the dirty map in
+normalized units such that natural weighting is 1.0.  Other weightings will
+typically produce a value one to several times greater than this.  In this
+case it is 1.969 times worse than natural weighting.  The other information
+of interest is the fitted beam size, which is given as the major and minor
+axis in arcsecond and the position angle in degrees from North through
+East.  There are three fits given, each with a different criteria for the
+fit.  The linear beam fit is what is used in \aips\ and the non-linear fit
+will be slightly more accurate for projects needing precise photometry.
+Take your pick, they're rarely very different.  For the moment, one merely
+adjusts the value of {\tt Robust} until a reasonable tradeoff between
+resolution and SNR is found.
+
+Gridless weighting is selected by setting the logical option {\tt
+GridWeights} to {\tt False}.  This options calculates the true local weight
+density by directly examining the distance between every pair of points in
+the database.  This avoids certainly kinds of gridding errors where some
+points are weighted anomalously high.  The routine is slower than the
+normal weighting routine, but it is clever enough about caching
+intermediate results that it is not unusably slow.  This is mostly useful
+for super-uniformly weighted data sets, or those with very short
+integration times.  If more than a small amount of robustness is used,
+gridless weighting is probably not needed.  When mapping out the robustness
+tradeoff curve as above, one can save the results of the weight density
+calculation from one run of {\tt uvmap} to be used in the next.  If {\tt
+SaveWeights} is non-null, the weight density will be written to that file.
+If {\tt ReadWeights} is non-null, the weight density will be read from the
+file.  Be careful when using {\tt ReadWeights}.  If anything that affects
+the gridding geometry has changed, (nearly any parameter besides the
+robustness), the weights will not be correct.
+
+\subsection{NNLS}
+
+A fairly promising deconvolution algorithm has been implemented, based on
+Non Negative Least Squares matrix inversion.  The task {\tt svdconv}
+performs several algebraic deconvolution algorithms, NNLS among them.  The
+algorithm is a quite straightforward application of a rather complicated
+preexisting constrained linear algebra algorithm.  The task forms the
+matrix connecting an arbitrary region in the dirty map with another
+arbitrary region in the component plane, and solves the resulting algebraic
+equations with the NNLS algorithm from Lawson \& Hanson.  NNLS deconvolution
+is somewhat slower than existing algorithms for compact sources, and very
+much slower for extended objects.  The advantage is very high precision
+deconvolution, in particular when used in the hybrid mapping loop for
+VLBI.  Memory is the limiting factor to the source size that can be
+deconvolved.  One copy of the beam matrix must be held in memory, of size
+$N_{data}\,N_{flux}$, where $N_{data}$ is the number of pixels in the dirty
+map used as input to the algorithm, and $N_{flux}$ is the number of pixels
+where the algorithm is allowed to place flux.  It is important that this
+fit into physical memory, as once page swapping sets in performance
+degrades dramatically, and problems that were just practical become quite
+impractical.  Running time is roughly proportional to
+$N_{data}\,N_{flux}^2$, and also varies with the SNR of the data, with
+higher quality data taking longer to process.  Currently a map with
+approximately 6000 pixels of significant emission and high SNR can be
+deconvolved in several hours on an IBM RS/6000.
+
+When used in NNLS mode, many of the inputs to {\tt svdconv} can be
+ignored.  Simply set {\tt Algorithm=NNLS}, and ensure that {\tt Dirty},
+{\tt PSF}, {\tt DataWindow}, and {\tt FluxWindow} all have reasonable
+values.  {\tt Dirty} and {\tt PSF} are images that have been made with {\tt
+uvmap}.  {\tt DataWindow} is the region of the dirty map that is to be used
+as input to the algorithm.  It is either an image or a cursor file as
+described in the section on SAOimage.  Generally the data window should be
+set as large as possible within convenient computational limits.  So long
+as this includes all regions of significant flux, the details of the window
+probably won't make much difference.  The flux window is essentially a
+CLEAN box.  It determines where the algorithm is allowed to place flux.
+For the purpose of deconvolving a well calibrated image, this also does not
+matter terribly so long as all regions of significant flux are included.
+For the purposes of making a self calibration model, it is more important
+that the flux window approximate the support of the source, but NNLS is
+still less sensitive to the details of the window that CLEAN.  The task
+will print out a status message the first few times through its main loop,
+and somewhat less frequently thereafter.  The residual, component model,
+and restored image can be written out with the {\tt Residual}, {\tt
+Components}, and {\tt Image} adverbs.  As with all deconvolvers in \sde,
+the restored image is the smoothed components plus the residual image.  If
+the NNLS model is to be taken into \aips, use the task {\tt img2list} with
+{\tt Mode=>CC} to write the component model as an ASCII file which can be
+read into \aips\ with {\tt TBIN}.
+
+There is a more sophisticated task, {\tt inls}, which attempts to
+iteratively improve a model too large for {\tt svdconv} using NNLS minor
+cycles.  Unfortunately results to date have been disappointing and its use
+is quite experimental.
+
+\subsection{Interactive Deconvolution and Selfcalibration}
+
+The NNLS algorithm described in the previous section has been
+incorporated into an interactive program for deconvolution and
+selfcalibration. This task, visamat, is best suited to high precision
+imaging of compact objects: that is those spanning no more than about
+3000 to 4000 pixels. Unlike most sde tasks, visamat can take a number
+of different go commands:
+
+\begin{verbatim}
+      init       - get visibility data, initialize images, A, X and B
+      iterate    - selfcal then image
+      itdisp     - selfcal then image and display
+      getvis     - get visibility data
+      putvis     - put visibility data
+      getmodel   - get initial model
+      initimag   - initialize images
+      initaxb    - initialize A, X, and B
+      image      - make image by solving A X = B
+      display    - display restored image
+      selfcal    - selfcal data
+      edit       - edit visibility data
+      putimage   - put final image
+      putcimag   - put final restored image
+      putresid   - put residual image
+      putamatr   - put amatrix
+      exit       - exit program, writing results
+      quit       - quit program
+\end{verbatim}
+
+The typical steps required:
+\begin{itemize}
+\item Set the inputs,
+\item go init to read the visibility data and make the initial images,
+\item go getmodel to read in and Fourier transform an initial model,
+\item go itdisp to iterate through selfcalibration and deconvolution,
+displaying the image at the end of each cycle using the DisplayCommand
+set in the inputs. go iter omits the display stage.
+\item go exit to write the final images and visibility data and then
+quit the program. go quit just quits without writing data.
+\end{itemize}
+
+Some typical inputs are:
+\begin{verbatim}
+ Imsize = 256, 256, 1
+ Cellsize = 0.1999999949E-03, 0.1999999949E-03, 1.000000000
+ Shift = 0.0000000000E+00, 0.0000000000E+00
+ FOV = 1.0000000000E+00
+ Stokes = I
+ Uvlimits = 0.0000000000E+00, 0.1000000000E+10
+ Muvlimits = 0.0000000000E+00, 0.1000000000E+10
+ Filter = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ Vis = 3C84.AVG.1
+ NewVis = 3C84.AVG.1.SCAL
+ Model =
+ FluxWindow = 3C84.flux
+ DataWindow = 3C84.data
+ AMatrix =
+ DoImage = T
+ Algorithm = NNLS
+ Niter = 1
+ Image = 3C84.NNLS
+ CImage = 3C84.CNNLS
+ Residual =
+ Beam = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00,
+ 0.0000000000E+00
+ Threshold = 7.000000000
+ Tedit = 300.0000000
+ Tamp = 30.00000000
+ Tphase = 30.00000000
+ Mode = AMPNORMPHI
+ DisplayCommand = saoimage -d noggs:0.0 -fits # &
+\end{verbatim}
+
+\begin{enumerate}
+\item visamat can work with constraints as either dirty image
+pixels or as visibility samples. Since the former are usually fewer in
+number, it is probably best to work in the image plane (DoImage = T).
+\item visamat can perform deconvolution via either the CLEAN algorithm
+or via the NNLS algorithm. The latter is the default and is recommended.
+\item visamat allows separate time scales for amplitude and phase
+selfcalibration.
+\item The mode of selfcalibration can be:
+\begin{description}
+\item[' '] Phase only
+\item[AMPPHI] Amplitude and phase
+\item[AMPNORMPHI] Amplitude and phase, but with amplitude change
+renormalized back to unity.
+\end{description}
+\item  DisplayCommand is a string that is executed after substitution
+of the hash symbol with the file name SDEDispfile, which is the name
+of the scratch file that visamat writes into. Another use is to write
+a script to plot this image file and then set DisplayCommand to that
+script.
+\item The windows for the dirty image (DataWindow) and the output
+image (FluxWindow) can be set using saoimage as described in the 
+previous section. It is best to make these quite tight.
+\end{enumerate}
+
+\subsection{Array design and simulations}
+
+There are tools in \sde\ for designing and simulating interferometric
+arrays.
+
+To design an array layout interactively use the task {\tt ant}. This
+will reads and writes text files containing specifications of
+array locations. It allows plotting of antenna locations, $u,v$ coverage,
+etc. The antenna file format is described in the file {\tt doc/sample.ant},
+or even {\tt src/fil/filgetan.f}.
+
+\begin{verbatim}
+6                                           ! Number of Antennas
+-33.8625                                    ! Site Latitude in degrees
+1.00    1.00                                ! Baseline and diameter scaling
+@+207.264       0.0           0.0   13.7    ! Antenna positions and Sizes
+@-597.408       0.0           0.0   13.7    !  @Beast,Bnorth,Belev,Diameter
+@-987.552       0.0           0.0   13.7    !  or Bx, By, Bz, Diameter
+@-1377.697      0.0           0.0   13.7    !
+@0.0            -207.264      0.0   13.7    ! Data is for Fleurs 6 Dish array
+@0.0            -597.408      0.0   13.7
+\end{verbatim}
+
+Bx, By, Bz or Beast, Bnorth, Belev are measured in meters if
+the Baseline scaling is 1.0.
+
+For simulations of interferometric arrays, there are three programs:
+{\tt vissim} for simple interferometry, {\tt oisim} for simulations of
+optical interferometers (it writes triple product files as well as
+visibility files), and {\tt mossim} for simulations of mosaicing
+arrays (it writes mosaic databases).
+
+The model image for the simulations can be specified either as
+an image or via a textfile containing a model description. The format
+of the latter is contained in doc/sample.mod
+
+\begin{verbatim}
+1.0,     0.0, 0.0, 0.0, 0.0, 0.0, 'POINT'
+1000.0, 10.0, 0.0, 1.0, 5.0, 100.0, 'DISK'
+1000.0,  0.0,10.0, 1.0, 5.0, 10.0, 'GAUS'
+1000.0,-10.0, 0.0, 1.0, 5.0, 1.0, 'RECT'
+\end{verbatim}
+
+The format of each line is:
+{\tt Flux, X Pos, Y Pos, Maj. Axis Size, Minor Axis size, Position angle, 
+Type}
+
+where the units are:
+
+{\tt Flux} - Integrated over all of component.
+
+{\tt X,Y Pos} - Relative to centre of image (0.0, 0.0). In Arcsecs.
+
+{\tt Maj, Minor Axis} - In Arcsecs.
+
+{\tt Position angle} - Degrees, North through East
+
+{\tt Type} - Point, Gaus, Disk, Rect, Shell, or Sphere
+
+%\subsection{Mosaicing}
+%
+%{\em Did someone want to talk about mosaicing?}
+
+\subsection{Wide field imaging}
+
+Wide field imaging has changed substantially over the past few years.
+The best task to use now is dragon. This performs the {\em polyhedron}
+clean described by Cornwell and Perley, 1992, together with optional
+selfcalibration steps.
+
+\begin{enumerate}
+
+\item Export the u,v data to SDE using FITTP to write a disk-FITS.
+Put the file in an area of your own and cd to it. 
+
+\item Run dragon to make a clean image and self-calibrated 
+data. For 327MHz observing of the full primary beam in
+D-configuration, typical inputs are:
+
+\begin{verbatim}
+ Imsize = 100, 100, 1
+ Cellsize = 60.00000000, 60.00000000, 60.00000000
+ Outliers = SDEROOT/test/BF7.Outliers
+ Shift = 0.0000000000E+00, 0.0000000000E+00
+ FOV = 1.000000000
+ Stokes = IV
+ Uvlimits = 200.0000000, 1000.000000
+ Muvlimits = 200.0000000, 750.0000000
+ Filter = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ Vis = D0/BF791
+ NewVis = D0/BF7
+ PSF =
+ CLEAN = D0/BF7.ICLN
+ OutCLEAN = D0/BF7.OUTCLEAN
+ CCList =
+ Restart = F
+ Niter = 50000
+ Riter = 0
+ Flux = 0.1000000071E-01
+ Fswitch = 0.9999999776E-02
+ FSelfcal = 0.1000000015, -0.5000000075E-01, -0.2500000037E-01,
+ -0.1499999966E-01, -0.1499999966E-01, 0.0000000000E+00, 0.0000000000E+00,
+ 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+ Gain = 0.1000000015
+ Tolerance = 0.9999999747E-05
+ Beam = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00,
+ 0.0000000000E+00
+ Tamp = 1190.000000
+ Tphase = 119.0000000
+ Reference = 1
+ TVImage = -1
+ Parallel = F
+ Np = 3
+\end{verbatim}
+
+This makes a 7 by 7 faceted image, where each facet has 100 by 100
+pixels each of cell size 60 arcseconds. The Stokes switch specifies
+that in the selfcal step, RR and LL are to be calibrated separately.
+FOV=1 specifies uniform weighting (use 0.0 for natural). Muvlimits
+sets the range of spacings used to calculate gains in the selfcal
+step. NewVis writes the selfcalibrated data set.  FSelfcal
+determines levels of peak residual at which selfcalibration will be
+performed. FSwitch specifies that a DFT is to be used for pixels
+brighter than 10 mJy/beam. Tamp and Tphase set the time scales for
+amplitude and phase solutions (usually you set the former to a larger
+number). Reference sets the reference field for which noise levels are
+calculated. TVImage specifies an image to display (-1 means none, and
+0 means all). Np=3 specifies that (2*Np+1)**2 patches will be used
+(e.g. 49 for np=3).
+
+\item To determine parameters for other configurations use the
+program flydoc.
+
+\end{enumerate}
+
+\end{document}
+

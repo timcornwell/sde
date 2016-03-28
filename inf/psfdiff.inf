@@ -1,0 +1,33 @@
+The input beam should be heavily oversampled.  A good rule of thumb is to
+make the PSF the same size as your normal image, and set the cell size such
+that the the region of interest (or a minimum of 2 BEAM full widths) fits
+into the central 1/4 of the image.  Then adjust the FOV parameter by the
+inverse of the factor you adjusted the cell size.  That is, if FOV=1/2, and
+you tripled the sampling, the new FOV should be set to 3/2.  This will keep
+the cell size in the uv plane constant.
+
+Rmax is interpreted as beam half widths.  That is, Rmax=1 => integrate out to
+the half power point.  If Rmax < 0, then it is interpreted as a mean radius
+in arcseconds, and is converted to beam half widths via
+
+  RMAX = 2.0 * ABS(RMAX) / SQRT(BEAM(1)*BEAM(2))
+
+.
+PSF, C, 1, Name of input PSF
+Beam, R, 4, Smoothing beam ( Bmaj, Bmin, Bpa )
+BeamFile, C, 1, Use beam from this file
+FitAlg, C, 1, Beam fitting algorithm
+OutBeam, C, 1, Beam evaluated on same scale as PSF
+Text, C, 1, Name of output text file
+Rmax, R, 1, Outer radius in arcsec or beamwidths
+NPoints, I, 1, Number of points in slice
+.
+PSF =
+Beam = 8, 8, 0.0
+BeamFile =
+FitAlg = NONLINEAR
+OutBeam =
+Text =
+Rmax =
+NPoints = 50
+.

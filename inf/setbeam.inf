@@ -1,0 +1,16 @@
+Set the beam parameters in an image header
+.
+Image, C, 1, Input image
+Beam, R, 4, Input Gaussian Beam
+BUnit, C, 1, Units of image [opt]
+BFile, C, 1,  or use Beam from this file
+FitMode, C, 1, Beam fitting mode
+Output, C, 1, Output image.
+.
+Image = 
+Beam = 0.0, 0.0, 0.0, 0.0
+BUnit =
+BFile = 
+FitMode = HDR-LINEAR
+Output =
+.

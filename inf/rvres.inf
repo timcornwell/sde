@@ -1,0 +1,42 @@
+Program: RVRES - finds radially averaged visibility residuals
+Programmer: M.A. Holdaway
+Date: 13 Oct 1989
+Purpose: To analize the errors of imaging programs as a function of uv spacing
+
+.
+/Debug, L, 1, To debug, or not to debug?
+Image, C, 1, Image we are testing
+ModImage, C, 1, Model Image that generated visibilities
+Sensitivity, C, 1, Sensitivity Pattern (optional)
+Beam, R, 4, Beam to convolve Model with
+Imscale, L, 1, Scale Image and Model to same total flux?
+Maxradius, R, 1, Radius [arcsec] beyond which we clip 
+Binsize, R, 1, Number of sqr pixels per averaging annulus
+Dev1, C, 1, Rad-aved residual vis
+Dev2, C, 1, Rad-aved model vis
+Dev3, C, 1, Rad-aved residual vis, normed
+Fil3, C, 1, DATA file for rad-aved res vis
+Label, C, 1, Short name to appear on graph
+Xmin, R, 1, min (u,v) radial distance on graph
+Xmax, R, 1, max (u,v) radial distance on graph
+Ymin, R, 1, min residual visibility
+Ymax, R, 1, max residual visibility
+.DEFAULT
+/Debug = F
+Image = 
+ModImage =
+Sensitivity =
+Beam = 0., 0., 0., 0.
+Imscale = F
+Maxradius = 64.
+Binsize = 200
+Dev1 =
+Dev2 =
+Dev3 =
+Fil3 =
+Label =
+Xmin = 0.000001
+Xmax = 128
+Ymin = 0.000001
+Ymax = .1
+.END

@@ -1,0 +1,16 @@
+Program: HISLIST
+Programmer: R. G. Marson
+Date: 24 June 1993
+Purpose: Display the history records of files 
+
+Details: 
+
+.INFO
+InFile, C, 1, Data file
+InType, C, 1, IMG or GRP (For FITS file only)
+/Debug, L, 1, Debug T or F (must be set each time)
+.DEFAULT
+InFile = 
+InType = 
+/Debug = F
+.END

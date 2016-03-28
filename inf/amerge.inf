@@ -1,0 +1,40 @@
+program		amerge
+date		aug 14 1995
+programmer	"And Roger Staubach is coming into tonight's game with 
+		a few extra verbs and nouns in proper word order."
+but seriously	M.A. Holdaway
+
+purpose		to merge two files on a common column (ie, time) that probably isn't
+		exactly aligned.
+
+Entire line of first file is written out.
+Comments (designated by '#', '!', or '*' in the first column)
+   of first file are written out.
+Comments of the second file are ignored
+
+C	    |(Time2 + D2) - (Time1 + D1)| is minimized.
+C	    If this difference is greater than DMAX, write out -1's.
+
+We get to choose which columns of file 2 are written out.
+
+.
+In1, C, 1, Primary input file
+In2, C, 1, Secondary input file
+Outfile, C, 1, Output file
+i1, I, 1, Primary sort field
+i2, I, 1, Secondary sort field
+outfields, I, 20, Which Secondary fields are output
+dmax, R, 1, maximum difference allowed in the sort field values
+d1, R, 1, Offset in the primary sort field
+d2, R, 1, Offset in the secondary sort field
+.DEFAULT
+In1 = 
+In2 = 
+Outfile = 
+i1 = 1
+i2 = 1
+outfields = 1,2,3,4,5,6,7,8,9,10,0,0,0,0,0,0,0,0,0,0 
+dmax = 0.01
+d1 = 0.0
+d2 = 0.0
+.END

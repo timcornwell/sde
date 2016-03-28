@@ -1,0 +1,38 @@
+Program: MAGTAPE - handle magnetic tapes
+Programmer: T.J. Cornwell
+Date: 5 Nov 1987
+Purpose: MAGTAPE simplifies the handling of magnetic tapes.
+
+Details: MAGTAPE has the following commands:
+
+go mount - mount a tape drive with the specified density. At the moment
+           any free tape drive is grabbed. You can do this before
+           physically mounting the tape.
+go dismount - dismount a tape drive
+go status - give status of the tape drive
+go rewind - rewind the tape drive
+go skip - skip Nskip files on the tape drive
+go list - list all files fitting the name specification in File. This
+          is useful to check wild-carding.
+go save - save all specified files to the tape drive, starting at the
+          current position!
+go load - load files from the tape drive to disk, using File as the name
+          and adding numbers as required e.g. File1, File2, File3
+go string - if string is not one of the above commands, then pass it to
+            the shell for execution.
+
+.INFO
+Nskip, I, 1, Number of files to skip
+Density, I, 1, Density of tape
+Nfiles, I, 1, Number of files to process
+File, C, 1, File name
+Tape, C, 1, Tape name to use for tape drive
+/DEBUG, L, 1, Debug status
+.DEFAULT
+Nskip = 0
+Density = 6250
+Nfiles = 1
+File = 
+Tape = 
+/DEBUG = F
+.END

@@ -1,0 +1,15 @@
+.
+Editor, C, 1, Editor to use e.g. emacs
+More, C, 1, More command e.g. more
+FITS, C, 1, Fits format to write [IEEE|32|16]
+Host, C, 1, Name of remote host
+Debug, L, 1, Debug status [T|F]
+Batch, C, 1, Batch command
+.
+Editor = emacs
+More = page
+FITS = IEEE
+Host = zia
+Debug = F
+Batch = batch
+.

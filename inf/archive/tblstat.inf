@@ -1,0 +1,11 @@
+.
+Image, C, 1, Name of image
+Tables, C, 1, Name of tables
+Columns, C, 1, Name of columns
+Debug, L, 1, Debug status T|F
+.
+Image =
+Tables =
+Columns =
+Debug = T
+.

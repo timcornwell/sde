@@ -1,0 +1,18 @@
+task		mossimsa
+programmer	ma holdaway
+date		july 19 1995
+purpose		Given a Single Dish image, in JY/BEAM, and
+		vastly oversampled; and given a mosaic database
+		created with SD pointings and visibility (ie, UV=0),
+		this task will resample the image at those pointing
+		positions.
+
+.
+InMos, C, 1, Input mosaic database
+OutMos, C, 1, Output Mosaic Database
+Image, C, 1, Input image
+.
+InMos = 
+OutMos =
+Image = 
+.

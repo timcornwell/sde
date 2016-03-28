@@ -1,0 +1,39 @@
+<HEAD>
+<TITLE> String handling: STR routines</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html196 HREF=subsection3_5_7.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html194 HREF=section3_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html188 HREF=subsection3_5_5.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html198 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html197 HREF=subsection3_5_7.html> System-related activities: SYS </A>
+<B>Up:</B> <A NAME=tex2html195 HREF=section3_5.html> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html189 HREF=subsection3_5_5.html> Text input and </A>
+<HR> <P>
+<H2><A NAME=SECTION0005600000000000000> String handling: STR routines</A></H2>
+<P>
+String handling is central to <i>SDE</i> and so there are a number of useful
+routines. Remember that <i>SDE</i> names can look like Unix directories: 
+e.g. <tt>'VIS/OBS/I'</tt> for the Stokes I part of the observed visibility.
+We have routines to assemble such names.
+<UL><LI> <tt>STRLEN (STRING)</tt>: returns the length of <tt>STRING, CHARACTER*(*)</tt>
+<em>ignoring spaces</em>.
+<LI> <tt>STRAPPEN (STRING1, STRING2)</tt>: is a subroutine which adds <tt>STRING2</tt> to the end of <tt>STRING1</tt> <em>ignoring spaces</em>. There also
+exist <tt>STRAPPE2, STRAPPE3</tt> for multiple strings.
+<LI> <tt>STRM2 (PART1, PART2)</tt>: is a <tt>CHARACTER*(*)</tt> function which
+return <tt>PART1</tt> and <tt>PART2</tt> joined by a /. <tt>STRM3</tt> and <tt>STRM4</tt> also exist.
+<LI> <tt>STREXTRA (LIST, N, PART)</tt>: extracts the <tt>N</tt>'th part of the
+comma-delimited <tt>LIST, CHARACTER*(*)</tt> and returns it in <tt>PART, CHARACTER*(*)</tt>.
+<LI> <tt>STRINT(N)</tt>: converts an integer to a string.
+<LI> <tt>STRMATCH(LIST, STRING)</tt>: is a <tt>LOGICAL</tt> function which is
+true if <tt>STRING</tt> is contained in <tt>LIST</tt> or if <tt>LIST = '*'</tt>.
+<LI> <tt>STRSEARC (TARGET, LIST, N)</tt>: is an <tt>INTEGER</tt> function which
+returns the index of a target <tt>TARGET, CHARACTER*(*)</tt> in an array
+of strings <tt>LIST(*), CHARACTER*(*)</tt>. If there is no match then
+zero is returned.
+</UL>
+<P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:45:41 MST 1994</I>
+</ADDRESS>

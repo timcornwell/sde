@@ -1,0 +1,27 @@
+program:	mosdog
+purpose:	Inverse of moscat (sortof).
+		We take a subset of the pointings and separate
+		them out into a second mosaic database.  The pointings
+		can be specified by a text file with the pointing
+		numbers listed on each line, lines beginning with
+		'#' are ignored as comments.
+		If the text file name is not given, then take the
+		pointings from the inputs system.
+programmer:	m.a. Holdaway
+date:		May 1, 1995
+
+.
+In, C, 1, Input Mosaic File
+Out, C, 1, Output Mosaic File
+ListFile, C, 1, File with list of pointings
+Pointings, I, 100, Which pointings? [if ListFile == ' ']
+Mode, C, 1, [IN | OUT] Keep pointings IN list or OUT?
+.
+In = 
+Out = 
+ListFile = 
+Pointings = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Mode = IN
+.

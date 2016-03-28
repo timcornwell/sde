@@ -1,0 +1,11 @@
+
+HOSTS = ( yucca )
+
+FILES = ( ~/farch ~/sdeini ~/sdeini.csh ~/var ~/doc ~/inf ~/source ~/bin/unix ~/test )
+
+${FILES} -> ${HOSTS}
+	except ~/source/SCCS;
+	except ~/bin/unix/SCCS;
+	except ~/source/task/SCCS;
+	install -w -R ~/ ;
+

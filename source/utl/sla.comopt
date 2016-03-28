@@ -1,0 +1,10 @@
+
+#
+# Routine-specific compiler options file
+#
+#
+case $MACHINE in
+c1|c2)
+   FFLAGS="-c -72 -db -fi "
+   ;;
+esac

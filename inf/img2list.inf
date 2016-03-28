@@ -1,0 +1,36 @@
+This program converts between SDE image storage formats and various list
+based formats.  The later include the EXCEL speadsheet format and FITS
+CC tables.  The Excel format is a common interchange format between
+spreadsheet type programs.  Note that the EXCEL file also contains an
+auxiliary file called <EXCEL>.CRD, which contains the coordinate information
+from the FITS header.  FITS CC tables can be read into AIPS with the
+task TBIN.
+
+Of the currently supported list formats, the excel format is the only one
+that includes a description of the original image coordinates, and hence
+the only one that can be directly transferred back into an image.
+There are awk scripts in $SDEROOT/bin/unix for conversion between simple
+list formats, including SDE model files.  The SDE model files can then
+be read into an arbitrary image via the task imgmodel.
+
+The XL> mode can transfer the pixel values or simply create a blank image
+from the coodinate file.  This is controlled with the 'GetPixels' flag.  Any
+previously existing image of the same name is overwritten.
+
+Based on the most probable use of these tasks, CC file pixels are only
+written if non-zero (after applying the box).  EXL files write everything
+in the BOX, zero or not.
+
+.
+Image,  C, 1, Image file
+List,  C, 1, List file
+Box, C, 1, Box file
+Mode, C, 1, >XL | XL> | >CC
+GetPixels, L, 1, Transfer pixel values?
+.DEFAULT
+Image =
+List = *
+Box =
+Mode = >CC
+GetPixels = T
+.END

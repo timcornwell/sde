@@ -1,0 +1,13 @@
+ Dirty = D0/M31.DRT
+ PSF = D0/M31.PSF
+ Default =
+ Error =
+ WD = D0/M31.WD
+ Niter = 50
+ Nconj = 10
+ Tflux = 1493.000000
+ Sigma = 0.1000000047E-02
+ Beam = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00,
+ 0.0000000000E+00
+ Tolerance = 1.000000000
+ TV =

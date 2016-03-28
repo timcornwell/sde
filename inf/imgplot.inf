@@ -1,0 +1,85 @@
+Label Level 2 is original labelling level.  It includes full information
+about the image along the right hand side of the plot, and contour and/or
+minmax information beneath it.
+
+Label Level 1 removes the auxiliary information about the file on the
+right hand side.
+
+Label Level 0 removes the title and contour / minmax information
+
+Label Level -1 removes everything except a box without tickmarks
+surrounding the image.
+
+The ID stamp containing the filename is independent of the LabelLev.
+
+Pixrange is normally min & max.  The third argument is only used for
+2LOG scaling.  In that mode, greyscale will run from min to max with a
+fixed point at -pixrange(3) and +pixrange(3).  The default value of
+0 should be sufficient in most cases.
+.
+Image, C, 1, Name of input image
+BLC, I, 7, Bottom left corner
+TRC, I, 7, Top right corner
+Levs, I, 30, Contour levels
+Plev, R, 1, Percentage level for plotting
+Clev, R, 1, Absolute level for plotting
+Pixrange, R, 3, Pixrange for grey-scale
+SAOColor, C, 1, SAOimage color map file
+Scale, C, 1, Image scaling: LIN | LOG | SQRT | WRAP | 2LOG
+SPar, R, 1, Scale parameter
+Invert, L, 1, Invert final color map?
+Plot, C, 1, Type of plot:  CONTOUR | GREY | QUICKCONT
+Title, C, 1, Title of plot
+XLabel, C, 1, X label
+YLabel, C, 1, Y label
+Left, L, 1, Label Y axis on left
+Annotate, C, 1, Annotation file
+Linwidth, I, 1, 1-3  1=thin 3=thick
+LabelLev, I, 1, Labelling level: 0, 1, or 2
+CLabel, C, 1, Corner label.  eg (a)
+/CLPar, R, 6, Parameters for tweaking corner labels
+ID, L, 1, Print ID?
+CHeight, R, 1, Character height
+PSFEllipse, L, 1, Draw PSF ellipse in lower left corner
+Beam, R, 4, Size of PSF ellipse
+PSFSlice, L, 1, Draw lines at angle of PSF maj & min axes
+%Label, L, 1, Contour labeling in % peak; else with Levs, Plev or Clev
+VLBI, L, 1, Label in milliarcseconds
+NBotLab, I, 1, Leave room for this many bottom labels
+/NTopLab, R, 1, Leave room for this many extra top labels
+Device, C, 1, Device name for plotting
+/Debug, L, 1, Debug status
+.
+Image = 
+BLC = 0,0,0,0,0,0,0
+TRC = 0,0,0,0,0,0,0
+Levs = -9,-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9
+Plev = 10.0
+Clev = 0.0
+Pixrange = 0.0, 0.0, 0.0
+SAOColor = 
+Scale = LIN
+SPar = 0.0
+Invert = F
+Plot = CONTOUR
+Title = \$Image
+XLabel = *
+YLabel = *
+Left = T
+Annotate = 
+Linwidth = 1
+LabelLev = 2
+CLabel =
+/CLPar = 0,0, -1000,-1000, 1, 0
+ID = T
+CHeight = .6
+PSFEllipse = F
+Beam = 0, 0, 0, 0
+PSFSlice = F
+%Label = T
+VLBI = F
+NBotLab = 0
+/NTopLab = 0.
+Device = plot.dat/QMS
+/Debug = F
+.

@@ -1,0 +1,28 @@
+.INFO
+Imsize, I, 3, Size of model image
+Cellsize, R, 3, Cellsize in model image
+Image, C, 1, Name of output or input model image
+Modfile, C, 1, Name of output model file
+RA, R, 1, Right Ascension of source [deg.]
+Dec, R, 1, Declination of source in Model [deg.]
+Freq, R, 1, Frequency of radiation [Hz]
+N, R, 1, Density of source per sr at 1Jy
+S, R, 2, Minimum and Maximum Flux [Jy]
+Slope, R, 1, Slope of Number counts
+Seed, I, 1, Seed for random numbers
+/Debug, L, 1, Debug [T|F]
+.DEF
+Imsize = 512, 512, 1
+Cellsize = 1., 1., 1.
+Image = 
+Modfile = 
+RA = 0.0
+Dec = 35.
+Freq = 1.4E9
+N = 1E6
+S = 1E-5, 1E-3
+Slope=1.5
+Seed=12345
+/Debug=F
+.END
+

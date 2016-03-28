@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Messages: MSG routines</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Messages: MSG routines">
+<meta name="keywords" value="program">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html162 HREF="node11.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html160 HREF="node7.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html154 HREF="node9.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html164 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html163 HREF="node11.html"> User interface: USR </A>
+<B>Up:</B> <A NAME=tex2html161 HREF="node7.html"> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html155 HREF="node9.html"> Error handling: ERR </A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00053000000000000000> Messages: MSG routines</A></H2>
+<P>
+The message system is very simple. 
+<UL><LI> <tt> MSGWELCO (TEXT)</tt>: writes the introductory message <tt> TEXT</tt> to
+the user, and also the data and time of compilation.
+<LI> <tt> MSGPUT (MSG, TYPE)</tt>: writes a message <tt> MSG</tt> which is
+<tt> CHARACTER*(*)</tt>
+to the user with a code <tt> TYPE</tt>, <tt>
+CHARACTER*1</tt>, which denotes what type
+of message it is. Valid types are <tt> 'I'</tt> for informative (most common),
+<tt> 'W'</tt> for warning, <tt> 'E'</tt> for fatal error, and <tt> 'D'</tt> for a
+debugging message.
+</UL><BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Wed Jan  3 09:21:29 MST 1996</I>
+</ADDRESS>
+</BODY>

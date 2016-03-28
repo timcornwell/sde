@@ -1,0 +1,7 @@
+.
+Infiles, C, 20, Input Allan Variance files
+Outfile, C, 1, Output averaged A.V. file
+.
+Infiles =
+Outfile =
+.

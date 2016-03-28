@@ -1,0 +1,126 @@
+Program: MOSOBS
+Programmer: M.A. Holdaway
+Date: 17 DEC 1989
+Purpose: To produce 2 aids in scheduling MOSAIC observations----
+	 1) Given a "central" pointing and the spacing between pointings,
+	    you are given a GRID showing potential pointings as well as
+	    any pointings already made.  This is scaled to an appropriate
+	    size (to be compared to an existing map).
+	 2) Also, a text file is written out (logfile) which contains
+	    the RA and DEC of each pointing.  This file can be read 
+	    directly into OBSERVE under the IMPORT TEXT FILE option of FILES.
+
+Details:
+
+The pointings you choose are conveyed to the program via the inputs LINE??
+The code is:  a '-' means NO POINTING HERE
+	      a '*' means POINTING HERE
+	      a '1' means THIS IS THE CENTRAL (REFERENCE) POINTING,
+		or the pointing for which the RA and DEC have been
+		given (RA1, DEC1, inputs here).
+
+So, to make a grid of 5 by 5 pointings with the reference pointing in
+the lower right corner (south-west), the inputs LINE?? might look like this:
+LINE15 =*****----------
+LINE14 =*****----------
+LINE13 =*****----------
+LINE12 =*****----------
+LINE11 =****1----------
+LINE10 =---------------
+
+LOGFILE    This is the name of the TEXT file with pointings which OBSERVE 
+	   can read.
+
+TEKFILE	   Name of the GRID file which graphically indicates the pointings.
+
+MSCALE	   A bit kludgy here: This determines the scale of the GRID......
+	   so that it matches your MAP that you are looking at trying to
+	   figure out where to put pointings.  You may need to fine tune
+	   this value, especially if you are using an output device which
+	   prints graphs which are NOT about 22cm by 15cm.
+
+DELTAX, DELTAY   Spacing, in ARCSECONDS between pointings.
+		 Use LAMBDA/DISH_DIAMETER or better.
+
+NOTE:      If for some reason you need to know how the pointings in the
+	   LOGFILE relate to the pointings on the GRID:
+	   POINTING NUMBER 1 is in the lower left. Then, go RIGHT.
+	   Start at the next higher row at the left and go RIGHT:
+
+           13 14 15 16
+           9  10 11 12
+           5  6  7  8
+           1  2  3  4 
+
+SAMEDEF    If TRUE, the SAME USERDEF is given to each pointing.
+	   If FALSE, each pointing has the pointing number appended
+	   to what you give as the USERDEF, so each pointing has its own
+	   USERDEF
+
+Other parameters such as USER DEFAULT, NRAO DEFAULT, BAND...are
+defined just as in OBSERVE
+.
+Source,  C, 1, Name of source
+Logfile, C, 1, Name of file for scheduling info
+TEKfile, C, 1, Name of PGPLOT grid file
+Mscale,  R, 1, Map scale--ARCSEC per centimeter
+Epoch,   C, 1, B for B1950, J for J2000
+Rotang,  R, 1, Rotation angle, counterclockwise, from this pattern to sky
+RA1,     C, 1, RA of central (reference) pointing:   12h20m30.000s 
+DEC1,    C, 1, DEC of central (reference) pointing: +55d30m30.000s
+GalCoord, L, 1, RA1,DEC1 in Galactic coordinates?
+DELTAX,  R, 1, Spacing in X between pointings, [arcsec]
+DELTAY,  R, 1, Spacing in Y between pointings, [arcsec]
+ScanDur, C, 1, MMSS, duration of scan
+Band,    C, 1, Observing Band: KK, UU, XX, CC, LL, PP, or 44
+SameDef, L, 1, Use same USERDEF for all pointings?
+USERDEF, C, 1, name of USER DEFAULT for OBSERVE
+NRAODEF, C, 1, name of NRAO DEFAULT for OBSERVE
+LINE15,  C, 1,  '-', '*', '1'
+LINE14,  C, 1,  '-', '*', '1'
+LINE13,  C, 1,  '-', '*', '1'
+LINE12,  C, 1,  '-', '*', '1'
+LINE11,  C, 1,  '-', '*', '1'
+LINE10,  C, 1,  '-', '*', '1'
+LINE9,   C, 1,  '-', '*', '1'
+LINE8,   C, 1,  '-', '*', '1'
+LINE7,   C, 1,  '-', '*', '1'
+LINE6,   C, 1,  '-', '*', '1'
+LINE5,   C, 1,  '-', '*', '1'
+LINE4,   C, 1,  '-', '*', '1'
+LINE3,   C, 1,  '-', '*', '1'
+LINE2,   C, 1,  '-', '*', '1'
+LINE1,   C, 1,  '-', '*', '1'
+.DEFAULT
+Source =
+Logfile = MOSOBS.POINTINGS
+TEKfile = GRID/qms
+Mscale  = 600.
+Rotang  = 0.0
+Epoch   = B
+RA1     = 
+DEC1    = 
+GalCoord = F
+DELTAX  = 870.
+DELTAY  = 870.
+ScanDur = 0200
+Band    = LL
+SameDef = T
+USERDEF =
+NRAODEF =
+LINE15 =---------------
+LINE14 =---------------
+LINE13 =---------------
+LINE12 =---------------
+LINE11 =---------------
+LINE10 =---------------
+LINE9  =---------------
+LINE8  =---------------
+LINE7  =---------------
+LINE6  =---------------
+LINE5  =---------------
+LINE4  =---------------
+LINE3  =---------------
+LINE2  =---------------
+LINE1  =---------------
+.END

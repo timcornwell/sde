@@ -1,0 +1,30 @@
+Read in a file with relative or absolute pixel numbers
+referenced to IMAGE, write out the files DegreeOut and DMSOut
+with their Latitude and Longitude in fractional degrees
+and in Degree:Minute:Second.  These two output files are optional.
+
+The input position file is assumed to be of the style:
+2                                # refers to number of columns
+'NX'   'NY'                      # names the columns to SDE
+      -131.9       101.7         # as many rows as you want
+        -127.7      106.1
+      -116.6       114.1
+         -109       118.1
+      -105.2       120.1
+      -97.96       122.5
+
+
+.
+Image, C, 1, Input image
+PositionFile, C, 1, File with positions in it
+RelativePixels, L, 1, Are pixel numbers relative to center?
+DegreeOut, C, 1, Output file in Fractional Degree format
+DMSOut, C, 1, Output file in Degree Minute Second format
+.
+Image =
+PositionFile = 
+RelativePixels = F
+DegreeOut = 
+DMSOut = 
+.
+

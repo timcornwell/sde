@@ -1,0 +1,240 @@
+#!/bin/sh
+#
+# Time various tasks on this machine
+#
+# Audit trail:
+# 	New version
+#			T.J. Cornwell 16 June 1992
+#
+LOG=timings.`hostname`
+TAIL=`hostname`
+echo SDE timings on host `hostname` at `date` > $LOG
+echo `sdever` >> $LOG
+echo "****" >> $LOG
+echo "**** Testing general routines ****" >> $LOG
+echo "****" >> $LOG
+world >> $LOG
+imgstat << EOF >> $LOG
+ Image = D0/3C10MAP.FTS
+ BLC = 0, 0, 0, 0, 0, 0, 0
+ TRC = 0, 0, 0, 0, 0, 0, 0
+ inp
+ go
+EOF
+imgstat << EOF >> $LOG
+ Image = D0/3C10MAP16.FTS
+ BLC = 0, 0, 0, 0, 0, 0, 0
+ TRC = 0, 0, 0, 0, 0, 0, 0
+ inp
+ go
+EOF
+echo "****" >> $LOG
+echo "**** Expected Rms     =   1.402E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Maximum =   6.791E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Minimum =  -3.135E-01 JY/BEAM ****" >> $LOG
+echo "****" >> $LOG
+echo "**** Now testing FFT routines ****" >> $LOG
+echo "****" >> $LOG
+fftx >> $LOG
+fftx2d >> $LOG
+echo "****" >> $LOG
+echo "**** Now testing gridding routines ****" >> $LOG
+echo "****" >> $LOG
+grdtst >> $LOG
+echo "****" >> $LOG
+echo "**** Now testing imaging routines ****" >> $LOG
+echo "****" >> $LOG
+/bin/rm -f $D0/3C10NEWCMP.${TAIL}.FTS
+clean << EOF >> $LOG
+ Dirty = D0/3C10MAP.FTS
+ PSF = D0/3C10BEAM.FTS
+ Residual =
+ Components = D0/3C10NEWCMP.${TAIL}.FTS
+ CLEAN = D0/3C10NEWCLN.FTS
+ CCfile =
+ BLC = 0, 0, 0, 0, 0, 0, 0
+ TRC = 0, 0, 0, 0, 0, 0, 0
+ Niter = 20000
+ Flux = 3.0000000E-03
+ Gain = 0.1000000
+ Beam = 45.00000, 45.00000, 0., 0.
+ Algorithm = CLARK
+ Numcl = 16384
+ Bpatch = 64
+ inp
+ go
+EOF
+imgstat << EOF >> $LOG
+ Image = D0/3C10NEWCLN.FTS
+ BLC = 0, 0, 0, 0, 0, 0, 0
+ TRC = 0, 0, 0, 0, 0, 0, 0
+ inp
+ go
+EOF
+echo "****" >> $LOG
+echo "**** Expected Rms     =   2.799E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Maximum =   9.507E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Minimum =  -7.075E-02 JY/BEAM ****" >> $LOG
+echo "****" >> $LOG
+closure << EOF >> $LOG
+ Vis = D0/3C10UV.FTS
+ Model = D0/3C10NEWCMP.${TAIL}.FTS
+ NewVis = D0/3C10NEWUV.${TAIL}.FTS
+ Tavg = 60.0000
+ SolType =
+ Method =
+
+
+ inp
+ go
+EOF
+uvmap << EOF >> $LOG
+ Imsize = 128, 128, 1
+ Cellsize = 12.00000, 12.00000, 12.00000
+ Uvlimits = 0.000000, 1.0000000E+10
+ Filter = 0.0000000, 0.0000000, 0.0000000
+ Shift = 0.0000000, 0.0000000, 0.0000000
+ FOV = 1.000000
+ Stokes = I
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ ConvType = SF
+ SlowZ = T
+ Vis = D0/3C10NEWUV.${TAIL}.FTS
+ Dirty = D0/3C10NEWMAP.${TAIL}.FTS
+ PSF = D0/3C10NEWBEAM.${TAIL}.FTS
+ inp
+ go
+EOF
+imgstat << EOF >> $LOG
+ Image = D0/3C10NEWMAP.${TAIL}.FTS
+ BLC = 0, 0, 0, 0, 0, 0, 0
+ TRC = 0, 0, 0, 0, 0, 0, 0
+ inp
+ go
+EOF
+echo "****" >> $LOG
+echo "**** Expected Rms     =   1.386E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Maximum =   6.830E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Minimum =  -3.139E-01 JY/BEAM ****" >> $LOG
+echo "****" >> $LOG
+vm << EOF >> $LOG
+ Dirty = D0/3C10NEWMAP.${TAIL}.FTS
+ PSF = D0/3C10NEWBEAM.${TAIL}.FTS
+ Default =
+ VM =
+ CVM = D0/3C10NEWCVM.${TAIL}.FTS
+ BLC = 33, 33, 1, 1, 1, 1, 1
+ TRC = 96, 96, 1, 1, 1, 1, 1
+ Niter = 14
+ Tflux = -60.00000
+ Sigma = 9.9999998E-03
+ Beam = 45.00000, 45.00000, 0.0000000, 0.0000000
+ ImagePlane = F
+ DOTV = 
+ inp
+ go
+EOF
+imgstat << EOF >> $LOG
+ Image = D0/3C10NEWCVM.${TAIL}.FTS
+ BLC = 0, 0, 0, 0, 0, 0, 0
+ TRC = 0, 0, 0, 0, 0, 0, 0
+ inp
+ go
+EOF
+echo "****" >> $LOG
+echo "**** Expected Rms     =   2.894E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Maximum =   8.897E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Minimum =  -2.573E-02 JY/BEAM ****" >> $LOG
+echo "****" >> $LOG
+echo "****" >> $LOG
+echo "**** Now testing mosaicing routines ****" >> $LOG
+echo "****" >> $LOG
+mosmake << EOF >> $LOG
+ Vis = D0/3C10UV.FTS
+ Mosaic = D0/3C10MOS.${TAIL}.SDE
+ Telescope = VLA
+ inp
+ go
+EOF
+mosaic << EOF >> $LOG
+ Mosaic = D0/3C10MOS.${TAIL}.SDE
+ Default =
+ VM =
+ CVM = D0/3C10MOSCVM.${TAIL}.FTS
+ Niter = 14
+ Tflux = -60.0000
+ Sigma = 1.00000
+ Telnames = VLA
+ Sigtel = 0.337200, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+ 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+ 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+ 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03
+ Entropy = H
+ Beam = 45.0000, 45.0000, 0., 0.
+ Imsize = 64, 64, 1
+ Cellsize = 12.0000, 12.0000, 12.0000
+ Uvlimits = 0., 1.00000E+10
+ Filter = 0., 0., 0.
+ Shift = 0., 0., 0.
+ Stokes = I
+ FOV = 1.00000
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ NicePSF = F
+ DFT =
+ Convtype = SF
+ Dotv = F
+ inp
+ go
+EOF
+imgstat << EOF >> $LOG
+ Image = D0/3C10MOSCVM.${TAIL}.FTS
+ BLC = 0, 0, 0, 0, 0, 0, 0
+ TRC = 0, 0, 0, 0, 0, 0, 0
+ inp
+ go
+EOF
+echo "****" >> $LOG
+echo "**** Expected Rms     =   2.976E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Maximum =   9.192E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Minimum =  -2.812E-02 JY/BEAM ****" >> $LOG
+echo "****" >> $LOG
+/bin/rm -f $D0/3C10*${TAIL}.SDE $D0/3C10*.${TAIL}.FTS
+viswd40 << EOF >> $LOG
+ Imsize = 80, 80, 1
+ Cellsize = 12.00000000, 12.00000000, 12.00000000
+ Uvlimits = 0.0000000000E+00, 0.1000000000E+11
+ Filter = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+ Shift = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+ FOV = 1.000000000
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ Vis = D0/3C10UV.FTS
+ Default =
+ WD = D0/3C10WD.${TAIL}.FTS
+ CWD = D0/3C10CWD.${TAIL}.FTS
+ Niter = 60
+ Nconj = 10
+ Tflux = 60.00000000
+ Sigma = 0.1299999952
+ Beam = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00,
+ 0.0000000000E+00
+ Tolerance = 0.9999999776E-02
+ TV =
+ inp
+ go
+EOF
+imgstat << EOF >> $LOG
+ Image = D0/3C10CWD.${TAIL}.FTS
+ BLC = 0, 0, 0, 0, 0, 0, 0
+ TRC = 0, 0, 0, 0, 0, 0, 0
+ inp
+ go
+EOF
+echo "****" >> $LOG
+echo "**** Expected Rms     =   1.590E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Maximum =   6.263E-01 JY/BEAM ****" >> $LOG
+echo "**** Expected Minimum =  -6.171E-02 JY/BEAM ****" >> $LOG
+echo "****" >> $LOG
+/bin/rm -f $D0/3C10*${TAIL}.SDE $D0/3C10*.${TAIL}.FTS
+echo "****" >> $LOG
+echo "**** End of testing ****" >> $LOG
+echo "****" >> $LOG

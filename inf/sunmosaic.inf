@@ -1,0 +1,65 @@
+Program: SUNMOSAIC - a Maximum Entropy mosaicing program for imaging the SUN
+Programmer: T.J. Cornwell
+Date: 29 May 1989
+Purpose: To deconvolve a point spread function from an image by maximising the
+image entropy subject to the data constraints. Works in Fourier plane but
+uses map-plane fit to steer on
+
+This program performs mosaicing of up to ten fields. It is specially adapted
+to image the Sun and to correct for rotation.
+.
+Mosaic, C, 1, Mosaic visibility file (must be specified if Vis is not)
+Vis, C, 10, Visibility data set  (must be specified if Mosaic is not)
+Default , C, 1, Default  (can be left blank)
+VM , C, 1, VM  (can already exist, can be left blank)
+CVM , C, 1, Convolved VM plus residuals (can be left blank)
+Niter, I, 1, Number of Iterations (<0 for automatic stopping)
+Tflux, R, 1, Required total flux (<0 for a guess)
+Sigma, R, 10, Required final fit in Jy/beam or Jy
+Beam, R, 4, Smoothing beam, BMAJ, BMIN, BPA, BZ
+/Debug, L, 1, Debug? T or F
+/Tolerance, R, 1, Tolerance for convergence
+/Npoints, R, 1, Starting points per beam
+/Gain, R, 1, Gain in iteration process
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes in arc-seconds
+Uvlimits, R, 2, UV limits in wavelengths
+Filter, R, 3, Filter for sources of this size: BMAJ, BMIN, BPA (asec)
+Shift, R, 3, Shift in arcseconds
+FOV, R, 1, FOV for weighting
+Timerange, I, 8, Timerange (d,h,m,s)
+/SlowZ, L, 1, Slow transform in Z?, T or F
+Dotv, L, 1, Write iterations to TV file ?
+/Solrad, R, 1, Radius of Sun in arcseconds
+/Psun, R, 1, Period of Sun in days
+Tref, R, 1, Reference time in hours
+Timestep, R, 1, Step time in hours
+.DEFAULT
+Mosaic = 
+Vis = 
+Default = 
+
+VM = 
+CVM = 
+Niter = 10
+Tflux = -1.0
+Sigma = 0.001
+Beam = 0,0,0,0
+/Debug = F
+/Tolerance = 0.05
+/Npoints = 10.0
+/Gain = 0.3
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Uvlimits = 0.0, 1.0E10
+Filter = 0.0, 0.0, 0.0
+Shift = 0.0, 0.0, 0.0
+FOV = 0.0
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+/SlowZ = T
+Dotv = F
+/Solrad = 960
+/Psun = 27.0
+Tref = 0.0
+Timestep = 1.0
+.END

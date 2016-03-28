@@ -1,0 +1,66 @@
+.INFO
+Antfile, C, 1, Name of ASCII file specifying array
+Model, C, 1, Name of ASCII file giving model comps.
+Imsize, I, 3, Size of model image
+Cellsize, R, 3, Cellsize in model image
+Map, C, 1, Name of output or input model image
+HAlimits, R, 2, Hour angle limits [hours]
+Dec, R, 1, Declination of source in Model [deg.]
+BeamThrow, R, 2, beam throw, AZ, EL [arcsec]
+Freq, R, 1, Frequency of radiation [Hz]
+ELmin, R, 1, Minimum elevation for unflagged data [deg.]
+PB, L, 1, Primary beam application?
+PBlevel, R, 1, PB level known down to (.05) [can be 0.0]
+INTtime, R, 1, Integration time [seconds]
+ADDN, L, 1, Add noise to visibility data?
+PHRMS, R, 1, rms phase noise per telescope per integration time
+GRMS, R, 1, rms fractional complex gain deviation
+GDRIFT, R, 1, fractional gain drift for TOTAL POWER
+NRMS, R, 1, rms noise per correlator per integration time
+GLPNT, R, 2, global pointing error,      AZ, EL [arcsec]
+ORPNT, R, 2, original (random) pnt err,  AZ, EL [arcsec]
+DRPNT, R, 2, drift in pointing over obs, AZ, EL [arcsec]
+RANPNT, R, 2, random pointing error,      AZ, EL [arcsec]
+Telescope, C, 1, Name of telescope for header and PB
+Teldiam, R, 1, Telescope diameter for type AIRY or AIRYB [meters]
+Sinproj, L, 1, Do we use uniform grid on SIN PROJECTION?
+DFT, L, 1, Use DFT for no pointing error case? [T|F]
+AutoC, L, 1, Generate autocorrelations?
+AutoW, R, 1, Weighting for autocorrelations
+NED, I, 1, Number of extra pointings in each direction
+Mosaic, C, 1, Name of output mosaic database
+Vis, C, 1, Name of output Visibility database (first pointing only)
+.DEF
+Antfile = 
+Model =
+Imsize = 512, 512, 1
+Cellsize = 1., 1., 1.
+Map = 
+HAlimits = -.15,.15
+Dec = 35.
+BeamThrow = 0., 0.
+Freq = 230E9
+ELmin = 25.
+PB = T
+PBlevel = 0.
+INTtime = 60.
+ADDN = F
+PHRMS = 1.0
+GRMS = .05
+GDRIFT = .05
+NRMS = .1
+GLPNT = 0., 0.
+ORPNT = 0., 0.
+DRPNT = 0., 0.
+RANPNT = 0., 0.
+Telescope = MMA
+Teldiam = 7.5
+Sinproj = F
+DFT = F
+AutoC = T
+AutoW = .4
+NED = 0
+Mosaic =
+Vis =  
+.END
+

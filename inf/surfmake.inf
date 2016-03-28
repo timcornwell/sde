@@ -1,0 +1,44 @@
+program:		surfmake
+programmer:		m.a.holdaway
+purpose:		to generate model antenna surfaces and their
+			corresponding voltage patterns/primary beams
+
+
+
+.
+BEAM, C, 1, an image containing a primary beam
+Surface, C, 1, outfile for Surface error image
+VP, C, 1, Out file for VP
+PB, C, 1, primary beam
+NRMS, I, 1, How many RMSs?
+RMS, R, 5, RMS surface error [meters]
+Freq, R, 1, frequency in Hz
+Blocked, I, 1, [1=not, 2=blocked]
+Diam, R, 1, Antenna Diameter [meters]
+DeltScale, R, 1, scale image delta
+Size, I, 1, size for transforms
+Seed, I, 1, 4N + 1
+Power, R, 1, power law index
+Big, R, 1, Largest scale surf err [m]
+Small, R, 1, Small scale surf err [m]
+DoFit, L, 1, Remove pointing, focus, phase
+/Debug, L, 1, to debug or not to debug
+.
+BEAM =
+Surface =
+VP =
+PB =
+NRMS = 1
+RMS =0.0, 0.0, 0.0, 0.0, 0.0
+Freq = 230000000000.
+Blocked = 1
+Diam = 8.0
+DeltScale = 4.0
+Size = 1024
+Seed = 1005
+Power = -1.0
+Big = 8.0
+Small = 1.0
+DoFit = T
+/Debug = F
+.

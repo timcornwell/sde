@@ -1,0 +1,5 @@
+   SDEREMOTE=
+   SDEROOT=/home/zia/sde
+   SDESCR=./
+   . $SDEROOT/var/sdeini.aoc
+   D0=$SDEROOT/data

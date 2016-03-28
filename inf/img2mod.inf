@@ -1,0 +1,9 @@
+.
+Image,  C, 1, Image file
+Model,  C, 1, SDE model file
+Box, C, 1, Box file
+.DEFAULT
+Image =
+Model =
+Box =
+.END

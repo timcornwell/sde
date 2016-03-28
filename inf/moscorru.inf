@@ -1,0 +1,56 @@
+This program takes an existing mosaic data set and corrupts it with 
+the EASY errors: noise, gain errors.  No pointing errors.
+Gain drift is not done correctly if there are more than 1 integration per
+pointing.
+M.H.Holdaway, Oct 3 1990
+
+Change your AUTOCORRELATION WEIGHT?  No problem....treats noise correctly
+afterwards.		-Nov 14 1990
+
+now here's something you'll REALLY like: Apply a model atmosphere
+to the visibilities to corrupt the phases and amplitudes.
+	Atmosphere
+	RefractIndex
+	AtVelocity
+	AtHeight
+	AveMM
+	Rpix
+	Tsky
+All apply to the atmosphere
+
+
+.
+Mosin, C, 1, Input Mosaic File
+Mosout, C, 1, Output Mosaic File
+STOKES, C, 1, What Stokes Type
+NRMS, R, 1, Noise RMS, JY
+PHRMS, R, 1, Phase RMS
+GRMS, R, 1, Gain RMS
+GDRIFT, R, 1, Drift in total power gain
+AddNoise, L, 1, Add NRMS/PHRMS/GRMS/GDRIFT?
+AUTOW, R, 1, New autoweight to give [negative=no change]
+Atmosphere, C, 1, Atmospheric screen file
+RefractIndex, R, 1, effective ref ind of water vapor
+AtVelocity, R, 2, Screen velocity [m/s]
+AtHeight, R, 1, Atmosphere Screen height [m]
+AveMM, R, 1, Average Atmosphere [mm water]
+Rpix, R, 2, Ref pix of the atmosphere
+Tsky, R, 1, Sky temperature
+.
+Mosin =
+Mosout =
+STOKES = I
+NRMS = 0.
+PHRMS = 0.
+GRMS = 0.
+GDRIFT = 0.
+AddNoise = F
+AUTOW = -1.0
+Atmosphere =
+RefractIndex = 7.5
+AtVelocity = 12.0, 0.0
+AtHeight = 1000.
+AveMM = 1.0
+Rpix = 1000., 32.
+Tsky = 253.
+.

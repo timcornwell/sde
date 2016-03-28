@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> What is the  SDE  ?</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" What is the  SDE  ?">
+<meta name="keywords" value="program">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html80 HREF="node4.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html78 HREF="node2.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html72 HREF="node2.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html82 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html81 HREF="node4.html"> Philosophy</A>
+<B>Up:</B> <A NAME=tex2html79 HREF="node2.html"> Introduction</A>
+<B> Previous:</B> <A NAME=tex2html73 HREF="node2.html"> Introduction</A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00021000000000000000> What is the  SDE  ?</A></H2>
+<P>
+The Software Development Environment (<i> SDE</i>  ) is an attempt to provide a
+simple, friendly environment for the <em> development</em> of imaging algorithms.
+The principal features of <i> SDE</i>  are:
+<UL><LI> High level handling of images and visibility databases as complete 
+entities.  Inside an <i> SDE</i>  program, an image can be referred to by a
+name such as <tt> `PointSpreadFunction'</tt> or <tt> `XFR'</tt>.
+<LI> A fairly complete collection of modules for handling images, etc.
+in sophisticated ways. For example, a Fourier transform can be performed
+with the call:
+<PRE>        CALL IMGFFT ('PointSpreadFunction', 'XFR')
+</PRE>
+At this level, routines are written so that all the information
+neccessary for performing the transform is associated with the names of
+entities.
+<LI> All data is assumed to fit into memory (either physical or virtual)
+and so little explicit i/o is required.
+<LI> All application code is written in Fortran-77. Some system code is
+written in c. 
+</UL>
+The <i> SDE</i>  was designed by Tim Cornwell and Pat Moore in late 1986 and
+early 1987. Much of the system code was written by Pat during that
+time. Most of the application code has been developed by Tim Cornwell,
+Mark Holdaway, Dan Briggs, and Ralph Marson.
+<P>
+The <i> SDE</i>  is not intended to replace large production systems such as
+AIPS or IRAF, but rather to provide a friendly environment for the
+development of algorithms. It is intended that once an algorithm has been
+written and tested using SDE, it should be ported to a production
+system like AIPS. <i> SDE</i>  is not supported by NRAO on any machines. Take it
+as you find it.
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Wed Jan  3 09:21:29 MST 1996</I>
+</ADDRESS>
+</BODY>

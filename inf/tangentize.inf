@@ -1,0 +1,21 @@
+when	Jan 17 1996
+what	tangentize
+who	m.a.holdaway
+why	This program helps make template grids for other uses.
+	We take the central pixel of an image, calculate the RA and DEC,
+	and set the central pixel to be the reference pixel with that
+	RA and DEC.
+
+	The result is an image GRID which can be used by other programs
+	as a template, but the pixel values are now meaningless as they
+	refere to a projection other than the one which is now in the
+	header.
+
+.
+Image, C, 1, Input image
+Out, C, 1, Output image
+.
+Image = 
+Out =
+.
+

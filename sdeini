@@ -1,0 +1,110 @@
+
+#
+# SDE initialization file: sets up search path for binaries and
+# areas for data.
+#
+# NB SDEROOT must be defined before calling this unless you want the
+# default.
+#
+# Bourne-shell or Korn-shell version
+#
+if (test "X$SDEROOT" = X)
+then
+    SDEROOT=`pwd`
+    export SDEROOT
+fi
+#
+# Default definitions: don't change these
+#
+# Guess using special script fmachine which should work most of the time
+# If not change it in a var/sdeini.`hostname` file
+#
+ARCH=`$SDEROOT/farch`
+MACHINE=$ARCH
+export MACHINE
+#
+# Maximum size of swap space allocated at any one time. If bigger than
+# this then a mapped file is used if possible.
+#
+SDEMEM=8
+#
+# Area for standard SDE files e.g. those used for testing
+#
+D0=$SDEROOT/data
+#
+# Scratch Area used in compiling, etc.
+#
+SDESCR=$SDEROOT/scratch
+#
+# Area used for memory mapped files
+#
+T1=./
+#
+# Name of log file for SDE tasks
+#
+SDELOG=
+#
+# ARCH-dependent stuff
+#
+SDEBIN=$SDEROOT/bin/$ARCH			# Binaries for this ARCH
+SDEPBIN=$SDEROOT/pvm/$ARCH			# PVM servers for this ARCH
+SDELIB=$SDEROOT/lib/$ARCH			# Library for this ARCH
+#
+# Put any changes in a file called $SDEROOT/var/sdeini.`domainname`
+# e.g. /home/zia/sde/var/sdeini.aoc. This may override any of the
+# previous including most importantly MACHINE.
+#
+if (test -f $SDEROOT/var/sdeini.`domainname`) 
+then
+   . $SDEROOT/var/sdeini.`domainname`
+fi
+#
+# Override these on workstation basis?
+#
+if (test -f $SDEROOT/var/sdeini.`hostname`) 
+then
+   . $SDEROOT/var/sdeini.`hostname`
+fi
+#
+# Now allow overriding the workstation assignments with user
+# specific ones
+#
+if (test -f $HOME/.sdeini) 
+then
+   . $HOME/.sdeini
+fi
+#
+# Add SDE binaries to path only if they are not already there
+#
+SDEPATH="$SDEROOT/bin/unix":"$SDEROOT/bin/shadows":"$SDEBIN"
+if test -z "`echo $PATH | grep $SDEPATH`"
+then
+   PATH="$SDEPATH":"$PATH"
+fi
+echo $PATH
+#
+# Various useful definitions
+#
+SYSVER=$SDEROOT/source/include/sysver.h	# Location of compile time string
+SDEINF=$SDEROOT/inf/			# Area for information files
+#
+# Define host-specific directory which is to be used for the tvfile
+#
+SDETV=./SDEtvfile
+#
+# For coding convenience
+#
+S=$SDEROOT/source
+#
+# Find the PGPLOT fonts
+#
+if test -f $SDELIB/grfont.dat
+then
+    PGPLOT_FONT=$SDELIB/grfont.dat
+fi
+#
+# Export stuff explicitly
+#
+export SDEMEM SDEROOT SDEBIN SDEPBIN SDELIB SDESCR SDETV SDEINF SYSVER 
+export SDELOG ARCH D0 T1 S SDETV PGPLOT_FONT
+

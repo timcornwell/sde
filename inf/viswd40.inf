@@ -1,0 +1,43 @@
+.
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes in arc-seconds
+Uvlimits, R, 2, UV limits in wavelengths
+Filter, R, 3, Filter for sources of this size: BMAJ, BMIN, BPA (asec)
+Shift, R, 3, Shift in arcseconds
+FOV, R, 1, Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM
+Timerange, I, 8, Timerange (d,h,m,s)
+Vis, C, 1, Visibility data
+Default , C, 1, Default [optional]
+WD , C, 1, WD  [can already exist, optional]
+CWD , C, 1, Convolved WD plus residuals [optional]
+Niter, I, 1, Number of Iterations 
+Nconj, I, 1, Number of successive conjugate steps
+Tflux, R, 1, Required total flux [necessary]
+Sigma, R, 1, Required final fit per sample weight
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec]
+Point, L, 1, Make image for point source [T|F]
+/Debug, L, 1, Debug? T or F
+Tolerance, R, 1, Tolerance for convergence
+TV, C, 1, Image to display on tv [WD|CWD|Lambda|]
+.
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Uvlimits = 0.0, 1E10
+Filter = 0.0, 0.0, 0.0
+Shift = 0.0, 0.0, 0.0
+FOV = 1.0
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Vis = 
+Default = 
+WD = 
+CWD = 
+Niter = 100
+Nconj = 10
+Tflux = 1.0
+Sigma = 1.0
+Beam = 0., 0., 0., 0.
+Point = F
+/Debug = F
+Tolerance = 0.01
+TV =
+.

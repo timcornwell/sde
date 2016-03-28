@@ -1,0 +1,77 @@
+SDE timings on host tecate at Wed May 8 13:23:37 MDT 1991
+SDE Version 1.0
+****
+**** Testing general routines ****
+****
+world I:
+world I: Hello, world
+world I:
+world I: SDE Version 1.0
+world I: Compiled : Tue May  7 11:43:53 MDT 1991
+world I:
+world I:
+world I: Started  : Wed May  8 13:23:44 1991
+world I: Finished : Wed May  8 13:23:44 1991
+world I: User: 0.880 System: 0.340
+world I: Run on tecate
+imgstat I:
+imgstat I: I calculate statistics of images
+imgstat I:
+imgstat I: SDE Version 1.0
+imgstat I: Compiled : Tue May  7 11:44:46 MDT 1991
+imgstat I:
+imgstat I: *imgstat I: *imgstat I: *imgstat I: *imgstat I: Name of input image : Image = D0/3C10MAP.FTS
+imgstat I: Bottom left corner : BLC = 1, 1, 1, 1, 1, 1, 1
+imgstat I: Top right corner : TRC = 128, 128, 1, 1, 1, 1, 1
+imgstat I: *imgstat I: Opening FITS file D0/3C10MAP.FTS for READ as Image
+imgstat I: Coordinates:
+imgstat I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+imgstat I:    1   RA---SIN  128    64.00    5.617E+00  -3.333E-03   0.00E+00
+imgstat I:    2   DEC--SIN  128    64.00    6.387E+01   3.333E-03   0.00E+00
+imgstat I:    3   FREQ        1     1.00    1.511E+09   1.250E+07   0.00E+00
+imgstat I: Statistics for window:
+imgstat I: BLC(1) =    1, TRC(1) =  128
+imgstat I: BLC(2) =    1, TRC(2) =  128
+imgstat I:    Average =  -2.274E-02 JY/BEAM
+imgstat I:    Rms     =   1.403E-01 JY/BEAM
+imgstat I:    Dispers =   1.384E-01 JY/BEAM
+imgstat I:    Maximum =   6.791E-01 JY/BEAM
+imgstat I:    Minimum =  -3.135E-01 JY/BEAM
+imgstat I:    Sum     =  -3.725E+02 JY/BEAM
+imgstat I:
+imgstat I: Started  : Wed May  8 13:23:50 1991
+imgstat I: Finished : Wed May  8 13:24:10 1991
+imgstat I: User: 7.200 System: 0.440
+imgstat I: Run on tecate
+imgstat I:
+imgstat I: I calculate statistics of images
+imgstat I:
+imgstat I: SDE Version 1.0
+imgstat I: Compiled : Tue May  7 11:44:46 MDT 1991
+imgstat I:
+imgstat I: *imgstat I: *imgstat I: *imgstat I: *imgstat I: Name of input image : Image = D0/3C10MAP16.FTS
+imgstat I: Bottom left corner : BLC = 1, 1, 1, 1, 1, 1, 1
+imgstat I: Top right corner : TRC = 128, 128, 1, 1, 1, 1, 1
+imgstat I: *imgstat I: Opening FITS file D0/3C10MAP16.FTS for READ as Image
+imgstat I: Coordinates:
+imgstat I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+imgstat I:    1   RA---SIN  128    64.00    5.617E+00  -3.333E-03   0.00E+00
+imgstat I:    2   DEC--SIN  128    64.00    6.387E+01   3.333E-03   0.00E+00
+imgstat I:    3   FREQ        1     1.00    1.511E+09   1.250E+07   0.00E+00
+imgstat I: Statistics for window:
+imgstat I: BLC(1) =    1, TRC(1) =  128
+imgstat I: BLC(2) =    1, TRC(2) =  128
+imgstat I:    Average =  -2.273E-02 JY/BEAM
+imgstat I:    Rms     =   1.402E-01 JY/BEAM
+imgstat I:    Dispers =   1.384E-01 JY/BEAM
+imgstat I:    Maximum =   6.791E-01 JY/BEAM
+imgstat I:    Minimum =  -3.135E-01 JY/BEAM
+imgstat I:    Sum     =  -3.724E+02 JY/BEAM
+imgstat I:
+imgstat I: Started  : Wed May  8 13:24:14 1991
+imgstat I: Finished : Wed May  8 13:24:36 1991
+imgstat I: User: 7.900 System: 0.280
+imgstat I: Run on tecate
+****
+**** Now testing FFT routines ****
+****

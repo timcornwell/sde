@@ -1,0 +1,11 @@
+.
+TruePB, C, 1, True PB
+Mask, C, 1, Mask image
+VPNAME, C, 1, VPs are named: VPNAME//STRINT(IANT)//'.SDE'
+NPB, I, 1, How many?
+.
+TruePB = TRUE.PB
+Mask =
+VPNAME = S50.B
+NPB = 1
+.

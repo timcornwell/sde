@@ -1,0 +1,6 @@
+ Editor = emacs -nw
+ More = more
+ FITS = IEEE
+ Host = hillsboro
+ Debug = F
+ Batch = batch

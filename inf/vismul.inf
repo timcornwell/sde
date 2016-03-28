@@ -1,0 +1,19 @@
+Forms the product Scale * Vis1 * Vis2 / Vis3
+
+If Vis2 or Vis3 are absent, they are taken to be unity.
+
+.
+Vis1, C, 1, First input database
+Vis2, C, 1, Second input database
+Vis3, C, 1, Third input database
+Scale, R, 1, Scaling parameter
+Output, C, 1, Output database
+Stokes, C, 1, Stokes parameters
+.
+Vis1 = 
+Vis2 = 
+Vis3 =
+Scale = 1.0
+Output = 
+Stokes = I
+.

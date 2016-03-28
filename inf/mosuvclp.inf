@@ -1,0 +1,47 @@
+program		mosuvplt
+programmer	m.a.holdaway
+purpose		to plot amplitude of UV data (or UV data / Model Data)
+		as a function of radial UV distance
+
+This program PLOTS VIS data points OR VIS / MOD as a function 
+of SQRT(U^2 + V^2) and also gives the option of CLIPPING points 
+which have VIS/MOD outside some range defined by THRESH.
+Optimally, VIS / MOD should be 1.0, set THRESH(1) < 1.0
+and THRESH(2) > 1.0 to flag.  THRESH(2) = 0.0 results in
+no flagging.
+
+DIV = divide visibilities by model before clipping
+VIS = clip visibilities
+
+Added capability of flagging on any stokes, and flagging
+other selected stokes to match the checking stokes.
+
+.
+Mos, C, 1, Mosaic database
+Model, C, 1, Model image
+Mode, C, 1,  What mode to work in [DIV|CLIP]
+Stokes, C, 1, What Stokes to check on [IQUV]
+OtherStokes, C, 1, What Other Stokes to FLAG [IQUV]
+Timerange, I, 8, D H M S
+Skip, I, 1, How many to skip
+Dev, C, 1, Plot device
+WhichPoint, I, 20, Which pointings to do
+NewMos, C, 1, New mosaic database [if THRESH]
+Thresh, R, 2, Clipping Threshhold
+UVlimits, R, 2, UVlimits for clipping
+GraphLimits, R, 4, Xmin-Xmax-Ymin-Ymax [0,0,0,0=Selfscale]
+.
+Mos =
+Model = 
+Mode = DIV
+Stokes = I
+OtherStokes = QUV
+Timerange = 0,0,0,0,0,0,0,0
+Skip = 50 
+Dev = /xw
+WhichPoint = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+NewMos =
+Thresh = 0., 0.
+UVlimits = 0.0, 1.0E+10
+GraphLimits = 0,0,0,0
+.

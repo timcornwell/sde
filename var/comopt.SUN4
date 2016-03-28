@@ -1,0 +1,92 @@
+#
+#	National Radio Astronomy Observatory, Socorro, NM 87801
+#	Software Development Environment (SDE)
+#
+# This file comtains the specifications needed to compile and link
+# SDE routines and tasks. This is overridden by comopt.`hostname`
+# so if you want to change this, first copy it to comopt.`hostname`
+# and edit that file.
+#
+# Define type of machine: compiler, machine, operating system
+#
+# Added SDEVERBOSE redefinitions  DSB  9-Feb-94
+#
+DEFINES="-DCOMP_SUN -DMACH_SPARC -DOS_BSD"
+#
+# C preprocessor directives
+#
+CPPFLAGS=$DEFINES" -I$SDEROOT/source/include"
+#
+# FORTRAN directives: compile only, optimize
+#
+FFLAGS="-c -O3"
+#
+# c directives: compile only, optimize
+#
+CFLAGS=$DEFINES" -I$SDEROOT/source/include -c -O3 "
+#
+# loader directives: optimize
+#
+LDFLAGS=" -O3 "
+#
+# Shared libraries?
+#
+SHARE="NO"
+#
+# Name of private library 
+#
+PLIB="plib.a"
+#
+# Name of standard public library 
+#
+SLIB="$SDELIB/slib.a"
+#
+# Names of all public libraries used
+#
+# We're having some weird problems with fatal errors on starting dbx
+# making pgplot a static library seems to fix it.  DSB (12-1-93)
+TLIB="$SLIB $SDELIB/nr.a $SDELIB/lapack.a $SDELIB/blas.a $SDEROOT/pvm/f2c/SUN4/libf2c.a $SDEROOT/pvm/src/SUN4/libpvm.a $SDELIB/libpgplot.a -Bstatic -lX11 -lF77 -lm"
+#TLIB="$SLIB $SDELIB/nr.a $SDEROOT/pvm/f2c/SUN4/libf2c.a $SDEROOT/pvm/src/SUN4/libpvm.a -Bstatic -lX11 -lF77 -lm"
+#
+# Name of inline code file (leave empty if not required)
+#
+FIL=/usr/lib/libm.il
+#
+# Name of FORTRAN compiler
+#
+FC=/usr/lang/f77
+#
+# Name of c compiler
+#
+CC=cc
+#
+# Name of c preprocessor
+#
+CPP=/lib/cpp
+#
+# Name of loader
+#
+LD=/usr/lang/f77
+#
+# Name of library randomizer (Leave empty if not needed)
+#
+RL=ranlib
+#
+# Verbose redefinitions
+#
+if test X$SDEVERBOSE = "XYES"
+then
+   FFLAGS="-V $FFLAGS"
+   CFLAG="-V $CFLAGS"
+fi
+#
+# Redefinitions for debugging
+#
+if test X$SDEDEBUG = "XYES"
+then
+   FFLAGS="-c -g "
+   CFLAGS=$DEFINES" -I$SDEROOT/source/include -c -g "
+   LDFLAGS=" -g "
+   SHARE="NO"
+   PLIB="sdedbxlib.a"
+fi  

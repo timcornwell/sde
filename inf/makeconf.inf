@@ -1,0 +1,30 @@
+make an antenna file made from concentric rings
+.INPUT
+Antfile, C, 1, Name of output ant file
+DEC, R, 1, Declination [degrees]
+ELONG, R, 1, N-S elongation factor
+Radius, R, 10, List of circle radii
+Theta1, R, 10, Offsets from 12oclock for first ant on circle  [degrees]
+NANT, I, 10, Number of ants on that circle
+Random, L, 10, Randomize the ants on this ring?
+Random2, L, 10, Wiggle ants by Wiggle*(mean separation about ring)?
+RadRan, L, 10, Wiggle radially too
+Wiggle, R, 10, extent of wiggle, in degrees.
+Seed, I, 1, Random Number Generator seed
+MinDist, R, 10, Minimum dist between ants permitted on this ring
+DIAM, R, 1, Dish diameter
+.DEFAULT
+Antfile =
+DEC = 18.0
+ELONG = 1.3
+Radius = 0.,0.,0.,0.,0.,0.,0.,0.,0.,0.
+Theta1 = 0.,0.,0.,0.,0.,0.,0.,0.,0.,0.
+NANT = 0,0,0,0,0,0,0,0,0,0
+Random = F,F,F,F,F,F,F,F,F,F
+Random2 = F,F,F,F,F,F,F,F,F,F
+RadRan = F,F,F,F,F,F,F,F,F,F
+Wiggle = 0,0,0,0,0,0,0,0,0,0
+Seed = 4005
+MinDist = 20,20,20,20,20,20,20,20,20,20
+DIAM = 8.0
+.END

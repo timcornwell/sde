@@ -1,0 +1,21 @@
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {subsection}{\numberline {1.1}What is the {\psf SDE}\ ?}{3}
+\contentsline {subsection}{\numberline {1.2}Philosophy}{3}
+\contentsline {section}{\numberline {2}A simple example: Hello, world}{6}
+\contentsline {section}{\numberline {3}A more detailed example: imglc}{8}
+\contentsline {section}{\numberline {4}The main subroutines}{18}
+\contentsline {subsection}{\numberline {4.1}Database access: DAT routines}{18}
+\contentsline {subsection}{\numberline {4.2}Error handling: ERR routines}{20}
+\contentsline {subsection}{\numberline {4.3}Messages: MSG routines}{21}
+\contentsline {subsection}{\numberline {4.4}User interface: USR routines}{21}
+\contentsline {subsection}{\numberline {4.5}Text input and output: TXT routines}{23}
+\contentsline {subsection}{\numberline {4.6}String handling: STR routines}{23}
+\contentsline {subsection}{\numberline {4.7}System-related activities: SYS routines}{24}
+\contentsline {section}{\numberline {5}Compiling and Linking}{25}
+\contentsline {section}{\numberline {6}Porting to other machines}{28}
+\contentsline {section}{\numberline {7}Tools for Editing, Linting, and TV display}{31}
+\contentsline {section}{\numberline {A}Directory structure}{32}
+\contentsline {section}{\numberline {B}Standard Include file}{34}
+\contentsline {section}{\numberline {C}Error messages}{38}
+\contentsline {section}{\numberline {D}Environment variables}{39}
+\contentsline {section}{\numberline {E}Installing {\psf SDE}\ on a UNIX machine}{40}

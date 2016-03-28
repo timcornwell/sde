@@ -1,0 +1,38 @@
+We calculate the D terms every TINT seconds
+
+Rotated:  If polarization calibration has been applied once already,
+	  ROTATED = TRUE
+	  If polarization calibration has not been applied, then
+	  ROTATED = FALSE
+
+.
+Vis, C, 1, Input Data visibility set
+Out, C, 1, Output Visibility Set
+Timerange, I, 8, D1-H1-M1-S1; D2-H2-M2-S2
+UVLimits, R, 2, UVMin and UVMax in wavelengths
+Rotated, L, 1, Paralactic angles removed?
+Refant, I, 1, reference antenna
+TINT, R, 1, Solution interval for D terms
+IFlux, R, 1, Flux in I point source, JY [if Imap = ' ']
+Imap, C, 1, Model I image
+Qmap, C, 1, Model Q image
+Umap, C, 1, Model U image
+BeamCor, L, 1, Correct P model for beam?
+DTerms, C, 1, Output SDE D term file
+ADTerms, C, 1, Output ASCI D term file
+.
+Vis = 
+Out =
+Timerange = 0,0,0,0,0,0,0,0
+UVLimits = 0.0, 1E+10
+Refant = 1
+Rotated = T
+TINT = 600.
+IFlux = 1.0
+Imap = 
+Qmap = 
+Umap = 
+BeamCor = F
+DTerms = 
+ADTerms =
+.

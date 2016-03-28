@@ -1,0 +1,17 @@
+.
+Image, C, 1, Input cube
+Output, C, 1, Output image
+Telescop, C, 1, Type of Antenna
+Teldiam, R, 1, Diameter of Antenna
+PBLEVEL, R, 1, Level below which PB is corrupted (.05); can be 0.
+FixPosition, L, 1, Set OBSRA = CRVAL etc
+Frequency, D, 1, New Observing Frequency
+.
+Image =
+Output = 
+Telescop = AIRY
+Teldiam = 15.
+PBLEVEL = 0.
+FixPosition = F
+Frequency = 0.
+.

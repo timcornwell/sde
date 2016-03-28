@@ -1,0 +1,25 @@
+Program to average the VP's from individual antennas to get
+an average voltage pattern.  We also read in a MOSAIC database,
+appand the PB to it, and write out a new MOSAIC DATABASE
+
+.
+Map, C, 1, size of primary beam
+Freq, R, 1, observing frq, HZ
+Teldiam, R, 1, diameter in m
+VPname, C, 1, basename of VP # 1
+NANT, I, 1, number of ants to average
+MOSIN, C, 1, input mosaic database
+MOSOUT, C, 1, output mosaic database
+PBAVE, C, 1, average PB
+PBRAVE, C, 1, radially sym average PB
+.
+Map =
+Freq = 230E+9
+Teldiam = 7.5
+VPname =
+NANT = 1
+MOSIN =
+MOSOUT =
+PBAVE =
+PBRAVE =
+.

@@ -1,0 +1,617 @@
+This is TeX, C Version 3.14t3 (format=lplain 93.1.6)  3 JAN 1996 09:10
+**program
+(program.tex
+LaTeX Version 2.09 <7 Dec 1989>
+(/opt/local/lib/tex/inputs/article.sty
+Document Style `article' <16 Mar 88>.
+(/opt/local/lib/tex/inputs/art11.sty)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+) (program.aux) (program.toc [1
+
+])
+\tf@toc=\write3
+ [2]
+[3] [4] [5]
+Overfull \hbox (2.16733pt too wide) in paragraph at lines 148--148
+[]\elvtt C       Simple Hello, world program. This is a good test of the[] 
+
+\hbox(6.69167+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\penalty 10000
+.\glue 5.74869
+.\penalty 10000
+.etc.
+
+
+Overfull \hbox (42.40814pt too wide) in paragraph at lines 148--148
+[]\elvtt C       minimal sde system: only routines in source/main are required.
+[] 
+
+\hbox(7.60416+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\penalty 10000
+.\glue 5.74869
+.\penalty 10000
+.etc.
+
+
+Overfull \hbox (53.90552pt too wide) in paragraph at lines 148--148
+[]\elvtt C---------------------------------------------------------------------
+--[] 
+
+\hbox(6.69167+0.0)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\elvtt -
+.\elvtt -
+.\elvtt -
+.etc.
+
+
+Overfull \hbox (25.16208pt too wide) in paragraph at lines 148--148
+[]\elvtt C==================================================================[] 
+
+
+\hbox(6.69167+0.0)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\elvtt =
+.\elvtt =
+.\elvtt =
+.etc.
+
+[6]
+Overfull \hbox (0.8913pt too wide) in paragraph at lines 179--183
+[] []\elvtt CALL MSGWELCO ('Hello, world') \elvrm writes the mes-sage \elvtt He
+llo, world
+
+\hbox(7.60416+2.12917)x332.62494, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(4.86667+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(4.86667+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(4.86667+0.0)x0.0, glue set - 5.475fil []
+..\glue 5.475
+.\penalty 0
+.\elvtt C
+.etc.
+
+[7]
+Overfull \hbox (53.90552pt too wide) in paragraph at lines 257--257
+[]\elvtt C---------------------------------------------------------------------
+--[] 
+
+\hbox(6.69167+0.0)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\elvtt -
+.\elvtt -
+.\elvtt -
+.etc.
+
+
+Overfull \hbox (25.16208pt too wide) in paragraph at lines 257--257
+[]\elvtt C==================================================================[] 
+
+
+\hbox(6.69167+0.0)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\elvtt =
+.\elvtt =
+.\elvtt =
+.etc.
+
+[8] [9]
+Overfull \hbox (6.67026pt too wide) in paragraph at lines 293--295
+[] []\elvtt CHARACTER*(SYSMXNAM) \elvrm de-clares the (stan-dard) size of strin
+gs \elvtt INFILE1,
+
+\hbox(8.2125+2.73749)x332.62494, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(4.86667+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(4.86667+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(4.86667+0.0)x0.0, glue set - 5.475fil []
+..\glue 5.475
+.\penalty 0
+.\elvtt C
+.etc.
+
+[10] [11]
+Overfull \hbox (36.65945pt too wide) in paragraph at lines 465--465
+[]\elvtt C--------------------------------------------------------------------[
+] 
+
+\hbox(6.69167+0.0)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\elvtt -
+.\elvtt -
+.\elvtt -
+.etc.
+
+[12]
+Overfull \hbox (42.40814pt too wide) in paragraph at lines 465--465
+[]\elvtt C=====================================================================
+[] 
+
+\hbox(6.69167+0.0)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\elvtt =
+.\elvtt =
+.\elvtt =
+.etc.
+
+
+Overfull \hbox (19.41339pt too wide) in paragraph at lines 465--465
+[]            \elvtt CALL ERRREPOR (ERRBDARG, ROUTINE, 'Axes do not match')[] 
+
+\hbox(7.60416+1.52081)x360.0
+.\hbox(0.0+0.0)x0.0
+.\penalty 10000
+.\glue 5.74869
+.\penalty 10000
+.\glue 5.74869
+.etc.
+
+
+Overfull \hbox (13.6647pt too wide) in paragraph at lines 465--465
+[] \elvtt 1000    FORMAT ('Array types for images 1 and 2 disagree : ',A1,[] 
+
+\hbox(7.60416+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\penalty 10000
+.\glue 5.74869
+.\elvtt 1
+.\elvtt 0
+.etc.
+
+[13]
+Overfull \hbox (7.91602pt too wide) in paragraph at lines 465--465
+[]     \elvtt 1         'Types for image 1 and output image disagree : ',[] 
+
+\hbox(6.69167+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\penalty 10000
+.\glue 5.74869
+.\penalty 10000
+.\glue 5.74869
+.etc.
+
+
+Overfull \hbox (13.6647pt too wide) in paragraph at lines 465--465
+[]         \elvtt CALL PIXRLC (MEMR(ADD1), W1, MEMR(ADD2), W2, MEMR(ADD3),[] 
+
+\hbox(7.60416+1.52081)x360.0
+.\hbox(0.0+0.0)x0.0
+.\penalty 10000
+.\glue 5.74869
+.\penalty 10000
+.\glue 5.74869
+.etc.
+
+[14] [15]
+Overfull \hbox (36.65945pt too wide) in paragraph at lines 536--536
+[]\elvtt C--------------------------------------------------------------------[
+] 
+
+\hbox(6.69167+0.0)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\elvtt -
+.\elvtt -
+.\elvtt -
+.etc.
+
+
+Overfull \hbox (42.40814pt too wide) in paragraph at lines 536--536
+[]\elvtt C=====================================================================
+[] 
+
+\hbox(6.69167+0.0)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\elvtt =
+.\elvtt =
+.\elvtt =
+.etc.
+
+[16] [17]
+Overfull \hbox (17.89326pt too wide) in paragraph at lines 609--611
+[] []\elvtt DATRENAM (INNAME, OUTNAME)\elvrm : re-name an en-try from \elvtt IN
+NAME \elvrm to \elvtt OUTNAME\elvrm . 
+
+\hbox(7.60416+2.12917)x332.62494, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(4.86667+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(4.86667+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(4.86667+0.0)x0.0, glue set - 5.475fil []
+..\glue 5.475
+.\penalty 0
+.\elvtt D
+.etc.
+
+[18]
+Overfull \hbox (3.20291pt too wide) in paragraph at lines 613--617
+[] []\elvtt DATHEDLI (NAME, NODES, NLIST, NTYPE, NSIZE)\elvrm : makes a list of
+ the
+
+\hbox(7.60416+1.52081)x332.62494, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(4.86667+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(4.86667+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(4.86667+0.0)x0.0, glue set - 5.475fil []
+..\glue 5.475
+.\penalty 0
+.\elvtt D
+.etc.
+
+
+Overfull \hbox (2.56328pt too wide) in paragraph at lines 628--631
+\elvtt DATFGETI, DATFGETD, DATFGETX, DATFGETL \elvrm for in-te-ger, dou-ble, co
+m-
+
+\hbox(7.60416+2.12917)x332.62494, glue set - 1.0
+.\elvtt D
+.\elvtt A
+.\elvtt T
+.\elvtt F
+.\elvtt G
+.etc.
+
+
+Overfull \hbox (0.34402pt too wide) in paragraph at lines 642--644
+[] []\elvtt DATGETAR (NAME, NAX, NAXIS, ATYPE, ADD)\elvrm : gets the pa-ram-e-t
+ers of
+
+\hbox(7.60416+2.12917)x332.62494, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(4.86667+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(4.86667+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(4.86667+0.0)x0.0, glue set - 5.475fil []
+..\glue 5.475
+.\penalty 0
+.\elvtt D
+.etc.
+
+[19]
+Overfull \hbox (2.71698pt too wide) in paragraph at lines 673--675
+[] []\elvtt ERRCHANG (REASON, ROUTINE, TEXT)\elvrm : changes an ex-ist-ing er-r
+or which
+
+\hbox(7.60416+2.12917)x332.62494, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(4.86667+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(4.86667+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(4.86667+0.0)x0.0, glue set - 5.475fil []
+..\glue 5.475
+.\penalty 0
+.\elvtt E
+.etc.
+
+[20]
+Overfull \hbox (14.95847pt too wide) in paragraph at lines 724--728
+[] []\elvrm The in-for-ma-tion about the task pa-ram-e-ters is read from a file
+ \elvit taskname.inf
+
+\hbox(7.60416+2.12917)x332.62494, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(7.05666+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(7.05666+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(7.05666+0.0)x0.0, glue set - 8.51668fil []
+..\glue 5.475
+.\penalty 0
+.\elvrm T
+.etc.
+
+[21]
+Overfull \hbox (30.91077pt too wide) in paragraph at lines 760--760
+[]\elvtt Purpose: IMGLC allows two images to be added with arbitrary weights.[]
+ 
+
+\hbox(6.69167+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt P
+.\elvtt u
+.\elvtt r
+.\elvtt p
+.etc.
+
+[22] [23]
+Overfull \hbox (16.13039pt too wide) in paragraph at lines 825--828
+\elvrm delimited \elvtt LIST, CHARACTER*(*) \elvrm and re-turns it in \elvtt PA
+RT, CHARACTER*(*)\elvrm . 
+
+\hbox(7.60416+1.52081)x332.62494, glue set - 1.0
+.\elvrm d
+.\elvrm e
+.\elvrm l
+.\elvrm i
+.\elvrm m
+.etc.
+
+
+Overfull \hbox (6.51767pt too wide) in paragraph at lines 829--831
+[] []\elvtt STRMATCH(LIST, STRING)\elvrm : is a \elvtt LOGICAL \elvrm func-tion
+ which is true if \elvtt STRING
+
+\hbox(7.60416+1.52081)x332.62494, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(4.86667+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(4.86667+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(4.86667+0.0)x0.0, glue set - 5.475fil []
+..\glue 5.475
+.\penalty 0
+.\elvtt S
+.etc.
+
+[24] [25] [26] [27]
+Overfull \hbox (6.54878pt too wide) in paragraph at lines 1001--1005
+[] []\elvtt var/sdeini.hostname \elvrm or \elvtt var/sdeini.csh.hostname \elvrm
+ will need changes
+
+\hbox(7.60416+2.12917)x332.62494, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(4.86667+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(4.86667+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(4.86667+0.0)x0.0, glue set - 5.475fil []
+..\glue 5.475
+.\penalty 0
+.\elvtt v
+.etc.
+
+
+Overfull \hbox (44.41922pt too wide) in paragraph at lines 1005--1009
+[] []\elvrm The com-piler op-tions are set by the Bourne-shell rou-tine \elvtt 
+var/comopt.$MACHINE\elvrm .
+
+\hbox(7.60416+2.43333)x332.62494, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(4.86667+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(4.86667+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(4.86667+0.0)x0.0, glue set - 5.475fil []
+..\glue 5.475
+.\penalty 0
+.\elvrm T
+.etc.
+
+[28] [29] [30] [31] [32] [33]
+Overfull \hbox (19.41339pt too wide) in paragraph at lines 1318--1318
+[]\elvtt C Standard include file for all sde subroutines. This contains the[] 
+
+\hbox(6.69167+0.0)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\penalty 10000
+.\glue 5.74869
+.\elvtt S
+.etc.
+
+
+Overfull \hbox (53.90552pt too wide) in paragraph at lines 1318--1318
+[]\elvtt C---------------------------------------------------------------------
+--[] 
+
+\hbox(6.69167+0.0)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\elvtt -
+.\elvtt -
+.\elvtt -
+.etc.
+
+
+Overfull \hbox (36.65945pt too wide) in paragraph at lines 1318--1318
+[]\elvtt C Prefer to put this here so that it can be switched off if required.[
+] 
+
+\hbox(6.69167+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\penalty 10000
+.\glue 5.74869
+.\elvtt P
+.etc.
+
+[34]
+Overfull \hbox (2.16733pt too wide) in paragraph at lines 1318--1318
+[]\elvtt C derived from the tail of the invoking string e.g. if you type[] 
+
+\hbox(6.69167+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\penalty 10000
+.\glue 5.74869
+.\elvtt d
+.etc.
+
+
+Overfull \hbox (2.16733pt too wide) in paragraph at lines 1318--1318
+[]      \elvtt COMMON /SYSC/ SYSPROG, SYSVERS, SYSINTAC, SDELOG, SYSORIG[] 
+
+\hbox(7.60416+1.52081)x360.0
+.\hbox(0.0+0.0)x0.0
+.\penalty 10000
+.\glue 5.74869
+.\penalty 10000
+.\glue 5.74869
+.etc.
+
+
+Overfull \hbox (7.91602pt too wide) in paragraph at lines 1318--1318
+[]\elvtt C These are for immediate use only: do not expect them to remain[] 
+
+\hbox(6.69167+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\penalty 10000
+.\glue 5.74869
+.\elvtt T
+.etc.
+
+[35]
+Overfull \hbox (48.15683pt too wide) in paragraph at lines 1318--1318
+[]\elvtt C All application arrays are accessed by a reference to the appropriat
+e[] 
+
+\hbox(6.69167+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\penalty 10000
+.\glue 5.74869
+.\elvtt A
+.etc.
+
+
+Overfull \hbox (48.15683pt too wide) in paragraph at lines 1318--1318
+[]\elvtt C common block. The address with respect to the common block is handle
+d[] 
+
+\hbox(6.69167+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\penalty 10000
+.\glue 5.74869
+.\elvtt c
+.etc.
+
+
+Overfull \hbox (42.40814pt too wide) in paragraph at lines 1318--1318
+[]\elvtt C by the dai.c routines e.g. MEMR(DATADD('Vis/UU')) contains the first
+[] 
+
+\hbox(7.60416+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\penalty 10000
+.\glue 5.74869
+.\elvtt b
+.etc.
+
+
+Overfull \hbox (13.6647pt too wide) in paragraph at lines 1318--1318
+[]\elvtt C element of the u coordinates of the visibility data base 'Vis'.[] 
+
+\hbox(6.69167+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\penalty 10000
+.\glue 5.74869
+.\elvtt e
+.etc.
+
+
+Overfull \hbox (2.16733pt too wide) in paragraph at lines 1318--1318
+[]      \elvtt EQUIVALENCE (MEMI(1), MEMR(1), MEMD(1), MEMX(1), MEML(1))[] 
+
+\hbox(7.60416+1.52081)x360.0
+.\hbox(0.0+0.0)x0.0
+.\penalty 10000
+.\glue 5.74869
+.\penalty 10000
+.\glue 5.74869
+.etc.
+
+
+Overfull \hbox (71.15158pt too wide) in paragraph at lines 1318--1318
+[]\elvtt C These are the approved strings for use in ERRREPOR. You can use some
+thing[] 
+
+\hbox(6.69167+2.43333)x360.0
+.\hbox(0.0+0.0)x0.0
+.\elvtt C
+.\penalty 10000
+.\glue 5.74869
+.\elvtt T
+.etc.
+
+[36] [37] [38] [39]
+Overfull \hbox (1.07678pt too wide) in paragraph at lines 1373--1375
+[] []\elvsf SDE \elvrm is avail-able by anony-mous ftp from zia.aoc.nrao.edu (1
+92.43.204.7)
+
+\hbox(8.2125+2.73749)x332.62494, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(7.05666+0.0)x0.0
+..\glue 0.0
+..\glue -21.90005
+..\glue -5.475
+..\hbox(7.05666+0.0)x21.90005, glue set 21.90005fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+...\hbox(7.05666+0.0)x0.0, glue set - 8.51668fil []
+..\glue 5.475
+.\penalty 0
+.\elvsf S
+.etc.
+
+[40] (program.aux) ) 
+Here is how much of TeX's memory you used:
+ 158 strings out of 4463
+ 1494 string characters out of 63242
+ 33656 words of memory out of 262141
+ 2101 multiletter control sequences out of 9500
+ 19607 words of font info for 74 fonts, out of 72000 for 255
+ 14 hyphenation exceptions out of 607
+ 13i,6n,17p,173b,243s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on program.dvi (40 pages, 76952 bytes).

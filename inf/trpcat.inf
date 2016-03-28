@@ -1,0 +1,9 @@
+.
+Triple, C, 32, Names of triple product databases
+Stokes, C, 1, Name of Stokes parameters e.g. IQUV
+Outfile, C, 1, Name of output triple product database
+.
+Triple =
+Stokes = I
+Outfile =
+.

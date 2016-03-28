@@ -1,0 +1,25 @@
+Note that if you have a small number of concentrated point sources to
+subtract, it's not that expensive to use the DFT
+.INFO
+Vis, C, 1, Visibility file to be modified
+Model, C, 1, Name of ASCII file giving model comps.
+Imsize, I, 3, Size of model image
+Cellsize, R, 3, Cellsize in model image
+Map, C, 1, Name of input model image
+Factor, R, 2, Output is FACTOR(1)*Vis + FACTOR(2)*Model
+MapCoords, L, 1, Use map coordinates for model image?
+DFT, L, 1, Use slow DFT?
+Output, C, 1, Name of output Visibility database
+/Debug, L, 1, Debug status
+.DEF
+Vis =
+Model =
+Imsize = 512, 512, 1
+Cellsize = 1., 1., 1.
+Map = 
+Factor = 1.0, -1.0
+MapCoords = F
+DFT = F
+Output =  
+/Debug=F
+.END

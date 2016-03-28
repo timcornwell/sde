@@ -1,0 +1,32 @@
+.
+Dirty , C, 1, Dirty  (must be specified)
+PSF, C, 1, Point spread function (must be specified)
+Residual, C, 1, Residual image
+Components, C, 1, Components image
+GSP, C, 1, GSP image
+Box, C, 1, Window for non-zero pixels
+BLC, I, 7 * 1, Bottom left corner of window
+TRC, I, 7 * 1, Top right corner of window
+Niter, I, 1, Number of Iterations
+Flux, R, 1, Cutoff in flux
+Gain, R, 1, Loop gain
+Beam, R, 4, Clean beam: Bmaj, Bmin, Bpa, Bz
+Accel, R, 1, Acceleration parameter
+/DEBUG, L, 1, Debug
+.
+Dirty = 
+PSF = 
+Residual = 
+Components = 
+GSP = 
+Box =
+BLC = 0, 0, 0, 0, 0, 0, 0
+TRC = 0, 0, 0, 0, 0, 0, 0
+Niter = 1
+Flux = 0.0
+Gain = 0.01
+Beam = 1.0, 1.0, 0.0, 0.0
+Accel = 0.0
+/DEBUG = F
+.
+

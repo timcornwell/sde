@@ -1,0 +1,3 @@
+   SDESCR=$SDEROOT/scratch
+   . $SDEROOT/var/sdeini.aoc
+   D0=$SDEROOT/data

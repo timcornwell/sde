@@ -1,0 +1,25 @@
+Program: SD - single dish imaging program
+Programmer: T.J. Cornwell
+Date: 6 Nov 1989
+Purpose: To form a single dish image from a mosaic data base
+.
+Mosaic, C, 1, Mosaic visibility file (must be specified)
+Image , C, 1, Output image
+PSF, C, 1, Output PSF [optional]
+/Debug, L, 1, Debug? [T | F]
+Imsize, I, 3, Image size [pixels]
+Cellsize, R, 3, Cellsizes [arc-seconds]
+Telescope, C, 1, Telescope name 
+Timerange, I, 8, Timerange (d,h,m,s)
+Mode, C, 1, Type of image [ | OPTIMAL]
+.DEFAULT
+Mosaic = 
+Image = 
+PSF =
+/Debug = F
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Telescope =
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Mode =
+.END

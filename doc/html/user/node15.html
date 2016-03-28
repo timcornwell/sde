@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> Wide field imaging</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" Wide field imaging">
+<meta name="keywords" value="user">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html201 HREF="node16.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html199 HREF="node10.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html195 HREF="node14.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html203 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html202 HREF="node16.html">   About this document </A>
+<B>Up:</B> <A NAME=tex2html200 HREF="node10.html"> Special topics</A>
+<B> Previous:</B> <A NAME=tex2html196 HREF="node14.html"> Array design and </A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00065000000000000000> Wide field imaging</A></H2>
+<P>
+Wide field imaging has changed substantially over the past few years.
+The best task to use now is dragon. This performs the <em> polyhedron</em>
+clean described by Cornwell and Perley, 1992, together with optional
+selfcalibration steps.
+<P>
+<OL><LI> Export the u,v data to SDE using FITTP to write a disk-FITS.
+Put the file in an area of your own and cd to it.
+<P>
+<LI> Run dragon to make a clean image and self-calibrated 
+data. For 327MHz observing of the full primary beam in
+D-configuration, typical inputs are:
+<P>
+<PRE> Imsize = 100, 100, 1
+ Cellsize = 60.00000000, 60.00000000, 60.00000000
+ Outliers = SDEROOT/test/BF7.Outliers
+ Shift = 0.0000000000E+00, 0.0000000000E+00
+ FOV = 1.000000000
+ Stokes = IV
+ Uvlimits = 200.0000000, 1000.000000
+ Muvlimits = 200.0000000, 750.0000000
+ Filter = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ Vis = D0/BF791
+ NewVis = D0/BF7
+ PSF =
+ CLEAN = D0/BF7.ICLN
+ OutCLEAN = D0/BF7.OUTCLEAN
+ CCList =
+ Restart = F
+ Niter = 50000
+ Riter = 0
+ Flux = 0.1000000071E-01
+ Fswitch = 0.9999999776E-02
+ FSelfcal = 0.1000000015, -0.5000000075E-01, -0.2500000037E-01,
+ -0.1499999966E-01, -0.1499999966E-01, 0.0000000000E+00, 0.0000000000E+00,
+ 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+ Gain = 0.1000000015
+ Tolerance = 0.9999999747E-05
+ Beam = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00,
+ 0.0000000000E+00
+ Tamp = 1190.000000
+ Tphase = 119.0000000
+ Reference = 1
+ TVImage = -1
+ Parallel = F
+ Np = 3
+</PRE>
+<P>
+This makes a 7 by 7 faceted image, where each facet has 100 by 100
+pixels each of cell size 60 arcseconds. The Stokes switch specifies
+that in the selfcal step, RR and LL are to be calibrated separately.
+FOV=1 specifies uniform weighting (use 0.0 for natural). Muvlimits
+sets the range of spacings used to calculate gains in the selfcal
+step. NewVis writes the selfcalibrated data set.  FSelfcal
+determines levels of peak residual at which selfcalibration will be
+performed. FSwitch specifies that a DFT is to be used for pixels
+brighter than 10 mJy/beam. Tamp and Tphase set the time scales for
+amplitude and phase solutions (usually you set the former to a larger
+number). Reference sets the reference field for which noise levels are
+calculated. TVImage specifies an image to display (-1 means none, and
+0 means all). Np=3 specifies that (2*Np+1)**2 patches will be used
+(e.g. 49 for np=3).
+<P>
+<LI> To determine parameters for other configurations use the
+program flydoc.
+<P>
+</OL><BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Fri Jan 19 13:47:44 MST 1996</I>
+</ADDRESS>
+</BODY>

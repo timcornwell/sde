@@ -1,0 +1,22 @@
+Program: HGEOM - Runs the routine IMGHGEOM
+Programmer: R.T.Duquet
+Date: 4 April 1990
+Purpose: To paste a small(er) image into a larger map.
+
+Details: This is still a test program. 
+
+.INFO
+Image, C, 1, Input Image
+Example, C, 1, An image with the proper header
+Output, C, 1, Output Image
+InterpOrder, C, 1, Interpolation (Linear, Cubic, Quintic or Septic)
+Imsize, I, 7, Image size required
+/Debug, L, 1, Degug T or F
+.DEFAULT
+Image =
+Example =
+Output =
+InterpOrder = Quintic
+Imsize =  1,1,1,1,1,1,1
+/Debug = T
+.END

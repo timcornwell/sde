@@ -1,0 +1,14 @@
+results =	'VarRes'
+data2   =	'SVVul'
+data1   =	'DelCep'
+param1  =	'Param1'
+param2  =	'Param2'
+ftn     =	 1.0	
+triang  =	 1.0	
+tol     =	 0.000001	
+iters   =	 20.0	
+prvar   =	 1.0	
+fair    =	 0.925	
+sigma   =	 0.0060223859645193	
+scale   =	 0.0111874287406069	
+END

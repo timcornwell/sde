@@ -1,0 +1,59 @@
+UVDENSE -   program to find uv density as a function of radius
+programmer: m.a. holdaway
+date:	    may 24, 1994
+
+Mean: mean UV density in each radial ring
+Dispersion: SQRT( sum((UVDENS - Mean)**2)/N-1 ) / Mean
+.
+Imsize, I, 2, UV Image size
+Cellsize, R, 2, Cellsizes in Meters
+Uvlimits, R, 2, UV limits in Meters
+FOV, R, 1, Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM
+NicePSF, L, 1, Reweight for NICE (Gaussian) PSF?
+Timerange, I, 8, Timerange (d,h,m,s)
+ConvType, C, 1, Convolution function SF, SZE or BOX
+Vis, C, 1, Visibility data
+DOWT, L, 1, Make the weight grid?
+DOVIS, L, 1, Make the vis grid?
+WTGrid, C, 1, Output Wt Image
+VISAmp, C, 1, Output AMP Image
+VISPhase, C, 1, Output PHASE Image
+Nbins, I, 1, Number of bins for radial density plot
+Shape, R, 2, S(1)=elongation, S(2)=position angle
+DevMean, C, 1, Name of plot device for UV Density
+DevDisp, C, 1, Name of plot device for UV Dispersion
+FilMean, C, 1, TXT file of UV density as a function of radius
+FilDisp, C, 1, TXT file of disp from UV mean as a function of radius
+TitleComment, C, 1, Comment on plot title
+Xrange, R, 2, X min and max for plot [0=self scale]
+Yrange, R, 2, Y min and max for plot [0=self scale]
+DoEffectiveUV, L, 1, Convolve UV coverage with antenna illumination?
+Telescope, C, 1, Telescope type for PB
+Teldiam, R, 1, Telescope size for PB
+.DEFAULTS
+Imsize = 128, 128
+Cellsize = 10., 10.
+Uvlimits = 0.0, 1E10
+FOV = 0.0
+NicePSF = F
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ConvType = BOX
+Vis = 
+DOWT = T
+DOVIS = T
+WTGrid = 
+VISAmp = 
+VISPhase = 
+Nbins = 100
+Shape = 1.0, 0.0
+DevMean =  /xw
+DevDisp =  /xw
+FilMean = 
+FilDisp =
+TitleComment = 
+Xrange = 0., 0.
+Yrange = 0., 0.
+DoEffectiveUV = F
+Telescope = MMA
+Teldiam = 8.0
+.

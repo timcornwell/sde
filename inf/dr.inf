@@ -1,0 +1,13 @@
+.
+Image, C, 1, Name of input image
+BLC1, I, 7, Bottom left corner
+TRC1, I, 7, Top right corner
+BLC2, I, 7, Bottom left corner
+TRC2, I, 7, Top right corner
+.
+Image = 
+BLC1 = 0,0,0,0,0,0,0
+TRC1 = 0,0,0,0,0,0,0
+BLC2 = 0,0,0,0,0,0,0
+TRC2 = 0,0,0,0,0,0,0
+.

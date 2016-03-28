@@ -1,0 +1,22 @@
+Program: VIS_MODEL
+Programmer: E.J. Narg
+Date: 1 March 1988
+Purpose: Make an image from a model specification.
+
+.INFO
+Image, C, 1, Name of image 
+Model, C, 1, Name of ASCII file containing model components
+Vis, C, 1, Name of visibility file
+NVis, C, 1, Name of new visibility file
+DFT, L, 1, Use Direct Fourier Transform
+Cellsize, R, 3, Cellsize in arcsec
+Imsize, I, 3, Image size
+.DEFAULT
+Image =
+Model =
+Vis =
+NVis =
+DFT = F
+Cellsize = 1, 1, 0
+Imsize = 256, 256, 1
+.END

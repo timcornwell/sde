@@ -1,0 +1,428 @@
+SDE timings on host zia at Thu May 23 22:08:48 MDT 1991
+SDE Version 1.0
+****
+**** Testing general routines ****
+****
+world I:
+world I: Hello, world
+world I:
+world I: SDE Version 1.0
+world I: Compiled : Fri May 17 20:37:10 MDT 1991
+world I:
+world I:
+world I: Started  : Thu May 23 22:09:06 1991
+world I: Finished : Thu May 23 22:09:06 1991
+world I: User: 0.750 System: 0.430
+world I: Run on zia
+imgstat I:
+imgstat I: I calculate statistics of images
+imgstat I:
+imgstat I: SDE Version 1.0
+imgstat I: Compiled : Thu May  2 15:56:42 MDT 1991
+imgstat I:
+imgstat I: *imgstat I: *imgstat I: *imgstat I: *imgstat I: Name of input image : Image = D0/3C10MAP.FTS
+imgstat I: Bottom left corner : BLC = 1, 1, 1, 1, 1, 1, 1
+imgstat I: Top right corner : TRC = 128, 128, 1, 1, 1, 1, 1
+imgstat I: *imgstat I: Opening FITS file D0/3C10MAP.FTS for READ as Image
+imgstat I: Coordinates:
+imgstat I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+imgstat I:    1   RA---SIN  128    64.00    5.617E+00  -3.333E-03   0.00E+00
+imgstat I:    2   DEC--SIN  128    64.00    6.387E+01   3.333E-03   0.00E+00
+imgstat I:    3   FREQ        1     1.00    1.511E+09   1.250E+07   0.00E+00
+imgstat I: Statistics for window:
+imgstat I: BLC(1) =    1, TRC(1) =  128
+imgstat I: BLC(2) =    1, TRC(2) =  128
+imgstat I:    Average =  -2.274E-02 JY/BEAM
+imgstat I:    Rms     =   1.403E-01 JY/BEAM
+imgstat I:    Dispers =   1.384E-01 JY/BEAM
+imgstat I:    Maximum =   6.791E-01 JY/BEAM
+imgstat I:    Minimum =  -3.135E-01 JY/BEAM
+imgstat I:    Sum     =  -3.725E+02 JY/BEAM
+imgstat I:
+imgstat I: Started  : Thu May 23 22:09:09 1991
+imgstat I: Finished : Thu May 23 22:09:10 1991
+imgstat I: User: 1.170 System: 0.480
+imgstat I: Run on zia
+imgstat I:
+imgstat I: I calculate statistics of images
+imgstat I:
+imgstat I: SDE Version 1.0
+imgstat I: Compiled : Thu May  2 15:56:42 MDT 1991
+imgstat I:
+imgstat I: *imgstat I: *imgstat I: *imgstat I: *imgstat I: Name of input image : Image = D0/3C10MAP16.FTS
+imgstat I: Bottom left corner : BLC = 1, 1, 1, 1, 1, 1, 1
+imgstat I: Top right corner : TRC = 128, 128, 1, 1, 1, 1, 1
+imgstat I: *imgstat I: Opening FITS file D0/3C10MAP16.FTS for READ as Image
+imgstat I: Coordinates:
+imgstat I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+imgstat I:    1   RA---SIN  128    64.00    5.617E+00  -3.333E-03   0.00E+00
+imgstat I:    2   DEC--SIN  128    64.00    6.387E+01   3.333E-03   0.00E+00
+imgstat I:    3   FREQ        1     1.00    1.511E+09   1.250E+07   0.00E+00
+imgstat I: Statistics for window:
+imgstat I: BLC(1) =    1, TRC(1) =  128
+imgstat I: BLC(2) =    1, TRC(2) =  128
+imgstat I:    Average =  -2.273E-02 JY/BEAM
+imgstat I:    Rms     =   1.402E-01 JY/BEAM
+imgstat I:    Dispers =   1.384E-01 JY/BEAM
+imgstat I:    Maximum =   6.791E-01 JY/BEAM
+imgstat I:    Minimum =  -3.135E-01 JY/BEAM
+imgstat I:    Sum     =  -3.724E+02 JY/BEAM
+imgstat I:
+imgstat I: Started  : Thu May 23 22:09:12 1991
+imgstat I: Finished : Thu May 23 22:09:12 1991
+imgstat I: User: 1.310 System: 0.350
+imgstat I: Run on zia
+****
+**** Now testing FFT routines ****
+****
+fftx I:
+fftx I: I time FFTs
+fftx I:
+fftx I: SDE Version 1.0
+fftx I: Compiled : Thu May  2 15:57:05 MDT 1991
+fftx I:
+fftx I: Time per   256 complex FFT =      3.075 milliseconds
+fftx I: Time per   512 complex FFT =      6.675 milliseconds
+fftx I: Time per  1024 complex FFT =     14.400 milliseconds
+fftx I: Time per  2048 complex FFT =     31.700 milliseconds
+fftx I: Time per  4096 complex FFT =     72.075 milliseconds
+fftx I: Time per  8192 complex FFT =    189.600 milliseconds
+fftx I:
+fftx I: Started  : Thu May 23 22:09:15 1991
+fftx I: Finished : Thu May 23 22:11:39 1991
+fftx I: User: 126.650 System: 2.650
+fftx I: Run on zia
+fftx2d I:
+fftx2d I: I time 2D real to complex (and inverse) FFTs
+fftx2d I:
+fftx2d I: SDE Version 1.0
+fftx2d I: Compiled : Thu May  2 15:59:27 MDT 1991
+fftx2d I:
+fftx2d I: Time per   64 by   64 FFT =      0.100 seconds
+fftx2d I: Time per  128 by  128 FFT =      0.385 seconds
+fftx2d I: Time per  256 by  256 FFT =      1.595 seconds
+fftx2d I: Time per  512 by  512 FFT =      7.200 seconds
+fftx2d I: Time per 1024 by 1024 FFT =     32.965 seconds
+fftx2d I:
+fftx2d I: Started  : Thu May 23 22:11:42 1991
+fftx2d I: Finished : Thu May 23 22:16:14 1991
+fftx2d I: User: 117.830 System: 10.190
+fftx2d I: Run on zia
+****
+**** Now testing imaging routines ****
+****
+clean I:
+clean I: I perform Clark or Hogbom CLEAN deconvolution
+clean I:
+clean I: SDE Version 1.0
+clean I: Compiled : Thu May  2 16:04:57 MDT 1991
+clean I:
+clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: Dirty [must be specified] : Dirty = D0/3C10MAP.FTS
+clean I: Point spread function [must be specified] : PSF = D0/3C10BEAM.FTS
+clean I: Residual image [optional] : Residual =
+clean I: Components image [optional] : Components = D0/3C10NEWCMP.FTS
+clean I: CLEAN image [optional] : CLEAN = D0/3C10NEWCLN.FTS
+clean I: Name of list of Clean components [optional] : CCfile =
+clean I: Bottom left corner of window [pixels] : BLC = 1, 1, 1, 1, 1, 1,
+clean I:  1
+clean I: Top right corner of window [pixels] : TRC = 512, 512, 1, 1, 1,
+clean I:  1, 1
+clean I: Number of Iterations : Niter = 20000
+clean I: Cutoff in flux [Jy/beam] : Flux = 3.00000E-03
+clean I: Loop gain : Gain = 1.00000E-01
+clean I: Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec] : Beam = 45.0000,
+clean I:  45.0000, 0., 0.
+clean I: Algorithm to use [CLARK | HOGBOM] : Algorithm = CLARK
+clean I: Size of list for cleaning : Numcl = 16384
+clean I: Size of beampatch [pixels] : Bpatch = 64
+clean I: *clean I: Clark algorithm
+clean I: Opening FITS file D0/3C10MAP.FTS for READ as InitialDirty
+clean I: Opening FITS file D0/3C10BEAM.FTS for READ as PSF
+clean I: Got images: User: 2.510 System: 0.500
+clean I:   Nlocations     Ncomps   Residual(Jy/beam)   Total Flux(Jy)
+clean I:      974            5        5.7758E-01         3.1695E-01
+clean I:     1253           47        4.5179E-01         2.4370E+00
+clean I:     1627          259        2.7713E-01         9.7025E+00
+clean I:     2056         1020        1.3730E-01         2.3107E+01
+clean I:     2202         2669        4.7798E-02         3.3008E+01
+clean I:     2043         5242        1.1703E-02         3.6968E+01
+clean I:     2833        20000        3.8468E+00         3.5370E+01
+clean I: Finished CLEAN: User: 157.600 System: 3.020
+clean I: Opening FITS file D0/3C10NEWCMP.FTS for WRITE as Components
+clean I: Writing 2-dimensional image Components
+clean I: Opening FITS file D0/3C10NEWCLN.FTS for WRITE as Clean
+clean I: Writing 2-dimensional image Clean
+clean I:
+clean I: Started  : Thu May 23 22:16:30 1991
+clean I: Finished : Thu May 23 22:19:34 1991
+clean I: User: 158.890 System: 3.100
+clean I: Run on zia
+closure I:
+closure I: I use closure phase information
+closure I:
+closure I: SDE Version 1.0
+closure I: Compiled : Thu May  2 16:08:00 MDT 1991
+closure I:
+closure I: *closure I: *closure I: *closure I: *closure I: *closure I: *closure I: *closure I: Name of Visibility database : Vis = D0/3C10UV.FTS
+closure I: Name of model image : Model = D0/3C10NEWCMP.FTS
+closure I: Name of output visibility file : NewVis = D0/3C10NEWUV.FTS
+closure I: Averaging time in seconds : Tavg = 60.0000
+closure I: Solution type,  | AMPPHI | GLOBAL : SolType =
+closure I: Method, 'Selfcal' | 'Triple', ' ' => 'Selfcal' : Method =
+closure I: *closure I: Opening FITS file D0/3C10UV.FTS for READ as Vis
+closure I: Converting visibilities to IQUV format
+closure I: Stokes type I
+closure I: Stokes type Q
+closure I: Stokes type U
+closure I: Stokes type V
+closure I: First observation on 83JUL23
+closure I: Opening FITS file D0/3C10NEWCMP.FTS for READ as Model
+closure I: Using self-calibration approach
+closure I: Correcting phase only
+closure I: Found     12 integration intervals, each less than     60.00 seconds
+closure I: Flagged        0 records
+closure I: Residual before =   9.7126E-01, after =   9.6556E-01 in gain
+closure I: Opening FITS file D0/3C10NEWUV.FTS for WRITE as Vis
+closure I:
+closure I: Started  : Thu May 23 22:19:43 1991
+closure I: Finished : Thu May 23 22:20:02 1991
+closure I: User: 16.520 System: 1.500
+closure I: Run on zia
+uvmap I:
+uvmap I: I make images from visibility data
+uvmap I:
+uvmap I: SDE Version 1.0
+uvmap I: Compiled : Thu May  2 16:08:44 MDT 1991
+uvmap I:
+uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: Image size : Imsize = 128, 128, 1
+uvmap I: Cellsizes in arc-seconds : Cellsize = 12.0000, 12.0000, 12.0000
+uvmap I: UV limits in wavelengths : Uvlimits = 0., 1.00000E+10
+uvmap I: Filter for sources of this size: BMAJ, BMIN, BPA (asec) : Filter = 0.,
+uvmap I:  0., 0.
+uvmap I: Shift in arcseconds : Shift = 0., 0., 0.
+uvmap I: Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM : FOV = 1.0000
+0
+uvmap I: Stokes type I,Q,U, or V : Stokes = I
+uvmap I: Timerange (d,h,m,s) : Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+uvmap I: Convolution function SF, SZE or BOX : ConvType = SF
+uvmap I: Slow transform in Z?, T or F : SlowZ = T
+uvmap I: Visibility data : Vis = D0/3C10NEWUV.FTS
+uvmap I: Output dirty image : Dirty = D0/3C10NEWMAP.FTS
+uvmap I: Output point spread function : PSF = D0/3C10NEWBEAM.FTS
+uvmap I: *uvmap I: Opening FITS file D0/3C10NEWUV.FTS for READ as Vis
+uvmap I: Visibilities in IQUV format already
+uvmap I: Stokes type I
+uvmap I: First observation on 83JUL23
+uvmap I: Selected    8832 visibilities
+uvmap I: Coordinates for PSF:
+uvmap I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+uvmap I:    1   RA---SIN  128    64.00    5.617E+00  -3.333E-03   0.00E+00
+uvmap I:    2   DEC--SIN  128    64.00    6.387E+01   3.333E-03   0.00E+00
+uvmap I:    3   FREQ        1     1.00    1.511E+09   1.250E+07   0.00E+00
+uvmap I: Coordinates for XFR:
+uvmap I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+uvmap I:    1   UU---SIN   65     1.00    0.000E+00  -1.343E+02   0.00E+00
+uvmap I:    2   VV---SIN  128    64.00    0.000E+00   1.343E+02   0.00E+00
+uvmap I:    3   FREQ        1     1.00    1.511E+09   1.250E+07   0.00E+00
+uvmap I:    4   RA---SIN    1    64.00    5.617E+00  -3.333E-03   0.00E+00
+uvmap I:    5   DEC--SIN    1    64.00    6.387E+01   3.333E-03   0.00E+00
+uvmap I: Got data: User: 2.100 System: 0.560
+uvmap I: Weighting for fraction of field of view =    1.00
+uvmap I: Weighting completed: User: 2.310 System: 0.560
+uvmap I: Sum of weights =    4.164998E+02
+uvmap I: Opening FITS file D0/3C10NEWBEAM.FTS for WRITE as PSF
+uvmap I: Writing 2-dimensional image PSF
+uvmap I: Written PSF: User: 6.720 System: 0.690
+uvmap I: Opening FITS file D0/3C10NEWMAP.FTS for WRITE as Dirty
+uvmap I: Writing 2-dimensional image Dirty
+uvmap I: Written Dirty: User: 11.000 System: 0.840
+uvmap I:
+uvmap I: Started  : Thu May 23 22:20:05 1991
+uvmap I: Finished : Thu May 23 22:20:21 1991
+uvmap I: User: 11.000 System: 0.840
+uvmap I: Run on zia
+vm I:
+vm I: I perform maximum entropy deconvolution
+vm I:
+vm I: SDE Version 1.0
+vm I: Compiled : Thu May  2 16:09:21 MDT 1991
+vm I:
+vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm E: Unknown command:DOTV
+vm I: *vm I: Dirty : Dirty = D0/3C10NEWMAP.FTS
+vm I: Point spread function : PSF = D0/3C10NEWBEAM.FTS
+vm I: Default [optional] : Default =
+vm I: VM  [can already exist, optional] : VM =
+vm I: Convolved VM plus residuals [optional] : CVM = D0/3C10NEWCVM.FTS
+vm I: Bottom left corner of window [optional] : BLC = 33, 33, 1, 1,
+vm I:  1, 1, 1
+vm I: Top right corner of window [optional] : TRC = 96, 96, 1, 1, 1,
+vm I:  1, 1
+vm I: Number of Iterations (<0 for automatic stopping) : Niter = -30
+vm I: Required total flux (less than zero for a guess) : Tflux = -60.0000
+vm I: Required final fit in Jy/Beam : Sigma = 1.00000E-02
+vm I: Form to optimize, Entropy or L1 norm [H|L1] : Entropy = H
+vm I: Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec] : Beam = 45.0000,
+vm I:  45.0000, 0., 0.
+vm I: Are the residual independent in the image plane? : ImagePlane = F
+vm I: Image to display on tv [VM|CVM|Step|Residual|None] : TV =
+vm I: *vm I: Maximising entropy -I*logI
+vm I: Opening FITS file D0/3C10NEWMAP.FTS for READ as InitialDirty
+vm I: Opening FITS file D0/3C10NEWBEAM.FTS for READ as PSF
+vm I: Using flat default
+vm I: Iteration          Entropy        Flux        Fit     Gradient
+vm I:      1                8.323     59.282     17.366      0.544
+vm I:      2                8.317     59.612     17.388      0.000
+vm I:      3                8.306     59.572     15.684      0.001
+vm I:      4                8.274     59.837     13.280      0.002
+vm I:      5                8.215     60.351     10.365      0.005
+vm I:      6                8.143     60.629      7.584      0.009
+vm I:      7                8.075     60.201      5.438      0.012
+vm I:      8                8.018     59.108      3.974      0.019
+vm I:      9                7.970     57.666      3.050      0.032
+vm I:     10                7.931     56.214      2.530      0.052
+vm I:     11                7.902     54.964      2.252      0.078
+vm I:     12                7.870     53.604      2.047      0.122
+vm I:     13                7.854     52.798      1.948      0.107
+vm I:     14                7.829     52.456      1.855      0.430
+vm I:     15                7.851     52.483      1.935      0.109
+vm I:     16                7.842     52.548      1.872      0.065
+vm I:     17                7.829     52.412      1.825      0.170
+vm I:     18                7.824     52.254      1.819      0.294
+vm I:     19                7.822     52.214      1.799      0.163
+vm I:     20                7.814     52.106      1.788      0.367
+vm I:     21                7.824     52.210      1.806      0.105
+vm I:     22                7.817     52.215      1.784      0.176
+vm I:     23                7.814     52.163      1.768      0.158
+vm I:     24                7.809     52.098      1.758      0.175
+vm I:     25                7.803     52.010      1.745      0.271
+vm I:     26                7.800     51.968      1.741      0.282
+vm I:     27                7.797     51.944      1.732      0.274
+vm I:     28                7.794     51.923      1.729      0.310
+vm I:     29                7.801     52.017      1.737      0.125
+vm I:     30                7.796     52.023      1.726      0.151
+vm I: Opening FITS file D0/3C10NEWCVM.FTS for WRITE as CVM
+vm I: Writing 2-dimensional image CVM
+vm I:
+vm I: Started  : Thu May 23 22:20:24 1991
+vm I: Finished : Thu May 23 22:20:54 1991
+vm I: User: 24.500 System: 1.140
+vm I: Run on zia
+****
+**** Now testing mosaicing routines ****
+****
+mosmake I:
+mosmake I: I assemble u,v data into mosaic data bases
+mosmake I:
+mosmake I: SDE Version 1.0
+mosmake I: Compiled : Thu May  2 16:10:28 MDT 1991
+mosmake I:
+mosmake I: *mosmake I: *mosmake I: *mosmake I: *mosmake I: Visibility data set  (must be specified) : Vis = D0/3C10UV.FTS
+mosmake I: Mosaic data base : Mosaic = D0/3C10MOS.SDE
+mosmake I: Telescope name : Telescope = VLA
+mosmake I: *mosmake I: Opening FITS file D0/3C10UV.FTS for READ as M/PC1
+mosmake I: Converting visibilities to IQUV format
+mosmake I: Stokes type I
+mosmake I: Stokes type Q
+mosmake I: Stokes type U
+mosmake I: Stokes type V
+mosmake I: First observation on 83JUL23
+mosmake I: Writing M to SDE format file D0/3C10MOS.SDE
+mosmake I:
+mosmake I: Started  : Thu May 23 22:21:08 1991
+mosmake I: Finished : Thu May 23 22:21:13 1991
+mosmake I: User: 3.140 System: 0.940
+mosmake I: Run on zia
+mosaic I:
+mosaic I: I perform maximum entropy mosaicing
+mosaic I:
+mosaic I: SDE Version 1.0
+mosaic I: Compiled : Thu May  2 16:10:56 MDT 1991
+mosaic I:
+mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: >mosaic I: >mosaic I: >mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: Mosaic visibility file (must be specified if Vis is not) : Mosaic = D0
+/3C10MOS.SDE
+mosaic I: Default  (can be left blank) : Default =
+mosaic I: VM  (can already exist, can be left blank) : VM =
+mosaic I: Convolved VM plus residuals (can be left blank) : CVM = D0/3C10MOSCVM.
+FTS
+mosaic I: Residual image (can be left blank) : Residual =
+mosaic I: Number of Iterations (<0 for automatic stopping) : Niter = -30
+mosaic I: Required total flux (<0 for a guess) : Tflux = -60.0000
+mosaic I: Required final fit in Jy/beam or Jy : Sigma = 1.00000
+mosaic I: Telescopes with specific sigma : Telnames = VLA
+mosaic I: Use Canned PB in mosaic database? : CannedPB = F
+mosaic I: Sigma for specific telescope : Sigtel = 0.337200, 1.00000E-03,
+mosaic I:  1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+mosaic I:  1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+mosaic I:  1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+mosaic I:  1.00000E-03, 1.00000E-03, 1.00000E-03
+mosaic I: Form to optimize, Entropy or emptiness [H|E] : Entropy = H
+mosaic I: Smoothing beam, BMAJ, BMIN, BPA, BZ : Beam = 45.0000, 45.0000,
+mosaic I:  0., 0.
+mosaic I: Image size : Imsize = 64, 64, 1
+mosaic I: Cellsizes in arc-seconds : Cellsize = 12.0000, 12.0000, 12.0000
+mosaic I: UV limits in wavelengths : Uvlimits = 0., 1.00000E+10
+mosaic I: Filter for sources of this size: BMAJ, BMIN, BPA (asec) : Filter = 0.,
+mosaic I:  0., 0.
+mosaic I: Shift in arcseconds : Shift = 0., 0., 0.
+mosaic I: Stokes type [I|Q|U|V|R|L] : Stokes = I
+mosaic I: FOV for weighting : FOV = 1.00000
+mosaic I: Minimum level in Primary beam to include {fraction] : MinPB = 1.00000E
+-01
+mosaic I: Timerange (d,h,m,s) : Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+mosaic I: Reweight to get nice PSF [T|F] : NicePSF = F
+mosaic I: List of telescopes for which a DFT is to be used : DFT =
+mosaic I: Convolution function SF, SZE or BOX : Convtype = SF
+mosaic I: Write iterations to TV file ? : Dotv = F
+mosaic I: *mosaic I: Maximising entropy -I*logI
+mosaic I: Working on Stokes type I
+mosaic I: Reading Mosaic visibility file
+mosaic I: Reading IM from SDE format file D0/3C10MOS.SDE
+mosaic I: There are    1 pointings in all
+mosaic I: Pointing    1 : selected    8832 visibilities
+mosaic I: Pointing    1 is telescope VLA and has sigma =       0.3372 Jy/beam
+mosaic I: Got data: User: 2.630 System: 0.700
+mosaic I: Creating new VM image
+mosaic I: Coordinates for VM:
+mosaic I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+mosaic I:    1   RA---SIN   64    32.00    5.617E+00  -3.333E-03   0.00E+00
+mosaic I:    2   DEC--SIN   64    32.00    6.387E+01   3.333E-03   0.00E+00
+mosaic I:    3   FREQ        1     1.00    1.511E+09   1.250E+07   0.00E+00
+mosaic I: Coordinates for transform of VM:
+mosaic I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+mosaic I:    1   UU---SIN   65     1.00    0.000E+00  -1.343E+02   0.00E+00
+mosaic I:    2   VV---SIN  128    64.00    0.000E+00   1.343E+02   0.00E+00
+mosaic I:    3   FREQ        1     1.00    1.511E+09   1.250E+07   0.00E+00
+mosaic I:    4   RA---SIN    1    64.00    5.617E+00  -3.333E-03   0.00E+00
+mosaic I:    5   DEC--SIN    1    64.00    6.387E+01   3.333E-03   0.00E+00
+mosaic I: Reweighting data
+mosaic I: Finished reweighting: User: 2.930 System: 0.700
+mosaic I: Using flat default
+mosaic I: Initial guess is a flat image
+mosaic I: Initialized dirty images
+mosaic I: Initial fit =     10.381, Sum of weights =    3.663E+03
+mosaic I: Iteration          Entropy        Flux        Fit     Gradient
+mosaic I:      1                8.317     59.667      9.287      0.557
+mosaic I:      2                8.312     59.965      9.284      0.000
+mosaic I:      3                8.298     60.143      8.542      0.001
+mosaic I:      4                8.263     60.710      7.447      0.001
+mosaic I:      5                8.199     61.659      6.050      0.003
+mosaic I:      6                8.118     62.478      4.633      0.006
+mosaic I:      7                8.042     62.463      3.493      0.010
+mosaic I:      8                7.981     61.447      2.696      0.017
+mosaic I:      9                7.933     59.711      2.158      0.029
+mosaic I:     10                7.878     56.969      1.679      0.063
+mosaic I:     11                7.822     53.078      1.295      0.082
+mosaic I:     12                7.760     50.053      1.051      0.131
+mosaic I:     13                7.767     49.376      1.036      0.139
+mosaic I:     14                7.767     49.522      1.026      0.034
+mosaic I: Pointing:    1 Fit =    3.460E-01 Jy
+mosaic I: Opening FITS file D0/3C10MOSCVM.FTS for WRITE as CVM
+mosaic I: Writing 2-dimensional image CVM
+mosaic I:
+mosaic I: Started  : Thu May 23 22:21:20 1991
+mosaic I: Finished : Thu May 23 22:21:57 1991
+mosaic I: User: 29.090 System: 1.170
+mosaic I: Run on zia
+****
+**** End of testing ****
+****

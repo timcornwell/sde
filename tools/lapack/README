@@ -1,0 +1,14 @@
+This is actually only a small subset of the full LAPACK library, just enough
+to run the SVD routines in single and double precision.  If we need new
+LAPACK routines, as eventually we probably will, I suggest obtaining them
+through the Web, via: GAMS : Guide to Available Mathematical Software, at
+http://gams.cam.nist.gov/.  The routines so obtained will have to be
+integrated with the files here.
+
+As of now, the libraries have been compiled for SUN4 and RIOS, and
+the respective comopt files modified to include them.  Other architectures
+will have to do the same when the libraries become needed on them.
+
+For the moment we're just compiling by hand.
+
+DSB  8-Feb-94

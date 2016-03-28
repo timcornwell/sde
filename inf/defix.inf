@@ -1,0 +1,17 @@
+.
+Vis, C, 1, Input visibility file
+NewVis, C, 1, Output visibility file
+Delays, R, 10, Delays [ns]
+Bandwidth, R, 1, Bandwidth
+Channels, I, 1, Number of channels
+Parameters, R, 3, Coefficients
+Type, C, 1, Model type [GAUSS|POWER]
+.
+Vis = 
+NewVis =
+Delays = 0
+Bandwidth = 8E6
+Channels = 512
+Parameters = 0,0,0
+Type = POWER
+.

@@ -1,0 +1,53 @@
+/*Example of a complete program in the Gauss language to determined a*/
+/*	double star orbit from observed position angle and separation.	*/
+
+variable sinOmg,cosOmg,cosI,DegToRad,n,efac;
+			/*Constant for entire reduction*/
+variable x,y,E,v,r,Q,sinQ,cosQ,ww,tta2;
+			/*Auxiliary variables used for 2-body problem*/
+
+parameter P,T,a,e,i,Omg,w;	/*Parameters of double star orbit */
+observation rho,tta;		/*Data points are rho and theta.  */
+data t;				/*t is known with near infinite precision*/
+variable pi = 3.141592654;
+
+main()
+{
+	DegToRad = pi/180.0;	/*Conversion to radians		*/
+	sinOmg = sin(Omg*DegToRad);	/*Sine and cosine of node.	*/
+	cosOmg = cos(Omg*DegToRad);
+	cosI = cos(i*DegToRad);		/*Cosine inclination		*/
+	ww = w*DegToRad;		/*Argument of pericenter	*/
+	n = 2*pi/P;		/*Mean motion			*/
+	efac = sqrt((1+e)/(1-e));	/*Eccentricity factor for	*/
+					/*	conversion from E to v	*/
+	while(import())			/*As long as there are still data*/
+					/*	points,			*/
+		model();		/*Form new equation of condition*/
+}
+
+model()
+{
+	E = kepler(e,n*(t-T));		/*Solve Kepler's Equation	*/
+	v = 2*atan(efac*tan(E/2));	/*Eccentric to True Anomaly	*/
+	Q = v + ww;			/*Argument of Latitude		*/
+	sinQ = sin(Q);			/*Sine and cosine of same	*/
+	cosQ = cos(Q);
+	r = a*(1 - e*cos(E));		/*Radius Vector			*/
+	tta2 = tta*DegToRad;		/*Convert observed theta to radians*/
+	x = r*(cosQ*sinOmg + sinQ*cosOmg*cosI) + rho*sin(tta2);
+	y = r*(cosQ*cosOmg - sinQ*sinOmg*cosI) + rho*cos(tta2);
+					/*x = y = 0 for perfect data	*/
+	export2(x,y);			/*Send to least squares algorithm*/
+}
+
+kepler(e,M)				/*Solve Kepler's Equation	*/
+{
+	variable E,n;			/*Local variables		*/
+
+	E = M;				/*Initialize eccentric to mean anom.*/
+	for(n=0;n<5;n=n+1)		/*e is small so 5 iterations suffice.*/
+		E = M + e*sin(E);	/*Kepler's equation		*/
+	return E;
+}
+

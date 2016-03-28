@@ -1,0 +1,27 @@
+program		imxrlrot
+programmer	M.A. Holdaway
+date		May 4, 1993
+purpose		to rotate the phase of a complex image
+		If the image is a polarization image,
+		this is equivalent to rotating all the
+		position angles
+
+Note:	The rotation angle can mean either PHASE or
+	polarization position angle CHI.
+	Specify via ANGLETYPE, default is PHASE
+
+.
+Qin, C, 1, Input STOKES Q image
+Uin, C, 1, Input STOKES U image
+Theta, R, 1, Angle to rotate
+AngleType, C, 1, [PHASE | CHI]
+Qout, C, 1, Output STOKES Q image
+Uout, C, 1, Output STOKES U image
+.
+Qin = 
+Uin = 
+Theta = 0.0 
+AngleType = PHASE
+Qout = 
+Uout = 
+.

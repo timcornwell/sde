@@ -1,0 +1,67 @@
+#
+# Script to test dragon
+#
+LOG=testdragon.`hostname`
+TAIL=`hostname`
+/bin/rm -f $LOG
+echo dragon test on host `hostname` at `date` > $LOG
+echo `sdever` >> $LOG
+echo "****" >> $LOG
+export SDELOG=$LOG
+dragon<<EOF
+ Imsize = 100, 100, 1
+ Cellsize = 60.00000000, 60.00000000, 60.00000000
+ Shift = 0.0000000000E+00, 0.0000000000E+00
+ Outliers= $SDEROOT/test/BF7.Outliers
+ FOV = 1.000000000
+ Uvlimits = 200.0000000, 1000.000000
+ Muvlimits = 200, 750
+ Filter = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ Stokes=IV
+ Vis = D0/BF791
+ Newvis=D0/BF7.${TAIL}
+ CLEAN = D0/BF7.${TAIL}.ICLN
+ OutClean=D0/BF7.${TAIL}.OUTCLEAN
+ Restart = F
+ Niter = 50000
+ Flux = 1.000000052E-02
+ Fswitch=0.01
+ FSelfcal = 1.00000E-01, -5.00000E-02, -2.50000E-02,
+ -1.50000E-02, -1.50000E-02, 0., 0., 0., 0.
+ Gain = 0.1000000015
+ Beam = 0.0000000000E+00, 0.0000000000E+00, 0.0000000000E+00,
+ 0.0000000000E+00
+ Tamp=1190
+ Tphase=119
+ Parallel=F
+ TVImage = -1
+ Np = 3
+ inp
+ go
+EOF
+imgstat<<EOF
+ Image = D0/BF7.${TAIL}.ICLN
+ Box =
+ BLC = 50, 540, 0, 0, 0, 0, 0
+ TRC = 208, 680, 0, 0, 0, 0, 0
+ AvgType = AMPSCALAR
+ go
+EOF
+echo "*** Answer should be: ***" >> $LOG
+echo "***   Rms     =   1.962E-03 JY/BEAM ***" >> $LOG
+echo "***   Maximum =   8.762E-03 JY/BEAM ***" >> $LOG
+echo "***   Minimum =  -7.586E-03 JY/BEAM ***" >> $LOG
+imgstat<<EOF
+ Image = D0/BF7.${TAIL}.ICLN
+ Box =
+ BLC = 1, 1, 0, 0, 0, 0, 0
+ TRC = 700, 700, 0, 0, 0, 0, 0
+ AvgType = AMPSCALAR
+ go
+EOF
+echo "*** Answer should be: ***">>$LOG
+echo "***   Rms     =   4.691E-03 JY/BEAM ***" >> $LOG
+echo "***   Maximum =   4.149E-01 JY/BEAM ***" >> $LOG
+echo "***   Minimum =  -1.008E-02 JY/BEAM ***" >> $LOG
+

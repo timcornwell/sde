@@ -1,0 +1,11 @@
+model   =	'model'
+results =	'HR1391Res'
+data1   =	'HR1391.Data'
+params  =	'HR1391.Param'
+ftn     =    1.0
+tol     =	  1.00000000000000e-04
+iters   =	  25
+prvar   =	  1.0
+prmat   =	  1.0
+fair    =	  0.925
+END

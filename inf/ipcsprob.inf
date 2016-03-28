@@ -1,0 +1,22 @@
+Program: IPCSPROB
+Programmer: R. G. Marson
+Date: 9 Oct 1992
+Purpose: Calculate the probability of each fringe pattern against the IPCS data
+
+Details: 
+
+.INFO
+IPCS, C, 1, IPCS data file
+Fringe, C, 1, Fringe model file
+Pmeas, C, 1, Measurement File
+PDF, C, 1, Output Probabilities
+/Debug, L, 1, Debug T or F (must be set each time)
+/Notify, I, 1, Print message after processing this many frames
+.DEFAULT
+IPCS = 
+Fringe = 
+Pmeas = 
+PDF = 
+/Debug = F
+/Notify = 25
+.END

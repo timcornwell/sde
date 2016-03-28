@@ -1,0 +1,93 @@
+PROGRAM:	mosclean
+PROGRAMMER:	m.a.holdaway
+DATE:		may 8 1991; updated may 30 1991
+PURPOSE:	to remove point sources from individual fields of
+		a mosaic database, which will improve the quality
+		of the mosaic image which we can get with MOSAIC.
+
+Clarification:
+
+MOS		input mosaic database
+
+CLEAN		A Linear Mosaic of ALL fields' clean images
+
+COMPS		A Linear Mosaic of ALL components found from all fields
+
+BLC/TRC		specifies the window to clean in
+
+SBLC1/STRC1	Specifies a box within which some clean components
+		are found which will be subtracted from the starting 
+		visibilities.  Up to 5 boxes.
+
+NEWMOS		The mosaic database after the above mentioned clean
+		components have been subtracted out
+
+.
+Mos, C, 1, Input mosaic database
+NewMos, C, 1, Output mosaic database
+Clean, C, 1, Clean Image Linear Mosaic
+Comps, C, 1, Clean Components Linear Mosaic
+SComps, C, 1, Subtracted Clean Components Linear Mosaic
+Sens, C, 1, Sensitivity Image
+Nwrite, I, 30, Which maps to write out
+Imsize, I, 3, Image size
+Cellsize, R, 3, cellsizes [arcseconds]
+Shift, R, 3, Shift [arcseconds]
+Stokes, C, 1,  Stokes type I,Q,U, or V
+FOV, R, 1, Field of view for rewieghting
+Timerange, I, 8, Timerange (d,h,m,s)
+Uvlimits, R, 2, limits in uvplane [wavelengths]
+Filter, R, 3, Pre-taper visibilities
+Beam, R, 4, Clean beam
+ConvType, C, 1, Convolution function SF, SZE or BOX
+Mask, C, 1, Mask image name
+BLC, I, 7 * 1, Bottom left corner of window [pixels]
+TRC, I, 7 * 1, Top right corner of window [pixels]
+SBLC1, I, 7 * 1, Bottom left corner to sub [pixels]
+STRC1, I, 7 * 1, Top Right corner to sub [pixels]
+SBLC2, I, 7 * 1, Bottom left corner to sub [pixels]
+STRC2, I, 7 * 1, Top Right corner to sub [pixels]
+Niter, I, 1, Number of Iterations
+Numcl, I, 1, Size of list for cleaning
+Bpatch, I, 1, Size of beampatch [pixels]
+Flux, R, 1, Cutoff in flux [Jy/beam]
+PBcorr, R, 1, Level for PB correction [~0.1]
+Gain, R, 1, Loop gain
+MinSENS, R, 1, Level of Sensitivity to clip
+MinPB, R, 1, Level of PB per pointing to clip
+/DEBUG, L, 1, Debug
+.
+Mos =
+NewMos =
+Clean =
+Comps =
+SComps =
+Sens =
+Nwrite = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Shift = 0.0, 0.0, 0.0
+Stokes = I
+FOV = 1.0
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Uvlimits = 0.0, 1E10
+Filter = 0., 0., 0.
+Beam = 0., 0., 0., 0.
+ConvType = SF
+Mask = 
+BLC = 1,1,1,1,1,1,1
+TRC = 1,1,1,1,1,1,1
+SBLC1 = 1,1,1,1,1,1,1
+STRC1 = 1,1,1,1,1,1,1
+SBLC2 = 1,1,1,1,1,1,1
+STRC2 = 1,1,1,1,1,1,1
+Niter = 100
+Numcl = 32768
+Bpatch = 128
+Flux = 0.0
+PBcorr = .1
+Gain = .1
+MinSENS = .1
+MinPB = .1
+/DEBUG = F
+.

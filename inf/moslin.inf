@@ -1,0 +1,42 @@
+Program: LMOSAIC - a linear mosaicing program
+Programmer: T.J. Cornwell
+Date: 26 Jan 1989
+Purpose: To form a linear mosaic of dirty images. This is preferred for
+mosaicing of weight objects and for a quick look at a mosaic.
+.
+Mosaic, C, 1, Mosaic visibility file (must be specified if Vis is not)
+Vis, C, 1, Visibility data set  (must be specified if Mosaic is not)
+Image , C, 1, Output image
+Sens, C, 1, Sensitivity image
+PSF, C, 1, Effective PSF
+/Debug, L, 1, Debug? [T | F]
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes [arc-seconds]
+Uvlimits, R, 2, UV limits [wavelengths]
+Filter, R, 3, Filter for sources of this size: BMAJ, BMIN, BPA [asec]
+Shift, R, 3, Shift in [arcseconds]
+FOV, R, 1, FOV for weighting
+MinPB, R, 1, Minimum level in Primary beam to include {fraction]
+Equalize, L, 1, Weight dirty images equally (T) or by # of vis (F)
+NicePSF, L, 1, Reweight to get nice PSF? [T|F]
+DFT, C, 20, List of telescopes for which a DFT is to be used
+Timerange, I, 8, Timerange (d,h,m,s)
+.DEFAULT
+Mosaic = 
+Vis = 
+Image = 
+Sens =
+PSF =
+/Debug = F
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Uvlimits = 0.0, 1.0E10
+Filter = 0.0, 0.0, 0.0
+Shift = 0.0, 0.0, 0.0
+FOV = 0.0
+MinPB = 0.01
+Equalize = F
+NicePSF = F
+DFT =
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+.END

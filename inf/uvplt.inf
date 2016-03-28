@@ -1,0 +1,59 @@
+The special name of UVR used on the x axis will be expanded to
+SQRT(UU**2 + VV**2), for use in amplitude plots
+.
+Vis, C, 1, Name of Visibility database
+X, C, 1, Name of x axis
+Y, C, 1, Name of y axis
+Weight, C, 1, Location of weights
+Plotlabel, C, 1, Plot label
+Xlabel, C, 1, X-axis label
+Ylabel, C, 1, Y-axis label
+XConvert, C, 1, AMP, PHASE, REAL, IMAG
+YConvert, C, 1, AMP, PHASE, REAL, IMAG
+CHeight, R, 1, Character height
+LWidth, I, 1, Line width
+PTtype, I, 1, PGPLOT point index
+Annot, C, 1, Annotation file
+Conjugate, L, 1, Plot conjugate points
+Skip, I, 1, Increment in points to plot
+Square, L, 1, Make plot square?
+ID, L, 1, Append plot ID?
+Left, L, 1, Label Y axis on left?
+Xlimits, R, 2, Limits in X
+Ylimits, R, 2, Limits in Y
+XTick, R, 1, X Major Tick interval
+YTick, R, 1, Y Major Tick interval
+XNSub, I, 1, Number of X subticks
+YNSub, I, 1, Number of Y subticks
+Plotfile, C, 1, Plot file
+XBinOut, C, 1, Write binary X array
+YBinOut, C, 1, Write binary Y array
+.
+Vis = 
+X = UU
+Y = VV
+Weight = OBS/I/WT
+Plotlabel = UV plane plot
+Xlabel = *
+Ylabel = *
+XConvert = AMP
+YConvert = AMP
+CHeight = 0.8
+LWidth = 1
+PTtype = 1
+Annot =
+Conjugate = T
+Skip = 1
+Square = F
+ID = T
+Left = T
+Xlimits = 0.0, 0.0
+Ylimits = 0.0, 0.0
+XTick = 0.0
+YTick = 0.0
+XNSub = 0
+YNSub = 0
+Plotfile = /xw
+XBinOut =
+YBinOut =
+.

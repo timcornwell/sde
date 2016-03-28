@@ -1,0 +1,15 @@
+parameter b, alf[star], rz[star];
+/*setparam alf,rz;*/
+observation v,r,vmr;
+variable u;
+
+main()
+{
+	while(import())
+	{
+		u = alf + b*vmr -5*log10(rz + r) - v;
+		export(u);
+	}
+}
+
+

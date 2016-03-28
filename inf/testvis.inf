@@ -1,0 +1,14 @@
+Program: testvis - Test visget and visput subroutines
+Programmer: R.G Marson
+Date: 30 Jan 89
+Purpose: To test visget and visput and all the subroutines below them
+
+Details: Simply run the program and check that the output file is OK
+.info
+Vis, C, 1, Name of input Visibility file
+Outfile, C, 1, Name of  output Visibility file
+.def
+Vis = 
+Outfile =
+.end
+

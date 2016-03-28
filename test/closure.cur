@@ -1,0 +1,7 @@
+Vis = D0/3C10UV.FTS
+Model = D0/3C10NEWCMP.sandia.FTS
+NewVis = D0/3C10NEWUV.sandia.FTS
+Tavg = 60.0000
+SolType =
+Method =
+Threshold = 0.0

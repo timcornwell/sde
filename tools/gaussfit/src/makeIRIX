@@ -1,0 +1,105 @@
+
+oBJeCtso = gauss.o matrixman.o errhandle.o functs.o\
+           arithops.o house.o files.o \
+           logicops.o machine.o opcodes.o  robust.o\
+           simplefits.o simplemidas2.o\
+		   compile.o symtab.o ytab.o gfitmain.o\
+		   minsum.o quicksort.o  util.o declare.o\
+		   array.o datum.o export.o symboltable.o 
+
+gaussfit: $(oBJeCtso) lexyy.h symtab.h symboltable.h def.h robust.h\
+		defines.h datum.h house.h simpledefs.h files.h\
+		compile.h machine.h alloc.h array.h
+	cc -g  $(oBJeCtso)  -o gaussfit -lm 
+
+arithops.o: arithops.c array.h datum.h machine.h prototypes.p alloc.h
+	cc -g  -c   arithops.c
+ 
+array.o: array.c array.h prototypes.p alloc.h
+	cc -g  -c   array.c
+ 
+datum.o: datum.c array.h  symboltable.h datum.h prototypes.p alloc.h
+	cc -g  -c   datum.c
+ 
+declare.o: declare.c array.h  symboltable.h declare.h datum.h\
+		prototypes.p alloc.h
+	cc -g  -c   declare.c
+ 
+errhandle.o: errhandle.c defines.h
+	cc -g  -c   errhandle.c
+
+export.o: export.c defines.h house.h files.h array.h datum.h symboltable.h prototypes.p\
+		alloc.h
+	cc -g  -c   export.c
+
+files.o: files.c defines.h alloc.h files.h strings.h array.h datum.h symboltable.h\
+		prototypes.p alloc.h
+	cc -g  -c   files.c
+
+functs.o: functs.c array.h datum.h  machine.h prototypes.p alloc.h
+	cc -g  -c   functs.c
+
+logicops.o: logicops.c array.h datum.h  machine.h prototypes.p alloc.h
+	cc -g  -c   logicops.c
+
+gauss.o: gauss.c array.h datum.h symboltable.h defines.h house.h files.h \
+		prototypes.p alloc.h
+	cc -g  -c   gauss.c
+ 
+gfitmain.o: gfitmain.c prototypes.p alloc.h defines.h
+	cc -g  -c   gfitmain.c
+
+house.o: house.c alloc.h house.h files.h array.h datum.h symboltable.h defines.h\
+		prototypes.p
+	cc -g  -c   house.c
+
+list.o: list.c defines.h datum.h
+	cc -g  -c   list.c
+
+machine.o: machine.c array.h datum.h machine.h declare.h symboltable.h compile.h\
+		prototypes.p alloc.h functs.h
+	cc -g  -c   machine.c
+
+matrixman.o: matrixman.c defines.h array.h datum.h symboltable.h house.h files.h\
+		robust.h prototypes.p alloc.h
+	cc -g  -c   matrixman.c
+
+opcodes.o: opcodes.c array.h datum.h declare.h symboltable.h machine.h prototypes.p\
+		alloc.h
+	cc -g  -c   opcodes.c
+
+symboltable.o: symboltable.c array.h datum.h  symboltable.h prototypes.p\
+		alloc.h
+	cc -g  -c   symboltable.c
+
+quicksort.o: quicksort.c 
+	cc -g  -c   quicksort.c
+ 
+relops.o: relops.c defines.h datum.h
+	cc -g  -c   relops.c
+
+robust.o: robust.c defines.h house.h files.h
+	cc -g  -c   robust.c
+ 
+simplefits.o: simplefits.c defines.h prototypes.p simpledefs.h strings.h
+	cc -g  -c   simplefits.c
+
+simplemidas2.o: simplemidas2.c defines.h strings.h prototypes.p alloc.h house.h
+	cc -g  -c   simplemidas2.c
+
+compile.o : compile.c symtab.h def.h compile.h array.h datum.h declare.h symboltable.h\
+		machine.h prototypes.p alloc.h
+	cc -c -g    compile.c
+
+symtab.o : symtab.c symtab.h def.h prototypes.p alloc.h
+	cc -c -g    symtab.c
+
+minsum.o: minsum.c defines.h house.h
+	cc -g  -c   minsum.c
+ 
+ytab.o : ytab.c array.h alloc.h strings.h symtab.h def.h compile.h defines.h\
+		lexyy.h datum.h symboltable.h machine.h prototypes.p
+	cc -c -g    ytab.c
+
+util.o : util.c 
+	cc -c -g    util.c

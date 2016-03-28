@@ -1,0 +1,23 @@
+Program: VISIMG - Grid a visibility data set into an image
+Programmer: D.S.Briggs
+Date: 16 Aug 1991
+Purpose: 
+Details: Useful information here, as it becomes available.
+
+.INFO
+Vis, C, 1, Input visibility data set
+Imsize, I, 3, Image size
+Cellsize, R, 3, Cellsizes in kilowavelengths
+Stokes, C, 1, Stokes type I,Q,U, or V
+Timerange, I, 8, Timerange (d,h,m,s)
+Image, C, 1, Output image (must be SDE format)
+/Debug, L, 1, Debug T or F (must be set each time)
+.DEFAULT
+Vis =
+Imsize = 128, 128, 1
+Cellsize = 1, 1, 1
+Stokes = I
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Image =
+/Debug = F
+.END

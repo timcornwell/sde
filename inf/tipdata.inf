@@ -1,0 +1,53 @@
+
+program:		tipdata
+programmer:		M.A.Holdaway
+date:			24 Dec 1992
+purpose:		tip is an interactive program to manipulate and
+			calibrate tipper stability data.  The program
+			was concieved as an alternative to the LOTUS 1-2-3
+			approach that was being taken with the Mauna Kea
+			Tipper data.
+
+.
+OldDataBase, C, 1, Read in an old database
+NewDataBase, C, 1, Write out this new database
+DBname, C, 1, Internal name for database [CSO]
+NewTip, C, 1, Read in a single tipper file
+Dev, C, 1, Plot Device
+ListFile, C, 1, File to put listings into
+StatFile, C, 1, File to put Status message
+PlotWhat, C, 1, What to plot [RAW|AV|CAV|ASD|CASD|SF|CSF|SSF|CSSF]
+TimeScale, R, 1, Timescale for TPLOT [3|7|14|28|56|112|224|448|896]
+Calibrator, I, 1, Do Sky (0), Calibrators (1), or Both (3)
+Select, I, 2, Start date+time, Stop date+time
+CalSelect, I, 1, Calibrator date+time
+SkyWt, R, 1, Weight of calibrator signal for sky obs
+CalWt, R, 1, Weight of calibrator signal for CAL obs
+Threshold, R, 1, Times Sigma for Raw Data Editing
+Comment, C, 1, Comment to add to DB
+Comsub, C, 1, Subdirectory (92110100 or ' ') for Comment
+GraphLim, R, 4, Xmin,Xmax,Tmin,Ymax
+BinSub, I, 1, SubDirectory prefix for Binned stuff [1-9]
+BinList, R, 10, Upper limit of Bins
+.
+OldDataBase =
+NewDataBase =
+DBname =
+NewTip = 
+Dev = /xw
+ListFile =
+StatFile = /dev/tty
+PlotWhat = ASD
+TimeScale = 56
+Calibrator = 2
+Select = 92110101, 93010101
+CalSelect = 92110101
+SkyWt = 0.853
+CalWt = 1.0
+Threshold = 10
+Comment = Are we having fun yet?
+Comsub =
+GraphLim = 0,0,0,0
+BinSub = 1
+BinList = 0.03, 0.07, 0.13, 0.20, 0.30, 0.50
+.

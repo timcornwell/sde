@@ -1,0 +1,11 @@
+.
+Dirty, C, 1, Name of Dirty image
+PSF, C, 1, Name of Point spread function
+Model, C, 1, Name of model image
+Residuals, C, 1, Name of output residual image
+.
+Dirty =  
+PSF =  
+Model = 
+Residuals = 
+.

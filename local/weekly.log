@@ -1,0 +1,18 @@
+Setting up environment for new Sun compilers etc. ...
+  done.
+SDE weekly job on machine scorpio
+Sat Mar 15 02:00:07 MST 2003
++ mv /home/estella/sde/tarfiles/sdetar.w.Z /home/estella/sde/tarfiles/sdetar.lw.Z
+mv: cannot access /home/estella/sde/tarfiles/sdetar.w.Z
++ sdetar /home/estella/sde/tarfile/sdetar.w
+Writing unix sde to /home/estella/sde/tarfile/sdetar.w
+tar: /home/estella/sde/tarfile/sdetar.w: Permission denied
++ compress /home/estella/sde/tarfiles/sdetar.w
+/home/estella/sde/tarfiles/sdetar.w: Permission denied
++ cd /home/zia/sde
++ cleanup
+/home/zia/sde/scratch
+rm: /home/zia/sde/scratch is a directory
++ COMMAND=. .env;purgebin +30;sdeupdate.subs;makeshadows
++ rsh aztec -n . .env;purgebin +30;sdeupdate.subs;makeshadows
+aztec: unknown host

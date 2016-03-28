@@ -1,0 +1,157 @@
+Program: ant - allows interactive building of arrays
+Programmer: Tim Cornwell
+Date: 27 Sept 1990
+Purpose: ant allows manipulation of an antenna file specifying an
+array. ant is typically used to (1) look at the uv coverage of an
+array and (2) to change interactively the antenna locations. uv data
+can be accumulated while changing various parameters such as the
+antenna locations
+
+The allowed commands are:
+
+go get  	- get list of antennas from antfile 
+go save 	- save list of antennas to Nantfile
+go list 	- list antennas on screen
+go edit 	- edit antennas using the editor specified using the
+		task sde
+go stretch	- stretch the array by specified factors in X,Y,Z
+go center       - shift array average position to zero
+go shift        - shift array average position to specific position 
+                in either local or geocentric coordinates
+go anplt	- plot antennas
+go anhard	- hardcopy of plot of antenna locations to QMS
+go uvplt	- plot uv coverage
+go uvhard	- hardcopy of plot of uv coverage
+go uvinit	- initialize uv coverage
+go uvaccum	- accumulate uv coverage
+go uvdiff       - flag all points which did not move in u,v since last
+                uvaccum
+go quit 	- quit program
+
+The plotting routines can write to any valid PGPLOT device. To see the
+list set anplotfile=? and run the program. Good choices are /tek for a
+Tektronix 4010 emulator such as the IRAF gterm (invoked by typing
+gterm.e) or /xw for the X-window system. The latter is the best.
+
+   anplotfile = /xw
+   uvplotfile = /xw
+
+A typical sequence of operations is:
+
+	1. go get 	to get an antenna file for operation
+	2. go anpl	to plot the antenna locations
+	3. go uvpl	to plot the uv coverage for the specified
+			parameters
+	4. go anpl	to move or delete some antennas
+				to select an antenna move the cursor
+				to the required antenna then type
+				either m or d to move or delete an
+				antenna
+	5. go uvinit	initialize uv coverage
+	6. go uvpl	to plot the uv coverage again
+	7. go save	to save to nantfile
+	8. go edit	to change the antenna file directly using the
+			default screen editor.
+	9. go save	to save to nantfile
+
+The allowed inputs are:
+
+	Antfile		Input antenna file e.g. MMAC.STN
+	Nantfile	Output antenna file e.g. NEWMMAC.STN
+	UVPlotfile	Plot file for uv data e.g. /xw
+	Device  	Plot file for antennas e.g. /xw
+	HAlimits	Hour Angle limits [hours] e.g. -4, 4
+	Dec		Declination of object [degrees] e.g. 50
+	Freq		Frequency [Hz] e.g. 1.4E9
+	ELmin		Minimum elevation [degrees] e.g. 10.0
+	INTtime		Integration time [seconds] e.g. 600.0
+	AutoC		Insert autocorrelations [T|F] e.g. T
+	Coordinate	Coordinate system for output 
+				[Local|Geocentric] e.g. Local
+
+The format of the antenna file is as follows:
+
+number of antennas
+site latitude in degrees
+scale-factor for antenna locations scale-factor for antenna diameters
+x y z diam
+x y z diam
+
+The coordinate system is by default a Cartesian system aligned with
+the geocentric coordinates: x points to the local meridian, y points
+to 90 degrees to the right of x, and z points north. Hence for hour
+angle zero, the u coordinate is given by the difference of the two y
+coordinates for a pair of antennas. For convenience, a local tangent
+plane coordinate system can be used by putting an @ sign at the
+beginning of each x y z diam line. This coordinate system is flat on
+the ground and is obtained by rotating the default system about the y
+axis by 90-sitelat degrees.
+
+The stretch command works in geocentric. To stretch an array by 50%
+(i.e. to make it bigger) in the NS direction use stretch=1.5,1.0,1.5
+
+The command uvdiff can be used to select only those u,v points which
+did changed upon changing the antenna locations. Do the following:
+go get, go uvaccum, go anpl or go edit, go uvinit, go uvaccum,
+go uvdiff, go uvpl.
+
+This file format is that used by the AIPS SIMUV program with the
+addition of the @ qualifier. To convert an @-ed file to one AIPS can
+read, use ant to read the file (go get), set Coordinate=Geocentric and
+then save the file (go save).
+
+.INFO
+Antfile, C, 1, Input antenna file
+Nantfile, C, 1, Output antenna file
+UVPlotfile, C, 1, Plot file for uv data
+Stretch, R, 3, Stretch factors [geocentric]
+Center, R, 3, Desired center [Local|Geocentric as set by Coordinate]
+HAlimits, R, 2, Hour Angle limits [hours]
+Dec, R, 1, Declination of object [degrees]
+Freq, R, 1, Frequency [Hz]
+ELmin, R, 1, Minimum elevation [degrees]
+INTtime, R, 1, Integration time [seconds]
+AutoC, L, 1, Insert autocorrelations [T|F]
+AutoS, L, 1, Autoscale [T|F]
+Xlimits, R, 2, Limits in X
+Ylimits, R, 2, Limits in Y
+Nskip, I, 1, Number to skip
+Coordinate, C, 1, Coordinate system for output [Local|Geocentric]
+Image, C, 1, Name of input image
+PlotNumb, L, 1, Plot numbers?
+BLC, I, 7, Bottom left corner
+TRC, I, 7, Top right corner
+Ncont, I, 1,  Number of Contours
+Plev, R, 1, Percentage level for plotting
+Clev, R, 1, Absolute level for plotting
+Pixrange, R, 2, Pixrange for grey-scale
+Plot, C, 1, Type of plot: CONTOUR | GREY | QUICKCONT
+Device, C, 1, Device name for plotting
+.DEFAULT
+Antfile =
+Nantfile =
+UVPlotfile = /xw
+Stretch = 1.0, 1.0, 1.0
+Center = 0.0, 0.0, 0.0
+HAlimits = -0.01, 0.01
+Dec = 50.0
+Freq = 230E9
+ELmin = 30.0
+INTtime = 600.0
+AutoC = F
+AutoS = T
+Xlimits = 0., 0.
+Ylimits = 0., 0.
+Nskip = 1
+Coordinate = Local
+Image =
+PlotNumb = T
+BLC = 0,0,0,0,0,0,0
+TRC = 0,0,0,0,0,0,0
+Ncont = 50
+Plev = 10.0
+Clev = 0.0
+Pixrange = 0.0, 0.0
+Plot = CONTOUR
+Device = plot.dat/QMS
+.END

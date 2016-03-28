@@ -1,0 +1,27 @@
+.
+Uvlimits, R, 2, Limits of allowed u,v (wavelengths)
+Timerange, I, 8, Timerange (d,h,m,s)
+Vis, C, 1, Visibility data
+NewVis, C, 1, Name of output visibility file
+Gains, C, 1, Name of output gains listing file
+SolType, C, 1, Solution type,  | AMPPHI | GLOBAL
+Method, C, 1, Method, 'Selfcal' | 'Triple', ' ' => 'Selfcal'
+Checkpoint, C, 1, Name of checkpoint file
+Tavg, R, 1, Averaging time in seconds
+Flux, R, 1, Minimum flux to pass in image [Jy/pixel]
+Threshold, R, 1, Threshold [Jy]
+/Debug, L, 1, Debug
+.
+Uvlimits = 0.0, 1000000000
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Vis = 
+NewVis =
+Gains=
+SolType =
+Method = 
+Checkpoint = 
+Tavg = 10.0
+Flux=-1E20
+Threshold = 1.0
+/Debug = F
+.

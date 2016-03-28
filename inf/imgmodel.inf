@@ -1,0 +1,30 @@
+Program: IMG_MODEL
+Programmer: E.J. Narg
+Date: 1 March 1988
+Purpose: Make an image from a model specification.
+
+.INFO
+Model, C, 1, Name of ASCII file containing model components
+Image, C, 1, Name of input image
+NImage, C, 1, Name of output image
+RA, R, 3, RA of model center  [HMS]
+Dec, R, 3, Dec of model center  [DMS]
+Shift, R, 2, Shift of model center in arcsec
+TimeOffset, R, 1, Reference time for time variable models [hours]
+Beam, R, 4, Smoothing beam ( Bmaj, Bmin, Bpa )
+BeamFile, C, 1, Use beam from this file
+FitAlg, C, 1, Beam fitting algorithm
+Normalize, C, 1, How to fix beam: [Peak | Integral] = 1.0
+.DEFAULT
+Model =
+Image =
+NImage = 
+RA = 0, 0, 0
+Dec = 0, 0, 0
+Shift = 0, 0
+TimeOffset = 0
+Beam = 0.0, 0.0, 0.0
+BeamFile =
+FitAlg = HDR-LINEAR
+Normalize = I
+.END

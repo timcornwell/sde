@@ -1,0 +1,394 @@
+SDE timings on host tecate at Sat Jun 1 09:00:43 MDT 1991
+SDE Version 1.0
+****
+**** Testing general routines ****
+****
+world I:
+world I: Hello, world
+world I:
+world I: SDE Version 1.0
+world I: Compiled : Sat May 25 08:37:07 MDT 1991
+world I:
+world I:
+world I: Started  : Sat Jun  1 09:01:02 1991
+world I: Finished : Sat Jun  1 09:01:02 1991
+world I: User: 0.840 System: 0.340
+world I: Run on tecate
+imgstat I:
+imgstat I: I calculate statistics of images
+imgstat I:
+imgstat I: SDE Version 1.0
+imgstat I: Compiled : Sat May 25 08:37:07 MDT 1991
+imgstat I:
+imgstat I: *imgstat I: *imgstat I: *imgstat I: *imgstat I: Name of input image : Image = D0/3C10MAP.FTS
+imgstat I: Bottom left corner : BLC = 1, 1, 1, 1, 1, 1, 1
+imgstat I: Top right corner : TRC = 128, 128, 1, 1, 1, 1, 1
+imgstat I: *imgstat I: Opening FITS file D0/3C10MAP.FTS for READ as Image
+imgstat I: Coordinates:
+imgstat I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+imgstat I:    1   RA---SIN  128    64.00    5.617E+00  -3.333E-03   0.00E+00
+imgstat I:    2   DEC--SIN  128    64.00    6.387E+01   3.333E-03   0.00E+00
+imgstat I:    3   FREQ        1     1.00    1.511E+09   1.250E+07   0.00E+00
+imgstat I: Statistics for window:
+imgstat I: BLC(1) =    1, TRC(1) =  128
+imgstat I: BLC(2) =    1, TRC(2) =  128
+imgstat I:    Average =  -2.274E-02 JY/BEAM
+imgstat I:    Rms     =   1.403E-01 JY/BEAM
+imgstat I:    Dispers =   1.384E-01 JY/BEAM
+imgstat I:    Maximum =   6.791E-01 JY/BEAM
+imgstat I:    Minimum =  -3.135E-01 JY/BEAM
+imgstat I:    Sum     =  -3.725E+02 JY/BEAM
+imgstat I:
+imgstat I: Started  : Sat Jun  1 09:01:36 1991
+imgstat I: Finished : Sat Jun  1 09:01:46 1991
+imgstat I: User: 7.160 System: 0.440
+imgstat I: Run on tecate
+imgstat I:
+imgstat I: I calculate statistics of images
+imgstat I:
+imgstat I: SDE Version 1.0
+imgstat I: Compiled : Sat May 25 08:37:07 MDT 1991
+imgstat I:
+imgstat I: *imgstat I: *imgstat I: *imgstat I: *imgstat I: Name of input image : Image = D0/3C10MAP16.FTS
+imgstat I: Bottom left corner : BLC = 1, 1, 1, 1, 1, 1, 1
+imgstat I: Top right corner : TRC = 128, 128, 1, 1, 1, 1, 1
+imgstat I: *imgstat I: Opening FITS file D0/3C10MAP16.FTS for READ as Image
+imgstat I: Coordinates:
+imgstat I: Axis    Name   Pixels  Ref. Pix  Ref. Value  Increment  Rotation
+imgstat I:    1   RA---SIN  128    64.00    5.617E+00  -3.333E-03   0.00E+00
+imgstat I:    2   DEC--SIN  128    64.00    6.387E+01   3.333E-03   0.00E+00
+imgstat I:    3   FREQ        1     1.00    1.511E+09   1.250E+07   0.00E+00
+imgstat I: Statistics for window:
+imgstat I: BLC(1) =    1, TRC(1) =  128
+imgstat I: BLC(2) =    1, TRC(2) =  128
+imgstat I:    Average =  -2.273E-02 JY/BEAM
+imgstat I:    Rms     =   1.402E-01 JY/BEAM
+imgstat I:    Dispers =   1.384E-01 JY/BEAM
+imgstat I:    Maximum =   6.791E-01 JY/BEAM
+imgstat I:    Minimum =  -3.135E-01 JY/BEAM
+imgstat I:    Sum     =  -3.724E+02 JY/BEAM
+imgstat I:
+imgstat I: Started  : Sat Jun  1 09:02:16 1991
+imgstat I: Finished : Sat Jun  1 09:02:29 1991
+imgstat I: User: 7.640 System: 0.420
+imgstat I: Run on tecate
+****
+**** Now testing FFT routines ****
+****
+Must recompile fftx.f
+Compiling master routine /zia/u/sde/source/start/start.f
+Compiling fftx.f
+Linking fftx.f
+fftx I:
+fftx I: I time FFTs
+fftx I:
+fftx I: SDE Version 1.0
+fftx I: Compiled : Sat Jun  1 09:02:38 MDT 1991
+fftx I:
+fftx I: Forward:
+fftx I:  X(**) = (   0.00000,   0.00000)
+fftx I: Time per   256 complex FFT =     93.700 milliseconds
+fftx I:  X( 1) = (   0.00000,   0.00000)
+fftx I:  X( 2) = (   0.00000,   0.00000)
+fftx I:  X( 3) = (   0.00000,   0.00000)
+fftx I:  X( 4) = (   0.00000,   0.00000)
+fftx I:  X( 5) = (   0.00000,   0.00000)
+fftx I:  X( 6) = (   0.00000,   0.00000)
+fftx I:  X( 7) = (   0.00000,   0.00000)
+fftx I:  X( 8) = (   0.00000,   0.00000)
+fftx I:  X( 9) = (   0.00000,   0.00000)
+fftx I:  X(10) = (   0.00000,   0.00000)
+fftx I:  X(11) = (   0.00000,   0.00000)
+fftx I:  X(12) = (   0.00000,   0.00000)
+fftx I:  X(13) = (   0.00000,   0.00000)
+fftx I:  X(14) = (   0.00000,   0.00000)
+fftx I:  X(15) = (   0.00000,   0.00000)
+fftx I:  X(16) = (   1.00000,  -0.00001)
+fftx I: Forward:
+fftx I:  X(**) = (   0.00000,   0.00000)
+fftx I: Time per   512 complex FFT =    207.850 milliseconds
+fftx I:  X( 1) = (   0.00000,   0.00000)
+fftx I:  X( 2) = (   0.00000,   0.00000)
+fftx I:  X( 3) = (   0.00000,   0.00000)
+fftx I:  X( 4) = (   0.00000,   0.00000)
+fftx I:  X( 5) = (   0.00000,   0.00000)
+fftx I:  X( 6) = (   0.00000,   0.00000)
+fftx I:  X( 7) = (   0.00000,   0.00000)
+fftx I:  X( 8) = (   0.00000,   0.00000)
+fftx I:  X( 9) = (   0.00000,   0.00000)
+fftx I:  X(10) = (   0.00000,   0.00000)
+fftx I:  X(11) = (   0.00000,   0.00000)
+fftx I:  X(12) = (   0.00000,   0.00000)
+fftx I:  X(13) = (   0.00000,   0.00000)
+fftx I:  X(14) = (   0.00000,   0.00000)
+fftx I:  X(15) = (   0.00000,   0.00000)
+fftx I:  X(16) = (   1.00000,   0.00000)
+fftx I: Forward:
+fftx I:  X(**) = (   0.00000,   0.00000)
+fftx I: Time per  1024 complex FFT =    456.600 milliseconds
+fftx I:  X( 1) = (   0.00000,   0.00000)
+fftx I:  X( 2) = (   0.00000,   0.00000)
+fftx I:  X( 3) = (   0.00000,   0.00000)
+fftx I:  X( 4) = (   0.00000,   0.00000)
+fftx I:  X( 5) = (   0.00000,   0.00000)
+fftx I:  X( 6) = (   0.00000,   0.00000)
+fftx I:  X( 7) = (   0.00000,   0.00000)
+fftx I:  X( 8) = (   0.00000,   0.00000)
+fftx I:  X( 9) = (   0.00000,   0.00000)
+fftx I:  X(10) = (   0.00000,   0.00000)
+fftx I:  X(11) = (   0.00000,   0.00000)
+fftx I:  X(12) = (   0.00000,   0.00000)
+fftx I:  X(13) = (   0.00000,   0.00000)
+fftx I:  X(14) = (   0.00000,   0.00000)
+fftx I:  X(15) = (   0.00000,   0.00000)
+fftx I:  X(16) = (   1.00000,   0.00000)
+fftx I: Forward:
+fftx I:  X(**) = (   0.00000,   0.00000)
+fftx I: Time per  2048 complex FFT =    996.150 milliseconds
+fftx I:  X( 1) = (   0.00000,   0.00000)
+fftx I:  X( 2) = (   0.00000,   0.00000)
+fftx I:  X( 3) = (   0.00000,   0.00000)
+fftx I:  X( 4) = (   0.00000,   0.00000)
+fftx I:  X( 5) = (   0.00000,   0.00000)
+fftx I:  X( 6) = (   0.00000,   0.00000)
+fftx I:  X( 7) = (   0.00000,   0.00000)
+fftx I:  X( 8) = (   0.00000,   0.00000)
+fftx I:  X( 9) = (   0.00000,   0.00000)
+fftx I:  X(10) = (   0.00000,   0.00000)
+fftx I:  X(11) = (   0.00000,   0.00000)
+fftx I:  X(12) = (   0.00000,   0.00000)
+fftx I:  X(13) = (   0.00000,   0.00000)
+fftx I:  X(14) = (   0.00000,   0.00000)
+fftx I:  X(15) = (   0.00000,   0.00000)
+fftx I:  X(16) = (   1.00000,  -0.00001)
+fftx I: Forward:
+fftx I:  X(**) = (   0.00000,   0.00000)
+fftx I: Time per  4096 complex FFT =   2159.500 milliseconds
+fftx I:  X( 1) = (   0.00000,   0.00000)
+fftx I:  X( 2) = (   0.00000,   0.00000)
+fftx I:  X( 3) = (   0.00000,   0.00000)
+fftx I:  X( 4) = (   0.00000,   0.00000)
+fftx I:  X( 5) = (   0.00000,   0.00000)
+fftx I:  X( 6) = (   0.00000,   0.00000)
+fftx I:  X( 7) = (   0.00000,   0.00000)
+fftx I:  X( 8) = (   0.00000,   0.00000)
+fftx I:  X( 9) = (   0.00000,   0.00000)
+fftx I:  X(10) = (   0.00000,   0.00000)
+fftx I:  X(11) = (   0.00000,   0.00000)
+fftx I:  X(12) = (   0.00000,   0.00000)
+fftx I:  X(13) = (   0.00000,   0.00000)
+fftx I:  X(14) = (   0.00000,   0.00000)
+fftx I:  X(15) = (   0.00000,   0.00000)
+fftx I:  X(16) = (   1.00000,  -0.00001)
+fftx I:
+fftx I: Started  : Sat Jun  1 09:04:15 1991
+fftx I: Finished : Sat Jun  1 09:30:41 1991
+fftx I: User: 1580.220 System: 0.720
+fftx I: Run on tecate
+****
+**** Now testing gridding routines ****
+****
+Must recompile grdtst.f
+Compiling master routine /zia/u/sde/source/start/start.f
+Compiling grdtst.f
+Linking grdtst.f
+grdtst I:
+grdtst I: I time GRDH2D for several grid sizes
+grdtst I:
+grdtst I: SDE Version 1.0
+grdtst I: Compiled : Sat Jun  1 12:10:30 MDT 1991
+grdtst I:
+****
+**** Now testing imaging routines ****
+****
+clean I:
+clean I: I perform Clark or Hogbom CLEAN deconvolution
+clean I:
+clean I: SDE Version 1.0
+clean I: Compiled : Sat Jun  1 12:02:51 MDT 1991
+clean I:
+clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: *clean I: Dirty [must be specified] : Dirty = D0/3C10MAP.FTS
+clean I: Point spread function [must be specified] : PSF = D0/3C10BEAM.FTS
+clean I: Residual image [optional] : Residual =
+clean I: Components image [optional] : Components = D0/3C10NEWCMP.tecate.FTS
+clean I: CLEAN image [optional] : CLEAN = D0/3C10NEWCLN.FTS
+clean I: Name of list of Clean components [optional] : CCfile =
+clean I: Bottom left corner of window [pixels] : BLC = 1, 1, 1, 1, 1, 1,
+clean I:  1
+clean I: Top right corner of window [pixels] : TRC = 512, 512, 1, 1, 1,
+clean I:  1, 1
+clean I: Number of Iterations : Niter = 20000
+clean I: Cutoff in flux [Jy/beam] : Flux = 3.00000E-03
+clean I: Loop gain : Gain = 1.00000E-01
+clean I: Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec] : Beam = 45.0000,
+clean I:  45.0000, 0., 0.
+clean I: Algorithm to use [CLARK | HOGBOM] : Algorithm = CLARK
+clean I: Size of list for cleaning : Numcl = 16384
+clean I: Size of beampatch [pixels] : Bpatch = 64
+clean I: *clean I: Clark algorithm
+clean I: Opening FITS file D0/3C10MAP.FTS for READ as InitialDirty
+clean I: Opening FITS file D0/3C10BEAM.FTS for READ as PSF
+clean I: Got images: User: 20.240 System: 1.000
+clean I:   Nlocations     Ncomps   Residual(Jy/beam)   Total Flux(Jy)
+clean I:      974            5        5.7758E-01         3.1695E-01
+clean I:     1253           47        4.5179E-01         2.4370E+00
+clean I:     1627          259        2.7713E-01         9.7025E+00
+clean I:     2056         1020        1.3730E-01         2.3107E+01
+clean I:     2202         2669        4.7798E-02         3.3008E+01
+clean I:     2043         5238       -1.1682E-02         3.6968E+01
+clean I:     2830        20000        2.2950E+00         2.9196E+01
+clean I: Finished CLEAN: User: 1720.920 System: 5.040
+clean I: Opening FITS file D0/3C10NEWCMP.tecate.FTS for WRITE as Components
+clean I: Writing 2-dimensional image Components
+closure I:
+closure I: I use closure phase information
+closure I:
+closure I: SDE Version 1.0
+closure I: Compiled : Sat Jun  1 12:02:51 MDT 1991
+closure I:
+closure I: *closure I: *closure I: *closure I: *closure I: *closure I: *closure I: *closure I: Name of Visibility database : Vis = D0/3C10UV.FTS
+closure I: Name of model image : Model = D0/3C10NEWCMP.tecate.FTS
+closure I: Name of output visibility file : NewVis = D0/3C10NEWUV.tecate.FTS
+closure I: Averaging time in seconds : Tavg = 60.0000
+closure I: Solution type,  | AMPPHI | GLOBAL : SolType =
+closure I: Method, 'Selfcal' | 'Triple', ' ' => 'Selfcal' : Method =
+closure I: *closure I: Opening FITS file D0/3C10UV.FTS for READ as Vis
+closure I: Converting visibilities to IQUV format
+uvmap I:
+uvmap I: I make images from visibility data
+uvmap I:
+uvmap I: SDE Version 1.0
+uvmap I: Compiled : Sat Jun  1 12:02:51 MDT 1991
+uvmap I:
+uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: *uvmap I: Image size : Imsize = 128, 128, 1
+uvmap I: Cellsizes in arc-seconds : Cellsize = 12.0000, 12.0000, 12.0000
+uvmap I: UV limits in wavelengths : Uvlimits = 0., 1.00000E+10
+uvmap I: Filter for sources of this size: BMAJ, BMIN, BPA (asec) : Filter = 0.,
+uvmap I:  0., 0.
+uvmap I: Shift in arcseconds : Shift = 0., 0., 0.
+uvmap I: Field of view for reweighting: 0 => NATURAL, 1=> UNIFORM : FOV = 1.0000
+0
+uvmap I: Stokes type I,Q,U, or V : Stokes = I
+uvmap I: Timerange (d,h,m,s) : Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+uvmap I: Convolution function SF, SZE or BOX : ConvType = SF
+uvmap I: Slow transform in Z?, T or F : SlowZ = T
+uvmap I: Visibility data : Vis = D0/3C10NEWUV.tecate.FTS
+uvmap I: Output dirty image : Dirty = D0/3C10NEWMAP.tecate.FTS
+uvmap I: Output point spread function : PSF = D0/3C10NEWBEAM.tecate.FTS
+uvmap I: *uvmap W: No TIME information
+uvmap E: Requested item not found in routine FILSYSOP, Cannot find file /zia/u/s
+de/data/3C10NEWUV.tecate.FTS
+uvmap T: Called from routine FTSOPEN
+uvmap T: Called from routine FILGRPGE
+uvmap T: Called from routine VISGET
+uvmap I:
+uvmap I: Started  : Sat Jun  1 12:43:58 1991
+uvmap I: Finished : Sat Jun  1 12:44:06 1991
+uvmap I: User: 7.720 System: 0.480
+uvmap I: Run on tecate
+vm I:
+vm I: I perform maximum entropy deconvolution
+vm I:
+vm I: SDE Version 1.0
+vm I: Compiled : Sat Jun  1 12:02:51 MDT 1991
+vm I:
+vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm I: *vm E: Unknown command:DOTV
+vm I: *vm I: Dirty : Dirty = D0/3C10NEWMAP.tecate.FTS
+vm I: Point spread function : PSF = D0/3C10NEWBEAM.tecate.FTS
+vm I: Default [optional] : Default =
+vm I: VM  [can already exist, optional] : VM =
+vm I: Convolved VM plus residuals [optional] : CVM = D0/3C10NEWCVM.tecate.FTS
+vm I: Bottom left corner of window [optional] : BLC = 33, 33, 1, 1,
+vm I:  1, 1, 1
+vm I: Top right corner of window [optional] : TRC = 96, 96, 1, 1, 1,
+vm I:  1, 1
+vm I: Number of Iterations (<0 for automatic stopping) : Niter = -30
+vm I: Required total flux (less than zero for a guess) : Tflux = -60.0000
+vm I: Required final fit in Jy/Beam : Sigma = 1.00000E-02
+vm I: Form to optimize, Entropy or L1 norm [H|L1] : Entropy = H
+vm I: Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec] : Beam = 45.0000,
+vm I:  45.0000, 0., 0.
+vm I: Are the residual independent in the image plane? : ImagePlane = F
+vm I: Image to display on tv [VM|CVM|Step|Residual|None] : TV =
+vm I: *vm I: Maximising entropy -I*logI
+vm E: Requested item not found in routine FILSYSOP, Cannot find file /zia/u/sde/
+data/3C10NEWMAP.tecate.FTS
+vm T: Called from routine FTSOPEN
+vm T: Called from routine FILIMGGE
+vm I:
+vm I: Started  : Sat Jun  1 12:44:14 1991
+vm I: Finished : Sat Jun  1 12:44:23 1991
+vm I: User: 8.420 System: 0.620
+vm I: Run on tecate
+****
+**** Now testing mosaicing routines ****
+****
+mosmake I:
+mosmake I: I assemble u,v data into mosaic data bases
+mosmake I:
+mosmake I: SDE Version 1.0
+mosmake I: Compiled : Sat Jun  1 12:02:51 MDT 1991
+mosmake I:
+mosmake I: *mosmake I: *mosmake I: *mosmake I: *mosmake I: Visibility data set  (must be specified) : Vis = D0/3C10UV.FTS
+mosmake I: Mosaic data base : Mosaic = D0/3C10MOS.tecate.SDE
+mosmake I: Telescope name : Telescope = VLA
+mosmake I: *mosmake I: Opening FITS file D0/3C10UV.FTS for READ as M/PC1
+mosmake I: Converting visibilities to IQUV format
+mosaic I:
+mosaic I: I perform maximum entropy mosaicing
+mosaic I:
+mosaic I: SDE Version 1.0
+mosaic I: Compiled : Sat Jun  1 12:02:51 MDT 1991
+mosaic I:
+mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: >mosaic I: >mosaic I: >mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: *mosaic I: Mosaic visibility file (must be specified if Vis is not) : Mosaic = D0
+/3C10MOS.tecate.SDE
+mosaic I: Default  (can be left blank) : Default =
+mosaic I: VM  (can already exist, can be left blank) : VM =
+mosaic I: Convolved VM plus residuals (can be left blank) : CVM = D0/3C10MOSCVM.
+tecate.FTS
+mosaic I: Residual image (can be left blank) : Residual =
+mosaic I: Number of Iterations (<0 for automatic stopping) : Niter = -30
+mosaic I: Required total flux (<0 for a guess) : Tflux = -60.0000
+mosaic I: Required final fit in Jy/beam or Jy : Sigma = 1.00000
+mosaic I: Telescopes with specific sigma : Telnames = VLA
+mosaic I: Use Canned PB in mosaic database? : CannedPB = F
+mosaic I: Sigma for specific telescope : Sigtel = 0.337200, 1.00000E-03,
+mosaic I:  1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+mosaic I:  1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+mosaic I:  1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03, 1.00000E-03,
+mosaic I:  1.00000E-03, 1.00000E-03, 1.00000E-03
+mosaic I: Form to optimize, Entropy or emptiness [H|E] : Entropy = H
+mosaic I: Smoothing beam, BMAJ, BMIN, BPA, BZ : Beam = 45.0000, 45.0000,
+mosaic I:  0., 0.
+mosaic I: Image size : Imsize = 64, 64, 1
+mosaic I: Cellsizes in arc-seconds : Cellsize = 12.0000, 12.0000, 12.0000
+mosaic I: UV limits in wavelengths : Uvlimits = 0., 1.00000E+10
+mosaic I: Filter for sources of this size: BMAJ, BMIN, BPA (asec) : Filter = 0.,
+mosaic I:  0., 0.
+mosaic I: Shift in arcseconds : Shift = 0., 0., 0.
+mosaic I: Stokes type [I|Q|U|V|R|L] : Stokes = I
+mosaic I: FOV for weighting : FOV = 1.00000
+mosaic I: Minimum level in Primary beam to include {fraction] : MinPB = 1.00000E
+-01
+mosaic I: Timerange (d,h,m,s) : Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+mosaic I: Reweight to get nice PSF [T|F] : NicePSF = F
+mosaic I: List of telescopes for which a DFT is to be used : DFT =
+mosaic I: Convolution function SF, SZE or BOX : Convtype = SF
+mosaic I: Write iterations to TV file ? : Dotv = F
+mosaic I: *mosaic I: Maximising entropy -I*logI
+mosaic I: Working on Stokes type I
+mosaic I: Reading Mosaic visibility file
+mosaic I: Reading IM from SDE format file D0/3C10MOS.tecate.SDE
+Cannot open file /zia/u/sde/data/3C10MOS.tecate.SDE for reading
+mosaic E: Requested item not found in routine DATREAD, Requested item: IM
+mosaic T: Called from routine VISMOSGE
+mosaic E: Requested item not found in routine MOSAIC, No pointings
+mosaic W: Multiple errors reported by routine MOSAIC
+mosaic I:
+mosaic I: Started  : Sat Jun  1 12:45:06 1991
+mosaic I: Finished : Sat Jun  1 12:45:22 1991
+mosaic I: User: 15.580 System: 0.500
+mosaic I: Run on tecate
+****
+**** End of testing ****
+****

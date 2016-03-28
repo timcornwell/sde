@@ -1,0 +1,34 @@
+Be aware that the test for antenna/baseline selection merely compares the
+lowest numbered antenna against the members of Antennas (or its complement
+if any value of Antennas is negative).  If any member of Baseline is
+non-zero, the other antenna number is compared against the members of
+Baseline or its complement.  If all such tests succeed, the visibility is
+selected.
+
+.INFO
+Vis, C, 1, Visibility data
+Tables, C, 1, Tables to copy
+Output, C, 1, Output visibility file
+Stokes, C, 1, Stokes type I,Q,U, or V
+Uvlimits, R, 2, UV limits in wavelengths
+Timerange, I, 8, Timerange (d,h,m,s)
+Antennas, I, 8, Antennas to rotate
+Baseline, I, 8, Baselines with Antennas
+Theta, R, 1, Rotation angle [deg]
+Random, R, 1, Random probability of reweighting
+Seed, I, 1, Random number seed [must be odd]
+/Debug, L, 1, Debug? T or F
+.DEFAULTS
+Vis = 
+Tables =
+Output =
+Stokes = I
+Uvlimits = 0.0, 1E10
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Antennas = 0, 0, 0, 0, 0, 0, 0, 0
+Baseline = 0, 0, 0, 0, 0, 0, 0, 0
+Theta  = 90
+Random = 0.0
+Seed = 12345
+/Debug = F
+.END

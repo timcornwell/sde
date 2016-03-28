@@ -1,0 +1,9 @@
+ Vis = D0/3C10NEWUV.piro.FTS
+ Outfile = vislist.out
+ Order = TIME
+ Stokes = I
+ Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+ Uvlimits = 0.0000000000E+00, 0.1000000000E+11
+ NList = 100
+ DoAll = T
+ Overwrite = T

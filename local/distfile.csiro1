@@ -1,0 +1,14 @@
+HOSTS = (dbriggs@apus.rp.csiro.au)
+
+FILES = (~/farch ~/sdeini ~/sdeini.csh ~/doc ~/inf ~/source ~/bin/unix )
+
+${FILES} -> ${HOSTS}
+	except ~/source/SCCS;
+	except ~/bin/unix/SCCS;
+	except ~/source/task/SCCS;
+	except_pat .*~\$;
+	except_pat .*\.o\$;
+	except_pat .*\.cur\$;
+	install -i -y -w /source/sde;
+	notify dbriggs@rp.csiro.au;
+

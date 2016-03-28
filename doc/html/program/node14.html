@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3O//DTD W3 HTML 2.0//EN">
+<!Converted with LaTeX2HTML 95 (Thu Jan 19 1995) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds >
+<HEAD>
+<TITLE> System-related activities: SYS routines</TITLE>
+</HEAD>
+<BODY>
+<meta name="description" value=" System-related activities: SYS routines">
+<meta name="keywords" value="program">
+<meta name="resource-type" value="document">
+<meta name="distribution" value="global">
+<P>
+ <BR> <HR><A NAME=tex2html204 HREF="node15.html"><IMG ALIGN=BOTTOM ALT="next" SRC="http://www.nrao.edu/icons//next_motif.gif"></A>   <A NAME=tex2html202 HREF="node7.html"><IMG ALIGN=BOTTOM ALT="up" SRC="http://www.nrao.edu/icons//up_motif.gif"></A>   <A NAME=tex2html198 HREF="node13.html"><IMG ALIGN=BOTTOM ALT="previous" SRC="http://www.nrao.edu/icons//previous_motif.gif"></A>   <A NAME=tex2html206 HREF="node1.html"><IMG ALIGN=BOTTOM ALT="contents" SRC="http://www.nrao.edu/icons//contents_motif.gif"></A>      <BR>
+<B> Next:</B> <A NAME=tex2html205 HREF="node15.html"> Compiling and Linking</A>
+<B>Up:</B> <A NAME=tex2html203 HREF="node7.html"> The main subroutines</A>
+<B> Previous:</B> <A NAME=tex2html199 HREF="node13.html"> String handling: STR </A>
+<BR> <HR> <P>
+<H2><A NAME=SECTION00057000000000000000> System-related activities: SYS routines</A></H2>
+<P>
+Access to the system is minimal. The main functions of the SYS routines are
+time and date retrieval, command execution, and logical name translation.
+<UL><LI> <tt> SYSDATEC (DTSTRING)</tt>: is a subroutine which returns the date in
+the <tt> CHARACTER*(*)</tt> string <tt> DTSTRING</tt> in the format '23/11/87'
+<LI> <tt> SYSDATET (DTSTRING)</tt>: is a subroutine which returns the date and
+time in <tt> DTSTRING</tt>. The format is 'Sun Jan 22 21:15:11 1989'.
+<LI> <tt> SYSETIME (DTSTRING)</tt>: is a subroutine which returns the elapsed time
+and CPU (if available) in <tt> DTSTRING</tt>
+<LI> <tt> SYSSYSTM (COMMAND)</tt>: is an <tt> INTEGER</tt> function which executes
+a command line <tt> COMMAND</tt> on the host system, and returns
+an error status.
+<LI> <tt> SYSTRANS (NAME1, NAME2)</tt>: is a subroutine which performs logical 
+name translation of <tt> NAME1</tt> to <tt> NAME2</tt>.
+It calls getenv to translate any part it can.
+</UL>
+<P>
+<BR> <HR>
+<P><ADDRESS>
+<I>Tim Cornwell <BR>
+Wed Jan  3 09:21:29 MST 1996</I>
+</ADDRESS>
+</BODY>

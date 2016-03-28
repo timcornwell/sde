@@ -1,0 +1,13 @@
+.
+Vis, C, 1, Name of Visibility database
+Model, C, 1, Name of model image
+NewVis, C, 1, Name of output visibility file
+Tavg, R, 1, Averaging time in seconds
+Threshold, R, 1, Threshold in sigma
+.
+Vis =  
+Model = 
+NewVis =
+Tavg = 10.0
+Threshold = 5.0
+.

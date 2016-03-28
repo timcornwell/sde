@@ -1,0 +1,4 @@
+taskname           = "viewer"
+infile             =  ""
+filetype           =  "image"
+#viewer(infile="",filetype="image")

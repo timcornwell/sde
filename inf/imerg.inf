@@ -1,0 +1,24 @@
+program:	IMERG
+programmer:	M.A.Holdaway
+date:		June 10 1991
+purpose:	To merg two images of differing resolution in the
+		UV Plane
+
+
+.
+HighRes, C, 1, High resolution image
+LowRes, C, 1, Low resolution image
+UVLim1, R, 1, HighRes sensitivity begins [lambda]
+UVLim2, R, 1, LowRes sensitivity ends [lambda]
+ScaleLow, R, 1, Scale factor for low resolution image
+MergType, C, 1, [ AVE | LIN ]
+Output, C, 1, Merged Image
+.
+HighRes =
+LowRes =
+UVLim1 = 0.0
+UVLim2 = 0.0
+ScaleLow = 1.0
+MergType = LIN
+Output =
+.

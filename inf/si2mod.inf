@@ -1,0 +1,33 @@
+Program: SI2MOD - convert Spectral index models to SDE ones
+Programmer: R.G. Marson
+Date: 5 Nov 1990
+Purpose: SI2MOD converts the John Conway model of a Cygnus A type
+object with Spectral Information into a SDE model. In order to allow
+for the spectral index information a reference frequency and a observed
+frequency can be supplied. 
+
+Details: The model produced at the reference frequence totally ignores
+the spectral index information in the input model. At other
+frequencies however this information is taken into account and the
+flux of each component is suitably modified. SI2MOD will do multiple
+frequencies in one pass if more than one output filename and frequency
+are specified. This program can also produce a 'Spectral Index' model
+in which the intensities correspond to the spectral index (MType = 'Alpha')
+or a composite model in which the intensities correspond to the product of
+the spectral index and the intensities (MType = 'IAlpha')
+
+.INFO
+SImodel, C, 1, Input Model (with Spectral Index info)
+Model, C, 32, Output Model(s)
+RFreq, R, 1, Reference Frequency
+Freq, R, 32, Output Frequency(s)
+MType, C, 1, Output model Type ('INTENSITY' or 'IALPHA' or 'ALPHA')
+/Debug, L, 1, Debug T or F (must be set each time)
+.DEFAULT
+SImodel =
+Model = 
+RFreq = 1.0
+Freq = 1.0
+MType = INTENSITY
+/Debug = F
+.END

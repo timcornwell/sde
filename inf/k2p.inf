@@ -1,0 +1,14 @@
+.INFO
+Image, C, 1, Name of input image
+Output, C, 1, Name of output image
+Units, C, 1, Output Units: JY/PIXEL or JY/BEAM
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz [arcs]
+Freq, R, 1, Observing freq [if <=0, lookup in header]
+.DEF
+Image=
+Output=
+Units = JY/PIXEL
+Beam = 1.0, 1.0, 0.0, 0.0
+Freq = -1.0
+.END
+

@@ -1,0 +1,39 @@
+.
+Dirty , C, 1, Dirty [must be specified]
+PSF, C, 1, Point spread function [must be specified]
+Residual, C, 1, Residual image [optional]
+Components, C, 1, Components image [optional]
+Box, C, 1, CLEAN Box image [optional]
+InBox, C, 1, Input Box image
+CLEAN, C, 1, CLEAN image [optional]
+CCfile, C, 1, Name of list of Clean components [optional]
+BLC, I, 7 * 1, Bottom left corner of window [pixels]
+TRC, I, 7 * 1, Top right corner of window [pixels]
+Niter, I, 1, Number of Iterations
+Flux, R, 1, Cutoff in flux [Jy/beam]
+Gain, R, 1, Loop gain
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec]
+Algorithm, C, 1, Algorithm to use [ QUICK | SLOW | HIST ]
+Npix, I, 2, Number of pixels in HIST mode (in, out)
+Bpatch, I, 1, Radial size of beampatch [pixels]
+DEBUG, L, 1, Debug
+.
+Dirty = 
+PSF = 
+Residual = 
+Components = 
+Box =
+InBox = 
+CLEAN = 
+CCfile =
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Niter = 100
+Flux = 0.0
+Gain = 0.1
+Beam = 0.0, 0.0, 0.0, 0.0
+Algorithm = QUICK
+Npix = 500, 0
+Bpatch = 10
+DEBUG = F
+.

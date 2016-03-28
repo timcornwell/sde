@@ -1,0 +1,22 @@
+This is a seriously simple minded image fitting program.  At the moment, all
+it can do is fit a single Gaussian to the peak in the image.  If Beam is
+non-zero or Beamfile is present, that will be deconvolved from the fitted
+result.
+
+The beam fitting algorithm may be LINEAR, NONLINEAR, ARCHIVE, HDR-LINEAR,
+HDR-NONLINEAR, HDR-ARCHIVE, L, N, A, HL, HNL, HA
+
+The actual fit to the image is always NONLINEAR
+.INFO
+Image, C, 1, Image file
+Beam, R, 4, Beam
+Beamfile, C, 1, Beamfile
+FitAlg, C, 1, Beam fitting algorithm
+/Debug, L, 1, Debug? T or F
+.DEFAULTS
+Image = 
+Beam = 0,0,0,0
+Beamfile = \$Image
+FitAlg = HDR-LINEAR
+/Debug = F
+.END

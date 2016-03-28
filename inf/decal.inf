@@ -1,0 +1,17 @@
+.
+Vis, C, 1, Visibility file
+NewVis, C, 1, Corrected Visibility file
+Model, C, 1, Model image file
+Delays, R, 10, Delays [ns]
+Bandwidth, R, 1, Bandwidth
+Channels, I, 1, Number of channels
+A2, R, 1, A2 [A2=0 => will estimate]
+.
+Vis = 
+NewVis =
+Model =
+Delays = 0,0,0,0,0,0,0,0,0,0
+Bandwidth = 8E6
+Channels = 512
+A2 = 0.0
+.

@@ -1,0 +1,23 @@
+program:	moscenter
+programmer:	m.a.holdaway
+date:		June 5 1995
+purpose:	The first pointing of a mosaic database has
+		special significance: we use this pointing for
+		the image center and also for the beam fit.
+		This program allows you, the USER, to reset which
+		pointing is to be the center, or will calculate
+		which pointing is closest to the point which has
+		RA halfway between the RA extremes, same with DEC.
+		You can restrict the Telescope of the search also,
+		so we don't get a single dish in there.
+.
+Mos, C, 1, Input mosaic database
+Outfile, C, 1, Output mosaic database
+Telescope, C, 1, Tel central pointing must have (can be blank)
+Pointing, I, 1, Central pointing (if 0, calculate it)
+.
+Mos = 
+Outfile = 
+Telescope = 
+Pointing = 0
+.

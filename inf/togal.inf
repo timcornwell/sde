@@ -1,0 +1,9 @@
+.
+In, C, 1, Input file
+Out, C, 1, Output File
+LatRange, R, 2, Range of galactic lattitude
+.
+In =
+Out =
+LatRange = -5.0, 5.0
+.

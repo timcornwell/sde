@@ -1,0 +1,19 @@
+Program:   Pspl
+Purpose:   Generate a Power Spectrum (Photon Limited)
+Programmer:    R. G. Marson, 24-Mar-1992
+Bugs:Only Axis = 2, Full= False has been debugged
+.
+In, C, 1, Name of Input File to be FFT'd
+In1, C, 1, Secondary input file (Complex FITS data)
+InType, C, 1, A-> Amplitude-Phase: R-> Real-Imaginary (FITS files only)
+Out, C, 1, Output image
+Axis, I, 1, FFT along? Axis=1 ->Rows, Axis=2 -> Columns
+Full, L, 1, Produce a FULL image R->X or Input data is Not Packed X->R,X
+.
+In =
+In1 =
+InType = A
+Out =
+Axis = 2
+Full = F
+.

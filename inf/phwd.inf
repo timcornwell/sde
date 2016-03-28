@@ -1,0 +1,25 @@
+.
+Dirty , C, 1, Dirty  
+PSF, C, 1, Point spread function 
+Default , C, 1, Default [optional]
+WD , C, 1, WD  [can already exist, optional]
+Niter, I, 1, Number of Iterations 
+/Nconj, I, 1, Number of successive conjugate steps
+/Debug, L, 1, Debug? T or F
+Tolerance, R, 1, Tolerance for convergence
+Scale, R, 1, Scale factor to convert to photons
+Readout, R, 1, Readout noise 
+TV, C, 1, Image to display on tv [WD|CWD|Lambda|]
+.
+Dirty = 
+PSF = 
+Default = 
+WD = 
+Niter = 100
+/Nconj = 10
+/Debug = F
+Scale=1.0
+Readout=0.0
+Tolerance = 0.001
+TV =
+.

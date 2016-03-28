@@ -1,0 +1,18 @@
+program		imxpolpa
+programmer	M.A.Holdaway
+date		May 3 1993
+purpose		To give the polarization position angle
+		at some pixel, default of NX/2, NY/2
+
+
+.
+Qmap, C, 1, STOKES Q image
+Umap, C, 1, STOKES U image
+blc, I, 7, blc of region
+trc, I, 7, trc of region
+.
+Qmap = 
+Umap = 
+blc = 0,0,0,0,0,0,0
+trc = 0,0,0,0,0,0,0
+.

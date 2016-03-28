@@ -1,0 +1,22 @@
+Program: mod2img - convert a model to an image file
+Programmer: R.G Marson
+Date: 29 Aug 1990
+Purpose: Many simulation programs work by operating on known models.
+         The first thing they do however is to convert this model to an
+         image. This program does that. To avoid the duplication of having
+         to calculate the image each time the program is run.
+Details: This program isn't very detailed
+
+.INFO
+Infile, C, 1, Name of input model file
+Sampling, R, 1, Input Image Sampling interval (in arcsecs)
+Size, I, 2, Size in pixels of the output image
+Outfile, C, 1, Name of output triple product file
+/Debug, L, 1, Debug status
+.DEFAULT
+Infile = 
+Sampling = 1
+Size = 256, 256
+Outfile = 
+/Debug = F
+.END

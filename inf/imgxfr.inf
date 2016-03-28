@@ -1,0 +1,11 @@
+.
+/Debug, L, 1, Debug?
+Image, C, 1, Input cube
+Output, C, 1, Output image
+Full, L, 1, Full XFR image?
+.
+/Debug = F
+Image =
+Output = 
+Full = F
+.

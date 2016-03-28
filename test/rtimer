@@ -1,0 +1,26 @@
+#!/bin/ksh
+#
+# Update timings
+#
+mv timings.* old
+#
+COMMAND=". /zia/u/sde/.env;cd;cd test;timer"
+#
+rsh noggs -n $COMMAND
+mv timings.noggs timings.ipx
+#
+rsh zee -n $COMMAND
+mv timings.zee timings.sparc2
+#
+rsh zuni -n $COMMAND
+mv timings.zuni timings.ibm6000-320
+#
+rsh ibmdemo -n $COMMAND
+mv timings.ibmdemo timings.ibm6000-550
+#
+COMMAND=". /yucca/sde/.env;cd;cd test;timer"
+rsh yucca -n $COMMAND
+cp /yucca/sde/test/timings.yucca timings.c1
+
+
+

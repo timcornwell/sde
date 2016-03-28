@@ -1,0 +1,38 @@
+<HEAD>
+<TITLE> Installing <i>SDE</i> on a UNIX machine</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html293 HREF=section3_14.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html291 HREF=program.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html285 HREF=section3_12.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html295 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html294 HREF=section3_14.html>  About this document </A>
+<B>Up:</B> <A NAME=tex2html292 HREF=program.html>Programmer's Guide to SDE </A>
+<B> Previous:</B> <A NAME=tex2html286 HREF=section3_12.html> Environment variables</A>
+<HR> <P>
+<H1><A NAME=SECTION00013000000000000000> Installing <i>SDE</i> on a UNIX machine</A></H1>
+<P>
+We don't support <i>SDE</i> and will discourage you from taking it away. However, it
+you decide to do so, then you will need to know how to install <i>SDE</i> on your
+machine.
+<P>
+<OL><LI> <i>SDE</i> is available by anonymous ftp from zia.aoc.nrao.edu
+(192.43.204.7) in directory /pub/sde.
+<LI> Get tar tape or file and run tar to extract all files into
+some convenient place (probably this should be the desired final home).
+<LI> Edit <tt>var/sdeini.hostname</tt> or <tt>var/sdeini.csh.hostname</tt> 
+to insert definition of environment variables for your host. Either
+setenv or export SDEROOT to point to the relevant place and then
+either . or source the relevant initialization file to set up the
+environment variables for the next steps.
+<LI> Edit <tt>var/comopt.hostname</tt> to include compiler options for your host.
+Use this to override the options set in <tt>var/comopt.$MACHINE</tt>.
+<LI> run the script <tt>sdeinstall</tt>. This script will create all the 
+necessary directories and compile everything.
+</OL>
+Remember that there are support for or no guarantees to the /sde/
+software. You are on your own!
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:45:41 MST 1994</I>
+</ADDRESS>

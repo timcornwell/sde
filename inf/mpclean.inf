@@ -1,0 +1,48 @@
+Multiple PSF clean.  This is a very crude way to tackle space variable
+deconvolution, but it has applications to time variable sources.
+
+You may specify N PBoxes and N+1 PSFs.  The first N PBoxs and PSFs are in
+1-1 correspondence.  At each cycle, the PBoxes are examined in turn until
+one is found that contains the maximum residual.  The corresponding shifted
+PSF is subtracted from the image.  The last PSF is used if the max residual
+is not found in any PBox.  The BOX adverb retains its normal function of
+selection allowed regions for components
+
+The restoring beam will be fitted from the last PSF if needed
+
+This does a simple Hogbom CLEAN.
+.
+Dirty , C, 1, Dirty [must be specified]
+PSF, C, 30, Point spread functions [must be specified]
+PBox, C, 29, PSF selection boxes [required]
+Residual, C, 1, Residual image [optional]
+Components, C, 1, Components image [optional]
+Box, C, 1, CLEAN Box images [required]
+CLEAN, C, 1, CLEAN image [optional]
+CCfile, C, 1, Name of list of Clean components [optional]
+BLC, I, 7 * 1, Bottom left corner of window [pixels]
+TRC, I, 7 * 1, Top right corner of window [pixels]
+Niter, I, 1, Number of Iterations
+Flux, R, 1, Cutoff in flux [Jy/beam]
+Gain, R, 1, Loop gain
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec]
+FitAlg, C, 1, Beam fitting algorithm
+/DEBUG, L, 1, Debug
+.
+Dirty = 
+PSF = 
+PBox =
+Residual = 
+Components = 
+Box =
+CLEAN = 
+CCfile =
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Niter = 100
+Flux = 0.0
+Gain = 0.1
+Beam = 0.0, 0.0, 0.0, 0.0
+FitAlg = LINEAR
+/DEBUG = F
+.

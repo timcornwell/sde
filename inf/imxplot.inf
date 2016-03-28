@@ -1,0 +1,47 @@
+.
+Xfile, C, 1, Name of input X image [or give Q,U]
+Qfile, C, 1, Name of input Q image [or give X]
+Ufile, C, 1, Name of input U image [or give X]
+BLC, I, 7, Bottom left corner
+TRC, I, 7, Top right corner
+Levs, I, 30, Contour levels
+Plev, R, 1, Percentage level for plotting
+Clev, R, 1, Absolute level for plotting
+Pixrange, R, 2, Pixrange for grey-scale
+Plot, C, 1, Type of plot: CONTOUR | GREY | QUICKCONT
+Linwidth, I, 1, 1-3  1=thin 3=thick
+Fullabel, L, 1, Full labeling or minimal labeling 
+%Label, L, 1, Contour labeling in % peak; else with Levs, Plev or Clev
+Device, C, 1, Device name for plotting
+PlotPA, L, 1, Do we plot pol PA?
+EVEC,   L, 1, E vectors?
+Rotang, R, 1, Rotation Measure corection, degrees
+PSMIN,  R, 1, Min percent of peak P to plot sticks
+Slength,  R, 1, Stick length, in arcseconds
+Sdelx, I, 1, pixels between sticks in x
+Sdely, I, 1, pixels between sticks in y
+/Debug, L, 1, Debug status
+.
+Xfile =
+Qfile = 
+Ufile  =
+BLC = 0,0,0,0,0,0,0
+TRC = 0,0,0,0,0,0,0
+/Debug = F
+Levs = -9,-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9
+Plev = 10.0
+Clev = 0.0
+Pixrange = 0.0, 0.0
+Plot = CONTOUR
+Linwidth = 1
+Fullabel = T
+%Label = T
+Device = plot.dat/QMS
+PlotPA = T
+EVEC = T
+Rotang = 0.
+PSMIN = 5.
+Slength = 1.
+Sdelx = 4
+Sdely = 4
+.

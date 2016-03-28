@@ -1,0 +1,60 @@
+Note that the VBplt option is determined somewhat empirically.  As of the
+time of this writing, it seems to work.  But the code in VBplt that normalizes
+the error bars for single baseline data seems suspect to me.  It may be
+"fixed", in which case this code must also track it.
+
+DSB, 20 May 1993
+
+Sigma is used when UseWeights=T.  It converts from weights to sigma in
+physical units.  If left at one, it has no effect.
+
+The weights in the data file are always used in calculating the average of
+the visibility samples.  The UseWeight parameter determines how the output
+weights are determined.
+
+Since SDE isn't so good at dealing with FITS tables, and we often will need
+multiple antenna tables with IF concatenated data files, I've not implemented
+the copying of the AN tables in this task.  You will need to use TACOP from
+the original uvdata within AIPS to the output of this task.
+
+The weights are scaled to come out correctly for plotting real and imaginary
+parts.  If you are plotting amplitude, the weights should be doubled, say
+with visrewt.
+
+If Median=T, then median averaging is used, instead of a weighted mean.
+This option implies UseWeight=T.
+
+For estimating noise within a visibility data set, use UseWeight=F, Median=F
+
+Alternatively, setting SDThresh to a non-zero value enables the successive
+difference mode of estimating the thermal noise.  It is probably now the
+method of choice, though it is comforting that both methods agree well.
+.
+Vis, C, 32, Names of visibility database
+Stokes, C, 1, Name of Stokes parameters
+Uvlimits, R, 2, UV limits in wavelengths
+Timerange, I, 8, Timerange (d,h,m,s)
+Tavg, R, 1, Averaging time in seconds
+Median, L, 1, Use median filtering?
+SDThresh, R, 1, Successive Difference time threshold (sec)
+Outfile, C, 1, Name of output visibility database
+CopyHis, L, 1, Copy history?
+UseWeights, L, 1, Use existing weights, or calculate RMS?
+Sigma, R, 1, Sigma for Unit Weight
+VBplt, L, 1, Hack weights to make VBPLT happy?
+/Debug, L, 1, Debug? T or F
+.
+Vis =
+Stokes = IQUV
+Uvlimits = 0.0, 1E10
+Timerange = 0, 0, 0, 0, 0, 0, 0, 0
+Tavg = 60
+Median = F
+SDThresh = 0.0
+Outfile =
+CopyHis = T
+UseWeights = T
+Sigma = 1.0
+VBplt = F
+/Debug = F
+.

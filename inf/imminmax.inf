@@ -1,0 +1,14 @@
+Form the minimum and maximum images, pixel by pixel
+.INPUTS
+Image1, C, 1, Input image
+Image2, C, 1, Input image
+Min, C, 1, Min Image [can be blank]
+Max, C, 1, Max Image [can be blank]
+Fit, L, 1, Must the two images fit?
+.DEFAULTS
+Image1 = 
+Image2 = 
+Min = 
+Max = 
+Fit = T
+.END

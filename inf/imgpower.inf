@@ -1,0 +1,11 @@
+.
+Image, C, 1, input image
+Output, C, 1, Output image
+Power, R, 1, raise input to this power
+Blank, R, 1, for bad values
+.
+Image = 
+Output =
+Power = 1.0
+Blank = 0.0
+.

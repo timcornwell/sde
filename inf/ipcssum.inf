@@ -1,0 +1,48 @@
+Program: ipcssum - Sum ipcs data along an axis
+Programmer: R.G Marson
+Date: 30 Jan 89
+Purpose: ipcssum allows the ipcs data to be collapsed along any of its axes
+
+Details: ipcssum will sum ipcs data along any one of its 3 axes
+(XPIXEL, YPIXEL or FRAME). It allows you to specify a starting value,
+a stopping value, a stepping size, and a window size. These are described
+fully below.
+Starting value - The Frame to start summing at. Values before this will
+                 be discarded. Zero implies the first frame.
+Stopping value - The frame to stop summing at. Summing will stop when the
+                 the beginning of the window is at this value. Again zero
+                 implies the last frame.
+Stepping size - Increment the frame counter by this amount for each sum.
+                This option along with the window size option allow a flexible
+                method of summing the frames. Zero implies the whole data set.
+Window size - The number of frames to sum over. This means that this many 
+              frames will be integrated in each sum. Zero implies the whole
+              data set.
+The last two parameters (Step and Window) allow many ways of summing the data
+eg. Step=2, Sum=2 -> Average over two frames with no overlap
+    Step=1, Sum=2 -> Average over two frames with a 1 frame overlap
+    Step=0, Sum=0 -> Defaults imply: Average data set between Start & Stop
+    Step=2, Sum=1 & then Step=0, Sum=0 -> Sum every second frame.
+.INFO
+Infile, C, 1, Name of input IPCS file
+Outfile, C, 1, Name of output IPCS file
+Axis, C, 1, What axis to sum over
+Start, I, 1, Starting frame value (0 -> First frame)
+Stop, I, 1, Stopping frame value (0 -> Last frame)
+Step, I, 1, Stepping size (0 -> whole data set)
+Sum, I, 1, Window size (0 -> whole data set)
+/Expand, R, 1, Expand memory est. for output by this factor
+/Debug, L, 1, Debug status
+/Notify, I, 1, Print message after processing this many frames
+.DEFAULT
+Infile = 
+Outfile = 
+Axis = FRAME
+Start = 0
+Stop = 0
+Sum = 0
+Step = 0
+/Expand = 1.5
+/Debug = F
+/Notify = 100
+.END

@@ -1,0 +1,81 @@
+<HEAD>
+<TITLE> A simple example: Hello, world</TITLE>
+</HEAD>
+<BODY><P>
+ <HR> <A NAME=tex2html101 HREF=section3_4.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/next_motif.gif"></A> <A NAME=tex2html99 HREF=program.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/up_motif.gif"></A> <A NAME=tex2html93 HREF=subsection3_2_2.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/previous_motif.gif"></A> <A NAME=tex2html103 HREF=tableofcontents3_1.html><IMG ALIGN=MIDDLE SRC="http://info.aoc.nrao.edu/icons/contents_motif.gif"></A> <BR>
+<B> Next:</B> <A NAME=tex2html102 HREF=section3_4.html> A more detailed </A>
+<B>Up:</B> <A NAME=tex2html100 HREF=program.html>Programmer's Guide to SDE </A>
+<B> Previous:</B> <A NAME=tex2html94 HREF=subsection3_2_2.html> Philosophy</A>
+<HR> <P>
+<H1><A NAME=SECTION0003000000000000000> A simple example: Hello, world</A></H1>
+<P>
+Let us consider a concrete example of an <i>SDE</i> routine. Here is the
+<i>SDE</i> version of the venerable `Hello, world' routine found in
+so many books on programming languages. This also serves as a good test of
+the minimal <i>SDE</i> system.
+<P>
+The actual code is:
+<PRE><TT>
+      SUBROUTINE SDEMAIN
+C++
+C  Program to say 'Hello, World'
+C
+C  Arguments: CALL SDEMAIN
+C  Audit trail:
+C       Simple Hello, world program. This is a good test of the
+C       minimal sde system: only routines in source/main are required.
+C                               T.J.Cornwell    Jan 5 1989
+C 
+C-----------------------------------------------------------------------
+#include        &quot;stdinc.h&quot;
+C
+      CHARACTER*(*)     ROUTINE
+      PARAMETER         (ROUTINE = 'WORLD')
+C
+C==================================================================
+      CALL MSGWELCO ('Hello, world')
+C
+      END</TT></PRE>
+This is compiled with the command: <tt>comtask world.f</tt>, and run by typing
+<tt>world</tt> at the prompt. The output is:
+<PRE><TT>
+% world
+world I:
+world I: Hello, world
+world I:
+world I: Compiled : Sun Jan 22 21:15:11 1989
+world I:
+world I:
+world I: Started  : Fri Jan 27 16:01:01 1989
+world I: Finished : Fri Jan 27 16:01:02 1989
+world I: User:     0.54 System:     0.49</TT></PRE>
+<P>
+A few explanations are required:
+<UL><LI> <tt>SUBROUTINE SDEMAIN</tt>: Note the absence of a <tt>PROGRAM</tt> card.
+<tt>SDEMAIN</tt> is actually called by a main routine which does a lot of
+initialization and cleaning-up, and also contains system-specific code
+such as error-handlers.  The applications programmer normally never
+sees the very top level routine.
+<LI> Note the standard precursor comments which describe the routine. These
+are usually much more useful for a real subroutine.
+<LI> <tt>#include `stdinc.h'</tt> must be present in every
+Fortran routine. This defines a number of global variables which can be
+used in every routine.
+<LI> <tt>CHARACTER*(*) ROUTINE</tt>: Each routine contains it's name
+in this form. While not necessary in this example, it will be used in other
+examples below.
+<LI> <tt>CALL MSGWELCO ('Hello, world')</tt> writes the message <tt>Hello, 
+world</tt> and also the
+time of compilation of the main task. (The end messages are written
+by the top-level routine which actually calls <tt>SDEMAIN</tt>).
+<LI> Each message is prefaced with the name of the task and a code
+indicating the type of message. 
+</UL>
+<P>
+<HR>
+
+</BODY>
+<P><ADDRESS>
+<I>sde@ <BR>
+Thu Dec 22 18:45:41 MST 1994</I>
+</ADDRESS>

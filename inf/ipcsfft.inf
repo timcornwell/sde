@@ -1,0 +1,31 @@
+Program: ipcssum - FFT individual ipcs frames
+Programmer: R.G Marson
+Date: 1 Dec 1992
+Purpose: FFT ipcs data (as an alternative to correlating)
+
+Details: ipcsfft will FFT individual ipcs frames. Either a 2D or a 1D
+(along the columns) FFT may be performed. The transformed data is then
+squared and accumulated. The photon bias is optionall removed at the end. The
+data may be padded and windowed in the transform direction.
+
+.INFO
+Infile, C, 1, Name of input IPCS file
+Outfile, C, 1, Name of output image
+Dimen, I, 1, 1 or 2 for FFT along columns or full 2D transform
+Window, C, 1, Window to apply
+Pad, R, 1, Padding factor
+Bias, L, 1, True -> Apply phpoton Bias Correction
+Normalise, I, 1, Normalise = NANT or Normalise = 0 -> No normalising
+/Debug, L, 1, Debug status
+/Notify, I, 1, Print message every NOTIFY frames
+.DEFAULT
+Infile = 
+Outfile = 
+Dimen = 1
+Window = UNIFORM
+Pad = 1.
+Bias = T
+Normalise = 5
+/Debug = F
+/Notify = 100
+.END

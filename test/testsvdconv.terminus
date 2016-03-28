@@ -1,0 +1,30 @@
+timing svdconv on host terminus at Wed Nov 16 06:35:52 MST 1994
+SDE Version 1.0
+Must recompile svdconv.f
+Compiling master routine /zia/u/sde/source/start/start.f
+Compiling /zia/u/sde/source/task/svdconv.f
+Linking /zia/u/sde/source/task/svdconv.f
+imgstat I:
+imgstat I: I calculate statistics of images
+imgstat I:
+imgstat I: SDE Version 1.0
+imgstat I: Compiled : Wed Nov 16 05:56:28 MST 1994
+imgstat I:
+imgstat I: *imgstat I: *imgstat I: *imgstat I: *imgstat I: Name of input image : Image = D0/3C10NEWNNLS.terminus.FTS
+imgstat I: Name of mask file : Box =
+imgstat I: Bottom left corner : BLC = 0, 0, 0, 0, 0, 0, 0
+imgstat I: Top right corner : TRC = 0, 0, 0, 0, 0, 0, 0
+imgstat I: Average type (AMPSCALAR or VECTOR) : AvgType = AMPSCALAR
+imgstat I: *imgstat E: Requested item not found in routine FILSYSOP, Cannot find file /zia/u
+/sde/data/3C10NEWNNLS.terminus.FTS
+imgstat T: Called from routine FTSOPEN
+imgstat T: Called from routine FILIMGGE
+imgstat I:
+imgstat I: Started  : Wed Nov 16 06:36:16 1994
+imgstat I: Finished : Wed Nov 16 06:36:16 1994
+imgstat I: User: 0.000 System: 0.000
+imgstat I: Run on terminus
+****
+**** Expected Rms     =   2.865E-01 JY/BEAM ****
+**** Expected Maximum =   9.716E-01 JY/BEAM ****
+**** Expected Minimum =  -2.518E-02 JY/BEAM ****

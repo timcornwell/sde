@@ -1,0 +1,35 @@
+Program: ipcsfilt - Remove various simple artifacts from IPCS data
+Programmer: R.G Marson
+Date: 30 Dec 1992
+Purpose: IPCS data often contains errors due to the detector and 
+         data acquisition circuitry. This programs removes two of these.
+         - Bright Pixels. For some reason some pixels are extra sensitive
+           this can be seen on a summed image of the data. This program 
+           removes photons landing on these pixels as they are probably not
+           real.
+         - Photons outside the detector. Due to FIFO's filling up etc.
+           some photons have addresses that are outside the detector. These
+           are also removed.
+         - Bad Frame Numbers. If a Frame marker gets corrupted due to a FIFO
+           full all photons in that frame will be have a bad farme number
+           and be out of sequence. These photons are detected by the comparing
+           their Frame number with those of the last valid photon (should be
+           an increasing sequence). Also big jumps in frame number are not 
+           allowed (jump size set by the GAP parameter).
+Details: A rather simple program
+
+.INFO
+Infile, C, 1, Name of input IPCS file
+Outfile, C, 1, Name of output IPCS file
+Badfile, C, 1, The Bright Pixels file
+Gap, I, 1, Max Allowed gap in Frame numbers before Flagging
+/Notify, I, 1, Print message after processing this many frames
+/Debug, L, 1, Debug status
+.DEFAULT
+Infile = 
+Outfile = 
+Badfile = 
+Gap = 100
+/Notify = 100000
+/Debug = F
+.END

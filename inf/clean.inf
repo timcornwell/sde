@@ -1,0 +1,48 @@
+The beam fitting algorithm may be LINEAR, NONLINEAR, ARCHIVE, HDR-LINEAR,
+HDR-NONLINEAR, HDR-ARCHIVE, L, N, A, HL, HNL, HA
+
+.
+Dirty , C, 1, Dirty [must be specified]
+PSF, C, 1, Point spread function [must be specified]
+Residual, C, 1, Residual image [optional]
+Components, C, 1, Components image [optional]
+Box, C, 1, CLEAN Box image [optional]
+CLEAN, C, 1, CLEAN image [optional]
+CCfile, C, 1, Name of list of Clean components [optional]
+BLC, I, 7 * 1, Bottom left corner of window [pixels]
+TRC, I, 7 * 1, Top right corner of window [pixels]
+Niter, I, 1, Number of Iterations
+Flux, R, 1, Cutoff in flux [Jy/beam]
+Gain, R, 1, Loop gain
+Beam, R, 4, Bmaj, Bmin, Bpa, Bz [asec, asec, deg, asec]
+FitAlg, C, 1, Beam fitting algorithm
+SmoPix, L, 1, Smooth Pixels?
+PixBeam, R, 4, Gaussian Pixel Function parms
+/DEBUG, L, 1, Debug
+Trim, R, 1, Trim level for SDI CLEAN
+Algorithm, C, 1, Algorithm to use [CLARK | HOGBOM | SDI | NN]
+Numcl, I, 1, Size of list for cleaning
+Bpatch, I, 1, Size of beampatch [pixels]
+.
+Dirty = 
+PSF = 
+Residual = 
+Components = 
+Box =
+CLEAN = 
+CCfile =
+BLC = 1, 1, 1, 1, 1, 1, 1
+TRC = 1, 1, 1, 1, 1, 1, 1
+Niter = 100
+Flux = 0.0
+Gain = 0.1
+Beam = 0.0, 0.0, 0.0, 0.0
+FitAlg = LINEAR
+SmoPix = F
+PixBeam = 0.0, 0.0, 0.0, 0.0
+Trim = 0.0
+/DEBUG = F
+Algorithm = CLARK
+Numcl = 32768
+Bpatch = 128
+.

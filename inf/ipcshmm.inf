@@ -1,0 +1,24 @@
+Program: IPCSHMM
+Programmer: R. G. Marson
+Date: 9 Oct 1992
+Purpose: Extract hole delays using the Hidden Markov Method. 
+
+Details: 
+
+.INFO
+Tzero, R, 1, Fried Parameter
+Rzero, R, 1, Fried Parameter
+Prob, C, 1, Input Probabilities
+Trackfile, C, 1, Output Track
+OldTrackfile, C, 1, Output Track (non HMM)
+/Debug, L, 1, Debug T or F (must be set each time)
+/Notify, I, 1, Print message after processing this many frames
+.DEFAULT
+Tzero = .1
+Rzero = .1
+Prob = 
+Trackfile = 
+OldTrackfile = 
+/Notify = 25
+/Debug = F
+.END

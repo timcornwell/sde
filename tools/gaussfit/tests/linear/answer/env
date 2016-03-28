@@ -1,0 +1,12 @@
+results =	'Results'
+data1   =	'Data'
+params  =	'Params'
+tol     =	 0.00001	
+iters   =	 10.0	
+ftn     =	 1.0	
+prmat   =	 1.0	
+prvar   =	 1.0	
+fair    =	 0.925	
+sigma   =	 0.3143465657983369	
+scale   =	 0.5195668231254228	
+END
